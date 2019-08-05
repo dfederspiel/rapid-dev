@@ -3,6 +3,7 @@ var port = process.env.PORT || 1337;
 var express = require('express');
 var path = require('path');
 var app = express();
+app.use(express.static('dist'))
 var router = express.Router();
 let jsonServer = require('json-server');
 var jsonData = require('./src/data/generate.js');
