@@ -1,0 +1,11 @@
+﻿extends base.pug
+
+mixin page(title, url)
+    //- tags can be inlined with the #[] syntax
+    li #[a(href= url)= title]
+
+//- this block will overwrite what is in template.pug
+block body
+    #react-app
+
+

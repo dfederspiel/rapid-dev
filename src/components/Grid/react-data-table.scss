@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+$table-row: #F5F7FA;
+$font-color: #152935;
+
+.react-data-table {
+    margin-bottom: 1.5rem;
+    border: solid .1rem #DEE2E6;
+}
+
+.rdt_Table {
+
+    .rdt_TableHead {
+        .rdt_TableHeadRow {
+            background-color: $table-row;
+        }
+
+        .rdt_TableCol {
+            font-size: 1.4rem;
+            font-weight: $font-weight-medium;
+            color: $font-color;
+            word-wrap: break-word;
+        }
+    }
+
+    .rdt_TableBody {
+        .rdt_TableRow:nth-child(even) {
+            background-color: $table-row;
+        }
+
+        .react-data-table--cell-content {
+            font-size: 1.4rem;
+            font-weight: $font-weight-regular;
+        }
+    }
+}

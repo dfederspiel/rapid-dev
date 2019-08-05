@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the side navigation component renders correctly 1`] = `
+<div
+  className="side-nav"
+>
+  <div
+    className="side-nav-upper"
+  >
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-star fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bell fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bath fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bed fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+  </div>
+  <div
+    className="side-nav-lower"
+  >
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-star fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bell fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bath fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+    <a>
+      <span
+        aria-hidden={true}
+        className="fa fa-bed fa-lg"
+        style={
+          Object {
+            "color": "gray",
+          }
+        }
+      />
+    </a>
+  </div>
+</div>
+`;

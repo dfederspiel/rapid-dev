@@ -1,0 +1,25 @@
+﻿@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.owl-theme {
+
+    .main-card {
+        height: 15rem;
+        width: 34rem;
+
+        div {
+            font-size: 2.7rem;
+            margin-right: .5rem;
+        }
+
+        i {
+            font-size: 12rem;
+        }
+    }
+
+    @include at(1600) {
+        .main-card {
+            width: 59rem;
+        }
+    }
+}

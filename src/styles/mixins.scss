@@ -1,0 +1,16 @@
+/*-------MEDIA QUERIES-------*/
+@mixin at($size) {
+    @media only screen and (min-width: $size + "px") {
+        @content;
+    }
+}
+
+/*-------A-TAG STATES-------*/
+
+@mixin states {
+    &:hover,
+    &:active,
+    &:focus {
+        @content;
+    }
+}

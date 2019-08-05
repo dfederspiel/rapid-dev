@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.nav.nav-tabs {
+    border-bottom-color: $primary;
+    border-bottom-width: .2rem;
+    font-size: 1.4rem;
+
+    .nav-link {
+        color: #B2B8BD;
+        text-decoration:none;
+
+        @include states {
+            border-color: $primary;
+        }
+    }
+
+    .nav-link.active {
+        color: #FFF;
+        border-color: $primary;
+        background-color: $primary;
+    }
+}

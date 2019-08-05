@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the tab strip component renders correctly 1`] = `
+<ul
+  className="nav nav-tabs mb-4"
+>
+  <li
+    className="nav-item"
+  >
+     
+    <a
+      className="nav-link active"
+      href="{tab.url}"
+    >
+      Name
+    </a>
+  </li>
+  <li
+    className="nav-item"
+  >
+     
+    <a
+      className="nav-link"
+      href="{tab.url}"
+    >
+      Address
+    </a>
+  </li>
+</ul>
+`;

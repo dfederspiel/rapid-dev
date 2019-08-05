@@ -1,0 +1,41 @@
+﻿@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.dropdown-toggle {
+    font-weight: $font-weight-medium;
+    color: #000000;
+    border-color: #42505C;
+    width: 10rem;
+    margin-left: 1.5rem;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-radius: .5rem;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    display: inline-block;
+
+    @include states() {
+        background-color: $light-font;
+        color: #000000;
+    }
+}
+
+.dropdown-toggle, .dropdown-item {
+    font-size: 1.4rem;
+    height: 3.5rem;
+}
+
+.dropdown-item {
+    text-decoration: none;
+
+    @include states() {
+        background-color: $alt-table-row;
+    }
+}
+
+.btn-group.show {
+    .dropdown-toggle {
+        background-color: $light-font;
+        color: #000000;
+    }
+}

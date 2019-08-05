@@ -1,0 +1,101 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'legacy/legacy';
+@import 'variables';
+@import 'style-guide';
+
+@import 'mixins';
+
+@import 'layout';
+
+@import 'header';
+@import 'footer';
+
+@import '../components/styles';
+@import '../pages/styles';
+
+
+
+:root {
+    font-size: 62.5%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+body {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 16px;
+}
+
+input[type="text"], select, textarea {
+    background-color: $light-background;
+    border: none;
+}
+
+input[type="text"].error, select.error {
+    border-bottom: solid .1rem;
+    border-bottom-color: $error;
+}
+
+label{
+    font-weight:$font-weight-medium;
+    font-size:1.4rem;
+}
+
+select{
+    font-size:1.6rem;
+    padding:.1rem 0;
+}
+
+a{
+    color:$primary;
+    text-decoration:underline;
+}
+
+span.error {
+    color: $error;
+}
+
+span.info {
+    color: $info;
+}
+
+.spaced-form-element {
+    margin-right: 1.5rem;
+}
+
+.secondary-button {
+    font-weight: $font-weight-medium;
+    border-color: #42505C;
+    width: 10rem;
+    margin-left: 1.5rem;
+    background-color: #f8f9fa;
+    text-align:center;
+    border-radius:.5rem;
+    line-height:1.5;
+    padding:.375rem .75rem;
+    display:inline-block;
+}
+
+.progress{
+    height:.4rem;
+
+    .progress-bar{
+        background-color:$primary;
+        height:.4rem;
+    }
+}
+
+hr {
+    background-color: $primary;
+    border: none;
+    height: .2rem;
+}
+
+legend {
+    color: $light-font;
+}
+
+h1 {
+    font-weight: $font-weight-bold;
+    font-size: 3rem;
+}

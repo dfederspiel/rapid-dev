@@ -1,0 +1,121 @@
+@import '../../styles/variables';
+@import 'telerik';
+@import 'rad-grid';
+@import 'rad-strip';
+
+#TheContent {
+    margin: 3rem;
+    width: 100%;
+    background-color:#FFFFFF;
+
+    .PageHeader2 {
+        margin-bottom: 0;
+        font-size: 2.3rem;
+        font-weight: $font-weight-black;
+    }
+
+    .PageHeaderCrumb > a {
+        color: $primary;
+        background-color: lighten($primary, 60%);
+    }
+
+    .btn {
+        font-size: 1.4rem;
+    }
+
+    .btn-primary {
+        background-color: $primary;
+        border-color: $primary;
+    }
+
+    .btn-light {
+        font-size: 1.4rem;
+        font-weight: $font-weight-medium;
+        border-color: #42505C;
+        width: 10rem;
+        margin-left: 1.5rem;
+    }
+
+    .FormLabel {
+        font-weight: $font-weight-medium;
+        font-size: 1.4rem;
+        padding: .5rem;
+
+        input[type="text"] {
+            width: 90%;
+        }
+
+        input[type="submit"] {
+            width: 8rem;
+        }
+    }
+
+    table {
+        width: 100%;
+
+        .filter-table {
+            width: 65rem;
+            margin-left: -.5rem;
+        }
+    }
+
+    #ctl00_PageBody_DashboardRadGrid {
+        width: 50%;
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        tbody {
+            tr {
+                td:first-child {
+                    background-color: $alt-table-row;
+                    font-weight: $font-weight-bold;
+                    width: 30%;
+                }
+            }
+        }
+    }
+
+    .messagetext {
+        font-size: 1.4rem;
+    }
+
+    .messageimg {
+        margin-right:1.5rem;
+        margin-left:1.5rem;
+    }
+
+    .messagesbg {
+        border: .1rem solid;
+        border-left-width: .4rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .messagesbg.error {
+        border-color: $error;
+    }
+
+    .messagesbg.info {
+        border-color: $info;
+    }
+
+    .zip-label {
+        margin-bottom: 0;
+    }
+
+    .sectionhdg {
+        color: #FFFFFF;
+        background-color: $primary;
+        padding-left: .5rem;
+        margin-bottom:1.5rem;
+    }
+
+    .sectionbody{
+        margin-bottom:2rem;
+    }
+}

@@ -1,0 +1,18 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+      #ThePageHeader.d-flex.flex-row.justify-content-between
+        .PageHeader2 Edit Address
+        .PageHeaderCrumb
+            a#ctl00_PageBody_BackToAddressList(href='AddressList.aspx?params=HK8LS6GGZmFzDXH7uyE1ow%3d%3d') << Back to Address List
+      hr
+      table.messagesbg(cellspacing='0', cellpadding='2', border='0')
+          tbody
+              tr
+                  td.messageimg
+                      span.fas.fa-times-circle.error
+                  td.messagetext Error: Please complete the required fields below
+      #react-address-component
+      .d-flex.flexrow
+          input#ctl00_PageBody_SubmitBtn.btn.btn-light(type='submit', name='ctl00$PageBody$SubmitBtn', value='OK', onclick='ShowProcessctl00_PageBody_SubmitBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$SubmitBtn", "", true, "", "", false, false))')
+          input#ctl00_PageBody_CancelBtn.btn.btn-light(name='ctl00$PageBody$CancelBtn', type='button', value='Cancel', onclick="window.location.href='/Admin/Org/Update/AddressList.aspx?params=HK8LS6GGZmFzDXH7uyE1ow%3d%3d'")

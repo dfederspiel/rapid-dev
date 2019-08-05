@@ -1,0 +1,41 @@
+﻿@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.dashboard-container {
+    padding: 1.5rem;
+    background-color: $light-background;
+    width: calc(100vw - #{$side-nav-width});
+
+    .dashboard-card, .credit-union-dashboard, .account-balances {
+        border-radius: 1rem;
+        background-color: $white;
+        margin-right: 1.5rem;
+    }
+
+    .owl-theme, .dashboard-card, .credit-union-dashboard, .account-balances {
+        margin-bottom: 2.75rem;
+    }
+
+    label {
+        font-weight: $font-weight-bold;
+        margin-bottom: .75rem;
+    }
+
+    .carousel-col {
+        width: 100%;
+    }
+
+    .flex-wrap-row {
+        flex-wrap: wrap;
+    }
+
+    @include at(1000) {
+        .flex-wrap-row {
+            flex-wrap: nowrap !important;
+
+            .flex-wrap-column {
+                flex-basis: 45%;
+            }
+        }
+    }
+}

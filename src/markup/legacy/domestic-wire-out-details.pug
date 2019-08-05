@@ -1,0 +1,226 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+        #ThePageHeader
+            #ctl00_PageBody_BackToReviewPanel.PageHeaderCrumb
+                a#ctl00_PageBody_BackToMemberDashboardLink(href="javascript:__doPostBack('ctl00$PageBody$BackToMemberDashboardLink','')") << Back to Credit Union Dashboard
+            .PageHeader2 Domestic Wire Details
+            .PageHeaderToolbar
+                #ctl00_PageBody_Toolbar.RadToolBar.RadToolBar_Horizontal.RadToolBar_T1.RadToolBar_T1_Horizontal(style='z-index:9000;')
+                    .rtbOuter
+                        .rtbMiddle
+                            .rtbInner
+                                ul.rtbUL
+                                    li.rtbItem.rtbBtn
+                                        a.rtbWrap(href='#')
+                                            span.rtbOut
+                                                span.rtbMid
+                                                    span.rtbIn
+                                                        span.rtbText Print
+                    input#ctl00_PageBody_Toolbar_ClientState(name='ctl00_PageBody_Toolbar_ClientState', type='hidden', autocomplete='off')
+        #ctl00_PageBody_Messages(data-msg-showvalidationmsgs='1', data-msg-mc='1')
+        #ctl00_PageBody_PageContent
+            div
+                div
+                    .sectionhdg Status
+                    .sectionbody
+                        table.DetailsTable(border='0', cellspacing='0', cellpadding='3')
+                            tbody
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px;') Status:
+                                    td
+                                        span.DetailsTableStatusLabel
+                                            | Pending Member Approval
+                                            span#ctl00_PageBody_TransactionDetails_SubStatus.ofacSuspect
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Transaction Number:
+                                    td 2555347
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') IMAD:
+                                    td
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Transaction Type:
+                                    td Domestic Wire Out
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') RTN:
+                                    td 221375682  - Coopers Cave FCU
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Primary Phone Number:
+                                    td (518) 793-9502
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') CAN Number:
+                                    td 0
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Effective Date:
+                                    td 01/03/2012
+                                tr
+                                    td.DetailsTableLabel Late Order:
+                                    td No
+                                tr#ctl00_PageBody_TransactionDetails_CcunCommentRow
+                                    td.DetailsTableLabel Comment:
+                                    td
+                div
+                    .sectionhdg Amount / Wire Detail
+                    .sectionbody
+                        table.DetailsTable(border='0', cellspacing='0', cellpadding='3')
+                            tbody
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Wire Amount:
+                                    td $249,000.00
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Type Code:
+                                    td BTR - 1600 - Bank Settlement Transfer
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Receiving Institution:
+                                    td
+                                        | 063111596 - IBB;
+                                        | LAKE MARY, FL
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Originator:
+                                    td
+                                        | Coopers Cave FCU;
+                                        | 221375682;
+                                        | 92-94 Dix Avenue, Glens Falls NY 12801
+                                tr
+                                    td.DetailsTableLabel Purpose:
+                                    td
+                                tr
+                                    td.DetailsTableLabel(style='width: 145px') Beneficiary:
+                                    td
+                                        | Homebanc National Association;
+                                        | 06111596;
+                                        | 3701 West Lake Mary Boulevard, Lake Mary, FL  32746
+                                tr
+                                    td.DetailsTableLabel Instructions:
+                                    td
+                div
+                    .sectionhdg Transaction History
+                    .sectionbodyrightgutter
+                        table.gridbox(border='0', cellspacing='0', cellpadding='0')
+                            tbody
+                                tr
+                                    td
+                                        #ctl00_PageBody_TransactionDetails_HistoryGrid.RadGrid.RadGrid_T1X(tabindex='0')
+                                            table#ctl00_PageBody_TransactionDetails_HistoryGrid_ctl00.rgMasterTable(style='width:100%;table-layout:auto;empty-cells:show;', border='0')
+                                                colgroup
+                                                    col(style='width:150px')
+                                                    col(style='width:150px')
+                                                    col(style='width:140px')
+                                                    col
+                                                    col(style='width:75px')
+                                                thead
+                                                    tr
+                                                        th.rgHeader(scope='col') Activity Type
+                                                        th.rgHeader(style='text-align:center;', scope='col') Date/Time
+                                                        th.rgHeader(scope='col') Person
+                                                        th.rgHeader(scope='col') Organization
+                                                        th.rgHeader(style='text-align:center;', scope='col') Successful
+                                                tbody
+                                                    tr#ctl00_PageBody_TransactionDetails_HistoryGrid_ctl00__0.rgRow
+                                                        td Created
+                                                        td(align='center', style='white-space:nowrap;') 01/03/2012 11:47:37 AM
+                                                        td Christine Smith
+                                                        td Coopers Cave FCU
+                                                        td(align='center')
+                                                            img#ctl00_PageBody_TransactionDetails_HistoryGrid_ctl00_ctl04_SuccessfulImg(style='border-width:0px;', alt='Successful', src='../../Res/images/check.gif')
+                                            input#ctl00_PageBody_TransactionDetails_HistoryGrid_ClientState(name='ctl00_PageBody_TransactionDetails_HistoryGrid_ClientState', type='hidden', autocomplete='off')
+                div
+                    .sectionhdg Comment History
+                    .sectionbodyrightgutter
+                        table.gridbox(border='0', cellspacing='0', cellpadding='0')
+                            tbody
+                                tr
+                                    td
+                                        #ctl00_PageBody_TransactionDetails_CommentGrid.RadGrid.RadGrid_T1X(tabindex='0')
+                                            table#ctl00_PageBody_TransactionDetails_CommentGrid_ctl00.rgMasterTable(style='width:100%;table-layout:auto;empty-cells:show;', border='0')
+                                                colgroup
+                                                    col(style='width:150px')
+                                                    col(style='width:150px')
+                                                    col(style='width:140px')
+                                                    col
+                                                thead
+                                                    tr
+                                                        th.rgHeader(scope='col') Comment Type
+                                                        th.rgHeader(style='text-align:center;', scope='col') Date/Time
+                                                        th.rgHeader(scope='col') Person
+                                                        th.rgHeader(scope='col') Comment
+                                                tbody
+                                                    tr#ctl00_PageBody_TransactionDetails_CommentGrid_ctl00__0.rgRow
+                                                        td Comment
+                                                        td(align='center', style='white-space:nowrap;') 01/03/2012 04:57:47 PM
+                                                        td Charlotte Landry
+                                                        td calling
+                                                    tr#ctl00_PageBody_TransactionDetails_CommentGrid_ctl00__1.rgAltRow
+                                                        td Comment
+                                                        td(align='center', style='white-space:nowrap;') 01/03/2012 04:59:47 PM
+                                                        td Charlotte Landry
+                                                        td Tina  has no availablet o verify 
+                                            input#ctl00_PageBody_TransactionDetails_CommentGrid_ClientState(name='ctl00_PageBody_TransactionDetails_CommentGrid_ClientState', type='hidden', autocomplete='off')
+                        #ctl00_PageBody_TransactionDetails_AddCommentPanel(style='padding-top: 10px')
+                            table.FormTable(border='0', cellspacing='0', cellpadding='3')
+                                tbody
+                                    tr
+                                        td(align='right', valign='top', style='width: 145px') Comment:
+                                        td
+                                            textarea#ctl00_PageBody_TransactionDetails_Comment(name='ctl00$PageBody$TransactionDetails$Comment', style='width:510px;', rows='3', cols='20')
+                                            span#ctl00_PageBody_TransactionDetails_CommentRequiredFieldValidator(style='color:Red;display:none;', data-val-initialvalue='', data-val-evaluationfunction='RequiredFieldValidatorEvaluateIsValid', data-val='true', data-val-validationgroup='AddCommentGroup', data-val-display='Dynamic', data-val-errormessage='Comment is required.', data-val-controltovalidate='ctl00_PageBody_TransactionDetails_Comment')
+                                                span#ctl00_PageBody_TransactionDetails_CommentErrorIndicatorControl2
+                                                    img(alt='error', src='/WebResource.axd?d=ani-3Lpw1L8Q4X_1QdlNIb7RwoPojMIwm3s4PTgd55hlF6hJBgkGb9_2O5WWKwv3llr0q2fFO1TZ0lDQWrj2okA3d0UGEu5kTAlhu9ZaCe-XNrHM_g8N51Wb4L3jeYh9BA84exYm4cFgPewYvPm3i5EB8pc1&t=636983597260199325')
+                                            span#ctl00_PageBody_TransactionDetails_CommentFieldLengthValidator(style='color:Red;display:none;', data-val='true', data-val-validationgroup='AddCommentGroup', data-val-display='Dynamic', data-val-errormessage='Comment cannot be longer than 255 characters.', data-val-controltovalidate='ctl00_PageBody_TransactionDetails_Comment')
+                                                span#ctl00_PageBody_TransactionDetails_CommentErrorIndicatorControl
+                                                    img(alt='error', src='/WebResource.axd?d=ani-3Lpw1L8Q4X_1QdlNIb7RwoPojMIwm3s4PTgd55hlF6hJBgkGb9_2O5WWKwv3llr0q2fFO1TZ0lDQWrj2okA3d0UGEu5kTAlhu9ZaCe-XNrHM_g8N51Wb4L3jeYh9BA84exYm4cFgPewYvPm3i5EB8pc1&t=636983597260199325')
+                                            span#ctl00_PageBody_TransactionDetails_CommentFieldLengthValidator2(style='color:Red;display:none;', data-val='true', data-val-display='Dynamic', data-val-errormessage='Comment cannot be longer than 255 characters.', data-val-controltovalidate='ctl00_PageBody_TransactionDetails_Comment')
+                                                span#ctl00_PageBody_TransactionDetails_ErrorIndicatorControl1
+                                                    img(alt='error', src='/WebResource.axd?d=ani-3Lpw1L8Q4X_1QdlNIb7RwoPojMIwm3s4PTgd55hlF6hJBgkGb9_2O5WWKwv3llr0q2fFO1TZ0lDQWrj2okA3d0UGEu5kTAlhu9ZaCe-XNrHM_g8N51Wb4L3jeYh9BA84exYm4cFgPewYvPm3i5EB8pc1&t=636983597260199325')
+                #ctl00_PageBody_TransactionDetails_AllowableActionsOuterPanel
+                    .sectionhdg Actions
+                    .sectionbodyrightgutter
+                        #ctl00_PageBody_TransactionDetails_AllowableActionsPanel.ButtonRowBorder
+                            input#ctl00_PageBody_TransactionDetails_EditBtn.Button(name='ctl00$PageBody$TransactionDetails$EditBtn', onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_TransactionDetails_EditBtn();', type='submit', value='Update')
+                            input#ctl00_PageBody_TransactionDetails_ApprovalBtn.Button(name='ctl00$PageBody$TransactionDetails$ApprovalBtn', onclick='ShowProcessctl00_PageBody_TransactionDetails_ApprovalBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$TransactionDetails$ApprovalBtn", "", true, "", "", false, false))', type='submit', value='Approve')
+                            input#ctl00_PageBody_TransactionDetails_PendingCallbackBtn.ButtonExpando(name='ctl00$PageBody$TransactionDetails$PendingCallbackBtn', onclick='ShowProcessctl00_PageBody_TransactionDetails_PendingCallbackBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$TransactionDetails$PendingCallbackBtn", "", true, "", "", false, false))', type='submit', value='Pending Callback')
+                            input#ctl00_PageBody_TransactionDetails_CancelBtn.Button(name='ctl00$PageBody$TransactionDetails$CancelBtn', onclick='return onCancel();ShowProcessctl00_PageBody_TransactionDetails_CancelBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$TransactionDetails$CancelBtn", "", true, "", "", false, false))', type='submit', value='Cancel')
+                            input#ctl00_PageBody_TransactionDetails_AddCommentBtn.ButtonExpando(name='ctl00$PageBody$TransactionDetails$AddCommentBtn', onclick='ShowProcessctl00_PageBody_TransactionDetails_AddCommentBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$TransactionDetails$AddCommentBtn", "", true, "AddCommentGroup", "", false, false))', type='submit', value='Add Comment')
+                            input#ctl00_PageBody_TransactionDetails_CreateTemplateBtn.ButtonExpando(name='ctl00$PageBody$TransactionDetails$CreateTemplateBtn', onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_TransactionDetails_CreateTemplateBtn();', type='submit', value='Create Template')
+                .sectionhr
+                #ctl00_PageBody_TransactionDetails_CloseRow2.ButtonRow
+                    input#ctl00_PageBody_TransactionDetails_CloseBtn.Button(name='ctl00$PageBody$TransactionDetails$CloseBtn', onclick='Page_BlockSubmit = false; window.setTimeout(disableSubmitctl00_PageBody_TransactionDetails_CloseBtn, 1);', type='submit', value='Close')
+            span#ctl00_PageBody_TransactionDetails_DuplicatePost
+            #ctl00_PageBody_TransactionDetails_RadWindowManager1(style='display:none;')
+                #ctl00_PageBody_TransactionDetails_EditWindow(style='display:none;')
+                    #ctl00_PageBody_TransactionDetails_EditWindow_C(style='display:none;')
+                    input#ctl00_PageBody_TransactionDetails_EditWindow_ClientState(name='ctl00_PageBody_TransactionDetails_EditWindow_ClientState', type='hidden', autocomplete='off')
+                #ctl00_PageBody_TransactionDetails_RadWindowManager1_alerttemplate(style='display:none;')
+                    .rwDialogPopup.radalert
+                        .rwDialogText
+                            | {1}
+                        div
+                            a.rwPopupButton(onclick="$find('{0}').close(true);", href='javascript:void(0);')
+                                span.rwOuterSpan
+                                    span.rwInnerSpan ##LOC[OK]##
+                #ctl00_PageBody_TransactionDetails_RadWindowManager1_prompttemplate(style='display:none;')
+                    .rwDialogPopup.radprompt
+                        .rwDialogText
+                            | {1}
+                        div
+                            input.rwDialogInput(title='Enter Value', onkeydown="return RadWindowprompt_detectenter('{0}', event, this);", type='text', value='{2}')
+                        div
+                            a.rwPopupButton(onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);", href='javascript:void(0);')
+                                span.rwOuterSpan
+                                    span.rwInnerSpan ##LOC[OK]##
+                            a.rwPopupButton(onclick="$find('{0}').close(null);", href='javascript:void(0);')
+                                span.rwOuterSpan
+                                    span.rwInnerSpan ##LOC[Cancel]##
+                #ctl00_PageBody_TransactionDetails_RadWindowManager1_confirmtemplate(style='display:none;')
+                    .rwDialogPopup.radconfirm
+                        .rwDialogText
+                            | {1}
+                        div
+                            a.rwPopupButton(onclick="$find('{0}').close(true);", href='javascript:void(0);')
+                                span.rwOuterSpan
+                                    span.rwInnerSpan ##LOC[OK]##
+                            a.rwPopupButton(onclick="$find('{0}').close(false);", href='javascript:void(0);')
+                                span.rwOuterSpan
+                                    span.rwInnerSpan ##LOC[Cancel]##
+                input#ctl00_PageBody_TransactionDetails_RadWindowManager1_ClientState(name='ctl00_PageBody_TransactionDetails_RadWindowManager1_ClientState', type='hidden')
+            br

@@ -1,0 +1,76 @@
+@import '../../styles/variables';
+
+.side-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-right: .1rem solid #ccc;
+    background-color: white;
+
+    .side-nav-upper {
+        border-bottom: .1rem solid #ccc;
+    }
+
+    .side-nav-lower, .side-nav-upper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        a {
+            padding: .2rem .9rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: 1rem;
+            min-height: 3.6rem;
+
+            &.active {
+                padding: .2rem 0 .2rem .6rem;
+                border-left: solid .3rem maroon;
+
+                .fa {
+                    color: maroon !important;
+                }
+            }
+
+            .fa {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 3.2rem;
+                font-size: 1.3rem;
+                margin-right: .8rem;
+            }
+
+            label {
+                font-size: 1rem;
+                margin: 0;
+            }
+        }
+    }
+
+
+    &.open {
+        display: flex;
+        width: $side-nav-width;
+
+        &.minimal {
+            width: 5rem;
+
+            > label {
+                display: none;
+            }
+
+            a {
+                .fa {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        position: fixed;
+    }
+}

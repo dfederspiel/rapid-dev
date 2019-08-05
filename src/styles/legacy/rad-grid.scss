@@ -1,0 +1,518 @@
+@import '../variables';
+
+.RadGrid {
+    border: .2rem solid #EFF1F5 !important;
+    margin-bottom: 2rem;
+
+    .rgMasterTable {
+        width: 100%;
+
+        thead {
+            tr {
+                background-color: $alt-table-row;
+                height: 4rem;
+            }
+
+            th {
+                font-size: 1.4rem;
+                font-weight: 500;
+
+                a {
+                    color: #000000;
+                }
+            }
+        }
+
+        tbody {
+            tr:nth-child(even) {
+                background-color: $alt-table-row;
+            }
+
+            td {
+                font-size: 1.4rem;
+                font-weight: 400;
+            }
+        }
+
+        .rgPager table {
+            border-top: .2rem solid #EFF1F5 !important;
+
+            .rgInfoPart, .rgPagerLabel {
+                color: $light-font;
+            }
+
+            .rcbInput{
+                color: $primary;
+            }
+        }
+    }
+}
+
+.RadGrid_T1 {
+    .rgAdd,
+    .rgRefresh,
+    .rgEdit,
+    .rgDel,
+    .rgFilter,
+    .rgPagePrev,
+    .rgPageNext,
+    .rgPageFirst,
+    .rgPageLast,
+    .rgExpand,
+    .rgCollapse,
+    .rgSortAsc,
+    .rgSortDesc,
+    .rgUpdate,
+    .rgCancel,
+    .rgUngroup,
+    .rgExpXLS,
+    .rgExpDOC,
+    .rgExpPDF,
+    .rgExpCSV {
+        background-image: url('../img/sprite.gif');
+    }
+
+    .rgPageFirst {
+        background-position: 0 -550px;
+    }
+
+    .rgPageFirst:hover {
+        background-position: 0 -600px;
+    }
+
+    .rgPagePrev {
+        background-position: 0 -700px;
+    }
+
+    .rgPagePrev:hover {
+        background-position: 0 -750px;
+    }
+
+    .rgPageNext {
+        background-position: 0 -850px;
+    }
+
+    .rgPageNext:hover {
+        background-position: 0 -900px;
+    }
+
+    .rgPageLast {
+        background-position: 0 -1000px;
+    }
+
+    .rgPageLast:hover {
+        background-position: 0 -1050px;
+    }
+
+    .rgPager .rgPagerButton {
+        border-color: #a9ba9c #93a686 #819473;
+        background: #dde6d8 repeat-x 0 -1550px url('../img/sprite.gif');
+        color: #46523e;
+        font-family: arial,sans-serif;
+    }
+}
+
+.RadComboBox_T1 {
+    color: #262625;
+    font: normal 13px Arial, Helvetica, sans-serif;
+    line-height: 16px;
+
+    .rcbInputCell,
+    .rcbArrowCell {
+        background-image: url('../img/rcbSprite.png');
+        _background-image: url('../img/rcbSpriteIE6.png');
+    }
+
+    .rcbInputCellLeft {
+        background-position: 0 0;
+    }
+
+    .rcbInputCellRight {
+        background-position: 100% 0;
+    }
+
+    .rcbInput {
+        color: #262625;
+        font: normal 13px Arial, Helvetica, sans-serif;
+        line-height: 16px;
+    }
+
+    .rcbEmptyMessage {
+        color: #666666;
+        font-style: italic;
+    }
+
+    .rcbArrowCellLeft {
+        background-position: 0 -176px;
+    }
+
+    .rcbArrowCellRight {
+        background-position: -18px -176px;
+    }
+
+    .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 0;
+    }
+
+    .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% 0;
+    }
+
+    .rcbHovered .rcbInputCellLeft {
+        background-position: 0 -22px;
+    }
+
+    .rcbHovered .rcbInputCellRight {
+        background-position: 100% -22px;
+    }
+
+    .rcbHovered .rcbInput {
+        color: #7f9470;
+    }
+
+    .rcbHovered .rcbArrowCellLeft {
+        background-position: -36px -176px;
+    }
+
+    .rcbHovered .rcbArrowCellRight {
+        background-position: -54px -176px;
+    }
+
+    .rcbHovered .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -22px;
+    }
+
+    .rcbHovered .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -22px;
+    }
+
+    .rcbFocused .rcbInputCellLeft {
+        background-position: 0 -44px;
+    }
+
+    .rcbFocused .rcbInputCellRight {
+        background-position: 100% -44px;
+    }
+
+    .rcbFocused .rcbInput {
+        color: black;
+    }
+
+    .rcbFocused .rcbArrowCellLeft {
+        background-position: -72px -176px;
+    }
+
+    .rcbFocused .rcbArrowCellRight {
+        background-position: -90px -176px;
+    }
+
+    .rcbFocused .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -44px;
+    }
+
+    .rcbFocused .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -44px;
+    }
+
+    .rcbDisabled .rcbInputCellLeft {
+        background-position: 0 -66px;
+    }
+
+    .rcbDisabled .rcbInputCellRight {
+        background-position: 100% -66px;
+    }
+
+    .rcbDisabled .rcbInput {
+        color: #787878;
+    }
+
+    .rcbDisabled .rcbArrowCellLeft {
+        background-position: -108px -176px;
+    }
+
+    .rcbDisabled .rcbArrowCellRight {
+        background-position: -126px -176px;
+    }
+
+    .rcbDisabled .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -66px;
+    }
+
+    .rcbDisabled .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -66px;
+    }
+
+    .rcbReadOnly .rcbInputCellLeft {
+        background-position: 0 -88px;
+    }
+
+    .rcbReadOnly .rcbInputCellRight {
+        background-position: 100% -88px;
+    }
+
+    .rcbReadOnly .rcbInput {
+        color: #262625;
+    }
+
+    .rcbReadOnly .rcbArrowCellLeft {
+        background-position: -144px -176px;
+    }
+
+    .rcbReadOnly .rcbArrowCellRight {
+        background-position: -162px -176px;
+    }
+
+    .rcbReadOnly .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -88px;
+    }
+
+    .rcbReadOnly .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -88px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbInputCellLeft {
+        background-position: 0 -110px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbInputCellRight {
+        background-position: 100% -110px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbInput {
+        color: #7f9470;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbArrowCellLeft {
+        background-position: -180px -176px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbArrowCellRight {
+        background-position: -198px -176px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -110px;
+    }
+
+    .rcbHovered .rcbReadOnly .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -110px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbInputCellLeft {
+        background-position: 0 -132px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbInputCellRight {
+        background-position: 100% -132px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbInput {
+        color: #000;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbArrowCellLeft {
+        background-position: -216px -176px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbArrowCellRight {
+        background-position: -234px -176px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -132px;
+    }
+
+    .rcbFocused .rcbReadOnly .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -132px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbInputCellLeft {
+        background-position: 0 -154px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbInputCellRight {
+        background-position: 100% -154px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbInput {
+        color: #787878;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbArrowCellLeft {
+        background-position: -252px -176px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbArrowCellRight {
+        background-position: -270px -176px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbArrowCellLeft.rcbArrowCellHidden {
+        background-position: 0 -154px;
+    }
+
+    .rcbDisabled .rcbReadOnly .rcbArrowCellRight.rcbArrowCellHidden {
+        background-position: 100% -154px;
+    }
+}
+
+.RadComboBoxDropDown_T1 {
+    border-color: #929491 !important;
+    color: #000000;
+    background: white;
+    font: normal 13px Arial, Helvetica, sans-serif;
+    line-height: 16px;
+
+    .rcbHeader,
+    .rcbFooter {
+        color: #262625;
+        background-color: #f3f5f2;
+        background-image: url('../img/rcbSprite.png');
+        _background-image: url('../img/rcbSpriteIE6.png');
+        background-position: 0 -500px;
+        background-repeat: repeat !important;
+    }
+
+    .rcbHeader {
+        border-bottom-color: #9ba395;
+    }
+
+    .rcbFooter {
+        border-top-color: #9ba395;
+    }
+
+    .rcbHovered {
+        color: black;
+        background: #EBF4E1;
+    }
+
+    .rcbDisabled {
+        color: #787878;
+        background-color: transparent;
+    }
+
+    .rcbLoading {
+        color: black;
+        background: #f0f0f0;
+    }
+
+    .rcbItem em,
+    .rcbHovered em {
+        color: black;
+        background: #e6e6e6;
+    }
+
+    .rcbCheckAllItems {
+        color: #272722;
+        background-color: #CDD3BC;
+    }
+
+    .rcbCheckAllItemsHovered {
+        color: #272722;
+        background-color: #CDD3BC;
+    }
+
+    .rcbMoreResults {
+        border-top-color: #c6c9c3;
+        color: #8a8a8a;
+        background-color: #ffffff;
+        background-position: 0 -500px;
+        background-image: url('../img/rcbSprite.png');
+        _background-image: url('../img/rcbSpriteIE6.png');
+        background-repeat: repeat !important;
+    }
+
+    .rcbMoreResults a {
+        background-image: url('../img/rcbSprite.png');
+        _background-image: url('../img/rcbSpriteIE6.png');
+        background-position: -308px -181px;
+    }
+
+    .rcbSeparator {
+        color: #333;
+        background: #EBF4E1;
+    }
+}
+
+.RadDataPager_T1 {
+    border: 1px solid #b7bab5;
+    background: #dee0dc;
+    color: #262625;
+
+    .rdpPageFirst,
+    .rdpPagePrev,
+    .rdpPageNext,
+    .rdpPageLast {
+        background: transparent no-repeat url('../img/sprite.gif');
+    }
+
+    .rdpPageFirst {
+        background-position: 0 -550px;
+    }
+
+    .rdpPageFirst:hover {
+        background-position: 0 -600px;
+    }
+
+    .rdpPagePrev {
+        background-position: 0 -700px;
+    }
+
+    .rdpPagePrev:hover {
+        background-position: 0 -750px;
+    }
+
+    .rdpPageNext {
+        background-position: 0 -850px;
+    }
+
+    .rdpPageNext:hover {
+        background-position: 0 -900px;
+    }
+
+    .rdpPageLast {
+        background-position: 0 -1000px;
+    }
+
+    .rdpPageLast:hover {
+        background-position: 0 -1050px;
+    }
+
+    .rdpPagerButton {
+        border: 1px solid;
+        border-color: #a9ba9c #93a686 #819473;
+        background: #dde6d8 repeat-x 0 -1550px url('../img/sprite.gif');
+        color: #46523e;
+        font: 12px/12px "segoe ui",arial,sans-serif;
+    }
+
+    .rdpNumPart a:hover,
+    .rdpNumPart a:hover span,
+    .rdpNumPart a.rdpCurrentPage,
+    .rdpNumPart a.rdpCurrentPage span {
+        background: no-repeat url('../img/sprite.gif');
+    }
+
+    .rdpNumPart a {
+        color: #262625;
+    }
+
+    .rdpNumPart a:hover {
+        background-position: 100% -1250px;
+        color: #7f9470;
+    }
+
+    .rdpNumPart a:hover span {
+        background-position: 0 -1150px;
+    }
+
+    .rdpNumPart a.rdpCurrentPage,
+    .rdpNumPart a.rdpCurrentPage:hover {
+        background-position: 100% -1450px;
+        color: #46523e;
+    }
+
+    .rdpNumPart a.rdpCurrentPage span,
+    .rdpNumPart a.rdpCurrentPage:hover span {
+        background-position: 0 -1350px;
+    }
+}

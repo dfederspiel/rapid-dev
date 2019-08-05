@@ -1,0 +1,466 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+        #ThePageHeader
+            .PageHeader2 Update Organization
+        #ctl00_PageBody_Messages.messagesbg.info.d-flex.flex-row(data-msg-showvalidationmsgs='1', data-msg-mc='1')
+            .messageimg
+              span.fas.fa-info-circle.info
+            .messagetext Updates are not allowed to Alloya Corporate FCU.
+        #ctl00_PageBody_Tabs_OrgAdminTabStrip.RadTabStrip.RadTabStrip_T1.RadTabStripTop_T1
+            .rtsLevel.rtsLevel1
+                ul.rtsUL
+                    li.rtsLI.rtsFirst
+                        a#NameTab.rtsLink.rtsSelected(href='Name.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Name
+                    li.rtsLI
+                        a#AddressTab.rtsLink.rtsAfter(href='AddressList.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Address
+                    li.rtsLI
+                        a#PhoneTab.rtsLink(href='PhoneList.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Phone
+                    li.rtsLI
+                        a#NotesTab.rtsLink(href='NoteList.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Notes
+                    li.rtsLI
+                        a#BranchesTab.rtsLink(href='BranchList.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Branches
+                    li.rtsLI
+                        a#UsersTab.rtsLink(href='UserList.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Users
+                    li.rtsLI
+                        a#AuthorizationsTab.rtsLink(href='Authorizations.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Authorizations
+                    li.rtsLI
+                        a#SuccessTeamTab.rtsLink(href='SuccessTeam.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt Success Team
+                    li.rtsLI.rtsLast
+                        a#IpLockdownTab.rtsLink(href='IPLockdown.aspx')
+                            span.rtsOut
+                                span.rtsIn
+                                    span.rtsTxt IP Lockdown
+            input#ctl00_PageBody_Tabs_OrgAdminTabStrip_ClientState(name='ctl00_PageBody_Tabs_OrgAdminTabStrip_ClientState', type='hidden', value='{"selectedIndexes":["0"],"logEntries":[],"scrollState":{}}', autocomplete='off')
+        fieldset
+            table(border='0', cellspacing='0', cellpadding='0')
+                tbody
+                    tr
+                        td
+                            span#ctl00_PageBody_OrganizationDetails_OrganizationDetailValidator(style='display:inline-block;color:Red;width:375px;display:none;', data-val-evaluationfunction='CustomValidatorEvaluateIsValid', data-val='true', data-val-display='Dynamic')
+                                span#ctl00_PageBody_OrganizationDetails_OrganizationDetailValidationErrorIndicator
+                                    img(alt='error', src='/WebResource.axd?d=ani-3Lpw1L8Q4X_1QdlNIb7RwoPojMIwm3s4PTgd55hlF6hJBgkGb9_2O5WWKwv3llr0q2fFO1TZ0lDQWrj2okA3d0UGEu5kTAlhu9ZaCe-XNrHM_g8N51Wb4L3jeYh9BA84exYm4cFgPewYvPm3i5EB8pc1&t=636983597260199325')
+                            #ctl00_PageBody_OrganizationDetails_OrgDetailsContent
+                                table.FormTable(width='700', border='0', cellspacing='0', cellpadding='0')
+                                    tbody
+                                        tr
+                                            td
+                                                .sectionhdg Name
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_ParentOrganization') Parent Organization
+                                                            span#ctl00_PageBody_OrganizationDetails_ParentOrganization Parent Organization does not exist
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OrganizationNameTextBox') Organization Name*
+                                                            input#ctl00_PageBody_OrganizationDetails_OrganizationNameTextBox(name='ctl00$PageBody$OrganizationDetails$OrganizationNameTextBox', style='width:350px;', type='text', maxlength='50', value='Alloya Corporate FCU')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OriginalNameTextBox') Original Name
+                                                            input#ctl00_PageBody_OrganizationDetails_OriginalNameTextBox(name='ctl00$PageBody$OrganizationDetails$OriginalNameTextBox', style='width:350px;', type='text', maxlength='50')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_RTNumberTextBox') RTN*
+                                                            input#ctl00_PageBody_OrganizationDetails_RTNumberTextBox(name='ctl00$PageBody$OrganizationDetails$RTNumberTextBox', style='width:155px;', type='text', maxlength='9', value='271987635')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OfficialRTNumberTextBox') Official RTN
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OriginalCorporate2') Original Corporate*
+                                                            select#ctl00_PageBody_OrganizationDetails_OriginalCorporate2(name='ctl00$PageBody$OrganizationDetails$OriginalCorporate2', style='width:356px;')
+                                                                option(value='d229f077-7db0-2b79-1d5b-5c5621c8ab4b') 271987635 - Alloya Corporate FCU
+                                                                option(value='52d3dc2b-d0bb-4cd1-9d83-e4e82d74b588') 272478075 - Central Corporate CU
+                                                                option(value='6ef22700-27ef-4f45-bcd9-03e1ee8ae6cb') 211391650 - Central Credit Union Fund
+                                                                option(value='ab1e3825-e7a0-4cd6-8b27-1f26567502ac') 211191944 - Constitution Corporate FCU
+                                                                option(selected='selected', value='5ff08f6e-28a5-4bfb-974d-27cffff0a55c') 221381715 - Empire Corporate FCU
+                                                                option(value='098e19a3-e4d0-446e-85d5-99686eefc8ac') 274086339 - INDICORP Legacy Corporate
+                                                                option(value='6e64b455-bf5e-4279-9788-47070a41598c') 296081516 - Minnesota Legacy Corporate
+                                                                option(value='457c56b0-d159-48ad-87d6-56516811ed9c') 307087399 - SunCorp
+                                                                option(value='d0fcc93f-e54b-4e66-80ec-b52c1fc38f4b') 251579539 - West Virginia Partner Corporate
+                                                                option(value='f6b3b3d8-183f-4a13-b3bb-cad7a93d6b0f') 000000000 - WireIn Import Organization
+                                        tr
+                                            td
+                                                .sectionhdg Member Information
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_CharterNumberTextBox') Charter Number:
+                                                            input#ctl00_PageBody_OrganizationDetails_CharterNumberTextBox(name='ctl00$PageBody$OrganizationDetails$CharterNumberTextBox', style='width:155px;', type='text', maxlength='9', value='99999')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MembershipDate2') Membership Date:
+                                                            .d-flex.flex-row
+                                                                input.spaced-form-element#ctl00_PageBody_OrganizationDetails_MembershipDate2(name='ctl00_PageBody_OrganizationDetails_MembershipDate2', style='width:155px;', type='text', maxlength='9', value='10/10/1995')
+                                                                span.fas.fa-calendar-alt
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_CharterTypes') Charter Type:*
+                                                            select#ctl00_PageBody_OrganizationDetails_CharterTypes(name='ctl00$PageBody$OrganizationDetails$CharterTypes', style='width:161px;')
+                                                                option(selected='selected', value='1') Federally Insured
+                                                                option(value='3') Privately Insured
+                                                                option(value='2') State Insured
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MemberStatusSelection') Member Status:*
+                                                            select#ctl00_PageBody_OrganizationDetails_MemberStatusSelection(name='ctl00$PageBody$OrganizationDetails$MemberStatusSelection', style='width:350px;', onchange="javascript:setTimeout('__doPostBack(\'ctl00$PageBody$OrganizationDetails$MemberStatusSelection\',\'\')', 0)")
+                                                                option(selected='selected', value='0') -Select One-
+                                                                option(value='3') Membership Capital Holder
+                                                                option(value='4') Partner
+                                                                option(value='5') Non-Capitalized Associate Member
+                                                                option(value='6') Non-Member Child
+                                                                option(value='7') Non-Member Corporate
+                                                                option(value='8') Other
+                                                                option(value='9') Partner Child
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_StatusComments_wrapper') Member Status Comment:
+                                                            span#ctl00_PageBody_OrganizationDetails_StatusComments_wrapper.riSingle.RadInput.RadInput_T1(style='width:350px;')
+                                                            textarea#ctl00_PageBody_OrganizationDetails_StatusComments.riTextBox(name='ctl00$PageBody$OrganizationDetails$StatusComments', rows='3', cols='20')
+                                                            input#ctl00_PageBody_OrganizationDetails_StatusComments_ClientState(name='ctl00_PageBody_OrganizationDetails_StatusComments_ClientState', type='hidden', value='{"enabled":false,"emptyMessage":"","validationText":"","valueAsString":"","lastSetTextBoxValue":""}', autocomplete='off')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_CapitalizationStatus2') Capital Status:*
+                                                            select#ctl00_PageBody_OrganizationDetails_CapitalizationStatus2(name='ctl00$PageBody$OrganizationDetails$CapitalizationStatus2', style='width:161px;')
+                                                               option(selected='selected', value='0')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_CapitalActionSelection') Capital Action:
+                                                            select#ctl00_PageBody_OrganizationDetails_CapitalActionSelection(name='ctl00$PageBody$OrganizationDetails$CapitalActionSelection', style='width:161px;', onchange="javascript:setTimeout('__doPostBack(\'ctl00$PageBody$OrganizationDetails$CapitalActionSelection\',\'\')', 0)")
+                                                               option(selected='selected', value='0')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_FederalDistrict2') Federal District:*
+                                                            select#ctl00_PageBody_OrganizationDetails_FederalDistrict2(name='ctl00$PageBody$OrganizationDetails$FederalDistrict2', style='width:161px;')
+                                                                option(value='7') 0110
+                                                                option(value='2') 0710
+                                                                option(value='3') 0810
+                                                                option(value='4') 0910
+                                                                option(value='5') 1210
+                                                                option(value='6') 1220
+                                                                option(selected='selected', value='1') Unassigned
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_ChapterName') Chapter Name:
+                                                            select#ctl00_PageBody_OrganizationDetails_ChapterName(name='ctl00$PageBody$OrganizationDetails$ChapterName', style='width:161px;')
+                                                                option(selected='selected', value='1') Adirondack
+                                                                option(value='2') AFI
+                                                                option(value='19') Alabama
+                                                                option(value='20') Archer-Doig
+                                                                option(value='21') Arrowhead
+                                                                option(value='22') Aurora
+                                                                option(value='23') Bloomington
+                                                                option(value='24') Boyle
+                                                                option(value='3') Buffalo
+                                                                option(value='25') Burnett
+                                                                option(value='26') California
+                                                                option(value='4') Capital
+                                                                option(value='5') Catskill
+                                                                option(value='27') Central
+                                                                option(value='28') Central Illinois
+                                                                option(value='29') Central MN
+                                                                option(value='30') Colorado - Out of State
+                                                                option(value='31') Danville Area
+                                                                option(value='32') Deramus
+                                                                option(value='33') Dunes
+                                                                option(value='34') Eastern
+                                                                option(value='35') Egyptian
+                                                                option(value='6') Finger Lakes
+                                                                option(value='36') Florida
+                                                                option(value='37') Fox Valley
+                                                                option(value='38') Galesburg
+                                                                option(value='39') Georgia
+                                                                option(value='40') Glen Hillman
+                                                                option(value='41') Grant County
+                                                                option(value='42') Greater Decatur
+                                                                option(value='43') Hiawatha Valley
+                                                                option(value='44') Illinois Quad Cities
+                                                                option(value='7') Jamestown
+                                                                option(value='45') John Kelly
+                                                                option(value='46') Kankakee Valley
+                                                                option(value='47') Kansas
+                                                                option(value='48') Kentucky
+                                                                option(value='49') Lakes and  Pines
+                                                                option(value='8') Long Island
+                                                                option(value='9') Metropolitan
+                                                                option(value='50') Michigan
+                                                                option(value='51') Minnesota
+                                                                option(value='52') Minnesota Test
+                                                                option(value='53') Missouri
+                                                                option(value='54') New Mexico
+                                                                option(value='55') New York
+                                                                option(value='10') Niagara Falls
+                                                                option(value='56') North Central
+                                                                option(value='57') North Red River Valley
+                                                                option(value='58') Northeastern
+                                                                option(value='59') Northern Cook
+                                                                option(value='60') Northwest
+                                                                option(value='61') Northwest Illinois
+                                                                option(value='62') Oklahoma
+                                                                option(value='11') OOS
+                                                                option(value='63') Out of State - Nebraska
+                                                                option(value='64') Out of State- WY
+                                                                option(value='65') Out of State-HI
+                                                                option(value='66') Out of State-NC
+                                                                option(value='67') OutState-IA
+                                                                option(value='68') OutState-MD
+                                                                option(value='69') OutState-OH
+                                                                option(value='70') OutState-OR
+                                                                option(value='71') OutState-WI
+                                                                option(value='72') Pennsylvania
+                                                                option(value='73') Quincy
+                                                                option(value='74') Reichle-Shroyer
+                                                                option(value='12') Rhode Island
+                                                                option(value='75') River Cities
+                                                                option(value='13') Rochester
+                                                                option(value='76') Rockford
+                                                                option(value='77') Sangamon Valley
+                                                                option(value='14') Schenectady
+                                                                option(value='78') South Carolina
+                                                                option(value='79') South Dakota
+                                                                option(value='80') Southeast
+                                                                option(value='81') Southern Illinois
+                                                                option(value='15') Southern Tier
+                                                                option(value='82') Southwest
+                                                                option(value='83') Southwest
+                                                                option(value='84') Southwestern
+                                                                option(value='85') Southwestern
+                                                                option(value='86') Spec Acct-IL
+                                                                option(value='87') Spec Acct-IN
+                                                                option(value='88') St. Joseph Valley
+                                                                option(value='89') Sycamore
+                                                                option(value='16') Syracuse
+                                                                option(value='90') Tecumeseh
+                                                                option(value='91') Texas
+                                                                option(value='92') Thos. Doig
+                                                                option(value='93') Tri-County
+                                                                option(value='102') Unassigned
+                                                                option(value='94') Utah
+                                                                option(value='17') Utica
+                                                                option(value='95') Virginia
+                                                                option(value='96') West Virginia
+                                                                option(value='18') Westchester
+                                                                option(value='97') White River Valley
+                                                                option(value='98') Will County
+                                                                option(value='99') William H. Brietzke
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_BSARank') BSA Rank:
+                                                            span#ctl00_PageBody_OrganizationDetails_BSARank(style='display:inline-block;overflow:hidden;white-space:nowrap;width:154px;') 74
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column.spaced-form-element
+                                                            label(for='ctl00_PageBody_OrganizationDetails_ActiveCheckBox') Active:
+                                                            span.FormLabel()
+                                                               input#ctl00_PageBody_OrganizationDetails_ActiveCheckBox(name='ctl00$PageBody$OrganizationDetails$ActiveCheckBox', onclick='OnActiveChecked();', type='checkbox', checked='checked')
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_InactiveDateTextBox') Inactive Date:
+                                                            input#ctl00_PageBody_OrganizationDetails_InactiveDateTextBox(name='ctl00$PageBody$OrganizationDetails$InactiveDateTextBox', style='width:90px;', type='text')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column.spaced-form-element
+                                                            label(for='ctl00_PageBody_OrganizationDetails_LiquidatedCheckBox') Liquidated:
+                                                            input#ctl00_PageBody_OrganizationDetails_LiquidatedCheckBox(name='ctl00$PageBody$OrganizationDetails$LiquidatedCheckBox', onclick="javascript:setTimeout('__doPostBack(\'ctl00$PageBody$OrganizationDetails$LiquidatedCheckBox\',\'\')', 0)", type='checkbox')
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_LiquidatedDateTextBox') Liquidated Date:
+                                                            input#ctl00_PageBody_OrganizationDetails_LiquidatedDateTextBox(name='ctl00$PageBody$OrganizationDetails$LiquidatedDateTextBox', style='width:90px;', type='text')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_HasCentralLiquidityFundAccessCheckBox') CLF Access:
+                                                            input#ctl00_PageBody_OrganizationDetails_HasCentralLiquidityFundAccessCheckBox(name='ctl00$PageBody$OrganizationDetails$HasCentralLiquidityFundAccessCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_HasPremiumSharesCheckBox') Premium Shares:
+                                                            input#ctl00_PageBody_OrganizationDetails_HasPremiumSharesCheckBox(name='ctl00$PageBody$OrganizationDetails$HasPremiumSharesCheckBox', type='checkbox', checked='checked')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_HasCommunityInvestmentFundAccesCheckBox') CIF Access:
+                                                            input#ctl00_PageBody_OrganizationDetails_HasCommunityInvestmentFundAccesCheckBox(name='ctl00$PageBody$OrganizationDetails$HasCommunityInvestmentFundAccesCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OnWatchListCheckBox') On Watch List:
+                                                            input#ctl00_PageBody_OrganizationDetails_OnWatchListCheckBox(name='ctl00$PageBody$OrganizationDetails$OnWatchListCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_HasPICCheckBox') PIC:
+                                                            input#ctl00_PageBody_OrganizationDetails_HasPICCheckBox(name='ctl00$PageBody$OrganizationDetails$HasPICCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OnCorporateBoardCheckBox') On Alloya Board:
+                                                            input#ctl00_PageBody_OrganizationDetails_OnCorporateBoardCheckBox(name='ctl00$PageBody$OrganizationDetails$OnCorporateBoardCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_StatementPrinting') Statement Printing:
+                                                            input#ctl00_PageBody_OrganizationDetails_StatementPrinting(name='ctl00$PageBody$OrganizationDetails$StatementPrinting', onclick='showStatementWindow();', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_ACCOverride') ACC Override:
+                                                            input#ctl00_PageBody_OrganizationDetails_ACCOverride(name='ctl00$PageBody$OrganizationDetails$ACCOverride', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_HasCentralLiquidityFundAccessCheckBox') EBA Overnight Threshold:
+                                                            span#ctl00_PageBody_OrganizationDetails_EBAThreshold_wrapper.riSingle.RadInput.RadInput_T1(style='width:161px;')
+                                                                input#ctl00_PageBody_OrganizationDetails_EBAThreshold.riTextBox.riDisabled(name='ctl00$PageBody$OrganizationDetails$EBAThreshold', style='text-align: right;', type='text')
+                                                                input#ctl00_PageBody_OrganizationDetails_EBAThreshold_ClientState(name='ctl00_PageBody_OrganizationDetails_EBAThreshold_ClientState', type='hidden', value='{"enabled":false,"emptyMessage":"","validationText":"","valueAsString":"","minValue":-70368744177664,"maxValue":70368744177664,"lastSetTextBoxValue":""}', autocomplete='off')
+                                                            span#ctl00_PageBody_OrganizationDetails_RangeValidator1(style='color:Red;display:none;', data-val-evaluationfunction='RangeValidatorEvaluateIsValid', data-val='true', data-val-display='Dynamic', data-val-errormessage='The organization threshold must be between $0 and $999,999,999.', data-val-controltovalidate='ctl00_PageBody_OrganizationDetails_EBAThreshold', data-val-minimumvalue='0', data-val-maximumvalue='999999999', data-val-groupsize='3', data-val-digits='2', data-val-groupchar=',', data-val-decimalchar='.', data-val-type='Currency')
+                                                                span#ctl00_PageBody_OrganizationDetails_ErrorIndicatorControl2(disabled='disabled')
+                                                                    img(alt='error', src='/WebResource.axd?d=ani-3Lpw1L8Q4X_1QdlNIb7RwoPojMIwm3s4PTgd55hlF6hJBgkGb9_2O5WWKwv3llr0q2fFO1TZ0lDQWrj2okA3d0UGEu5kTAlhu9ZaCe-XNrHM_g8N51Wb4L3jeYh9BA84exYm4cFgPewYvPm3i5EB8pc1&t=636983597260199325')
+                                        tr
+                                            td
+                                                .sectionhdg Security Safekeeping
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_SafekeepingFeeFlag') ISI Fee Reimbursement Flag:
+                                                            input#ctl00_PageBody_OrganizationDetails_SafekeepingFeeFlag(name='ctl00$PageBody$OrganizationDetails$SafekeepingFeeFlag', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_SafekeepingExpirationDate') Eligibility Expiration Date:
+                                                            .d-flex.flex-row
+                                                                input.spaced-form-element#ctl00_PageBody_OrganizationDetails_SafekeepingExpirationDate(name='ctl00_PageBody_OrganizationDetails_MembershipDate2', style='width:155px;', type='text', maxlength='9', value='10/10/1995')
+                                                                span.fas.fa-calendar-alt
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column 
+                                                            label(for='ctl00_PageBody_OrganizationDetails_PAccount') JPMC Account:
+                                                            input#ctl00_PageBody_OrganizationDetails_PAccount(name='ctl00$PageBody$OrganizationDetails$PAccount', style='width:155px;', type='text', maxlength='13')     
+                                        tr
+                                            td
+                                                .sectionhdg Merger Information
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MergerStatus2') Merger Status:
+                                                            select#ctl00_PageBody_OrganizationDetails_MergerStatus2(name='ctl00$PageBody$OrganizationDetails$MergerStatus2', style='width:161px;', onchange='OnMergerComplete()')
+                                                                option(selected='selected', value='1') None
+                                                                option(value='2') Pending Merger
+                                                                option(value='3') Legally Merged
+                                                                option(value='4') Merger Complete
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_CannotMergeLbl') Merged With:
+                                                            span#ctl00_PageBody_OrganizationDetails_CannotMergeLbl.SmallText N/A - Cannot Merge
+                                        tr
+                                            td
+                                                .sectionhdg Premier View Settings
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MergerStatus2') Premier View Access:
+                                                            input#ctl00_PageBody_OrganizationDetails_HasApplicationAccessCheckBox(name='ctl00$PageBody$OrganizationDetails$HasApplicationAccessCheckBox', type='checkbox', checked='checked')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_AdministeredBy') Administered By:*
+                                                            select#ctl00_PageBody_OrganizationDetails_AdministeredBy.disabledcombo(name='ctl00$PageBody$OrganizationDetails$AdministeredBy', disabled='disabled', style='width:350px;')
+                                                                option(selected='selected', value='0') Corporate Administered
+                                                                option(value='1') Member Administered
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OptsOutOfCUToCUTransferCheckBox') Administered By:*Member-to-Member Opt-Out:
+                                                            input#ctl00_PageBody_OrganizationDetails_OptsOutOfCUToCUTransferCheckBox(name='ctl00$PageBody$OrganizationDetails$OptsOutOfCUToCUTransferCheckBox', disabled='disabled', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_OptsOutOfCorporateACHCheckBox') Corporate ACH Opt-Out:
+                                                            input#ctl00_PageBody_OrganizationDetails_OptsOutOfCorporateACHCheckBox(name='ctl00$PageBody$OrganizationDetails$OptsOutOfCorporateACHCheckBox', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_TransOverdraftOptOut') Transaction Overdraft Opt-Out:
+                                                            input#ctl00_PageBody_OrganizationDetails_TransOverdraftOptOut(name='ctl00$PageBody$OrganizationDetails$TransOverdraftOptOut', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_IncomingWireOptOut') Incoming Wire Opt-Out:
+                                                            input#ctl00_PageBody_OrganizationDetails_IncomingWireOptOut(name='ctl00$PageBody$OrganizationDetails$IncomingWireOptOut', type='checkbox')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            .d-flex.flex-row
+                                                                        input#ctl00_PageBody_OrganizationDetails_MfaEnabledCheckBox(name='ctl00$PageBody$OrganizationDetails$MfaEnabledCheckBox', type='checkbox', checked='checked')
+                                                                        label(for='ctl00_PageBody_OrganizationDetails_MfaEnabledCheckBox') MFA Enabled
+                                                            .d-flex.flex-row
+                                                                        input#ctl00_PageBody_OrganizationDetails_MfaTokenEnabledCheckBox(name='ctl00$PageBody$OrganizationDetails$MfaTokenEnabledCheckBox', type='checkbox', checked='checked')
+                                                                        label(for='ctl00_PageBody_OrganizationDetails_MfaTokenEnabledCheckBox') Tokens
+                                                            .d-flex.flex-row
+                                                                        input#ctl00_PageBody_OrganizationDetails_MfaMachineEnabledCheckBox(name='ctl00$PageBody$OrganizationDetails$MfaMachineEnabledCheckBox', type='checkbox', checked='checked')
+                                                                        label(for='ctl00_PageBody_OrganizationDetails_MfaMachineEnabledCheckBox') Q&A / Machine
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column.spaced-form-element
+                                                            label(for='ctl00_PageBody_OrganizationDetails_RapportOptOut') Rapport Opt-Out:
+                                                            input#ctl00_PageBody_OrganizationDetails_RapportOptOut(name='ctl00$PageBody$OrganizationDetails$RapportOptOut', onclick='OnRapportChecked();', type='checkbox', checked='checked')
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_RapportOptOutDate') Opt-Out Date:
+                                                            input#ctl00_PageBody_OrganizationDetails_RapportOptOutDate(name='ctl00$PageBody$OrganizationDetails$RapportOptOutDate', style='width:120px;', type='text', value='7/10/2018')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column.spaced-form-element
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MemberOfacOptIn') Member OFAC Opt-In:
+                                                            input#ctl00_PageBody_OrganizationDetails_MemberOfacOptIn(name='ctl00$PageBody$OrganizationDetails$MemberOfacOptIn', onclick='OnMemberOfacOptInChecked();', type='checkbox')
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_MemberOfacScore') Confidence Score:
+                                                            select#ctl00_PageBody_OrganizationDetails_MemberOfacScore(name='ctl00$PageBody$OrganizationDetails$MemberOfacScore', style='width:124px;')
+                                                                option(selected='selected', value='')
+                                                                option(value='75') Risk Level - 75
+                                                                option(value='80') Risk Level - 80
+                                                                option(value='85') Risk Level - 85
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_ContractNotificationEmail') Contract Notification Email:
+                                                            input#ctl00_PageBody_OrganizationDetails_ContractNotificationEmail(name='ctl00$PageBody$OrganizationDetails$ContractNotificationEmail', disabled='disabled', style='width: 100%; display: none;', type='text', maxlength='1000')
+                                        tr
+                                            td
+                                                .sectionhdg Single Sign-on Information
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_SyncedInTranZactCheckBox') Sync in TranZact:
+                                                            input#ctl00_PageBody_OrganizationDetails_SyncedInTranZactCheckBox(name='ctl00$PageBody$OrganizationDetails$SyncedInTranZactCheckBox', type='checkbox', checked='checked')
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_SyncedInTranZactCheckBox') SimpliCD Tax Id:
+                                                            input#ctl00_PageBody_OrganizationDetails_SimpliCDTaxId(name='ctl00$PageBody$OrganizationDetails$SimpliCDTaxId', style='width:120px;', type='text', maxlength='9')
+                                        tr
+                                            td
+                                                .sectionhdg Incoming Transaction Notification
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column
+                                                            label(for='ctl00_PageBody_OrganizationDetails_NotificationDetailsControl_NotificationTypeList')  Type:
+                                                            select#ctl00_PageBody_OrganizationDetails_NotificationDetailsControl_NotificationTypeList(name='ctl00$PageBody$OrganizationDetails$NotificationDetailsControl$NotificationTypeList', style='width:126px;', onchange='OnNotificationTypeChange()')
+                                                                option(selected='selected', value='1') None
+                                                                option(value='4') Email
+                                        tr
+                                            td
+                                                .sectionhdg Line of Credit Loan Notification
+                                                .sectionbody.d-flex.flex-column
+                                                    .d-flex.flex-row
+                                                        .d-flex.flex-column 
+                                                            label(for='ctl00_PageBody_OrganizationDetails_LOCNotificationDetailsControl_NotificationTypeList') Type:
+                                                            select#ctl00_PageBody_OrganizationDetails_LOCNotificationDetailsControl_NotificationTypeList(name='ctl00$PageBody$OrganizationDetails$LOCNotificationDetailsControl$NotificationTypeList', style='width:126px;', onchange='OnLOCNotificationTypeChange()')
+                                                                option(selected='selected', value='1') None
+                                                                option(value='4') Email
+                    tr
+                        td
+                            .sectionhr
+                    tr
+                        td.ButtonRow(align='center')
+                            input#ctl00_PageBody_SaveBtn.Button(name='ctl00$PageBody$SaveBtn', disabled='disabled', onclick='ShowProcessctl00_PageBody_SaveBtn();', type='submit', value='Save')
+                            input#ctl00_PageBody_CancelBtn.Button(name='ctl00$PageBody$CancelBtn', onclick="window.location.href='/Default.aspx'", type='button', value='Cancel')

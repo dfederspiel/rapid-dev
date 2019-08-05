@@ -1,0 +1,16 @@
+@import 'variables';
+
+header {
+    padding: 2.5rem;
+    border-bottom: solid .2rem #ddd;
+}
+
+main {
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 10rem);
+    display: flex;
+    overflow: auto;
+}
+
+footer {
+}

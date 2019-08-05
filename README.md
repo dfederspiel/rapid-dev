@@ -1,1 +1,3 @@
-# alloya-pv-templates
+# Global Packages
+npm-check-updates
+gulp-cli

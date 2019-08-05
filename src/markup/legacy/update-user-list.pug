@@ -1,0 +1,331 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+      #ThePageHeader
+        .PageHeader2 Update Organization
+      #ctl00_PageBody_Messages(data-msg-showvalidationmsgs='1', data-msg-mc='1')
+      #ctl00_PageBody_Tabs_OrgAdminTabStrip.RadTabStrip.RadTabStrip_T1.RadTabStripTop_T1
+        .rtsLevel.rtsLevel1
+          ul.rtsUL
+            li.rtsLI.rtsFirst
+              a#NameTab.rtsLink(href='Name.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Name
+            li.rtsLI
+              a#AddressTab.rtsLink(href='AddressList.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Address
+            li.rtsLI
+              a#PhoneTab.rtsLink(href='PhoneList.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Phone
+            li.rtsLI
+              a#NotesTab.rtsLink(href='NoteList.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Notes
+            li.rtsLI
+              a#BranchesTab.rtsLink.rtsBefore(href='BranchList.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Branches
+            li.rtsLI
+              a#UsersTab.rtsLink.rtsSelected(href='UserList.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Users
+            li.rtsLI
+              a#AuthorizationsTab.rtsLink.rtsAfter(href='Authorizations.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Authorizations
+            li.rtsLI
+              a#SuccessTeamTab.rtsLink(href='SuccessTeam.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt Success Team
+            li.rtsLI.rtsLast
+              a#IpLockdownTab.rtsLink(href='IPLockdown.aspx')
+                span.rtsOut
+                  span.rtsIn
+                    span.rtsTxt IP Lockdown
+        input#ctl00_PageBody_Tabs_OrgAdminTabStrip_ClientState(name='ctl00_PageBody_Tabs_OrgAdminTabStrip_ClientState', type='hidden', value='{"selectedIndexes":["5"],"logEntries":[],"scrollState":{}}', autocomplete='off')
+      fieldset
+        table.gridbox(border='0', cellspacing='0', cellpadding='0')
+          tbody
+            tr
+              td
+                table(border='0', cellspacing='0', cellpadding='0')
+                  tbody
+                    tr
+                      td
+                        fieldset
+                          legend FILTER USERS
+                          table.filter-table(border='0', cellspacing='0', cellpadding='3')
+                            tbody
+                              tr
+                                td.FormLabel
+                                  | First Name
+                                  br
+                                  input#ctl00_PageBody_FirstNameTextBox(name='ctl00$PageBody$FirstNameTextBox', type='text')
+                                td.FormLabel
+                                  | Last Name
+                                  br
+                                  input#ctl00_PageBody_LastNameTextBox(name='ctl00$PageBody$LastNameTextBox', type='text')
+                                td.FormLabel
+                                  | Login Name
+                                  br
+                                  input#ctl00_PageBody_LoginNameTextBox(name='ctl00$PageBody$LoginNameTextBox', type='text')
+                                td.FormLabel(valign='bottom')
+                                  input#ctl00_PageBody_FilterBtn.Button.btn.btn-primary(name='ctl00$PageBody$FilterBtn', type='submit', value='Filter')
+            tr
+              td
+                div(style='padding-top: 10px')
+                  #ctl00_PageBody_UsersGrid.RadGrid.RadGrid_T1(tabindex='0')
+                    table#ctl00_PageBody_UsersGrid_ctl00.rgMasterTable(style='width:100%;table-layout:auto;empty-cells:show;', border='0')
+                      colgroup
+                        col(style='width:20px')
+                        col(style='width:55px')
+                        col
+                        col
+                        col
+                        col
+                      thead
+                        tr
+                          th.rgHeader(style='text-align:center;', scope='col')  
+                          th.rgHeader(style='text-align:center;', scope='col') Action
+                          th.rgHeader(scope='col')
+                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl02$ctl01$ctl00','')") First Name
+                          th.rgHeader(scope='col')
+                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl02$ctl01$ctl01','')") Last Name
+                          th.rgHeader(scope='col')
+                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl02$ctl01$ctl02','')") Login Name
+                          th.rgHeader(scope='col')
+                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl02$ctl01$ctl03','')") Email Address
+                      tfoot
+                        tr.rgPager
+                          td(colspan='6')
+                            table(style='width:100%;border-spacing:0;', border='0', summary='Data pager which controls on which page is the RadGrid control.')
+                              caption
+                                span(style='display: none') Data pager
+                              thead
+                                tr
+                                  th(scope='col') Data pager
+                              tbody
+                                tr
+                                  td.rgPagerCell.NextPrevAndNumeric
+                                    .rgWrap.rgArrPart1
+                                      input.rgPageFirst(name='ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl02', title='First Page', onclick='return false;', type='submit', value=' ')
+                                      input.rgPagePrev(name='ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl03', title='Previous Page', onclick='return false;', type='submit', value=' ')
+                                    .rgWrap.rgNumPart
+                                      a.rgCurrentPage(onclick='return false;', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl05','')")
+                                        span 1
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl07','')")
+                                        span 2
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl09','')")
+                                        span 3
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl11','')")
+                                        span 4
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl13','')")
+                                        span 5
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl15','')")
+                                        span 6
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl17','')")
+                                        span 7
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl19','')")
+                                        span 8
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl21','')")
+                                        span 9
+                                      a(href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl23','')")
+                                        span 10
+                                      a(title='Next Pages', href="javascript:__doPostBack('ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl25','')")
+                                        span ...
+                                    .rgWrap.rgArrPart2
+                                      input.rgPageNext(name='ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl28', title='Next Page', type='submit', value=' ')
+                                      input.rgPageLast(name='ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$ctl29', title='Last Page', type='submit', value=' ')
+                                    .rgWrap.rgAdvPart
+                                      span#ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_ChangePageSizeLabel.rgPagerLabel Page size:
+                                      #ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox.RadComboBox.RadComboBox_T1(style='width:46px;white-space:normal;')
+                                        table(style='border-width:0;border-collapse:collapse;width:100%', border='0', summary='')
+                                          caption(style='display: none;')
+                                            | PageSizeComboBox
+                                          tbody
+                                            tr.rcbReadOnly
+                                              td.rcbInputCell.rcbInputCellLeft(style='width:100%;')
+                                                input#ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox_Input.rcbInput.radPreventDecorate(name='ctl00$PageBody$UsersGrid$ctl00$ctl03$ctl01$PageSizeComboBox', type='text', readonly='readonly', value='15', autocomplete='off')
+                                              td.rcbArrowCell.rcbArrowCellRight
+                                                a#ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox_Arrow(style='overflow: hidden;display: block;position: relative;outline: none;') select
+                                        .rcbSlide(style='z-index:6000;')
+                                          #ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox_DropDown.RadComboBoxDropDown.RadComboBoxDropDown_T1(style='display:none;')
+                                            .rcbScroll.rcbWidth(style='width:100%;')
+                                              ul.rcbList(style='list-style:none;margin:0;padding:0;zoom:1;')
+                                                li.rcbItem 15
+                                                li.rcbItem 25
+                                                li.rcbItem 50
+                                                li.rcbItem 100
+                                        input#ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState(name='ctl00_PageBody_UsersGrid_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState', type='hidden', autocomplete='off')
+                                    .rgWrap.rgInfoPart
+                                      strong 178
+                                      |  items in 
+                                      strong 12
+                                      |  pages
+                      tbody
+                        tr#ctl00_PageBody_UsersGrid_ctl00__0.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl04_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl04$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl04_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl04$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl04_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl04$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=4qNVN%2fqtiGq5EU9cVHGkt1fw1Lt%40PhSVPCzrTRudV8I5D1YhzFh9BgCHeAqHhVLy'", type='button', value='Edit')
+                          td Allen
+                          td Saxton
+                          td asaxton
+                          td allen-xyz@allen.com
+                        tr#ctl00_PageBody_UsersGrid_ctl00__1.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl06_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl06$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl06_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl06$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl06_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl06$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=ZwaLODbHYSGMha8q1w%40HjRXg%40YNanYL1Jlzc%40tncuA1Rd9NN56rwaiG8Q8Dgnijg'", type='button', value='Edit')
+                          td Amber
+                          td Quinlivan (MSR)
+                          td N94KAF32
+                          td Amber.Quinlivan@alloyacorp.org
+                        tr#ctl00_PageBody_UsersGrid_ctl00__2.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl08_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl08$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl08_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl08$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl08_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl08$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=yXzcB6Ogn5nmBLdB%2f4DBMCUKoG3sgNFGSb9EJTpGzjoF6gE33%2fYB5vTo8E3t8zSA'", type='button', value='Edit')
+                          td Amy
+                          td Piche
+                          td N9GGFHBD
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__3.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl10_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl10$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl10_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl10$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl10_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl10$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=Jad3TSx890I%2fUPhzghlrrTXkNPeXcg02Rob37aogKyxHBrhf3NJPk29TGu4E09a9'", type='button', value='Edit')
+                          td An
+                          td Ha
+                          td anha
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__4.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl12_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl12$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl12_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl12$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl12_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl12$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=pshogM1v5gHS6fnvi59yJtb0PQufOegkSxKbzmdN5lMHIsGjjS47%40PDNqwqJ7PQe'", type='button', value='Edit')
+                          td Andrew
+                          td Kohl
+                          td AKOHL
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__5.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl14_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl14$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl14_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl14$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl14_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl14$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=N4lkumOW7yD3aS4drYlMKNCMr%40x6fbNi4CMhgcZ3GlAxH4JrbL9aZLsTz6s%40X3bL'", type='button', value='Edit')
+                          td Angela
+                          td Robertson
+                          td arobertson
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__6.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl16_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl16$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl16_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl16$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl16_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl16$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=1Kg0Bt9eRH7hJTaVW1SZSjjJ0eNtPph80fGQMAWTEp6QSGvMgtubBDBmKgDqI18y'", type='button', value='Edit')
+                          td Angela
+                          td Tao
+                          td ATao
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__7.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl18_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl18$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl18_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl18$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl18_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl18$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=1YkED9Bd45VDn5lwt28uVkb8R4Q5akbV%40uUT4xit10HnFrp81U41UT2AX2pjnus4'", type='button', value='Edit')
+                          td Ann
+                          td McCauley
+                          td NDDZWFQN
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__8.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl20_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl20$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl20_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl20$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl20_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl20$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=%2fkGphgAsjN3dKWvC3aoYt8UEInBsHE6Xmft0HPFgx%40mWlMQmIOzrTtlbzmkkwqrY'", type='button', value='Edit')
+                          td Anne
+                          td Snyder
+                          td n9k02594
+                          td anne.snyder@membersunited.org
+                        tr#ctl00_PageBody_UsersGrid_ctl00__9.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl22_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl22$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl22_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl22$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl22_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl22$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=qnJfM54fIAcXNCXq1J5zqLqntxOxkmc%40c6zJ6kt1%2fugNFmtVnsmmfEQcBcfMA5Gl'", type='button', value='Edit')
+                          td Annette
+                          td Janovic
+                          td ajanovic
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__10.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl24_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl24$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl24_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl24$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl24_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl24$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=g3vze1FYdHdXIcgqYgcUP8IiV4lvcKBs2KWBPismiz8sel2c4wkxd2r7vLPEVRUD'", type='button', value='Edit')
+                          td Audra
+                          td Hurt
+                          td AHURT
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__11.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl26_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl26$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl26_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl26$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl26_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl26$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=vbC7rpFg5rvTGYyVuYQGUUyOShyIqwYR3HAKAIn%2f%2fjPvf2RBYAU3mbbySjcuO3%2ff'", type='button', value='Edit')
+                          td Beata
+                          td Smoter
+                          td Bsmoter
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__12.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl28_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl28$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl28_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl28$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl28_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl28$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=Kwos%2fg%2fBJc%2fid7YLprq5H7G4We4fLxZdtEFQuq1S77HrWKQ5R2GXWWj4wM2vHKko'", type='button', value='Edit')
+                          td Becky
+                          td Keenan
+                          td bkeenan
+                          td  
+                        tr#ctl00_PageBody_UsersGrid_ctl00__13.rgAltRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl30_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl30$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl30_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl30$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl30_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl30$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=TqZPbAFIfNAlj%40BUaEstZPly4jY02fklM3Sse8dhiPU3IP%40N9kJUggnZFw%4088vhT'", type='button', value='Edit')
+                          td Brian
+                          td Deutschle
+                          td bdeutschle
+                          td brian.deutschle@membersunited.org
+                        tr#ctl00_PageBody_UsersGrid_ctl00__14.rgRow
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl32_chkSelect(name='ctl00$PageBody$UsersGrid$ctl00$ctl32$chkSelect', type='checkbox')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl32_isKoc(name='ctl00$PageBody$UsersGrid$ctl00$ctl32$isKoc', type='hidden', value='0')
+                          td(align='center')
+                            input#ctl00_PageBody_UsersGrid_ctl00_ctl32_EditBtn.LinkButtonExpando(name='ctl00$PageBody$UsersGrid$ctl00$ctl32$EditBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserName.aspx?params=PgJ8RcCC3Z42iLQUCRSaBnYjuYnUj%40hAPL5hiPP%40o2Xc1PyRVOxkOjJl6bvEtylM'", type='button', value='Edit')
+                          td Brian
+                          td Petzold
+                          td bpetzold
+                          td brian.petzold@alloyacorp.org
+                    input#ctl00_PageBody_UsersGrid_ClientState(name='ctl00_PageBody_UsersGrid_ClientState', type='hidden', autocomplete='off')
+            tr
+              td.ButtonRow(align='left')
+                input#ctl00_PageBody_CreateBtn.Button.btn.btn-light(name='ctl00$PageBody$CreateBtn', onclick="window.location.href='/Admin/Org/Update/Users/UserCreate.aspx'", type='button', value='Create')
+                input#ctl00_PageBody_CloneBtn.Button.btn.btn-light(name='ctl00$PageBody$CloneBtn', type='submit', value='Clone')
+                input#ctl00_PageBody_DeleteBtn.Button.btn.btn-light(name='ctl00$PageBody$DeleteBtn', onclick='return OnDelete();', type='submit', value='Delete')

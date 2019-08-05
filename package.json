@@ -1,0 +1,102 @@
+{
+    "name": "dfederspiel",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Templating Project",
+    "author": "David Federspiel",
+    "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/core": "^7.1.2",
+        "@babel/plugin-proposal-class-properties": "^7.1.0",
+        "@babel/plugin-transform-react-jsx": "^7.3.0",
+        "@babel/preset-env": "^7.5.3",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/register": "^7.0.0",
+        "autoprefixer": "^9.3.1",
+        "babel-jest": "^24.8.0",
+        "babel-plugin-istanbul": "^5.1.4",
+        "babelify": "^10.0.0",
+        "browser-sync": "^2.26.3",
+        "browserify": "^16.2.3",
+        "child_process": "^1.0.2",
+        "colors": "^1.3.2",
+        "enzyme": "^3.10.0",
+        "es6-promise": "^4.2.5",
+        "expose-loader": "^0.7.5",
+        "express": "^4.16.4",
+        "faker": "^4.1.0",
+        "gulp": "^4.0.0",
+        "gulp-babel": "^8.0.0",
+        "gulp-clean-css": "^3.10.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-git-watch": "^0.1.0",
+        "gulp-json-srv": "^1.2.0",
+        "gulp-multi-dest": "^1.3.7",
+        "gulp-postcss": "^8.0.0",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.0.2",
+        "gulp-shell": "^0.7.1",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.1",
+        "jasmine-core": "^3.4.0",
+        "jest": "^24.8.0",
+        "json-server": "^0.14.0",
+        "karma": "^4.1.0",
+        "karma-babel-preprocessor": "^8.0.0",
+        "karma-browserify": "^6.0.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-jasmine": "^2.0.1",
+        "karma-jasmine-html-reporter": "^1.4.2",
+        "karma-sourcemap-loader": "^0.3.7",
+        "lodash": "^4.17.15",
+        "node-sass": "^4.9.4",
+        "quicktype": "^15.0.145",
+        "react-test-renderer": "^16.8.6",
+        "underscore": "^1.9.1",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "watchify": "^3.11.1"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1",
+        "moment": "^2.24.0",
+        "popper.js": "^1.15.0",
+        "react": "^16.8.6",
+        "react-addons-shallow-compare": "^15.6.2",
+        "react-data-table-component": "^1.7.4",
+        "react-dates": "12.7.0",
+        "react-dom": "^16.8.6",
+        "react-fontawesome": "^1.6.1",
+        "react-owl-carousel": "2.2.0",
+        "react-router-dom": "^5.0.1",
+        "react-tabs": "^3.0.0",
+        "reactstrap": "^8.0.1",
+        "simple-flexbox": "^2.1.0",
+        "styled-components": "^4.3.2"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "unit": "karma start karma.conf.js ",
+        "test": "jest --coverage --coverageDirectory=test/react"
+    },
+    "jest": {
+        "verbose": true,
+        "testMatch": [
+            "**/__tests__/**/*.[jt]s?(x)"
+        ],
+        "transform": {
+            "^.+\\.js$": "babel-jest"
+        },
+        "modulePaths": [
+            "<rootDir>/node_modules/"
+        ],
+        "coverageReporters": [
+            "html"
+        ],
+        "collectCoverageFrom": [
+            "src/components/**/*.js"
+        ]
+    }
+}

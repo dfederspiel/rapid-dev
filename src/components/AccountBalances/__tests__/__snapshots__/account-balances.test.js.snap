@@ -1,0 +1,596 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the account balances component renders correctly 1`] = `
+<div
+  className="account-balances"
+>
+  <div
+    className="react-tabs"
+    data-tabs={true}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+  >
+    <ul
+      className="react-tabs__tab-list"
+      role="tablist"
+    >
+      <li
+        aria-controls="react-tabs-1"
+        aria-disabled="false"
+        aria-selected="true"
+        className="react-tabs__tab react-tabs__tab--selected"
+        id="react-tabs-0"
+        role="tab"
+        tabIndex="0"
+      >
+        Shares
+      </li>
+      <li
+        aria-controls="react-tabs-3"
+        aria-disabled="false"
+        aria-selected="false"
+        className="react-tabs__tab"
+        id="react-tabs-2"
+        role="tab"
+        tabIndex={null}
+      >
+        Loans
+      </li>
+      <li
+        aria-controls="react-tabs-5"
+        aria-disabled="false"
+        aria-selected="false"
+        className="react-tabs__tab"
+        id="react-tabs-4"
+        role="tab"
+        tabIndex={null}
+      >
+        Certificates
+      </li>
+    </ul>
+    <div
+      aria-labelledby="react-tabs-0"
+      className="react-tabs__tab-panel react-tabs__tab-panel--selected"
+      id="react-tabs-1"
+      role="tabpanel"
+    >
+      <div
+        className="border mb-4 sc-ckVGcZ gVZomo"
+        style={Object {}}
+      >
+        <div
+          className="sc-eNQAEJ fWmJgw"
+        >
+          <div
+            className="rdt_Table sc-bdVaJa bTnnmE"
+            disabled={false}
+          >
+            <div
+              className="rdt_TableHead sc-bwzfXH gXdTHx"
+            >
+              <div
+                className="rdt_TableHeadRow sc-bxivhb bojDWV"
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
+                  id="column-name"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="sc-jTzLTM frKpZh"
+                  >
+                    Account Description
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
+                  id="column-accountSequence"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="sc-jTzLTM frKpZh"
+                  >
+                    Account Number
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
+                  id="column-balance"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="sc-jTzLTM frKpZh"
+                  >
+                    Balance
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="rdt_TableBody sc-dxgOiQ gXekDi"
+              offset="250px"
+            >
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    123459789
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    3,000.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 2
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    1233439789
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    30,000.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 3
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    12332434789
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    15,000.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 4
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    123452349
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    3,045.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 5
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    123423429
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    6,000.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 6
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    123456459
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    2,340.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    Test Account 7
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    12345634559
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    3,230.55
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer
+            className="rdt_TableFooter sc-htpNat hTSrJn"
+          >
+            <span
+              className="sc-eHgmQL isKPrB"
+            >
+              Rows per page:
+            </span>
+            <div
+              className="sc-kkGfuU gCeWql"
+            >
+              <select
+                className="sc-kEYyzF cBrcSU"
+                defaultValue={15}
+                onChange={[Function]}
+              >
+                <option
+                  value={10}
+                >
+                  10
+                </option>
+                <option
+                  value={15}
+                >
+                  15
+                </option>
+                <option
+                  value={20}
+                >
+                  20
+                </option>
+                <option
+                  value={25}
+                >
+                  25
+                </option>
+                <option
+                  value={30}
+                >
+                  30
+                </option>
+              </select>
+              <svg
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <span
+              className="sc-eHgmQL isKPrB"
+            >
+              1-7 of 7
+            </span>
+            <div
+              className="sc-hSdWYo hkbPyM"
+            >
+              <button
+                className="sc-iAyFgw bidHYz"
+                disabled={true}
+                id="pagination-first-page"
+                onClick={[Function]}
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+                  />
+                  <path
+                    d="M24 24H0V0h24v24z"
+                    fill="none"
+                  />
+                </svg>
+              </button>
+              <button
+                className="sc-iAyFgw bidHYz"
+                disabled={true}
+                id="pagination-previous-page"
+                onClick={[Function]}
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                </svg>
+              </button>
+              <button
+                className="sc-iAyFgw bidHYz"
+                disabled={true}
+                id="pagination-next-page"
+                onClick={[Function]}
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                  />
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                </svg>
+              </button>
+              <button
+                className="sc-iAyFgw bidHYz"
+                disabled={true}
+                id="pagination-last-page"
+                onClick={[Function]}
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+                  />
+                  <path
+                    d="M0 0h24v24H0V0z"
+                    fill="none"
+                  />
+                </svg>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="react-tabs-2"
+      className="react-tabs__tab-panel"
+      id="react-tabs-3"
+      role="tabpanel"
+    />
+    <div
+      aria-labelledby="react-tabs-4"
+      className="react-tabs__tab-panel"
+      id="react-tabs-5"
+      role="tabpanel"
+    />
+  </div>
+  <input
+    className="secondary-button"
+    type="button"
+    value="Transfers"
+  />
+</div>
+`;

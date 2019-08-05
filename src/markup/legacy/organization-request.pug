@@ -1,0 +1,52 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+        #ThePageHeader
+            .PageHeader2 Organization Requests
+        hr
+        #ctl00_PageBody_Messages(data-msg-showvalidationmsgs='1', data-msg-mc='1')
+        table.gridbox(border='0', cellspacing='0', cellpadding='0')
+            tbody
+                tr
+                    td
+                        #ctl00_PageBody_OrganizationGrid.RadGrid.RadGrid_T1(tabindex='0')
+                            table#ctl00_PageBody_OrganizationGrid_ctl00.rgMasterTable(style='width:100%;table-layout:auto;empty-cells:show;', border='0')
+                                colgroup
+                                    col(style='width:2%;')
+                                    col
+                                    col
+                                    col
+                                    col
+                                    col
+                                thead
+                                    tr
+                                        th.rgHeader(scope='col') Action
+                                        th.rgHeader(style='white-space:nowrap;', scope='col')
+                                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$OrganizationGrid$ctl00$ctl02$ctl01$ctl00','')") Organization Name
+                                        th.rgHeader(style='white-space:nowrap;', scope='col')
+                                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$OrganizationGrid$ctl00$ctl02$ctl01$ctl01','')") RTN
+                                        th.rgHeader(style='white-space:nowrap;', scope='col')
+                                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$OrganizationGrid$ctl00$ctl02$ctl01$ctl02','')") Change Type
+                                        th.rgHeader(style='white-space:nowrap;', scope='col')
+                                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$OrganizationGrid$ctl00$ctl02$ctl01$ctl03','')") Requesting User
+                                        th.rgHeader(style='white-space:nowrap;', scope='col')
+                                            a(title='Click here to sort', href="javascript:__doPostBack('ctl00$PageBody$OrganizationGrid$ctl00$ctl02$ctl01$ctl04','')") Date of Request
+                                tbody
+                                    tr#ctl00_PageBody_OrganizationGrid_ctl00__0.rgRow
+                                        td
+                                            input#ctl00_PageBody_OrganizationGrid_ctl00_ctl04_ViewBtn.LinkButtonExpando(name='ctl00$PageBody$OrganizationGrid$ctl00$ctl04$ViewBtn', onclick="window.location.href='/Admin/Pending/OrganizationRequestDetail.aspx?params=n45ivumBb9J6tTg12bHXbA%3d%3d'", type='button', value='View')
+                                        td Catholic & Community CU
+                                        td 281076277
+                                        td Add Organization Authorizations
+                                        td Haiping Yu
+                                        td(style='white-space:nowrap;') 4/15/2019 1:08:23 PM
+                                    tr#ctl00_PageBody_OrganizationGrid_ctl00__1.rgAltRow
+                                        td
+                                            input#ctl00_PageBody_OrganizationGrid_ctl00_ctl06_ViewBtn.LinkButtonExpando(name='ctl00$PageBody$OrganizationGrid$ctl00$ctl06$ViewBtn', onclick="window.location.href='/Admin/Pending/OrganizationRequestDetail.aspx?params=sW11UYujb1wrC0Zfl6kegg%3d%3d'", type='button', value='View')
+                                        td One CBI FCU
+                                        td 271987130
+                                        td Add Organization Authorizations
+                                        td Haiping Yu
+                                        td(style='white-space:nowrap;') 4/15/2019 1:21:29 PM
+                            input#ctl00_PageBody_OrganizationGrid_ClientState(name='ctl00_PageBody_OrganizationGrid_ClientState', type='hidden', autocomplete='off')
+        p  

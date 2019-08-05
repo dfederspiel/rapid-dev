@@ -1,0 +1,566 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the address component renders correctly 1`] = `
+<div
+  className="flex-column"
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "flexGrow": 1,
+      "flexWrap": "nowrap",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="type-select"
+      >
+        Type*
+      </label>
+      <select
+        className=""
+        defaultValue={2}
+        id="type-select"
+        onChange={[Function]}
+      >
+        <option
+          value={1}
+        >
+          Corporate Office
+        </option>
+        <option
+          value={2}
+        >
+          Branch Office
+        </option>
+        <option
+          value={3}
+        >
+          Home
+        </option>
+        <option
+          value={4}
+        >
+          Business
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="address1"
+      >
+        Address 1*
+      </label>
+      <input
+        className=""
+        id="address1"
+        onChange={[Function]}
+        type="text"
+        value="100 N Main"
+      />
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="address2"
+      >
+        Address 2
+      </label>
+      <input
+        id="address2"
+        onChange={[Function]}
+        type="text"
+        value="PO Box 123"
+      />
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="address3"
+      >
+        Address 3
+      </label>
+      <input
+        id="address3"
+        onChange={[Function]}
+        type="text"
+        value="Apt 999"
+      />
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <div
+      className="spaced-element"
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="city"
+      >
+        City*
+      </label>
+      <input
+        className=""
+        id="city"
+        onChange={[Function]}
+        type="text"
+        value="Lima"
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label
+        htmlFor="state"
+      >
+        State*
+      </label>
+      <select
+        className=""
+        id="state"
+        onChange={[Function]}
+        value="OH"
+      >
+        <option
+          value="AK"
+        >
+          AK
+        </option>
+        <option
+          value="AL"
+        >
+          AL
+        </option>
+        <option
+          value="AR"
+        >
+          AR
+        </option>
+        <option
+          value="AZ"
+        >
+          AZ
+        </option>
+        <option
+          value="CA"
+        >
+          CA
+        </option>
+        <option
+          value="CO"
+        >
+          CO
+        </option>
+        <option
+          value="CT"
+        >
+          CT
+        </option>
+        <option
+          value="DC"
+        >
+          DC
+        </option>
+        <option
+          value="DE"
+        >
+          DE
+        </option>
+        <option
+          value="FL"
+        >
+          FL
+        </option>
+        <option
+          value="GA"
+        >
+          GA
+        </option>
+        <option
+          value="HI"
+        >
+          HI
+        </option>
+        <option
+          value="IA"
+        >
+          IA
+        </option>
+        <option
+          value="ID"
+        >
+          ID
+        </option>
+        <option
+          value="IL"
+        >
+          IL
+        </option>
+        <option
+          value="IN"
+        >
+          IN
+        </option>
+        <option
+          value="KS"
+        >
+          KS
+        </option>
+        <option
+          value="KY"
+        >
+          KY
+        </option>
+        <option
+          value="LA"
+        >
+          LA
+        </option>
+        <option
+          value="MA"
+        >
+          MA
+        </option>
+        <option
+          value="MD"
+        >
+          MD
+        </option>
+        <option
+          value="ME"
+        >
+          ME
+        </option>
+        <option
+          value="MI"
+        >
+          MI
+        </option>
+        <option
+          value="MN"
+        >
+          MN
+        </option>
+        <option
+          value="MO"
+        >
+          MO
+        </option>
+        <option
+          value="MS"
+        >
+          MS
+        </option>
+        <option
+          value="MT"
+        >
+          MT
+        </option>
+        <option
+          value="NC"
+        >
+          NC
+        </option>
+        <option
+          value="ND"
+        >
+          ND
+        </option>
+        <option
+          value="NE"
+        >
+          NE
+        </option>
+        <option
+          value="NH"
+        >
+          NH
+        </option>
+        <option
+          value="NJ"
+        >
+          NJ
+        </option>
+        <option
+          value="NM"
+        >
+          NM
+        </option>
+        <option
+          value="NV"
+        >
+          NV
+        </option>
+        <option
+          value="NY"
+        >
+          NY
+        </option>
+        <option
+          value="OH"
+        >
+          OH
+        </option>
+        <option
+          value="OK"
+        >
+          OK
+        </option>
+        <option
+          value="OR"
+        >
+          OR
+        </option>
+        <option
+          value="PA"
+        >
+          PA
+        </option>
+        <option
+          value="PR"
+        >
+          PR
+        </option>
+        <option
+          value="RI"
+        >
+          RI
+        </option>
+        <option
+          value="SC"
+        >
+          SC
+        </option>
+        <option
+          value="SD"
+        >
+          SD
+        </option>
+        <option
+          value="TN"
+        >
+          TN
+        </option>
+        <option
+          value="TX"
+        >
+          TX
+        </option>
+        <option
+          value="UT"
+        >
+          UT
+        </option>
+        <option
+          value="VA"
+        >
+          VA
+        </option>
+        <option
+          value="VT"
+        >
+          VT
+        </option>
+        <option
+          value="WA"
+        >
+          WA
+        </option>
+        <option
+          value="WI"
+        >
+          WI
+        </option>
+        <option
+          value="WV"
+        >
+          WV
+        </option>
+        <option
+          value="WY"
+        >
+          WY
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "flexWrap": "nowrap",
+            }
+          }
+        >
+          <label
+            htmlFor="zip"
+          >
+            Zip Code*
+          </label>
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          }
+        }
+      >
+        <div
+          className="spaced-element"
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "flexWrap": "nowrap",
+            }
+          }
+        >
+          <input
+            className=""
+            id="zip"
+            onChange={[Function]}
+            type="text"
+            value="45801"
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "flexWrap": "nowrap",
+            }
+          }
+        >
+          <input
+            id="zip4"
+            onChange={[Function]}
+            type="text"
+            value="1234"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

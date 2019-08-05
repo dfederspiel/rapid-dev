@@ -1,0 +1,190 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+        #ThePageHeader
+            .PageHeader2 Cleared Draft Inquiry
+            div
+                #Toolbar.k-toolbar.k-widget.k-toolbar-resizable(data-role='toolbar', data-uid='1e705360-5f78-4ddd-a029-b9c630effa48', tabindex='0', style='touch-action: pan-y;')
+                    .k-overflow-anchor.k-button(tabindex='0', style='visibility: hidden; width: 1px;')
+                        span.k-icon.k-i-arrow-s
+                    a#filter.k-toggle-button.k-button(href='', tabindex='0', data-section='filterSection', data-sectionsibling='gridSection', data-focusid='MultiAccountNumber', data-uid='38a6b567-1d8d-4337-ba2d-34b7ce08fa6d', data-overflow='auto', style='visibility: visible;') Filter
+                    .k-separator(data-uid='8c6c9bcf-4af8-4e29-8196-30e861b8f3da', data-overflow='auto', style='visibility: visible;')  
+                    a#download.k-button(href='', tabindex='0', data-uid='b1f819a9-3409-4874-aea1-225bd7b42bb3', data-overflow='auto', style='visibility: visible;') Download
+                    .k-separator(data-uid='89d45e5f-b6b4-44b2-a252-3c1072c444f4', data-overflow='auto', style='visibility: visible;')  
+                    div(data-uid='dec75cc8-aecb-434a-8139-e99b05cc3a3c', data-overflow='never', style='visibility: visible;')
+                        label Quick Date Filter:
+                    a#previous.k-button(href='', tabindex='0', data-uid='e099ab82-e015-4207-bffe-e0cfebbc2b7c', data-overflow='auto', style='visibility: visible;') Prev Bus Day
+                    a#thisweek.k-button(href='', tabindex='0', data-uid='bb895fac-aa40-4282-82e3-1a22b8480dbe', data-overflow='auto', style='visibility: visible;') This Week
+                    a#lastweek.k-button(href='', tabindex='0', data-uid='10bf2151-aeed-48f1-a306-b416af569294', data-overflow='auto', style='visibility: visible;') Last Week
+                    a#thismonth.k-button(href='', tabindex='0', data-uid='37be4104-0c0b-45d4-91e2-3f45e81b4894', data-overflow='auto', style='visibility: visible;') This Month
+                    a#lastmonth.k-button(href='', tabindex='0', data-uid='40ea9476-4c64-43d0-8bad-cd4ca70a49aa', data-overflow='auto', style='visibility: visible;') Last Month
+        .messages-control(data-messages-control='true', style='display: none;')
+            ul
+                li(style='display:none')
+        #filterSection(style='display: none')
+            .sectionhdg Filter
+            .sectionbodyrightgutter
+                .form-maxwidth-std
+                    form#filterForm.form-horizontal(action='/CorporateChecking/ClearedDraft/Inquiry', autocomplete='off', method='post', onsubmit='filterOnClick(); return false;', role='form', novalidate='novalidate')
+                        input(name='__RequestVerificationToken', type='hidden', value='XytgltEA_nagQk_1ahNX7LspEk1aj7U_MdUHPzfbW6L8p7fIsTF9ugi-b3cr9g0l4Eo9QqyZUzI-vM4wqV6tYabzKGXLjG0tED_tL4FO_Ibw8Sx1FEC2mLApW0dl2xxnWgXkMA2')
+                        .validation-summary-valid(data-valmsg-summary='true')
+                            ul
+                                li(style='display:none')
+                        .form-group
+                            label.col-sm-3.control-label(for='MultiAccountNumber') Multi-Account Number
+                            .col-sm-3.val-group
+                                input#MultiAccountNumber.form-control(data-val='true', data-val-regex='Multi-Account Number must contain 1 digit.', data-val-regex-pattern='^[0-9]{1}$', maxlength='1', name='MultiAccountNumber', type='text', value='')
+                            label.col-sm-3.control-label(for='Branch') Branch
+                            .col-sm-3.val-group
+                                input#Branch.form-control(data-val='true', data-val-regex='Branch must contain 4 digits.', data-val-regex-pattern='^[0-9]{4}$', maxlength='4', name='Branch', type='text', value='')
+                        .form-group
+                            label.col-sm-3.control-label(for='StartDate') Start Date
+                            .col-sm-3.val-group
+                                span.k-widget.k-datepicker.k-header(style='width: 100%;')
+                                    span.k-picker-wrap.k-state-default
+                                        input#StartDate.k-input(data-val='true', data-val-date='The field Start Date must be a date.', data-val-is='The Start Date must be less than or equal to the End Date.', data-val-is-dependentproperty='EndDate', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', name='StartDate', style='width: 100%', type='text', value='7/10/2019', data-role='datepicker', role='combobox', aria-expanded='false', aria-owns='StartDate_dateview', aria-disabled='false', aria-readonly='false')
+                                        span.k-select(unselectable='on', role='button', aria-controls='StartDate_dateview')
+                                            span.k-icon.k-i-calendar(unselectable='on') select
+                            label.col-sm-3.control-label(for='EndDate') End Date
+                            .col-sm-3.val-group
+                                span.k-widget.k-datepicker.k-header(style='width: 100%;')
+                                    span.k-picker-wrap.k-state-default
+                                        input#EndDate.k-input(data-val='true', data-val-date='The field End Date must be a date.', name='EndDate', style='width: 100%', type='text', value='7/10/2019', data-role='datepicker', role='combobox', aria-expanded='false', aria-owns='EndDate_dateview', aria-disabled='false', aria-readonly='false')
+                                        span.k-select(unselectable='on', role='button', aria-controls='EndDate_dateview')
+                                            span.k-icon.k-i-calendar(unselectable='on') select
+                        .form-group
+                            label.col-sm-3.control-label(for='StartDraftNumber') Start Draft Number
+                            .col-sm-3.val-group
+                                input#StartDraftNumber.form-control(data-val='true', data-val-is='The Start Draft Number must be less than or equal to the End Draft Number.', data-val-is-dependentproperty='EndDraftNumber', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', data-val-number='The field Start Draft Number must be a number.', data-val-regex='The Draft Number field allows up to 6 numeric digits.', data-val-regex-pattern='^[0-9]{1,6}$', maxlength='6', name='StartDraftNumber', type='text', value='')
+                            label.col-sm-3.control-label(for='EndDraftNumber') End Draft Number
+                            .col-sm-3.val-group
+                                input#EndDraftNumber.form-control(data-val='true', data-val-number='The field End Draft Number must be a number.', data-val-regex='The Draft Number field allows up to 6 numeric digits.', data-val-regex-pattern='^[0-9]{1,6}$', maxlength='6', name='EndDraftNumber', type='text', value='')
+                        .form-group
+                            label.col-sm-3.control-label(for='StartAmount') Start Amount
+                            .col-sm-3.val-group
+                                span.k-widget.k-numerictextbox(style='width: 100%;')
+                                    span.k-numeric-wrap.k-state-default.k-expand-padding
+                                        input.k-formatted-value.k-input(type='text', tabindex='0', title='', aria-disabled='false', aria-readonly='false', style='display: inline-block;')
+                                        input#StartAmount.k-input(data-val='true', data-val-is='The Start Amount must be less than or equal to the End Amount.', data-val-is-dependentproperty='EndAmount', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', data-val-number='The field Start Amount must be a number.', data-val-range='The field Start Amount must be between 0 and 999999999.99.', data-val-range-max='999999999.99', data-val-range-min='0', max='999999999.99', min='0', name='StartAmount', style='display: none;', type='text', data-role='numerictextbox', role='spinbutton', aria-valuemin='0', aria-valuemax='999999999.99', aria-valuenow='', aria-disabled='false', aria-readonly='false')
+                                        span.k-select(style='display: none;')
+                                            span.k-link(unselectable='on', style='touch-action: pan-y;')
+                                                span.k-icon.k-i-arrow-n(unselectable='on', title='Increase value') Increase value
+                                            span.k-link(unselectable='on', style='touch-action: pan-y;')
+                                                span.k-icon.k-i-arrow-s(unselectable='on', title='Decrease value') Decrease value
+                            label.col-sm-3.control-label(for='EndAmount') End Amount
+                            .col-sm-3.val-group
+                                span.k-widget.k-numerictextbox(style='width: 100%;')
+                                    span.k-numeric-wrap.k-state-default.k-expand-padding
+                                        input.k-formatted-value.k-input(type='text', tabindex='0', title='', aria-disabled='false', aria-readonly='false', style='display: inline-block;')
+                                        input#EndAmount.k-input(data-val='true', data-val-number='The field End Amount must be a number.', data-val-range='The field End Amount must be between 0 and 999999999.99.', data-val-range-max='999999999.99', data-val-range-min='0', max='999999999.99', min='0', name='EndAmount', style='display: none;', type='text', data-role='numerictextbox', role='spinbutton', aria-valuemin='0', aria-valuemax='999999999.99', aria-valuenow='', aria-disabled='false', aria-readonly='false')
+                                        span.k-select(style='display: none;')
+                                            span.k-link(unselectable='on', style='touch-action: pan-y;')
+                                                span.k-icon.k-i-arrow-n(unselectable='on', title='Increase value') Increase value
+                                            span.k-link(unselectable='on', style='touch-action: pan-y;')
+                                                span.k-icon.k-i-arrow-s(unselectable='on', title='Decrease value') Decrease value
+                        .form-group
+                            label.col-sm-3.control-label(for='SelectedItemsIncluded') Items Included
+                            .col-sm-3.val-group
+                                span.k-widget.k-dropdown.k-header(title='', unselectable='on', role='listbox', aria-haspopup='true', aria-expanded='false', tabindex='0', aria-owns='SelectedItemsIncluded_listbox', aria-disabled='false', aria-readonly='false', aria-busy='false', aria-activedescendant='a1797199-53ff-43fe-adf3-9fd10f7ad419', style='width: 100%;')
+                                    span.k-dropdown-wrap.k-state-default(unselectable='on')
+                                        span.k-input(unselectable='on') All
+                                        span.k-select(unselectable='on')
+                                            span.k-icon.k-i-arrow-s(unselectable='on') select
+                                    input#SelectedItemsIncluded(data-val='true', data-val-required='The Items Included field is required.', name='SelectedItemsIncluded', style='width: 100%; display: none;', type='text', value='All', data-role='dropdownlist')
+                            label.col-sm-3.control-label(for='TraceNumber') Trace Number
+                            .col-sm-3.val-group
+                                input#TraceNumber.form-control(data-val='true', data-val-regex='Trace Number must contain between 1 and 45 digits.', data-val-regex-pattern='^[0-9]{0,45}$', maxlength='45', name='TraceNumber', type='text', value='')
+                        .form-group
+                            label.col-sm-3.control-label(for='FilterAutoHide') FilterAutoHide
+                            .col-sm-9
+                                input#FilterAutoHide(checked='checked', data-val='true', data-val-required='The FilterAutoHide field is required.', name='FilterAutoHide', type='checkbox', value='true')
+                                input(name='FilterAutoHide', type='hidden', value='false')
+                        .ButtonRow
+                            input.Button(type='submit', value='Filter')
+                            input.Button(type='button', value='Reset', onclick='filterReset()')
+                    form#downloadForm(action='/CorporateChecking/ClearedDraft/DownloadInquiryItems', autocomplete='off', method='post', role='form', novalidate='novalidate')
+                        input(name='__RequestVerificationToken', type='hidden', value='qdIvhL3_jCDetDf36qj3KIm8ddCnhJvE2x2Ag8QVEUFjmT7kkDw68bub1eUZKmmoSzZ13OpQ6BCYmb0P7c2anysjQkA-DPB2p8p1lxexBN8SGMkqsQrbKMyfACWu-JXcMg7fMw2')
+                        input#MultiAccountNumber(data-val='true', data-val-regex='Multi-Account Number must contain 1 digit.', data-val-regex-pattern='^[0-9]{1}$', name='MultiAccountNumber', type='hidden', value='')
+                        input#Branch(data-val='true', data-val-regex='Branch must contain 4 digits.', data-val-regex-pattern='^[0-9]{4}$', name='Branch', type='hidden', value='')
+                        input#StartDate(data-val='true', data-val-date='The field Start Date must be a date.', data-val-is='The Start Date must be less than or equal to the End Date.', data-val-is-dependentproperty='EndDate', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', name='StartDate', type='hidden', value='7/10/2019 12:00:00 AM')
+                        input#EndDate(data-val='true', data-val-date='The field End Date must be a date.', name='EndDate', type='hidden', value='7/10/2019 12:00:00 AM')
+                        input#StartDraftNumber(data-val='true', data-val-is='The Start Draft Number must be less than or equal to the End Draft Number.', data-val-is-dependentproperty='EndDraftNumber', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', data-val-number='The field Start Draft Number must be a number.', data-val-regex='The Draft Number field allows up to 6 numeric digits.', data-val-regex-pattern='^[0-9]{1,6}$', name='StartDraftNumber', type='hidden', value='')
+                        input#EndDraftNumber(data-val='true', data-val-number='The field End Draft Number must be a number.', data-val-regex='The Draft Number field allows up to 6 numeric digits.', data-val-regex-pattern='^[0-9]{1,6}$', name='EndDraftNumber', type='hidden', value='')
+                        input#StartAmount(data-val='true', data-val-is='The Start Amount must be less than or equal to the End Amount.', data-val-is-dependentproperty='EndAmount', data-val-is-operator='LessThanOrEqualTo', data-val-is-passonnull='True', data-val-number='The field Start Amount must be a number.', data-val-range='The field Start Amount must be between 0 and 999999999.99.', data-val-range-max='999999999.99', data-val-range-min='0', name='StartAmount', type='hidden', value='')
+                        input#EndAmount(data-val='true', data-val-number='The field End Amount must be a number.', data-val-range='The field End Amount must be between 0 and 999999999.99.', data-val-range-max='999999999.99', data-val-range-min='0', name='EndAmount', type='hidden', value='')
+                        input#SelectedItemsIncluded(data-val='true', data-val-required='The Items Included field is required.', name='SelectedItemsIncluded', type='hidden', value='All')
+                        input#TraceNumber(data-val='true', data-val-regex='Trace Number must contain between 1 and 45 digits.', data-val-regex-pattern='^[0-9]{0,45}$', name='TraceNumber', type='hidden', value='')
+                        input#FilterAutoHide(data-val='true', data-val-required='The FilterAutoHide field is required.', name='FilterAutoHide', type='hidden', value='True')
+        #gridSection
+            #gridSectionHdg.sectionhdg(style='display: none') Results
+            #gridSectionBody
+                #itemsGrid.k-widget.k-grid(data-role='grid')
+                    .k-header.k-grid-toolbar.k-grid-top
+                        div(style='padding: 6px')
+                            span.k-sprite.k-icon.k-i-funnel
+                            span#filterMsg(style='vertical-align: middle;') Filtered by Start Date: 07/10/2019, End Date: 07/10/2019
+                    table(role='grid')
+                        colgroup
+                            col
+                            col
+                            col
+                            col
+                            col
+                            col
+                            col
+                            col
+                            col
+                        thead.k-grid-header(role='rowgroup')
+                            tr(role='row')
+                                th.k-header(data-field='DraftNumber', data-index='0', data-title='Draft Number', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=DraftNumber-asc') Draft Number
+                                th.k-header(data-field='TraceNumber', data-index='1', data-title='Trace Number', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=TraceNumber-asc') Trace Number
+                                th.k-header(data-field='MultiAccount', data-index='2', data-title='Multi Account', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=MultiAccount-asc') Multi Account
+                                th.k-header(data-field='Branch', data-index='3', data-title='Branch', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=Branch-asc') Branch
+                                th.k-header(data-field='StopReturn', data-index='4', data-title='Stop/Return', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=StopReturn-asc') Stop/Return
+                                th.k-header(data-field='Amount', data-index='5', data-title='Amount', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=Amount-asc') Amount
+                                th.k-header(data-field='DateCleared', data-index='6', data-title='Date Cleared', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=DateCleared-asc') Date Cleared
+                                th.k-header(data-field='StatementDate', data-index='7', data-title='Statement Date', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=StatementDate-asc') Statement Date
+                                th.k-header(data-field='Status', data-index='8', data-title='Status', scope='col', style='text-align:center', data-role='columnsorter')
+                                    a.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D&itemsGrid-sort=Status-asc') Status
+                        tbody(role='rowgroup')
+                    .k-grid-norecords
+                        .k-grid-norecords-template There are no items to display.
+                    .k-pager-wrap.k-grid-pager.k-widget.k-floatwrap(data-role='pager')
+                        a.k-link.k-pager-nav.k-state-disabled.k-pager-first(data-page='1', href='#', title='Go to the first page', tabindex='-1')
+                            span.k-icon.k-i-seek-w seek-w
+                        a.k-link.k-pager-nav.k-state-disabled(data-page='1', href='#', title='Go to the previous page', tabindex='-1')
+                            span.k-icon.k-i-arrow-w arrow-w
+                        ul.k-pager-numbers.k-reset
+                            li.k-current-page
+                                span.k-link.k-pager-nav 0
+                            li
+                                span.k-state-selected 0
+                        a.k-link.k-pager-nav.k-state-disabled(data-page='0', href='#', title='Go to the next page', tabindex='-1')
+                            span.k-icon.k-i-arrow-e arrow-e
+                        a.k-link.k-pager-nav.k-state-disabled.k-pager-last(data-page='0', href='#', title='Go to the last page', tabindex='-1')
+                            span.k-icon.k-i-seek-e seek-e
+                        span.k-pager-sizes.k-label
+                            span.k-widget.k-dropdown.k-header(title='', style='', unselectable='on', role='listbox', aria-haspopup='true', aria-expanded='false', tabindex='0', aria-owns='', aria-disabled='false', aria-readonly='false', aria-busy='false', aria-activedescendant='c745a884-67bd-4919-8ba9-1c2ef39ed15a')
+                                span.k-dropdown-wrap.k-state-default(unselectable='on')
+                                    span.k-input(unselectable='on') 100
+                                    span.k-select(unselectable='on')
+                                        span.k-icon.k-i-arrow-s(unselectable='on') select
+                                select(data-role='dropdownlist', style='display: none;')
+                                    option(value='15', selected='selected') 15
+                                    option(value='25') 25
+                                    option(value='50') 50
+                                    option(value='100', selected='selected') 100
+                                    option(value='250') 250
+                                    option(value='500') 500
+                            | items per page
+                        a.k-pager-refresh.k-link(href='/CorporateChecking/ClearedDraft/GetInquiryItems?itemsGrid-pageSize=10&params=Nj3DzbiVZ8KrXURUNzxddA%3D%3D', title='Refresh')
+                            span.k-icon.k-i-refresh Refresh
+                        span.k-pager-info.k-label No items to display
