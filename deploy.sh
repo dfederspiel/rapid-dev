@@ -108,7 +108,7 @@ NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
   echo "Running $NPM_CMD install --production"
-  eval $NPM_CMD install --production
+  eval npm install --production
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi
