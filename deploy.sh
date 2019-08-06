@@ -106,17 +106,24 @@ echo Handling node.js deployment.
 # selectNodeVersion
 NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 
+# 4. KuduSync
+echo Copying to WwwRoot
+if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
+  exitWithMessageOnError "Kudu Sync failed"
+fi
+
 # 2. Install npm packages
-if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
-  cd "$DEPLOYMENT_SOURCE"
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
   echo "Running npm install --production"
   eval npm install --production
   exitWithMessageOnError "npm failed"
 fi
 
 # 3. Run GULP
-if [ -e "$DEPLOYMENT_SOURCE/gulpfile.babel.js" ]; then
-    cd "$DEPLOYMENT_SOURCE"
+if [ -e "$DEPLOYMENT_TARGET/gulpfile.babel.js" ]; then
+    cd "$DEPLOYMENT_TARGET"
     echo Installing Gulp
     eval npm install gulp
     echo Running Gulp
@@ -124,12 +131,7 @@ if [ -e "$DEPLOYMENT_SOURCE/gulpfile.babel.js" ]; then
     exitWithMessageOnError "gulp failed"
 fi
 
-# 4. KuduSync
-echo Copying to WwwRoot
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
+
 
 ##################################################################################################################################
 echo "Finished successfully."
