@@ -114,7 +114,7 @@ if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
 fi
 
 # 3. Run GULP
-if [ -e "$DEPLOYMENT_SOURCE\gulpfile.babel.js"]; then
+if [ -e "$DEPLOYMENT_SOURCE/gulpfile.babel.js" ]; then
     cd "$DEPLOYMENT_SOURCE"
     eval ./node_modules/.bin/gulp build
     exitWithMessageOnError "gulp failed"
