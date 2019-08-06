@@ -17,7 +17,7 @@ const gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     shell = require('gulp-shell');
 
-    
+
 const log = (o, level = 0) => {
     if (level > 2)
         return;
@@ -338,8 +338,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font)));
+gulp.task('build', gulp.series(gulp.series(html, scss, js, jsv, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', gulp.parallel(serve, watch));
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));
