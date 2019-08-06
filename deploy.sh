@@ -109,7 +109,7 @@ NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 # 2. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  echo "Running npm install --"
+  echo "Running npm install --production"
   eval npm install --production
   exitWithMessageOnError "npm failed"
 fi
@@ -117,12 +117,15 @@ fi
 # 3. Run GULP
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.babel.js" ]; then
     cd "$DEPLOYMENT_SOURCE"
+    echo Installing Gulp
     eval npm install gulp
+    echo Running Gulp
     eval node ./node_modules/.bin/gulp build
     exitWithMessageOnError "gulp failed"
 fi
 
 # 4. KuduSync
+echo Copying to WwwRoot
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
   "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/dist" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
   exitWithMessageOnError "Kudu Sync failed"

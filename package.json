@@ -77,7 +77,7 @@
         "styled-components": "^4.3.2"
     },
     "scripts": {
-        "start": "gulp && node index.js",
+        "start": "node index.js",
         "unit": "karma start karma.conf.js ",
         "test": "jest --coverage --coverageDirectory=test/react"
     },
