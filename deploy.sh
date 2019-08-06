@@ -102,7 +102,7 @@ echo Handling node.js deployment.
 
 # 1. Select node version
 # selectNodeVersion
-NPM_CMD="node /opt/nodjs/10.15.2/bin/npm"
+NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 
 # 2. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
