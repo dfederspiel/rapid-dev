@@ -109,15 +109,16 @@ NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 # 2. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
-  echo "Running npm install"
-  eval npm install
+  echo "Running npm install --"
+  eval npm install --production
   exitWithMessageOnError "npm failed"
 fi
 
 # 3. Run GULP
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.babel.js" ]; then
     cd "$DEPLOYMENT_SOURCE"
-    eval gulp build
+    eval npm install gulp
+    eval node ./node_modules/.bin/gulp build
     exitWithMessageOnError "gulp failed"
 fi
 
