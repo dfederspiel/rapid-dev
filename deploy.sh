@@ -104,8 +104,8 @@ echo Handling node.js deployment.
 selectNodeVersion
 
 # 2. Install npm packages
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
+if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
+  cd "$DEPLOYMENT_SOURCE"
   echo "Running $NPM_CMD install --production"
   eval $NPM_CMD install --production
   exitWithMessageOnError "npm failed"
