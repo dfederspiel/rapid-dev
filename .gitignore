@@ -62,3 +62,5 @@ typings/
 
 dist
 src/data/db.json
+/.vs/slnx.sqlite
+/.vs/Alloya/config/applicationhost.config
