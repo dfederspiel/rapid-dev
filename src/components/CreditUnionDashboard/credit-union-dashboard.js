@@ -16,13 +16,13 @@ export default class CreditUnionDashboard extends React.Component {
                     </Column>
                     <div className="vl"/>
                     <Column>
-                        <label>Pending Templates</label>
-                        <a href="">{this.props.pendingTemplates}</a>
-                    </Column>
-                    <div className="vl"/>
-                    <Column>
                         <label>Pending Acknowledgements</label>
                         <a href="">{this.props.pendingAcknowledgements}</a>
+                    </Column>
+                    <div className="vl" />
+                    <Column>
+                        <label>Pending Templates</label>
+                        <a href="">{this.props.pendingTemplates}</a>
                     </Column>
                 </Row>
             </div>

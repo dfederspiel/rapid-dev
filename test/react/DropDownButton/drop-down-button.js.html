@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for TopNav/top-nav.js</title>
+    <title>Code coverage report for DropDownButton/drop-down-button.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\prettify.css" />
     <link rel="stylesheet" href="..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\index.html">All files</a> / <a href="index.html">TopNav</a> top-nav.js
+      <a href="..\index.html">All files</a> / <a href="index.html">DropDownButton</a> drop-down-button.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/6</span>
       </div>
     </div>
     <p class="quiet">
@@ -84,7 +84,9 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -93,13 +95,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,6 +107,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,50 +124,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿import React from 'react';
-import FontAwesome from 'react-fontawesome';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿//https://reactstrap.github.io/components/button-dropdown/
 &nbsp;
-export default class TopNav extends React.Component {
+import React from 'react';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 &nbsp;
+export default class DropDownButton extends React.Component {
 <span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
 <span class="cstat-no" title="statement not covered" >        super(props);</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >        this.toggle = this.toggle.bind(this);</span>
 <span class="cstat-no" title="statement not covered" >        this.state = {</span>
-            menuClicked: props.menuClicked,
-            notificationCount: props.notificationCount
+            dropdownOpen: false
         };
     }
 &nbsp;
-    handleMenuToggle = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        this.state.menuClicked();</span>
+<span class="fstat-no" title="function not covered" >    to</span>ggle() {
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+            dropdownOpen: !this.state.dropdownOpen
+        });
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    re</span>nder() {
 <span class="cstat-no" title="statement not covered" >        return (</span>
-            &lt;div className="top-nav"&gt;
-                &lt;div className="menu"&gt;
-                    &lt;div className="menu-toggle" onClick={this.handleMenuToggle}&gt;
-                        &lt;div className="menu-handle"&gt;&lt;/div&gt;
-                        &lt;div className="menu-handle"&gt;&lt;/div&gt;
-                        &lt;div className="menu-handle"&gt;&lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div className="logo"&gt;Alloya&lt;/div&gt;
-                &lt;div className="tools"&gt;
-                    &lt;div className="notification-toggle"&gt;
-                        {this.state.notificationCount &gt; 0 &amp;&amp; &lt;div className="notification-count"&gt;{this.state.notificationCount &gt; 99 ? '99+' : this.state.notificationCount}&lt;/div&gt;}
-                        &lt;FontAwesome style={{ color: 'gray' }} name='bell' size="lg" /&gt;&lt;/div&gt;
-                    &lt;div className="sub-menu"&gt;&lt;FontAwesome style={{ color: 'gray' }} name='ellipsis-h' size="lg" /&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
+            &lt;ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}&gt;
+                &lt;DropdownToggle caret&gt;
+                    {this.props.buttonTitle}
+                &lt;/DropdownToggle&gt;
+                &lt;DropdownMenu&gt;
+                    {
+                        this.props.items.map(<span class="fstat-no" title="function not covered" >fu</span>nction (item) {
+<span class="cstat-no" title="statement not covered" >                            return &lt;DropdownItem key={item.title} tag="a" href={item.url}&gt;{item.title}&lt;/DropdownItem&gt;;</span>
+                        })
+                    }
+                &lt;/DropdownMenu&gt;
+            &lt;/ButtonDropdown&gt;
         );
     }
-}</pre></td></tr>
+}
+&nbsp;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

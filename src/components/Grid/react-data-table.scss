@@ -19,7 +19,7 @@ $font-color: #152935;
             font-size: 1.4rem;
             font-weight: $font-weight-medium;
             color: $font-color;
-            word-wrap: break-word;
+            white-space:normal;
         }
     }
 
