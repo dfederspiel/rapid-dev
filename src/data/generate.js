@@ -10,6 +10,13 @@ module.exports = function () {
     var faker = require('faker');
     var _ = require('lodash');
     return {
+        myNewObject: _.times(10, function(n){
+            return {
+                id: n,
+                name: faker.name.firstName()
+            }
+        }),
+        
         articles: _.times(20, function (n) {
             var article = {
                 id: n,
@@ -35,14 +42,27 @@ module.exports = function () {
         ipsum: _.times(1000, function (n) {
             return faker.lorem.words(1);
         }),
-        userConfig: {
-            fastTrack: _.times(15, (n) => {
-                return { 
-                    icon: 'bell', 
-                    href: '/', 
-                    title: faker.lorem.words(2), 
-                    active: false }
-            })
-        }
+        serviceCategories: _.times(15, function (n) {
+            var available = faker.random.number({
+                min: 1,
+                max:10
+            });
+            return {
+                title: faker.company.companyName(),
+                imageClass: 'far fa-image',
+                servicesAvailable: available,
+                servicesUsed: faker.random.number({
+                    min: 0,
+                    max: available
+                })
+            };
+        }),
+        services: _.times(10, function (n) {
+            return {
+                title: faker.company.companyName(),
+                description: faker.lorem.paragraph(5),
+                subscribed: faker.random.boolean()
+            };
+        })
     };
 };

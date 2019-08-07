@@ -15,8 +15,10 @@ const gulp = require('gulp'),
     exec = require("child_process").exec,
     multiDest = require("gulp-multi-dest"),
     cleanCSS = require('gulp-clean-css'),
-    shell = require('gulp-shell');
+    shell = require('gulp-shell'),
+    path = require('path');
 
+const appRoot = path.resolve(__dirname);
 
 const log = (o, level = 0) => {
     if (level > 2)
@@ -224,6 +226,10 @@ const scss = (callback) => {
 const serve = (callback) => {
     console.log(colors.cyan('[SERVE] Says: standing up your server'));
     build_routes();
+    var app = express();
+    app.use(['/discover*'], function (req, res) {
+        res.sendFile(appRoot + '/dist/index.html');
+    });
     bs.init({
         open: false,
         notify: true,
@@ -235,7 +241,8 @@ const serve = (callback) => {
         middleware: [
             function (req, res, next) {
                 router(req, res, next);
-            }]
+            }, app
+            ]
     }, function (err, bs) {
         console.log(colors.cyan('[SERVE] Says: hello'));
         callback();
@@ -338,9 +345,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.series(html, scss, js, jsv, img, font)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
 gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
-gulp.task('serve', gulp.parallel(serve, watch));
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));
 gulp.task('js-coverage', shell.task(['start "" "test\\coverage\\index.html"']));

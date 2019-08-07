@@ -1,151 +1,265 @@
 ﻿//https://reactstrap.github.io/components/progress/
 
 import React from 'react';
-import { Column, Row } from "simple-flexbox";
-import { Progress } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Progress, Collapse } from 'reactstrap';
 
-const transactionProps = [{
-    title: 'Cash Management Accounts',
-    imageClass: 'far fa-image',
-    servicesAvailable: 5,
-    servicesUsed: 3
-},
-{
-    title: 'Coin & Currency Services',
-    imageClass: 'far fa-image',
-    servicesAvailable: 2,
-    servicesUsed: 2
-},
-{
-    title: 'Domestic Wires',
-    imageClass: 'far fa-image',
-    servicesAvailable: 1,
-    servicesUsed: 1
-},
-{
-    title: 'International Wires',
-    imageClass: 'far fa-image',
-    servicesAvailable: 1,
-    servicesUsed: 1
-},
-{
-    title: 'ACH Receipt',
-    imageClass: 'far fa-image',
-    servicesAvailable: 4,
-    servicesUsed: 3
-},
-{
-    title: 'ACH Origination',
-    imageClass: 'far fa-image',
-    servicesAvailable: 3,
-    servicesUsed: 1
-},
-{
-    title: 'Check Deposit Services',
-    imageClass: 'far fa-image',
-    servicesAvailable: 9,
-    servicesUsed: 4
-},
-{
-    title: 'Other Funds Transfers',
-    imageClass: 'far fa-image',
-    servicesAvailable: 2,
-    servicesUsed: 0
-},
-{
-    title: 'Share Draft Services',
-    imageClass: 'far fa-image',
-    servicesAvailable: 6,
-    servicesUsed: 2
-}];
+const fetchServices = (url, callback) => {
+    fetch(url).then((response) => {
+        return response.json();
+    }).then((data) => {
+        callback(data);
+    });
+};
 
-var isTransaction = false;
-var isLiquidity = false;
-var isInvestments = false;
+//const transactionProps = [{
+//    title: 'Cash Management Accounts',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 5,
+//    servicesUsed: 3
+//},
+//{
+//    title: 'Coin & Currency Services',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 2,
+//    servicesUsed: 2
+//},
+//{
+//    title: 'Domestic Wires',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 1,
+//    servicesUsed: 1
+//},
+//{
+//    title: 'International Wires',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 1,
+//    servicesUsed: 1
+//},
+//{
+//    title: 'ACH Receipt',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 4,
+//    servicesUsed: 3
+//},
+//{
+//    title: 'ACH Origination',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 3,
+//    servicesUsed: 1
+//},
+//{
+//    title: 'Check Deposit Services',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 9,
+//    servicesUsed: 4
+//},
+//{
+//    title: 'Other Funds Transfers',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 2,
+//    servicesUsed: 0
+//},
+//{
+//    title: 'Share Draft Services',
+//    imageClass: 'far fa-image',
+//    servicesAvailable: 6,
+//    servicesUsed: 2
+//}];
 
 export default class DiscoverPremierView extends React.Component {
     constructor(props) {
         super(props);
-        isTransaction = props.match.params.serviceType === 'transactions';
-        isLiquidity = props.match.params.serviceType === 'liquidity';
-        isInvestments = props.match.params.serviceType === 'investments';
+        this.switchTiles = this.switchTiles.bind(this);
+        this.triggerServiceDetails = this.triggerServiceDetails.bind(this);
+        this.triggerServiceCategoryDetails = this.triggerServiceCategoryDetails.bind(this);
+
+        this.state = {
+            serviceDetailsOpen: false,
+            services: [],
+            selectedService: -1,
+            serviceCategories: [],
+            selectedCategory: -1,
+            isTransaction: props.match.params.serviceType === 'transactions',
+            isLiquidity: props.match.params.serviceType === 'liquidity',
+            isInvestments: props.match.params.serviceType === 'investments'
+        };
+    }
+
+    componentDidMount() {
+        fetchServices('/api/serviceCategories', (data) => {
+            this.setState({ serviceCategories: data });
+        });
+    }
+
+    switchTiles(serviceType) {
+        this.setState(() => {
+            return {
+                isTransaction: serviceType === 'transactions'
+            };
+        });
+        this.setState(() => {
+            return {
+                isLiquidity: serviceType === 'liquidity'
+            };
+        });
+        this.setState(() => {
+            return {
+                isInvestments: serviceType === 'investments'
+            };
+        });
+    }
+
+    triggerServiceCategoryDetails(index) {
+        if (index === this.state.selectedCategory || index === -1) {
+            this.setState({ serviceDetailsOpen: false });
+            index = -1;
+        }
+        else {
+            fetchServices('/api/services', (data) => {
+                this.setState({ serviceDetailsOpen: true });
+                this.setState({ services: data });
+            });
+        }
+        this.setState({ selectedCategory: index });
+        this.setState({ selectedService: -1 });
+    }
+
+    triggerServiceDetails(index) {
+        this.setState({ selectedService: index });
     }
 
     render() {
         return (
-            <Column flexGrow={1} className="discover-premier-view">
+            <div className="discover-premier-view">
                 <label>Discover Premier View</label>
-                {isTransaction &&
+                {this.state.isTransaction &&
                     <h1>Transactions</h1>
                 }
-                {isLiquidity &&
+                {this.state.isLiquidity &&
                     <h1>Liquidity</h1>
                 }
-                {isInvestments &&
+                {this.state.isInvestments &&
                     <h1>Investments</h1>
                 }
                 <hr />
                 <div className="discover-tiles">
                     <div className="discover-tile-row">
                         <div className="tile-card">
-                            <div className="transaction-card">
-                                <Link to="/discover/transactions">
-                                    <Row className="transaction-row">
-                                        <div className={!isTransaction ? 'disabled-text' : ''}>Transactions</div>
-                                        {isTransaction &&
+                            <a href="javascript:void(0)" onClick={() => { this.switchTiles('transactions'); }}>
+                                <div className="transaction-card">
+                                    <div className="transaction-row">
+                                        <div className={!this.state.isTransaction ? 'disabled-text' : ''}>Transactions</div>
+                                        {this.state.isTransaction &&
                                             <i className="fas fa-desktop" />
                                         }
-                                    </Row>
-                                </Link>
-                            </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <div className="tile-card">
-                            <div className="liquidity-card">
-                                <Link to="/discover/liquidity">
-                                    <Row className="transaction-row">
-                                        <div className={!isLiquidity ? 'disabled-text' : ''}>Liquidity</div>
-                                        {isLiquidity &&
+                            <a href="javascript:void(0)" onClick={() => { this.switchTiles('liquidity'); }}>
+                                <div className="liquidity-card">
+                                    <div className="transaction-row">
+                                        <div className={!this.state.isLiquidity ? 'disabled-text' : ''}>Liquidity</div>
+                                        {this.state.isLiquidity &&
                                             <i className="fas fa-money-bill-alt" />
                                         }
-                                    </Row>
-                                </Link>
-                            </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <div className="tile-card">
-                            <div className="investments-card">
-                                <Link to="/discover/investments">
-                                    <Row className="transaction-row">
-                                        <div className={!isInvestments ? 'disabled-text' : ''}>Investments</div>
-                                        {isInvestments &&
+                            <a href="javascript:void(0)" onClick={() => { this.switchTiles('investments'); }}>
+                                <div className="investments-card">
+                                    <div className="transaction-row">
+                                        <div className={!this.state.isInvestments ? 'disabled-text' : ''}>Investments</div>
+                                        {this.state.isInvestments &&
                                             <i className="fas fa-chart-pie" />
                                         }
-                                    </Row>
-                                </Link>
-                            </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <Row className="service-card-row" wrap>
+                <div className="service-card-row">
                     {
-                        transactionProps.map(function (item, index) {
-                            return (<Column className="service-card-container" justifyContent="space-between" key={index}>
-                                <div className="service-card">
-                                    <Row justifyContent="space-between">
-                                        <Column>
-                                            <i className={item.imageClass} />
-                                            <span>{item.title}</span>
-                                        </Column>
-                                        <Column>
-                                            <div className="service-usage">{item.servicesUsed}/{item.servicesAvailable}</div>
-                                        </Column>
-                                    </Row>
-                                    <Progress value={(item.servicesUsed / item.servicesAvailable) * 100} />
-                                </div></Column>);
+                        this.state.serviceCategories.map((item, index) => {
+                            return (<><div className="service-card-container" key={index}>
+                                <a href="javascript:void(0)" onClick={() => { this.triggerServiceCategoryDetails(index); }}>
+                                    <div className={index === this.state.selectedCategory ? 'selected-service-card' : this.state.selectedCategory === -1 ? 'service-card' : 'unselected-service-card'}>
+                                        <div className="service-card-top">
+                                            <div>
+                                                <i className={item.imageClass} />
+                                                <span>{item.title}</span>
+                                            </div>
+                                            <div>
+                                                <div className="service-usage">{item.servicesUsed}/{item.servicesAvailable}</div>
+                                            </div>
+                                        </div>
+                                        <Progress value={(item.servicesUsed / item.servicesAvailable) * 100} />
+                                    </div>
+                                </a>
+                            </div>
+                                {index === this.state.selectedCategory &&
+                                    <div className="service-details">
+                                        <Collapse isOpen={this.state.serviceDetailsOpen}>
+                                            <div className="service-detail-col">
+                                                <div className="service-detail-header">
+                                                    <i className={this.state.selectedCategory > -1 ? this.state.serviceCategories[this.state.selectedCategory].imageClass : ''} />
+                                                    <h1>{this.state.selectedCategory > -1 ? this.state.serviceCategories[this.state.selectedCategory].title : ''}</h1>
+                                                    <a href="javascript:void(0)" onClick={() => { this.triggerServiceCategoryDetails(-1); }}>CLOSE <i className="far fa-times-circle" /></a>
+                                                </div>
+                                                <div className="flex-row">
+                                                    <div className="service-titles">
+                                                        {
+                                                            this.state.services.map((item, index) => {
+                                                                return (<><div key={index} className="service-title-container">
+                                                                    <a href="javascript:void(0)" onClick={() => { this.triggerServiceDetails(index); }}>
+                                                                        <div className={this.state.selectedService == index ? "service-title-selected" : "service-title"}>
+                                                                            {item.subscribed &&
+                                                                                <><i className="fas fa-check" /><span> </span></>
+                                                                            }
+                                                                            {item.title}
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                    {this.state.selectedService == index &&
+                                                                        <div className="service-title-description-mobile">
+                                                                            <div className="service-description">{item.description}</div>
+                                                                            <div className="description-footer">
+                                                                                <input type="button" value="Learn More" />
+                                                                                {item.subscribed &&
+                                                                                    <span><i className="fas fa-check" /> You own this service</span>
+                                                                                }
+                                                                            </div>
+                                                                        </div>
+                                                                    }</>
+                                                            );
+                                                        })
+                                                    }
+                                                    </div>
+                                                    <div className="service-title-description">
+                                                        <div className="service-description">{this.state.selectedService > -1 ? this.state.services[this.state.selectedService].description : ''}</div>
+                                                        <div className="description-footer">
+                                                            {this.state.selectedService > -1 &&
+                                                                <input type="button" value="Learn More" />
+                                                            }
+                                                            {this.state.selectedService > -1 && this.state.services[this.state.selectedService].subscribed &&
+                                                                <span><i className="fas fa-check" /> You own this service</span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </Collapse>
+                                    </div>
+                                }</>);
                         })
                     }
-                </Row>
-            </Column>
+                </div>
+            </div>
         );
     }
 }

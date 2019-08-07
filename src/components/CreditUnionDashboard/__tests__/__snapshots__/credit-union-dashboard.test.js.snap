@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the credit union component renders correctly 1`] = `
+<div
+  className="credit-union-dashboard"
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "flexWrap": "nowrap",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label>
+        Pending Transactions
+      </label>
+      <a
+        href=""
+      >
+        607
+      </a>
+    </div>
+    <div
+      className="vl"
+    />
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label>
+        Pending Acknowledgements
+      </label>
+      <a
+        href=""
+      >
+        13
+      </a>
+    </div>
+    <div
+      className="vl"
+    />
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      <label>
+        Pending Templates
+      </label>
+      <a
+        href=""
+      >
+        45
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -2,13 +2,16 @@
 @import '../../styles/mixins';
 
 $med-width: 602;
-$large-width: 1048;
+$large-width: 1170;
 
 .discover-premier-view {
     padding: 1.5rem;
     background-color: $light-background;
     width: 95%;
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
 
     h1 {
         font-size: 3.5rem;
@@ -35,16 +38,20 @@ $large-width: 1048;
     }
 
     .discover-tiles {
+        width:96%;
+
         @include at($med-width) {
             position: absolute;
             top: 11rem;
             left: 2rem;
+            width: 55rem;
         }
 
         @include at($large-width) {
             top: 1.5rem;
-            right: 2rem;
+            right: 1.5rem;
             left: auto;
+            width: 77rem;
         }
     }
 
@@ -57,39 +64,203 @@ $large-width: 1048;
         }
     }
 
-    .service-card-container {
-        flex: 1 1 50%;
+    .service-details {
+        width: 100%;
 
-        @include at($med-width) {
-            flex-basis: 33%;
-        }
-
-        @include at($large-width) {
-            flex-basis: 25%;
-        }
-
-        .service-card {
-            border-radius: 1rem;
-            background-color: #FFFFFF;
-            padding: 1rem;
+        .service-detail-col {
+            @extend .flex-col;
             margin: 1.5rem;
-            min-height: 11rem;
-            box-shadow: 0 .1rem .6rem 0 $light-font;
+            justify-content: space-between;
 
-            i {
-                font-size: 4rem;
+            .service-detail-header {
+                @extend .flex-row;
+                justify-content: space-between;
+
+                i {
+                    font-size: 3.5rem;
+                    margin-right: 1.5rem;
+                }
+
+                h1 {
+                    text-align: left;
+                    flex-grow: 8;
+                }
+
+                a {
+                    font-size: 1.5rem;
+                    text-decoration: none;
+
+                    i {
+                        font-size: 1.5rem;
+                        margin-right: 0;
+                    }
+                }
             }
 
-            span {
-                font-size: 1.5rem;
-                font-weight: $font-weight-bold;
+            .service-titles {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                flex-grow: 1;
+                flex-basis: 100%;
+
+                @include at($med-width) {
+                    flex-basis: 33%;
+                }
+
+                .service-title-container {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: space-between;
+                    flex: 1 1 100%;
+
+                    @include at($med-width) {
+                        flex-basis: 50%;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: #000000;
+
+                        .service-title {
+                            border-radius: 1rem;
+                            background-color: #FFFFFF;
+                            padding: 1rem;
+                            margin: 1rem;
+                            font-weight: $font-weight-bold;
+                        }
+
+                        .service-title-selected {
+                            @extend .service-title;
+                            border: .2rem solid $primary;
+                        }
+
+                        i {
+                            color: $tertiary;
+                        }
+                    }
+                }
             }
 
-            .service-usage {
-                background-color: $light-background;
-                color: $light-font;
-                border-radius: 4rem;
-                padding: .5rem;
+            .service-title-description, .service-title-description-mobile {
+                @extend .flex-col;
+                flex-grow: 1;
+                flex-basis: 10%;
+                justify-content: space-between;
+
+                .service-description {
+                    margin-left: 1.5rem;
+                }
+
+                input[type="button"] {
+                    margin-bottom: 1.5rem;
+                }
+
+                .description-footer {
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: space-between;
+
+                    span {
+                        color: $primary;
+                    }
+
+                    i {
+                        color: $tertiary;
+                    }
+                }
+            }
+
+            .service-title-description {
+                display: none !important;
+
+                @include at($med-width) {
+                    display: flex !important
+                }
+            }
+
+            .service-title-description-mobile {
+                @include at($med-width) {
+                    display: none !important;
+                }
+            }
+
+            hr {
+                margin-bottom: 0;
+                margin-top: 2.5rem;
+                background: linear-gradient(to right, $primary 0%, $primary 33%, $secondary 33%, $secondary 66%, $tertiary 66%, $tertiary 100%)
+            }
+        }
+    }
+
+    .service-card-row {
+        display: flex;
+        flex-flow: row wrap;
+
+        .service-card-container {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            flex: 1 1 50%;
+
+            @include at($med-width) {
+                flex-basis: 33%;
+            }
+
+            @include at($large-width) {
+                flex-basis: 25%;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .service-card {
+                border-radius: 1rem;
+                background-color: #FFFFFF;
+                padding: 1rem;
+                margin: 1.5rem;
+                min-height: 11rem;
+                box-shadow: 0 .1rem .6rem 0 $light-font;
+
+                .service-card-top {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+
+                    & > div {
+                        display: flex;
+                        flex-flow: column nowrap;
+                    }
+                }
+
+                i {
+                    font-size: 4rem;
+                }
+
+                span {
+                    font-size: 1.5rem;
+                    font-weight: $font-weight-bold;
+                }
+
+                .service-usage {
+                    background-color: $light-background;
+                    color: $light-font;
+                    border-radius: 4rem;
+                    padding: .5rem;
+                }
+            }
+
+            .selected-service-card {
+                @extend .service-card;
+                min-height: 13rem;
+                margin: .5rem;
+            }
+
+            .unselected-service-card {
+                @extend .service-card;
+                opacity: .1;
             }
         }
     }
@@ -114,8 +285,8 @@ $large-width: 1048;
             padding: 1.5rem;
         }
 
-        .disabled-text{
-            opacity:.1;
+        .disabled-text {
+            opacity: .1;
         }
 
         div {
@@ -137,62 +308,4 @@ $large-width: 1048;
             width: 90%;
         }
     }
-}
-
-.main-card {
-    border-radius: 1rem;
-    position: relative;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    height: 7rem;
-    width: 16rem;
-    box-shadow: 0 .3rem .6rem 0 $light-font;
-
-    div {
-        color: $white;
-        font-size: 1.5rem;
-        font-weight: $font-weight-bold;
-        margin-right: .75rem;
-    }
-
-    i {
-        font-size: 4rem;
-    }
-}
-
-.transaction-card {
-    @extend .main-card;
-    background-image: linear-gradient(#965E73, #462132);
-    margin-right: 1.5rem;
-
-    i {
-        color: #965E73;
-    }
-}
-
-.liquidity-card {
-    @extend .main-card;
-    background-image: linear-gradient(#E9B480, #B27719);
-    margin-right: 1.5rem;
-
-    i {
-        color: #E9B480;
-    }
-}
-
-.investments-card {
-    @extend .main-card;
-    background-image: linear-gradient(#808F68, #445932);
-
-    i {
-        color: #808F68;
-    }
-}
-
-.transaction-row {
-    position: absolute;
-    bottom: 1rem;
-    align-items: flex-end;
-    justify-content: space-between;
-    width: 80%;
 }

@@ -55,7 +55,7 @@ exports[`the account balances component renders correctly 1`] = `
       role="tabpanel"
     >
       <div
-        className="border mb-4 sc-ckVGcZ gVZomo"
+        className="react-data-table sc-ckVGcZ gVZomo"
         style={Object {}}
       >
         <div
@@ -73,6 +73,11 @@ exports[`the account balances component renders correctly 1`] = `
               >
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
+                  id="column-undefined"
+                  onClick={[Function]}
+                />
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
                   id="column-name"
                   onClick={[Function]}
                 >
@@ -80,17 +85,6 @@ exports[`the account balances component renders correctly 1`] = `
                     className="sc-jTzLTM frKpZh"
                   >
                     Account Description
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCol sc-VigVT jCkXQs"
-                  id="column-accountSequence"
-                  onClick={[Function]}
-                >
-                  <div
-                    className="sc-jTzLTM frKpZh"
-                  >
-                    Account Number
                   </div>
                 </div>
                 <div
@@ -115,6 +109,63 @@ exports[`the account balances component renders correctly 1`] = `
                 onClick={[Function]}
               >
                 <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
                   <div
@@ -137,20 +188,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    123459789
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    3,000.55
+                    $3,000.55
                   </div>
                 </div>
               </div>
@@ -158,6 +196,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -181,20 +276,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    1233439789
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    30,000.55
+                    $30,000.55
                   </div>
                 </div>
               </div>
@@ -202,6 +284,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -225,20 +364,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    12332434789
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    15,000.55
+                    $15,000.55
                   </div>
                 </div>
               </div>
@@ -246,6 +372,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -269,20 +452,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    123452349
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    3,045.55
+                    $3,045.55
                   </div>
                 </div>
               </div>
@@ -290,6 +460,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -313,20 +540,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    123423429
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    6,000.55
+                    $6,000.55
                   </div>
                 </div>
               </div>
@@ -334,6 +548,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -357,20 +628,7 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    123456459
-                  </div>
-                </div>
-                <div
-                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
-                >
-                  <div
-                    className="sc-gzVnrw jltdJX"
-                    data-tag="___react-data-table--click-clip___"
-                  />
-                  <div
-                    className="react-data-table--cell-content"
-                  >
-                    2,340.55
+                    $2,340.55
                   </div>
                 </div>
               </div>
@@ -378,6 +636,63 @@ exports[`the account balances component renders correctly 1`] = `
                 className="rdt_TableRow sc-gqjmRU dGyVpY"
                 onClick={[Function]}
               >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    <div
+                      className="btn-group"
+                      onKeyDown={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        aria-label={null}
+                        className="dropdown-toggle btn btn-secondary"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Transfer
+                      </button>
+                      <div
+                        aria-hidden={true}
+                        className="dropdown-menu"
+                        role="menu"
+                        tabIndex="-1"
+                      >
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Share
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Share-to-Loan
+                        </a>
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={[Function]}
+                          role="menuitem"
+                          tabIndex="0"
+                        >
+                          Loan-to-Share
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
                 >
@@ -401,7 +716,21 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    12345634559
+                    $3,230.55
+                  </div>
+                </div>
+              </div>
+              <div
+                className="rdt_TableRow sc-gqjmRU dGyVpY"
+                onClick={[Function]}
+              >
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cxOakP"
+                >
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    
                   </div>
                 </div>
                 <div
@@ -414,163 +743,25 @@ exports[`the account balances component renders correctly 1`] = `
                   <div
                     className="react-data-table--cell-content"
                   >
-                    3,230.55
+                    
+                  </div>
+                </div>
+                <div
+                  className="sc-ifAKCX sc-EHOje rdt_TableCell sc-bZQynM cgAqRg"
+                >
+                  <div
+                    className="sc-gzVnrw jltdJX"
+                    data-tag="___react-data-table--click-clip___"
+                  />
+                  <div
+                    className="react-data-table--cell-content"
+                  >
+                    $17,512,654.55
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <footer
-            className="rdt_TableFooter sc-htpNat hTSrJn"
-          >
-            <span
-              className="sc-eHgmQL isKPrB"
-            >
-              Rows per page:
-            </span>
-            <div
-              className="sc-kkGfuU gCeWql"
-            >
-              <select
-                className="sc-kEYyzF cBrcSU"
-                defaultValue={15}
-                onChange={[Function]}
-              >
-                <option
-                  value={10}
-                >
-                  10
-                </option>
-                <option
-                  value={15}
-                >
-                  15
-                </option>
-                <option
-                  value={20}
-                >
-                  20
-                </option>
-                <option
-                  value={25}
-                >
-                  25
-                </option>
-                <option
-                  value={30}
-                >
-                  30
-                </option>
-              </select>
-              <svg
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-              </svg>
-            </div>
-            <span
-              className="sc-eHgmQL isKPrB"
-            >
-              1-7 of 7
-            </span>
-            <div
-              className="sc-hSdWYo hkbPyM"
-            >
-              <button
-                className="sc-iAyFgw bidHYz"
-                disabled={true}
-                id="pagination-first-page"
-                onClick={[Function]}
-              >
-                <svg
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
-                  />
-                  <path
-                    d="M24 24H0V0h24v24z"
-                    fill="none"
-                  />
-                </svg>
-              </button>
-              <button
-                className="sc-iAyFgw bidHYz"
-                disabled={true}
-                id="pagination-previous-page"
-                onClick={[Function]}
-              >
-                <svg
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                  <path
-                    d="M0 0h24v24H0z"
-                    fill="none"
-                  />
-                </svg>
-              </button>
-              <button
-                className="sc-iAyFgw bidHYz"
-                disabled={true}
-                id="pagination-next-page"
-                onClick={[Function]}
-              >
-                <svg
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                  />
-                  <path
-                    d="M0 0h24v24H0z"
-                    fill="none"
-                  />
-                </svg>
-              </button>
-              <button
-                className="sc-iAyFgw bidHYz"
-                disabled={true}
-                id="pagination-last-page"
-                onClick={[Function]}
-              >
-                <svg
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
-                  />
-                  <path
-                    d="M0 0h24v24H0V0z"
-                    fill="none"
-                  />
-                </svg>
-              </button>
-            </div>
-          </footer>
         </div>
       </div>
     </div>
@@ -587,10 +778,5 @@ exports[`the account balances component renders correctly 1`] = `
       role="tabpanel"
     />
   </div>
-  <input
-    className="secondary-button"
-    type="button"
-    value="Transfers"
-  />
 </div>
 `;
