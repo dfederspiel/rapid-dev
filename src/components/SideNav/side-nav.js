@@ -30,7 +30,7 @@ export default class SideNav extends React.Component {
 
     getUserLinks = () => {
         var links = [
-            { icon: 'star', href: '/', title: 'Some Link', active: true },
+            { icon: 'bell', href: '/', title: 'Some Link', active: true },
             { icon: 'star', href: '/', title: 'Some Link' },
             { icon: 'star', href: '/', title: 'Some Link' },
             { icon: 'star', href: '/', title: 'Some Link' },
@@ -57,7 +57,7 @@ export default class SideNav extends React.Component {
                     <a><FontAwesome style={{ color: 'gray' }} name='bed' size="lg" />{!this.state.minimal && <label>Investments</label>}</a>
                 </div>
                 <div className="side-nav-lower">
-                    <label>FastTrack</label>
+                    <label className="fast-track-title">FastTrack</label>
                     {this.getUserLinks()}
                 </div>
             </div>

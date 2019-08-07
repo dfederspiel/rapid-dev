@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .side-nav {
+    z-index: 100;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -9,6 +10,17 @@
 
     .side-nav-upper {
         border-bottom: .1rem solid #ccc;
+    }
+
+    .side-nav-lower {
+        > label {
+            display: none;
+            @include at(720) {
+                display: block;
+                width: 100%;
+
+            }
+        }
     }
 
     .side-nav-lower, .side-nav-upper {
