@@ -66,6 +66,52 @@ const fetchServices = (url, callback) => {
 //    servicesUsed: 2
 //}];
 
+//const serviceDetailsProps = [{
+//    title: 'TanzCapture Branch Capture',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: false
+//},
+//{
+//    title: 'TanzCapture Business Capture',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: false
+//},
+//{
+//    title: 'TanzCapture Mobile Capture',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: false
+//},
+//{
+//    title: 'TanzCapture ATM',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: false
+//},
+//{
+//    title: 'TanzCapture ITM',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: false
+//},
+//{
+//    title: 'Image Clear',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: true
+//},
+//{
+//    title: 'Deposit Return Processing',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: true
+//},
+//{
+//    title: 'Deposit Fraud Protection',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: true
+//},
+//{
+//    title: 'Foreign Item Deposit',
+//    description: 'Aut dolores fuga tenetur. Tempore minima ut maxime quis. Molestiae laudantium distinctio sed voluptas est. Repellat molestiae amet laboriosam vitae in consequatur quibusdam cumque et. Molestiae sed et dolores dolores soluta et perferendis. Ut dignissimos rerum. Autem sunt recusandae quia dolor sunt maxime id. Fugit aliquam sint.',
+//    subscribed: true
+//}];
+
 export default class DiscoverPremierView extends React.Component {
     constructor(props) {
         super(props);

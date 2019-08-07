@@ -1,0 +1,70 @@
+﻿@import '../variables';
+
+#contractGrid {
+    .sectionbody > div {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        flex-grow: 1;
+        flex-basis: 100%;
+
+        .contract-box {
+            flex: 1 1 25%;
+
+            .contract {
+                background-color: $alt-table-row;
+                border-radius: 1rem;
+                margin: .75rem;
+                box-shadow: 0 .1rem .6rem 0 $light-font;
+
+                &.contract-active {
+                    .contract-description {
+                        border-bottom: solid .2rem $ok;
+                    }
+                }
+
+                &.contract-inactive {
+                    .contract-description {
+                        border-bottom: solid .2rem $light-font;
+                    }
+                }
+
+                .contract-description {
+                    color: #000000;
+                    margin: 0;
+                    border-radius: 1rem 1rem 0 0;
+                    padding: .5rem;
+                    font-weight:$font-weight-bold;
+                }
+
+                .contract-body {
+                    padding: .5rem;
+
+                    .contract-bullet {
+                        border-radius: 50%;
+                        width: .6rem;
+                        height: .6rem;
+                        display: inline-block;
+                        vertical-align: .2rem;
+
+                        &.contract-bullet-active {
+                            background-color: $ok;
+                        }
+
+                        &.contract-bullet-inactive {
+                            background-color: $light-font;
+                        }
+
+                        &.contract-bullet-inprogress {
+                            background-color: $warning;
+                        }
+
+                        &.contract-bullet-terminated {
+                            background-color: $error;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
