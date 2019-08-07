@@ -10,23 +10,30 @@
 
         .contract-box {
             flex: 1 1 25%;
+            min-width: 30rem;
 
             .contract {
                 background-color: $alt-table-row;
-                border-radius: 1rem;
-                margin: .75rem;
+                border-radius: .4rem;
+                margin: 2rem;
                 box-shadow: 0 .1rem .6rem 0 $light-font;
+                height: calc(100% - 4rem);
+                padding: .5rem 1.5rem;
 
                 &.contract-active {
-                    .contract-description {
-                        border-bottom: solid .2rem $ok;
-                    }
+                    border-left: solid 1rem $ok
                 }
 
                 &.contract-inactive {
-                    .contract-description {
-                        border-bottom: solid .2rem $light-font;
-                    }
+                    border-left: solid 1rem $light-font;
+                }
+
+                &.contract-inprogress {
+                    border-left: solid 1rem $warning;
+                }
+
+                &.contract-terminated {
+                    border-left: solid 1rem $error;
                 }
 
                 .contract-description {
