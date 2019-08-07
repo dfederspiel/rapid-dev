@@ -63,7 +63,7 @@
             cursor: pointer;
 
             &.active, &:hover {
-                padding: .2rem 0 .2rem .6rem;
+                padding: .2rem .9rem .2rem .6rem;
                 border-left: solid .3rem $primary;
                 .fa {
                     color: $primary !important;
