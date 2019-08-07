@@ -9,20 +9,12 @@ var jsonData = require('./src/data/generate.js');
 
 const appRoot = path.resolve(__dirname);
 
-var json_server = jsonServer.create({
-    verbosity: {
-        level: "info",
-        urlTracing: false
-    }
-});
-json_server.use(jsonServer.defaults());
-json_server.use(jsonServer.router(jsonData()));
-router.use('/api', json_server);
 
-app.use('/api', router);
 app.use(['/discover*'], function (req, res) {
     res.sendFile(appRoot + '/dist/index.html');
 });
+app.use('/api', jsonServer.defaults());
+app.use('/api', jsonServer.router(jsonData()));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
