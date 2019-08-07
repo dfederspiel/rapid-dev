@@ -18,3 +18,10 @@ export function resolved(data) {
 export function rejected(data) {
     return Promise.reject(data);
 }
+
+export function fakeWindowObjectProperty(propertyName, value) {
+   return Object.defineProperty(window, propertyName, {
+        writable: true,
+        value: value,
+    });
+}
