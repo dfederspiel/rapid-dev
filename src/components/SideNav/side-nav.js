@@ -7,21 +7,18 @@ export default class SideNav extends React.Component {
         super(props);
         this.state = {
             open: true,
-            minimal: false,
-            mobile: props.mobile
+            minimal: false
         };
     }
 
     componentWillReceiveProps(props) {
-        this.setState({ open: props.open, mobile: props.mobile, minimal: props.minimal });
+        this.setState({ open: props.open, minimal: props.minimal });
     }
 
     getClasses() {
         var classes = ['side-nav'];
         if (this.state.open)
             classes.push('open');
-        if (this.state.mobile)
-            classes.push('mobile');
         if (this.state.minimal)
             classes.push('minimal');
 
