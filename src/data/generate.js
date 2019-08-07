@@ -41,7 +41,7 @@ module.exports = function () {
                     icon: 'bell', 
                     href: '/', 
                     title: faker.lorem.words(2), 
-                    active: n == 0 ? true : false }
+                    active: false }
             })
         }
     };

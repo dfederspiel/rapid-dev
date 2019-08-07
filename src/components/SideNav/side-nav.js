@@ -30,7 +30,7 @@ export default class SideNav extends React.Component {
 
     getUserLinks = () => {
         var links = [
-            { icon: 'bell', href: '/', title: 'Some Link', active: true },
+            { icon: 'bell', href: '/', title: 'Some Link' },
             { icon: 'star', href: '/', title: 'Some Link' },
             { icon: 'star', href: '/', title: 'Some Link' },
             { icon: 'star', href: '/', title: 'Some Link' },
@@ -41,7 +41,7 @@ export default class SideNav extends React.Component {
 
         let linkHtml = [];
         for (var x = 0; x < links.length; x++) {
-            linkHtml.push(<a className={links[x].active ? 'active' : '' } key={x}><FontAwesome name='star' size="lg" />{!this.state.minimal && <label>TESTING</label>}</a>);
+            linkHtml.push(<a key={x}><FontAwesome name='star' size="lg" />{!this.state.minimal && <label>{links[x].title}</label>}</a>);
         }
 
         return linkHtml;

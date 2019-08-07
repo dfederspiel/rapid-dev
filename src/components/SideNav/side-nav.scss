@@ -3,13 +3,19 @@
 .side-nav {
     z-index: 100;
     display: none;
+    position: absolute;
+    @include at(720) {
+        position: static
+    }
     flex-direction: column;
     align-items: center;
-    border-right: .1rem solid #ccc;
-    background-color: white;
+    border-right: .1rem solid $border-light;
+    border-bottom: .1rem solid  $border-light;
+    background-color: $white;
+    min-height: 100vh;
 
     .side-nav-upper {
-        border-bottom: .1rem solid #ccc;
+        border-bottom: .1rem solid  $border-light;
         a {
             margin: .5rem auto;
         
@@ -23,12 +29,21 @@
     }
 
     .side-nav-lower {
+        
         > label {
-            display: none;
-            @include at(720) {
-                display: block;
-                width: 100%;
-
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            margin-left: 3.6rem;
+        }
+        
+        a {
+            margin: .25rem auto;
+            &:first-child {
+                margin-top: .5rem;
+            }
+            &:last-child{
+                margin-bottom: 3rem;
             }
         }
     }
@@ -46,12 +61,14 @@
             width: 100%;
             min-height: 3.6rem;
 
-            &.active {
+            &.active, &:hover {
                 padding: .2rem 0 .2rem .6rem;
-                border-left: solid .3rem maroon;
-
+                border-left: solid .3rem $primary;
                 .fa {
-                    color: maroon !important;
+                    color: $primary !important;
+                }
+                label {
+                    font-weight: 600;
                 }
             }
 
@@ -71,7 +88,6 @@
         }
     }
 
-
     &.open {
         display: flex;
         width: $side-nav-width;
@@ -79,7 +95,7 @@
         &.minimal {
             width: 5rem;
 
-            > label {
+            label {
                 display: none;
             }
 
@@ -89,9 +105,5 @@
                 }
             }
         }
-    }
-
-    &.mobile {
-        position: fixed;
     }
 }
