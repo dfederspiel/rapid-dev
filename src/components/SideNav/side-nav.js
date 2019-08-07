@@ -30,13 +30,13 @@ export default class SideNav extends React.Component {
 
     getUserLinks = () => {
         var links = [
-            { icon: 'bell', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' },
-            { icon: 'star', href: '/', title: 'Some Link' }
+            { icon: 'bell', href: '/', title: 'Domestic Wire' },
+            { icon: 'star', href: '/', title: 'Credit Union Dashboard' },
+            { icon: 'star', href: '/', title: 'Transaction Review' },
+            { icon: 'star', href: '/', title: 'ACH' },
+            { icon: 'star', href: '/', title: 'Coin & Currency Order' },
+            { icon: 'star', href: '/', title: 'International Wire' },
+            { icon: 'star', href: '/', title: 'Cash Management' }
         ];
 
         let linkHtml = [];

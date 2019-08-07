@@ -29,7 +29,7 @@
     }
 
     .side-nav-lower {
-        
+
         > label {
             display: block;
             width: 100%;
@@ -60,6 +60,7 @@
             align-items: center;
             width: 100%;
             min-height: 3.6rem;
+            cursor: pointer;
 
             &.active, &:hover {
                 padding: .2rem 0 .2rem .6rem;
@@ -103,6 +104,10 @@
                 .fa {
                     margin-right: 0;
                 }
+            }
+
+            .side-nav-lower {
+                margin: 2rem 0;
             }
         }
     }
