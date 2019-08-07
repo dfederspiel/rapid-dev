@@ -51,10 +51,10 @@ export default class SideNav extends React.Component {
         return (
             <div className={this.getClasses()}>
                 <div className="side-nav-upper">
-                    <a className="active"><FontAwesome style={{ color: 'gray' }} name='star' size="lg" />{!this.state.minimal && <label>Home Overview</label>}</a>
-                    <a><FontAwesome style={{ color: 'gray' }} name='bell' size="lg" />{!this.state.minimal && <label>Transactions</label>}</a>
-                    <a><FontAwesome style={{ color: 'gray' }} name='bath' size="lg" />{!this.state.minimal && <label>Liquidity</label>}</a>
-                    <a><FontAwesome style={{ color: 'gray' }} name='bed' size="lg" />{!this.state.minimal && <label>Investments</label>}</a>
+                    <a className="active"><FontAwesome style={{ color: 'gray' }} name='home' size="lg" />{!this.state.minimal && <label>Home Overview</label>}</a>
+                    <a><FontAwesome style={{ color: 'gray' }} name='laptop' size="lg" />{!this.state.minimal && <label>Transactions</label>}</a>
+                    <a><FontAwesome style={{ color: 'gray' }} name='money-bill-alt' size="lg" />{!this.state.minimal && <label>Liquidity</label>}</a>
+                    <a><FontAwesome style={{ color: 'gray' }} name='chart-pie' size="lg" />{!this.state.minimal && <label>Investments</label>}</a>
                 </div>
                 <div className="side-nav-lower">
                     <label className="fast-track-title">FastTrack</label>
