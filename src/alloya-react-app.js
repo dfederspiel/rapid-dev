@@ -53,7 +53,7 @@ export default class AlloyaReactApp extends React.Component {
                     <TopNav menuClicked={this.menuClicked} notificationCount={300} />
                 </header>
                 <main>
-                    <SideNav minimal={this.state.minimal} open={this.state.open} mobile={this.state.isMobile} />
+                    <SideNav minimal={this.state.minimal} open={this.state.open} />
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/discover/:serviceType" component={DiscoverPremierView} />
                     <Route exact path="/home.html" component={Dashboard} />
