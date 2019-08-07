@@ -37,11 +37,19 @@
                 }
 
                 .contract-description {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
                     color: #000000;
                     margin: 0;
                     border-radius: 1rem 1rem 0 0;
                     padding: .5rem;
-                    font-weight:$font-weight-bold;
+                    font-weight: $font-weight-bold;
+
+                    span.fas {
+                        font-size: 3rem;
+                        color: $light-font;
+                    }
                 }
 
                 .contract-body {

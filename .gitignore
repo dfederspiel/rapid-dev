@@ -62,3 +62,7 @@ typings/
 
 dist
 src/data/db.json
+/.vs/alloya-pv-templates/config/applicationhost.config
+/.vs/alloya-pv-templates/v16/.suo
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
