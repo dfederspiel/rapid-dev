@@ -57,7 +57,7 @@ export default class AlloyaReactApp extends React.Component {
                     <TopNav toggleSideNav={handleSideNavToggle} notificationCount={300} />
                 </header>
                 <main className="alloya-main">
-                    <SideNav minimal={sideNavIsMinimal} open={sideNavIsOpen} />
+                <SideNav minimal={sideNavIsMinimal} open={sideNavIsOpen} />
                     <Router>
                         <Route path="/" exact component={Dashboard} />
                         <Route path="/discover/:serviceType" component={DiscoverPremierView} />

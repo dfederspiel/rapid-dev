@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { fakeWindowObjectProperty } from '../tests-setup';
 import AlloyaReactApp from '../alloya-react-app';
 
-
 describe("The Alloya app", () => {
     let _component;
 
@@ -81,12 +80,12 @@ describe("The Alloya app", () => {
                     _component.instance().handleSideNavToggle();
                 });
 
-                it("toggles the side navigation minimal view", () => {
-                    expect(_component.state().sideNavIsMinimal).toEqual(false);
-                });
-
                 it("toggles the side navigation", () => {
                     expect(_component.state().sideNavIsOpen).toEqual(true);
+                });
+
+                it("toggles the side navigation minimal view", () => {
+                    expect(_component.state().sideNavIsMinimal).toEqual(false);
                 });
             });
         });
