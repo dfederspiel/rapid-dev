@@ -136,10 +136,14 @@
         background-color: $light-background;
         opacity: .7;
         width: 30rem;
+        padding:.3rem;
     }
 
     .ButtonRow {
         margin-top: 1.5rem;
+        input:first-child{
+            margin-left:0;
+        }
     }
 
     .noticePanel {
@@ -151,10 +155,15 @@
         border-radius: .25rem;
         margin-bottom: 1.5rem;
         width: 50%;
+        align-items:center;
 
         i{
             font-size:7rem;
             margin-right:1.5rem;
+        }
+
+        p{
+            font-size:1.2rem;
         }
     }
 }

@@ -13,10 +13,12 @@ block main
           div
             #ctl00_PinValidator_OboNoticePanel.noticePanel
               i.fas.fa-exclamation
-              p
-                | IMPORTANT NOTICE:  Premier View will allow this transaction to be funded by an advance on your line of credit if applicable.
-                | Please review your transaction account prior to the transaction cutoff time and fund accordingly.
-                | Any unfunded portion of the transaction will result in an advance on your line of credit.
+              .message 
+                .title IMPORTANT NOTICE
+                p
+                    | Premier View will allow this transaction to be funded by an advance on your line of credit if applicable.
+                    | Please review your transaction account prior to the transaction cutoff time and fund accordingly.
+                    | Any unfunded portion of the transaction will result in an advance on your line of credit.
         .d-flex.flex-column
             .d-flex.flex-column
                 label(for='ctl00_PinValidator_OboUserList') User:

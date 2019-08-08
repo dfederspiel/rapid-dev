@@ -1,12 +1,17 @@
 ﻿@import '../variables';
 
 #contractGrid {
+    .sectionhdg {
+        font-size:2rem;
+    }
+
     .sectionbody > div {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         flex-grow: 1;
         flex-basis: 100%;
+        margin: 0 -2rem;
 
         .contract-box {
             flex: 1 1 25%;
@@ -29,11 +34,11 @@
                 }
 
                 &.contract-inprogress {
-                    border-left: solid 1rem $warning;
+                    border-left: solid 1rem darken($warning, 30%);
                 }
 
                 &.contract-terminated {
-                    border-left: solid 1rem $error;
+                    border-left: solid 1rem darken($error, 40%);
                 }
 
                 .contract-description {
@@ -71,11 +76,11 @@
                         }
 
                         &.contract-bullet-inprogress {
-                            background-color: $warning;
+                            background-color: darken($warning, 40%);
                         }
 
                         &.contract-bullet-terminated {
-                            background-color: $error;
+                            background-color: darken($error, 40%);
                         }
                     }
                 }
