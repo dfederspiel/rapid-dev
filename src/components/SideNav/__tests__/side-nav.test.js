@@ -12,7 +12,7 @@ describe('the side navigation component', () => {
 
     })
     it('calls api', () => {
-        expect(Api.fetch).toHaveBeenCalled();
+        expect(Api.fetch).toHaveBeenCalledWith("/api/fasttrack");
     });
 
 });

@@ -20,7 +20,7 @@ export default class SideNav extends React.Component {
     }
 
     componentWillMount(){
-        Api.fetch("api/fasttrack");
+        Api.fetch("/api/fasttrack");
     }
 
     renderFastTrackLinks = () => {
