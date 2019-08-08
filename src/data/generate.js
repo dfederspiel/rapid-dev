@@ -63,6 +63,13 @@ module.exports = function () {
                 description: faker.lorem.paragraph(5),
                 subscribed: faker.random.boolean()
             };
+        }),
+        blah: _.times(10, function (n) {
+            return {
+                title: faker.company.companyName(),
+                description: faker.lorem.paragraph(5),
+                subscribed: faker.random.boolean()
+            };
         })
     };
 };
