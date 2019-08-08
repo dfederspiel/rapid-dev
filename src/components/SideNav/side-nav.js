@@ -6,57 +6,51 @@ export default class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
-            minimal: false
+            links: [
+                { icon: 'bell', href: '/', title: 'Domestic Wire' },
+                { icon: 'star', href: '/', title: 'Credit Union Dashboard' },
+                { icon: 'star', href: '/', title: 'Transaction Review' },
+                { icon: 'star', href: '/', title: 'ACH' },
+                { icon: 'star', href: '/', title: 'Coin & Currency Order' },
+                { icon: 'star', href: '/', title: 'International Wire' },
+                { icon: 'star', href: '/', title: 'Cash Management' }
+            ],
         };
     }
 
-    componentWillReceiveProps(props) {
-        this.setState({ open: props.open, minimal: props.minimal });
-    }
-
-    getClasses() {
-        var classes = ['side-nav'];
-        if (this.state.open)
-            classes.push('open');
-        if (this.state.minimal)
-            classes.push('minimal');
-
-        return classes.join(' ');
-    }
-
-    getUserLinks = () => {
-        var links = [
-            { icon: 'bell', href: '/', title: 'Domestic Wire' },
-            { icon: 'star', href: '/', title: 'Credit Union Dashboard' },
-            { icon: 'star', href: '/', title: 'Transaction Review' },
-            { icon: 'star', href: '/', title: 'ACH' },
-            { icon: 'star', href: '/', title: 'Coin & Currency Order' },
-            { icon: 'star', href: '/', title: 'International Wire' },
-            { icon: 'star', href: '/', title: 'Cash Management' }
-        ];
-
-        let linkHtml = [];
-        for (var x = 0; x < links.length; x++) {
-            linkHtml.push(<a key={x}><FontAwesome name='star' size="lg" />{!this.state.minimal && <label>{links[x].title}</label>}</a>);
-        }
-
-        return linkHtml;
+    renderFastTrackLinks = () => {
+        return (
+            this.state.links.map((item, index) =>
+                <li key={index}>
+                    <a href={item.href}>
+                        <div className="icon"><FontAwesome name={item.icon} size="lg" /></div>
+                        <div className="link">{item.title}</div></a>
+                </li>
+            )
+        )
     }
 
     render() {
         return (
-            <div className={this.getClasses()}>
-                <div className="side-nav-upper">
-                    <a className="active"><FontAwesome style={{ color: 'gray' }} name='home' size="lg" />{!this.state.minimal && <label>Home Overview</label>}</a>
-                    <a href="/discover/transactions"><FontAwesome style={{ color: 'gray' }} name='laptop' size="lg" />{!this.state.minimal && <label>Transactions</label>}</a>
-                    <a><FontAwesome style={{ color: 'gray' }} name='money-bill-alt' size="lg" />{!this.state.minimal && <label>Liquidity</label>}</a>
-                    <a><FontAwesome style={{ color: 'gray' }} name='chart-pie' size="lg" />{!this.state.minimal && <label>Investments</label>}</a>
-                </div>
-                <div className="side-nav-lower">
-                    <label className="fast-track-title">FastTrack</label>
-                    {this.getUserLinks()}
-                </div>
+            <div className="side-nav">
+                <ul className="top">
+                    <li><a href="#">
+                        <div className="icon"><FontAwesome name='home' size="lg" /></div>
+                        <div className="link">Home Overview</div></a></li>
+                    <li><a href="#">
+                        <div className="icon"><FontAwesome name='laptop' size="lg" /></div>
+                        <div className="link">Transaction</div></a></li>
+                    <li><a href="#">
+                        <div className="icon"><FontAwesome name='money-bill-alt' size="lg" /></div>
+                        <div className="link">Liquidity</div></a></li>
+                    <li><a href="#">
+                        <div className="icon"><FontAwesome name='chart-pie' size="lg" /></div>
+                        <div className="link">Investments</div></a></li>
+                </ul>
+                <ul className="bottom">
+                    <label className="heading">FastTrack</label>
+                    {this.renderFastTrackLinks()}
+                </ul>
             </div>
         );
     }

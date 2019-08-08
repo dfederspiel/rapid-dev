@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -168,7 +168,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,9 +184,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,7 +201,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,7 +214,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,7 +227,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,11 +242,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -283,7 +283,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ReactDataTable from "../Grid/react-data-table";
 import DropDownButton from "../DropDownButton/drop-down-button";
 &nbsp;
-const dropDownProps = <span class="cstat-no" title="statement not covered" >{</span>
+const dropDownProps = {
     buttonTitle: "Transfer",
     items: [{
         url: '',
@@ -299,9 +299,9 @@ const dropDownProps = <span class="cstat-no" title="statement not covered" >{</s
     }]
 };
 &nbsp;
-const gridColumns = <span class="cstat-no" title="statement not covered" >[</span>
+const gridColumns = [
     {
-        cell: <span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >!row.isTotal ? &lt;DropDownButton {...dropDownProps} /&gt; : '',</span>
+        cell: row =&gt; !row.isTotal ? &lt;DropDownButton {...dropDownProps} /&gt; : '',
         ignoreRowClick: true,
         allowOverflow: true
     },
@@ -316,7 +316,7 @@ const gridColumns = <span class="cstat-no" title="statement not covered" >[</spa
         sortable: true
     }];
 &nbsp;
-var shareProps = <span class="cstat-no" title="statement not covered" >{</span>
+var shareProps = {
     data: [{ name: 'Test Account', balance: '$3,000.55' },
         { name: 'Test Account 2', balance: '$30,000.55' },
         { name: 'Test Account 3', balance: '$15,000.55' },
@@ -329,7 +329,7 @@ var shareProps = <span class="cstat-no" title="statement not covered" >{</span>
     pagination: false
 };
 &nbsp;
-var loanProps = <span class="cstat-no" title="statement not covered" >{</span>
+var loanProps = {
     data: [{ name: 'Test Loan Account', balance: '$3,000.55' },
     { name: 'Test Loan Account 2', balance: '$30,000.55' },
     { name: 'Test Loan Account 3', balance: '$15,000.55' },
@@ -342,7 +342,7 @@ var loanProps = <span class="cstat-no" title="statement not covered" >{</span>
     pagination: false
 };
 &nbsp;
-var certProps = <span class="cstat-no" title="statement not covered" >{</span>
+var certProps = {
     data: [{ name: 'Test Cert Account', balance: '$3,000.55' },
     { name: 'Test Cert Account 2', balance: '$30,000.55' },
     { name: 'Test Cert Account 3', balance: '$15,000.55' },
@@ -356,12 +356,12 @@ var certProps = <span class="cstat-no" title="statement not covered" >{</span>
 };
 &nbsp;
 export default class AccountBalances extends React.Component {
-<span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >        super(props);</span>
+    constructor(props) {
+        super(props);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    re</span>nder() {
-<span class="cstat-no" title="statement not covered" >        return (</span>
+    render() {
+        return (
             &lt;div className="account-balances"&gt;
                 &lt;Tabs&gt;
                     &lt;TabList&gt;
@@ -397,7 +397,7 @@ export default class AccountBalances extends React.Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Aug 07 2019 09:16:40 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Aug 08 2019 14:02:41 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

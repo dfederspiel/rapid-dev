@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { fakeWindowObjectProperty } from '../tests-setup';
+import { fakeWindowObjectProperty, resolved,promise } from '../tests-setup';
 import AlloyaReactApp from '../alloya-react-app';
-
 describe("The Alloya app", () => {
     let _component;
 
@@ -30,8 +29,10 @@ describe("The Alloya app", () => {
         describe("given the component did mount", () => {
             beforeEach(() => {
                 _component.setState({ sideNavIsMinimal: true });
+                spyOn(Api,"fetch").and.returnValue(promise());
                 _component.instance().componentDidMount();
             });
+
 
             describe("when setting the view state", () => {
                 it("does not set the side navigation minimal view", () => {
