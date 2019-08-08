@@ -5,7 +5,7 @@
 @import 'contract-dashboard';
 @import 'kendo-toolbar';
 
-#TheContent {
+#TheContent, #ctl00_PinValidationPanel {
     margin: 3rem;
     width: 100%;
     background-color: #FFFFFF;
@@ -25,6 +25,10 @@
         background-color: lighten($primary, 60%);
     }
 
+    .PageHeaderSub {
+        margin-left: .75rem;
+    }
+
     .btn {
         font-size: 1.4rem;
     }
@@ -37,9 +41,12 @@
     .btn-light {
         font-size: 1.4rem;
         font-weight: $font-weight-medium;
-        border-color: #42505C;
+        border: solid .1rem #42505C;
         width: 10rem;
         margin-left: 1.5rem;
+        background-color: $white;
+        color: #000000;
+        border-radius: .25rem;
     }
 
     .FormLabel {
@@ -118,10 +125,36 @@
         color: $primary;
         padding-left: .5rem;
         margin-bottom: 1.5rem;
-        font-weight:$font-weight-bold;
+        font-weight: $font-weight-bold;
     }
 
     .sectionbody {
         margin-bottom: 2rem;
+    }
+
+    .disabledcell {
+        background-color: $light-background;
+        opacity: .7;
+        width: 30rem;
+    }
+
+    .ButtonRow {
+        margin-top: 1.5rem;
+    }
+
+    .noticePanel {
+        display: flex;
+        flex-flow: row nowrap;
+        background-image: linear-gradient(#462132, #965E73);
+        color: $white;
+        padding: 1.5rem;
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        width: 50%;
+
+        i{
+            font-size:7rem;
+            margin-right:1.5rem;
+        }
     }
 }
