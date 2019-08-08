@@ -60,7 +60,8 @@ typings/
 # next.js build output
 .next
 
-dist
+/dist
+/test
 src/data/db.json
 /.vs/slnx.sqlite
 /.vs/Alloya/config/applicationhost.config
