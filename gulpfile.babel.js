@@ -129,9 +129,7 @@ const js = (callback) => {
             debug: true
         })
         .external(dependencies)
-        .transform('babelify', {
-            presets: ['@babel/preset-env']
-        });
+        .transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]});
 
     return b
         .bundle((err) => {
@@ -161,9 +159,7 @@ const jsv = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
     var b = browserify({
         debug: true
-    }).transform('babelify', {
-        presets: ['@babel/preset-env']
-    });
+    }).transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]})
 
     dependencies.forEach(lib => {
         b.require(lib);
