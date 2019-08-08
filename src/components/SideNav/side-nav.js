@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import Api from '../../services/Api';
 
 export default class SideNav extends React.Component {
 
@@ -16,6 +17,10 @@ export default class SideNav extends React.Component {
                 { icon: 'star', href: '/', title: 'Cash Management' }
             ],
         };
+    }
+
+    componentWillMount(){
+        Api.fetch("api/fasttrack");
     }
 
     renderFastTrackLinks = () => {

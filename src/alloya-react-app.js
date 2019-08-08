@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import 'babel-polyfill';
 import TopNav from './components/TopNav/top-nav';
 import SideNav from './components/SideNav/side-nav';
 import Dashboard from './pages/Dashboard/dashboard';
