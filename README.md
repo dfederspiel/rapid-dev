@@ -10,7 +10,7 @@ It also solves issues of portability, separation of concerns, and contextual gro
 
 More succinctly, it is good.
 
-## Quickstart:
+## Quickstart
 
 This is a node and express app and will require node to be installed in order to take advantage of all the features of the code.
 
@@ -28,7 +28,8 @@ Once that's finished, run this command to build the code and host it locally:
 
 There are several other tasks defined in gulpfile.babel.js - they can be run via command line
 
-# Commands
+## Commands
+
 `npm run start` - startup script for hosting the site on a node server
 
 `npm run unit` - generates bundled assets that are to be used in production. (individual js/css/maps)  Configuration is found in webpack/prod.config.js, and production assets can be found in the /build/ folder.
@@ -39,10 +40,12 @@ There are several other tasks defined in gulpfile.babel.js - they can be run via
 * [json-server](https://github.com/typicode/json-server) - mock service layer for authoring UI components
 * [faker](https://github.com/Marak/Faker.js) - data generator for PUG and JSONServer
 
-# Codebase
+## Codebase
+
 Here's a breakdown of where things are:
-```
-dist                - production bundle output directory 
+
+```filesystem
+dist                - production bundle output directory
                       (automatically generated)
 lib                 - contains template dependencies used for bundling and distribution
 src                 - all the working code
@@ -56,8 +59,11 @@ src                 - all the working code
 test                - auto-generated for coverage tests
 package.json
 ```
-# Resources
+
+## Resources
+
 Good material to read up on
+
 * [React](https://reactjs.org/)
 * [Jest](https://facebook.github.io/jest/)
 * [Babel](https://babeljs.io/learn-es2015/)
