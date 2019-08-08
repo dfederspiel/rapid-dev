@@ -66,6 +66,8 @@
         "watchify": "^3.11.1"
     },
     "dependencies": {
+        "babel-plugin-transform-regenerator": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
         "moment": "^2.24.0",
