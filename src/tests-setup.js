@@ -25,3 +25,9 @@ export function fakeWindowObjectProperty(propertyName, value) {
         value: value,
     });
 }
+export function fakeDocumentObjectMethod(methodName, value) {
+    return Object.defineProperty(document, methodName, {
+         writable: true,
+         value: value,
+     });
+ }

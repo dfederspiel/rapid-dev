@@ -14,6 +14,20 @@ export default class AlloyaReactApp extends React.Component {
         };
     }
 
+    componentWillMount() {
+        document.addEventListener("mousedown", this.handleClick, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.handleClick, false);
+    }
+
+    handleClick = (e) => {
+        if (this.sideNavNode.contains(e.target) || this.headerNode.contains(e.target))
+            return;
+        this.setState({ sideNavIsOpen: false });
+    }
+
     toggleSideNav = () => {
         this.setState({ sideNavIsOpen: !this.state.sideNavIsOpen });
     }
@@ -23,13 +37,15 @@ export default class AlloyaReactApp extends React.Component {
         const { sideNavIsOpen } = this.state;
 
         return (
-            <div class={`alloya-body ${sideNavIsOpen ? "side-nav-expanded" : ""}`}>
-                <header>
+            <div className={`alloya-body ${sideNavIsOpen ? "side-nav-expanded" : ""}`}>
+                <header ref={node => (this.headerNode = node)}>
                     <TopNav toggleSideNav={toggleSideNav} />
                 </header>
                 <main>
-                    <SideNav />
-                    <div class="alloya-content">
+                    <div ref={node => (this.sideNavNode = node)}>
+                        <SideNav />
+                    </div>
+                    <div className="alloya-content">
                         <Router>
                             <Route path="/" exact component={Dashboard} />
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />

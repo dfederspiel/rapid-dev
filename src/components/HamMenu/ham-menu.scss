@@ -1,13 +1,12 @@
 .ham-menu {
-    width: 1.4rem;
-    height: 1.8rem;
-    padding: 3rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 2.5rem;
     box-sizing: initial;
     cursor: pointer;
 
     &:hover {
         .ham {
-
             &:nth-child(2),
             &:nth-child(3) {
                 width: 100%;
@@ -22,12 +21,11 @@
         transition-duration: 0.3s;
 
         &:nth-child(2) {
-            margin: 0.3rem 0;
+            margin: 0.5rem 0;
             width: 75%;
         }
 
         &:nth-child(3) {
-            margin: 0.3rem 0;
             width: 25%;
         }
     }
