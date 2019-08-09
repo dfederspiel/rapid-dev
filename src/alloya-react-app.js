@@ -42,13 +42,13 @@ export default class AlloyaReactApp extends React.Component {
                     <TopNav toggleSideNav={toggleSideNav} />
                 </header>
                 <main>
-                    <div ref={node => (this.sideNavNode = node)}>
+                    <div class="side-nav-wrapper" ref={node => (this.sideNavNode = node)}>
                         <SideNav />
                     </div>
                     <div className="alloya-content">
                         <Router>
                             <Route path="/" exact component={Dashboard} />
-                            <Route path="/transaction" exact component={DiscoverPremierView} />
+                            <Route path="/transaction"  exact component={DiscoverPremierView} />
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
                         </Router>
                     </div>

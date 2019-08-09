@@ -45,10 +45,8 @@ export default class SideNav extends React.Component {
                 <a href={href} className={className}>
                     <div className="icon"><FontAwesome name={icon} size="lg" /></div>
                     <div className="title">{title}</div>
-                    </a>
-                {/* <ul className="nav-sub-1">
-                    <li>test</li>
-                </ul> */}
+                </a>
+
             </li>
         )
     }
@@ -59,15 +57,31 @@ export default class SideNav extends React.Component {
 
         return (
             <div className="side-nav">
-                <ul className="top">
+                <ul className="nav-base-level">
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
-                    {renderNavLink("Transaction", "transaction-link", "/transaction", "laptop")}
+                    <li>
+                        <a className="transaction-link">
+                            <div className="icon"><FontAwesome name="laptop" size="lg" /></div>
+                            <div className="title">Transaction</div>
+                        </a>
+                        <ul className="nav-second-level">
+                            <li className="nav-heading">Transaction</li>
+                            <li><a href="">Transaction Review</a></li>
+                            <li><a href="">Cash Management Account</a></li>
+                            <li><a href="">Domestic Wires</a></li>
+                            <li><a href="">International Wires</a></li>
+                            <li><a href="">Share Draft Services</a></li>
+                            <li><a href="">Check Deposit Services</a></li>
+                        </ul>
+
+                    </li>
+                    {/* {renderNavLink("Transaction", "transaction-link", "/transaction", "laptop")} */}
                     {renderNavLink("Liquidity", "liquidity-link", "/liquidity", "money-bill-alt")}
                     {renderNavLink("Investments", "investments-link", "/investments", "chart-pie")}
                 </ul>
 
                 <div className="fasttrack">
-                    <ul>
+                    <ul className="nav-base-level">
                         <label className="heading">FastTrack</label>
                         {
                             fetching && !error && !hasFastTrackLinks() &&

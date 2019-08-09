@@ -34,9 +34,25 @@
 /*-------A-TAG STATES-------*/
 
 @mixin states {
+
     &:hover,
     &:active,
     &:focus {
         @content;
     }
+}
+
+@mixin fadeOut() {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@mixin fadeIn() {
+    opacity: 1;
+    visibility: visible;
+}
+
+@mixin noBullets() {
+    list-style: none;
+    padding: 0;
 }
