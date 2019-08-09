@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import FontAwesome from 'react-fontawesome';
 import HamMenu from '../HamMenu/ham-menu';
 import Logo from '../Logo/logo';
 
@@ -11,25 +10,25 @@ constructor(props){
   
     render() {
         return (
-            <div class="top-nav">
+            <div className="top-nav">
                 <HamMenu onClick={this.props.toggleSideNav} />
                 <Logo />
-                <div class="right-side">
-                    <div class="notifications">
-                        <div class="trigger">
-                            <div class="icon"></div>
+                <div className="right-side">
+                    <div className="notifications">
+                        <div className="trigger">
+                            <div className="icon"></div>
                         </div>
                     </div>
-                    <div class="more">
-                        <div class="trigger">...</div>
-                        {/* <div class="right-nav"> 
-                            <div class="branch">
+                    <div className="more">
+                        <div className="trigger">...</div>
+                        {/* <div className="right-nav"> 
+                            <div className="branch">
                                 <ul>
                                     <li>branch</li>
                                     <li>branch</li>
                                 </ul>
                             </div>
-                            <div class="setup">
+                            <div className="setup">
                                 <ul>
                                     <li>setup</li>
                                     <li>setup</li>

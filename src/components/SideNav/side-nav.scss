@@ -9,9 +9,7 @@
     background-color: #fff;
     height: 100vh;
     transition-duration: 0.3s;
-    padding: 2.5rem 0;
-    box-sizing: border-box;
-    z-index: 1;
+    z-index: 20;
     overflow-y: auto;
 
     @include tablet {
@@ -22,14 +20,16 @@
         padding-left:2.5rem;
         font-size:1.4rem;
         font-weight: $font-weight-bold;
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: .3s;
     }
 
     ul {
         list-style: none;
-        padding: 0;
-        margin-bottom:4.5rem;
+        padding: 2.5rem 0 4.5rem;
         &:not(:last-child){
-
+            border-bottom:.2rem solid $light-background;
         }
     }
 
@@ -88,6 +88,11 @@
 }
 
 .side-nav-expanded {
+    .heading{
+        opacity: 1;
+        visibility: visible;
+
+    }
     .side-nav {
         left: 0rem;
         width: 22rem;

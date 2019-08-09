@@ -1,22 +1,25 @@
-
 .top-nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 7.5rem;
     background-color: #fff;
-  
+    border-bottom: .2rem solid $light-background;
+    box-shadow: 0 0 2rem rgba(#ccc,.27);
+    z-index: 10;
+
     .trigger {
-      padding: 1.5rem;
+        padding: 1.5rem;
     }
-  
+
     .left-side,
     .right-side {
-      display: flex;
-      align-items: center;
+        display: flex;
+        align-items: center;
     }
-  }
-  
+}
+
 
 // .top-nav {
 //     display: flex;
