@@ -7,56 +7,83 @@ export default class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            links: [
-                { icon: 'bell', href: '/', title: 'Domestic Wire' },
-                { icon: 'star', href: '/', title: 'Credit Union Dashboard' },
-                { icon: 'star', href: '/', title: 'Transaction Review' },
-                { icon: 'star', href: '/', title: 'ACH' },
-                { icon: 'star', href: '/', title: 'Coin & Currency Order' },
-                { icon: 'star', href: '/', title: 'International Wire' },
-                { icon: 'star', href: '/', title: 'Cash Management' }
-            ],
+            fetching: true,
+            error: false,
+            links: [],
         };
     }
 
-    componentWillMount(){
-        Api.fetch("/api/fasttrack");
+    componentDidMount() {
+        Api.fetch("/api/fasttrack")
+            .then(this.setLinks)
+            .catch(this.displayError);
+    }
+
+    setLinks = (linksArray) => {
+        this.setState({ links: linksArray, fetching: false });
+    }
+
+    displayError = () => {
+        this.setState({ error: true, fetching: false });
+    }
+
+    hasFastTrackLinks = () => {
+        return this.state.links.length > 0;
     }
 
     renderFastTrackLinks = () => {
         return (
             this.state.links.map((item, index) =>
-                <li key={index}>
-                    <a href={item.href}>
-                        <div className="icon"><FontAwesome name={item.icon} size="lg" /></div>
-                        <div className="link">{item.title}</div></a>
-                </li>
+                this.renderNavLink(item.title, "", item.href, item.icon, index)
             )
         )
     }
 
+    renderNavLink = (title, className, href, icon, key) => {
+        return (
+            <li key={key && key}>
+                <a href={href} className={className}>
+                    <div className="icon"><FontAwesome name={icon} size="lg" /></div>
+                    <div className="link">{title}</div></a>
+            </li>
+        )
+    }
+
     render() {
+        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink } = this;
+        const { error, fetching } = this.state;
+
         return (
             <div className="side-nav">
                 <ul className="top">
-                    <li><a href="#">
-                        <div className="icon"><FontAwesome name='home' size="lg" /></div>
-                        <div className="link">Home Overview</div></a></li>
-                    <li><a href="#">
-                        <div className="icon"><FontAwesome name='laptop' size="lg" /></div>
-                        <div className="link">Transaction</div></a></li>
-                    <li><a href="#">
-                        <div className="icon"><FontAwesome name='money-bill-alt' size="lg" /></div>
-                        <div className="link">Liquidity</div></a></li>
-                    <li><a href="#">
-                        <div className="icon"><FontAwesome name='chart-pie' size="lg" /></div>
-                        <div className="link">Investments</div></a></li>
+                    {renderNavLink("Home Overview", "home-link", "/home", "home")}
+                    {renderNavLink("Transaction", "transaction-link", "/transaction", "laptop")}
+                    {renderNavLink("Liquidity", "liquidity-link", "/liquidity", "money-bill-alt")}
+                    {renderNavLink("Investments", "investments-link", "/investments", "chart-pie")}
                 </ul>
-                <ul className="bottom">
+
+                <ul className="fasttrack">
                     <label className="heading">FastTrack</label>
-                    {this.renderFastTrackLinks()}
+
+                    {
+                        fetching && !error && !hasFastTrackLinks() &&
+                        <div> Loading...</div>
+
+                    }
+                    {
+                        !fetching && !error && hasFastTrackLinks() &&
+                        renderFastTrackLinks()
+                    }
+                    {
+                        !fetching && !error && !hasFastTrackLinks() &&
+                        <div className="no-data-message">No FastTrack items found.</div>
+                    }
+                    {
+                        !fetching && error && !hasFastTrackLinks() &&
+                        <div className="error">There was an error retrieving FastTrack.</div>
+                    }
                 </ul>
-            </div>
+            </div >
         );
     }
 }

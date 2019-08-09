@@ -8,19 +8,16 @@ class Api {
 
     async fetch(url, options) {
         options = { method: "GET", ...options, headers: { ...await this.headers() } };
+
         return fetch(url, options)
-            .then(res =>res.json())
-            .then(res => JSON.stringify(res))
-            .catch(error=> console.log(`Response Error for '${url}'`, error));
+            .then(this.handleResponse)
     }
 
-    // fetch('http://example.com/movies.json')
-    // .then(function(response) {
-    //   return response.json();
-    // })
-    // .then(function(myJson) {
-    //   console.log(JSON.stringify(myJson));
-    // });
+    handleResponse(res) {
+        if (res.ok)
+            return res.json();
+        throw "Error fetching";
+    }
 }
 
 export default new Api();
