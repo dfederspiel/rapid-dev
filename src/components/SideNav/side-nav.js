@@ -44,7 +44,11 @@ export default class SideNav extends React.Component {
             <li key={key && key}>
                 <a href={href} className={className}>
                     <div className="icon"><FontAwesome name={icon} size="lg" /></div>
-                    <div className="link">{title}</div></a>
+                    <div className="title">{title}</div>
+                    </a>
+                {/* <ul className="nav-sub-1">
+                    <li>test</li>
+                </ul> */}
             </li>
         )
     }
@@ -56,34 +60,34 @@ export default class SideNav extends React.Component {
         return (
             <div className="side-nav">
                 <ul className="top">
-                    {renderNavLink("Home Overview", "home-link", "/home", "home")}
+                    {renderNavLink("Home Overview", "home-link", "/", "home")}
                     {renderNavLink("Transaction", "transaction-link", "/transaction", "laptop")}
                     {renderNavLink("Liquidity", "liquidity-link", "/liquidity", "money-bill-alt")}
                     {renderNavLink("Investments", "investments-link", "/investments", "chart-pie")}
                 </ul>
 
-                <ul className="fasttrack">
-                    <label className="heading">FastTrack</label>
-
-                    {
-                        fetching && !error && !hasFastTrackLinks() &&
-                        <div> Loading...</div>
-
-                    }
-                    {
-                        !fetching && !error && hasFastTrackLinks() &&
-                        renderFastTrackLinks()
-                    }
-                    {
-                        !fetching && !error && !hasFastTrackLinks() &&
-                        <div className="no-data-message">No FastTrack items found.</div>
-                    }
-                    {
-                        !fetching && error && !hasFastTrackLinks() &&
-                        <div className="error">There was an error retrieving FastTrack.</div>
-                    }
-                </ul>
-            </div >
+                <div className="fasttrack">
+                    <ul>
+                        <label className="heading">FastTrack</label>
+                        {
+                            fetching && !error && !hasFastTrackLinks() &&
+                            <div> Loading...</div>
+                        }
+                        {
+                            !fetching && !error && hasFastTrackLinks() &&
+                            renderFastTrackLinks()
+                        }
+                        {
+                            !fetching && !error && !hasFastTrackLinks() &&
+                            <div className="no-data-message">No FastTrack items found.</div>
+                        }
+                        {
+                            !fetching && error && !hasFastTrackLinks() &&
+                            <div className="error">There was an error retrieving FastTrack.</div>
+                        }
+                    </ul>
+                </div>
+            </div>
         );
     }
 }

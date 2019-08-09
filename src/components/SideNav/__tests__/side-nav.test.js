@@ -18,7 +18,7 @@ describe('The side navigation component', () => {
         });
 
         it("has a href", () => {
-            expect(_link.props().href).toEqual("/home")
+            expect(_link.props().href).toEqual("/")
         });
 
         it("has an icon", () => {
@@ -110,25 +110,21 @@ describe('The side navigation component', () => {
                 });
 
                 it("sets the href for each link", () => {
-                    let _links = _component.find(".fasttrack");
-
-                    expect(_links).toEqual(itemAtPosition(0).href);
-
-                    // _links.map((item, index) => { return expect(item.props().href).toEqual(itemAtPosition(index).href) })
+                    let _links = _component.find(".fasttrack a");
+                    _links.map((item, index) =>
+                        expect(item.props().href).toEqual(itemAtPosition(index).href))
                 });
 
                 it("sets the icon for each link", () => {
-                    let _icons = _component.find(".fasttrack li a icon");
-
+                    let _icons = _component.find(".fasttrack a .icon FontAwesome");
                     _icons.map((item, index) =>
-                        expect(item.props().icon).toEqual(mockLinks()[index].icon))
+                        expect(item.props().name).toEqual(itemAtPosition(index).icon))
                 });
 
-                it("sets the title for each link", () => {
-                    let _icons = _component.find(".fasttrack li a title");
-
+                it("sets the icon for each link", () => {
+                    let _icons = _component.find(".fasttrack a .title");
                     _icons.map((item, index) =>
-                        expect(item.text()).toEqual(mockLinks()[index].title))
+                        expect(item.text()).toEqual(itemAtPosition(index).title))
                 });
             });
         });

@@ -10,7 +10,7 @@ export default class AlloyaReactApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sideNavIsOpen: true,
+            sideNavIsOpen: false,
         };
     }
 
@@ -48,8 +48,8 @@ export default class AlloyaReactApp extends React.Component {
                     <div className="alloya-content">
                         <Router>
                             <Route path="/" exact component={Dashboard} />
+                            <Route path="/transaction" exact component={DiscoverPremierView} />
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
-                            <Route exact path="/home.html" component={Dashboard} />
                         </Router>
                     </div>
                 </main>
