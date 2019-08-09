@@ -5,6 +5,32 @@
     }
 }
 
+/*-------MEDIA QUERIES-------*/
+
+@mixin tablet() {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin large-tablet() {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin small-desktop() {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media only screen and (min-width: 1440px) {
+        @content;
+    }
+}
+
 /*-------A-TAG STATES-------*/
 
 @mixin states {
