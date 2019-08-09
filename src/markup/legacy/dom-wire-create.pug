@@ -1,0 +1,163 @@
+extends ../base.pug
+block main
+    #TheContent
+      #ctl00_PageBody_PageContent
+        #ThePageHeader
+          .PageHeader2 Domestic Wire 
+          hr
+          #ctl00_PageBody_CreateUpdateControl_ToolbarPanel.PageHeaderToolbar
+            #ctl00_PageBody_CreateUpdateControl_Toolbar.RadToolBar.RadToolBar_Horizontal.RadToolBar_T1.RadToolBar_T1_Horizontal(style='z-index:9000;')
+              .rtbOuter
+                .rtbMiddle
+                  .rtbInner
+                    ul.rtbUL
+                      li.rtbItem.rtbBtn
+                        a.rtbWrap(href='#')
+                          span.rtbOut
+                            span.rtbMid
+                              span.rtbIn
+                                span.rtbText Help
+              input#ctl00_PageBody_CreateUpdateControl_Toolbar_ClientState(name='ctl00_PageBody_CreateUpdateControl_Toolbar_ClientState' type='hidden' autocomplete='off')
+        #ctl00_PageBody_CreateUpdateControl_Messages(data-msg-mc='1' data-msg-showvalidationmsgs='1')
+        #ctl00_PageBody_CreateUpdateControl_PageContent
+          #ctl00_PageBody_CreateUpdateControl_EntryPageContent.pageContent
+            .noticePanel
+                .message 
+                    .title Reminder
+                    p
+                      | Enhanced Funds Transfer Security has been implemented. Action must be taken by your credit union to approve
+                      | all transfers that are in a Pending Member Approval status by the transaction cutoff time listed on the home page of Premier View.
+            #ctl00_PageBody_CreateUpdateControl_AmountPanel
+              .sectionhdg Amount
+              .sectionbody
+                .d-flex.flex-column
+                    .d-flex.flex-column
+                        label(for='ctl00_PageBody_CreateUpdateControl_FundsAvailable_TotalFundsAvailable') Funds Available:
+                        span#ctl00_PageBody_CreateUpdateControl_FundsAvailable_TotalFundsAvailable.disabledcell(style='display:inline-block;overflow:hidden;white-space:nowrap;text-align:right;width:123px;') $15,919,486.42
+                    .d-flex.flex-column
+                        label(for='ctl00_PageBody_CreateUpdateControl_WireAmount_wrapper') Wire Amount:*
+                        span#ctl00_PageBody_CreateUpdateControl_WireAmount_wrapper.riSingle.RadInput.RadInput_T1(style='width:131px;')
+                          input#ctl00_PageBody_CreateUpdateControl_WireAmount.riTextBox.riEnabled(name='ctl00$PageBody$CreateUpdateControl$WireAmount' type='text' style='text-align: right;')
+                          input#ctl00_PageBody_CreateUpdateControl_WireAmount_ClientState(name='ctl00_PageBody_CreateUpdateControl_WireAmount_ClientState' type='hidden' autocomplete='off' value='{"enabled":true,"emptyMessage":"","validationText":"","valueAsString":"","minValue":-70368744177664,"maxValue":70368744177664,"lastSetTextBoxValue":""}')
+                    .d-flex.flex-column
+                        label(for='ctl00_PageBody_CreateUpdateControl_WireTypeControl_ctl00_PageBody_CreateUpdateControl_WireTypeControl_WireTypePanelPanel') Type Code:*
+                        #ctl00_PageBody_CreateUpdateControl_WireTypeControl_ctl00_PageBody_CreateUpdateControl_WireTypeControl_WireTypePanelPanel.RadAjaxPanel
+                          #ctl00_PageBody_CreateUpdateControl_WireTypeControl_WireTypePanel
+                            #ctl00_PageBody_CreateUpdateControl_WireTypeControl_WireTypeInputPanel
+                              select#ctl00_PageBody_CreateUpdateControl_WireTypeControl_WireTypeCodeList.DropDownStd(name='ctl00$PageBody$CreateUpdateControl$WireTypeControl$WireTypeCodeList' onchange="javascript:setTimeout('__doPostBack(\'ctl00$PageBody$CreateUpdateControl$WireTypeControl$WireTypeCodeList\',\'\')', 0)" style='width:354px;padding:1px;')
+                                option(selected='selected' value='')
+                                option(value='1') BTR - 1600 - Bank Settlement Transfer
+                                option(value='2') CTR - 1000 - Consumer Transfer
+            #ctl00_PageBody_CreateUpdateControl_OboPanel
+              .sectionhdg On Behalf Of
+              .sectionbody
+                .d-flex.flex-column
+                    .d-flex.flex-column
+                        label(for='ctl00_PageBody_CreateUpdateControl_OboUserName') On-Behalf-Of:
+                        span#ctl00_PageBody_CreateUpdateControl_OboUserName.disabledcell(style='display:inline-block;overflow:hidden;white-space:nowrap;width:350px;') Luke McConnell
+                    .d-flex.flex-column
+                        label(for='ctl00_PageBody_CreateUpdateControl_Comment') Comment:
+                        textarea#ctl00_PageBody_CreateUpdateControl_Comment(name='ctl00$PageBody$CreateUpdateControl$Comment' rows='3' cols='20' style='width:350px;')
+                    .d-flex.flex-row.align-items-center
+                        label(for='ctl00_PageBody_CreateUpdateControl_Comment') Flag For Callback:
+                        input#ctl00_PageBody_CreateUpdateControl_Callback.form-checkbox(type='checkbox' name='ctl00$PageBody$CreateUpdateControl$Callback')
+            div
+                .sectionhdg Receiving Institution
+                .sectionbody
+                    .d-flex.flex-column
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst') Institution:
+                            #ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst.RadComboBox.RadComboBox_T1(style='width:350px;white-space:normal;')
+                                table(summary='combobox' border='0' style='border-width:0;border-collapse:collapse;width:100%')
+                                    tbody
+                                    tr
+                                        td.rcbInputCell.rcbInputCellLeft(style='width:100%;')
+                                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_Input.rcbInput.radPreventDecorate.rcbEmptyMessage(name='ctl00$PageBody$CreateUpdateControl$Entry$ReceivingInst' type='text' value='Search by Name or RTN' maxlength='30' autocomplete='off')
+                                        td.rcbArrowCell.rcbArrowCellRight
+                                            a#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_Arrow
+                                .rcbSlide(style='z-index:6000;')
+                                    #ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_DropDown.RadComboBoxDropDown.RadComboBoxDropDown_T1(style='display:none;')
+                                    .rcbScroll.rcbWidth(style='height:200px;width:100%;')
+                                    #ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_MoreResultsBox.rcbMoreResults
+                                        a#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_MoreResultsBoxImage select
+                                        span
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_ClientState(name='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInst_ClientState' type='hidden' autocomplete='off')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstRtn') RTN:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstRtn(name='ctl00$PageBody$CreateUpdateControl$Entry$ReceivingInstRtn' type='text' maxlength='9' style='width:190px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstName') Name:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstName(name='ctl00$PageBody$CreateUpdateControl$Entry$ReceivingInstName' type='text' maxlength='18' style='width:190px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstCity') City:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstCity(name='ctl00$PageBody$CreateUpdateControl$Entry$ReceivingInstCity' type='text' maxlength='25' style='width:190px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstState') State:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_ReceivingInstState(name='ctl00$PageBody$CreateUpdateControl$Entry$ReceivingInstState' type='text' maxlength='2' style='width:90px;') 
+            div
+                .sectionhdg Originator
+                .sectionbody
+                    .d-flex.flex-column
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorName') Name:*
+                            .d-flex.flex-row
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorName(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorName' type='text' maxlength='35' style='width:350px;')
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorPrefillBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorPrefillBtn' value='Prefill' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$OriginatorPrefillBtn','')")
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorClearBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn','')")
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorId') ID:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorId(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorId' type='text' maxlength='34' style='width:350px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress1') Address 1:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress1(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorAddress1' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress2') Address 2:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress2(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorAddress2' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress3') Address 3:
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorAddress3(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorAddress3' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorPurpose') Purpose:
+                            textarea#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorPurpose(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorPurpose' rows='5' cols='20' style='width:350px;')
+            div
+                .sectionhdg Beneficiary
+                .sectionbody
+                    .d-flex.flex-column
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryName') Name:*
+                            .d-flex.flex-row
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryName(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryName' type='text' maxlength='35' style='width:350px;')      
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryPrefillBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryPrefillBtn' value='Prefill' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryPrefillBtn','')")
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryClearBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn','')")
+                        .d-flex.flex-column
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryId') ID:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryId(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryId' type='text' maxlength='34' style='width:350px;')
+                        .d-flex.flex-column   
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress1') Address 1:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress1(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryAddress1' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column   
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress2') Address 2:*
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress2(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryAddress2' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column   
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress3') Address 3:
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryAddress3(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryAddress3' type='text' maxlength='35' style='width:350px;')
+                        .d-flex.flex-column   
+                            label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryInstructions') Beneficiary Instructions:
+                            textarea#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryInstructions(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryInstructions' rows='5' cols='20' style='width:350px;')
+            div
+                .sectionhdg Beneficiary FI
+                .sectionbody
+                    .d-flex.flex-column
+                        .d-flex.flex-column
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneBankAddBtn.ButtonExpando(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn' value='Add Beneficiary FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn','')")
+            div
+                .sectionhdg Intermediate FI
+                .sectionbody
+                    .d-flex.flex-column
+                        .d-flex.flex-column
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_IntermediateBankAddBtn.ButtonExpando(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn' value='Add Intermediate FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn','')")
+
+            .ButtonRow
+              input#ctl00_PageBody_CreateUpdateControl_SubmitBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$SubmitBtn' value='Submit' onclick='ShowProcessctl00_PageBody_CreateUpdateControl_SubmitBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$CreateUpdateControl$SubmitBtn", "", true, "", "", false, false))')
+              input#ctl00_PageBody_CreateUpdateControl_CancelBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$CancelBtn' value='Cancel' onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_CreateUpdateControl_CancelBtn();')
+              input#ctl00_PageBody_CreateUpdateControl_ResetBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$ResetBtn' value='Reset' onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_CreateUpdateControl_ResetBtn();')
