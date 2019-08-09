@@ -59,6 +59,7 @@ export default class SideNav extends React.Component {
             <div className="side-nav">
                 <ul className="nav-base-level">
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
+
                     <li>
                         <a className="transaction-link">
                             <div className="icon"><FontAwesome name="laptop" size="lg" /></div>
