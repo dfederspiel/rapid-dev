@@ -1,14 +1,19 @@
 import React from 'react';
 import SideNav from '../side-nav';
-import renderer from 'react-test-renderer';
-import shallow from 'enzyme';
+import {shallow} from 'enzyme';
+import Api from '../../../services/Api';
+import {promise} from '../../../tests-setup';
 
 describe('the side navigation component', () => {
-    it('renders correctly', () => {
-        const tree = renderer.create(
-            <SideNav />
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
+    let _component;
+
+    beforeEach(()=>{
+        spyOn(Api,"fetch").and.returnValue(promise());
+        _component = shallow(<SideNav />)
+    });
+    
+    it('calls api', () => {
+        expect(Api.fetch).toHaveBeenCalledWith("/api/fasttrack");
     });
 
 });

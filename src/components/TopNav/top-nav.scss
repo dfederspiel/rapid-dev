@@ -1,39 +1,62 @@
 .top-nav {
+    position: relative;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    height: 7.5rem;
+    background-color: #fff;
+    border-bottom: .2rem solid $light-background;
+    box-shadow: 0 0 2rem rgba(#ccc,.27);
+    z-index: 10;
 
-    .tools {
+    .trigger {
+        padding: 1.5rem;
+    }
+
+    .left-side,
+    .right-side {
         display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-
-        & > div {
-            padding: 0 1rem;
-        }
-
-        .notification-toggle {
-            position: relative;
-
-            .notification-count {
-                justify-content: center;
-                display: flex;
-                align-items: center;
-                position: absolute;
-                color: #fff;
-                font-weight: 700;
-                background-color: maroon;
-                min-width: 2.4rem;
-                min-height: 2.4rem;
-                border: solid .2rem #fff;
-                border-radius: 1.2rem;
-                top: -1rem;
-                right: -.6rem;
-                font-size: .9rem;
-                padding: 0;
-                margin: 0;
-            }
-        }
+        align-items: center;
     }
 }
+
+
+// .top-nav {
+//     display: flex;
+//     flex-wrap: nowrap;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     .tools {
+//         display: flex;
+//         flex-wrap: nowrap;
+//         justify-content: space-between;
+
+//         & > div {
+//             padding: 0 1rem;
+//         }
+
+//         .notification-toggle {
+//             position: relative;
+
+//             .notification-count {
+//                 justify-content: center;
+//                 display: flex;
+//                 align-items: center;
+//                 position: absolute;
+//                 color: #fff;
+//                 font-weight: 700;
+//                 background-color: maroon;
+//                 min-width: 2.4rem;
+//                 min-height: 2.4rem;
+//                 border: solid .2rem #fff;
+//                 border-radius: 1.2rem;
+//                 top: -1rem;
+//                 right: -.6rem;
+//                 font-size: .9rem;
+//                 padding: 0;
+//                 margin: 0;
+//             }
+//         }
+//     }
+// }

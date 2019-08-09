@@ -3,7 +3,10 @@
 export default class logo extends React.Component {
     render() {
         return (
-            <div className="logo">Alloya</div>
+            <div className="logo">
+            alloya
+            <div className="sub">PremierView</div>
+        </div>
         );
     }
 }

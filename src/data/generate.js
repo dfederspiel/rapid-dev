@@ -64,12 +64,13 @@ module.exports = function () {
                 subscribed: faker.random.boolean()
             };
         }),
-        blah: _.times(10, function (n) {
+
+        fasttrack: _.times(10, function (n) {
             return {
-                title: faker.company.companyName(),
-                description: faker.lorem.paragraph(5),
-                subscribed: faker.random.boolean()
+                title: faker.random.words(1),
+                href: faker.internet.url(),
+                icon: "star"
             };
-        })
+        }),
     };
 };

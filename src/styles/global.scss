@@ -26,12 +26,15 @@ body {
     font-size: 16px;
 }
 
-input[type="text"], select, textarea {
+input[type="text"],
+select,
+textarea {
     background-color: $light-background;
     border: none;
 }
 
-input[type="text"].error, select.error {
+input[type="text"].error,
+select.error {
     border-bottom: solid .1rem;
     border-bottom-color: $error;
 }
@@ -47,23 +50,23 @@ input[type="button"] {
     line-height: 1.5;
     padding: .375rem .75rem;
     display: inline-block;
-    font-size:1.4rem;
-    color:#FFFFFF;
+    font-size: 1.4rem;
+    color: #FFFFFF;
 }
 
-label{
-    font-weight:$font-weight-medium;
-    font-size:1.4rem;
+label {
+    font-weight: $font-weight-medium;
+    font-size: 1.4rem;
 }
 
-select{
-    font-size:1.6rem;
-    padding:.1rem 0;
+select {
+    font-size: 1.6rem;
+    padding: .1rem 0;
 }
 
-a{
-    color:$primary;
-    text-decoration:underline;
+a {
+    color: $primary;
+    text-decoration: underline;
 }
 
 span.error {
@@ -84,19 +87,19 @@ span.info {
     width: 10rem;
     margin-left: 1.5rem;
     background-color: #f8f9fa;
-    text-align:center;
-    border-radius:.5rem;
-    line-height:1.5;
-    padding:.375rem .75rem;
-    display:inline-block;
+    text-align: center;
+    border-radius: .5rem;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    display: inline-block;
 }
 
-.progress{
-    height:.4rem;
+.progress {
+    height: .4rem;
 
-    .progress-bar{
-        background-color:$primary;
-        height:.4rem;
+    .progress-bar {
+        background-color: $primary;
+        height: .4rem;
     }
 }
 
