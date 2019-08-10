@@ -70,54 +70,82 @@ export default class SideNav extends React.Component {
         )
     }
 
+    renderNavLinkWithLevels = (title, className, icon, linkIsActive, navSecondLevelLinks) => {
+        return (
+            <li onClick={() => this.toggleLinkActive(linkIsActive)} className={this.state[linkIsActive] ? "active" : ""}>
+                <a className={className}>
+                    <div className="icon"><FontAwesome name={icon} size="lg" /></div>
+                    <div className="title">{title}</div>
+                </a>
+                <ul className={`nav-second-level`}>
+                    <li className="nav-heading">{title}</li>
+                    {navSecondLevelLinks.map((item, key) =>
+                        <li key={key}>
+                            <a href={item.href}>{item.title}</a>
+                            {
+                                item.sublinks && item.sublinks.length > 0 &&
+                                <ul className="nav-third-level">
+                                    {item.sublinks.map((subItem, key) =>
+                                        <li key={key}>
+                                            <a href={subItem.href}>{subItem.title}</a>
+                                        </li>
+                                    )}
+                                </ul>
+                            }
+                        </li>)}
+                </ul>
+            </li>
+        )
+    }
+
     render() {
-        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink, toggleLinkActive } = this;
-        const { error, fetching, transactionLinkActive, liquidityLinkActive, investmentsLinkActive } = this.state;
+        const { renderFastTrackLinks, renderNavLinkWithLevels, hasFastTrackLinks, renderNavLink } = this;
+        const { error, fetching } = this.state;
 
         return (
             <div className="side-nav">
                 <ul className="nav-base-level">
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
 
-                    <li onClick={() => toggleLinkActive("transactionLinkActive")} className={transactionLinkActive ? "active" : ""}>
-                        <a className="transaction-link">
-                            <div className="icon"><FontAwesome name="laptop" size="lg" /></div>
-                            <div className="title">Transaction</div>
-                        </a>
-                        <ul className={`nav-second-level`}>
-                            <li className="nav-heading">Transaction</li>
-                            <li><a href="">Transaction Review</a></li>
-                            <li><a href="">Cash Management Account</a></li>
-                            <li><a href="">Domestic Wires</a></li>
-                            <li><a href="">International Wires</a></li>
-                            <li><a href="">Share Draft Services</a></li>
-                            <li><a href="">Check Deposit Services</a></li>
-                        </ul>
-                    </li>
+                    {renderNavLinkWithLevels("Transactions", "transaction-link", "laptop", "transactionLinkActive",
+                        [
+                            { href: "", title: "Transaction Review" },
+                            { href: "", title: "Cash Management Account" },
+                            { href: "", title: "International Wires" },
+                            {
+                                href: "", title: "Share Draft Services",
+                                sublinks:
+                                    [
+                                        { href: "", title: "Transaction Review" },
+                                        { href: "", title: "Cash Management Account" },
+                                        { href: "", title: "International Wires" },
+                                    ]
+                            },
+                            { href: "", title: "Check Deposit Services" },
+                        ]
+                    )}
 
-                    <li onClick={() => toggleLinkActive("liquidityLinkActive")} className={liquidityLinkActive ? "active" : ""}>
-                        <a className="liquidity-link">
-                            <div className="icon"><FontAwesome name="money-bill-alt" size="lg" /></div>
-                            <div className="title">Liquidity</div>
-                        </a>
-                        <ul className={`nav-second-level`}>
-                            <li className="nav-heading">Liquidity</li>
-                            <li><a href="">Cash Management Account</a></li>
-                            <li><a href="">Domestic Wires</a></li>
-                        </ul>
-                    </li>
+                    {renderNavLinkWithLevels("Liquidity", "liquidity-link", "money-bill-alt", "liquidityLinkActive",
+                        [
+                            { href: "", title: "Liquidity Link 1" },
+                            { href: "", title: "Liquidity Link 2" },
+                            { href: "", title: "Liquidity Link 3" },
+                            { href: "", title: "Liquidity Link 4" },
+                            { href: "", title: "Liquidity Link 5" },
+                            { href: "", title: "Liquidity Link 6" },
+                        ]
+                    )}
 
-                    <li onClick={() => toggleLinkActive("investmentsLinkActive")} className={investmentsLinkActive ? "active" : ""}>
-                        <a className="investments-link">
-                            <div className="icon"><FontAwesome name="chart-pie" size="lg" /></div>
-                            <div className="title">Investments</div>
-                        </a>
-                        <ul className={`nav-second-level`}>
-                            <li className="nav-heading">Investments</li>
-                            <li><a href="">Cash Management Account</a></li>
-                            <li><a href="">Domestic Wires</a></li>
-                        </ul>
-                    </li>
+                    {renderNavLinkWithLevels("Investments", "investments-link", "chart-pie", "investmentsLinkActive",
+                        [
+                            { href: "", title: "Investments Link 1" },
+                            { href: "", title: "Investments Link 2" },
+                            { href: "", title: "Investments Link 3" },
+                            { href: "", title: "Investments Link 4" },
+                            { href: "", title: "Investments Link 5" },
+                            { href: "", title: "Investments Link 6" },
+                        ]
+                    )}
                 </ul>
 
                 <div className="fasttrack">
