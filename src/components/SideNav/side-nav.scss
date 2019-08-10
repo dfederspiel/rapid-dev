@@ -40,8 +40,7 @@
         }
 
         &>li {
-            height: 4.5rem;
-            margin-bottom: 1rem;
+            height: 5rem;
             width: 22rem;
 
             &>a {
@@ -49,7 +48,7 @@
                 display: flex;
                 align-items: center;
                 height: 100%;
-                font-size: 1.2rem;
+                font-size: 1.4rem;
                 font-weight: $font-weight-bold;
                 color: $light-font;
                 transition-duration: .3s;
@@ -63,7 +62,7 @@
                     position: absolute;
                     left: 0;
                     top: 0;
-                    transition-duration: .1s;
+                    transition-duration: .2s;
                 }
 
                 @include states {
@@ -79,9 +78,12 @@
                 }
 
                 .icon {
-                    width: 2rem;
-                    height: 2rem;
-                    margin: 0 2.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 7rem;
+
                 }
 
                 .title {
@@ -90,20 +92,33 @@
                     @include fadeOut;
                 }
             }
+
+            &.active>a {
+                color: #222;
+
+                &:before {
+                    background-color: $primary;
+                }
+
+                .icon {
+                    color: $primary;
+                    box-shadow: 0 0 2rem rgba(#ccc, .5);
+                }
+            }
         }
     }
 
     .nav-second-level {
         @include noBullets;
         position: absolute;
-        left: 7rem;
+        left: 0;
         top: 0;
         width: 0;
         height: 100%;
         overflow: hidden;
         background-color: #fff;
         transition-duration: .3s;
-        padding: 2.5rem;
+        padding: 2.5rem 0;
         box-sizing: border-box;
         font-size: 1.4rem;
         z-index: 20;
@@ -111,33 +126,45 @@
         box-shadow: 0 0 2rem rgba(#ccc, .5);
 
         &>li {
-            width: 19rem;
+            width: 24rem;
 
             &>a {
-                color:$body;
+                color: $body;
                 display: block;
-                padding: 2rem 0;
+                padding: 2rem 2.5rem;
                 box-sizing: border-box;
                 border-bottom: .1rem solid #efefef;
+                transition-duration: .2s;
+
+                @include states {
+                    background-color: $primary-2;
+                    color: $white;
+                }
             }
         }
 
         .nav-heading {
             font-size: 1.6rem;
-            padding-bottom:1rem;
+            padding: 0 2.5rem 1rem;
             color: $primary;
             font-weight: $font-weight-bold;
             display: block;
             box-sizing: border-box;
         }
+
+
+    }
+
+    li.active .nav-second-level {
+        @include fadeIn;
+        left:7rem;
     }
 }
 
 .side-nav-expanded {
 
     .heading,
-    .side-nav .nav-base-level .title,
-    .nav-second-level {
+    .side-nav .nav-base-level .title {
         @include fadeIn;
     }
 

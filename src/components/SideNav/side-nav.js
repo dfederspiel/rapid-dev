@@ -9,6 +9,9 @@ export default class SideNav extends React.Component {
         this.state = {
             fetching: true,
             error: false,
+            transactionLinkActive: false,
+            liquidityLinkActive: false,
+            investmentsLinkActive: false,
             links: [],
         };
     }
@@ -31,6 +34,23 @@ export default class SideNav extends React.Component {
         return this.state.links.length > 0;
     }
 
+    toggleLinkActive = (ref) => {
+        this.closeAllActiveLinks();
+        this.setState({ [ref]: !this.state[ref] }, this.props.openSideNav);
+    }
+
+    closeAllActiveLinks = (ref) => {
+        let links = [
+            "transactionLinkActive",
+            "liquidityLinkActive",
+            "investmentsLinkActive"
+        ]
+
+        links.map((item, key) =>
+            this.setState({ [item]: false })
+        )
+    }
+
     renderFastTrackLinks = () => {
         return (
             this.state.links.map((item, index) =>
@@ -46,26 +66,25 @@ export default class SideNav extends React.Component {
                     <div className="icon"><FontAwesome name={icon} size="lg" /></div>
                     <div className="title">{title}</div>
                 </a>
-
             </li>
         )
     }
 
     render() {
-        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink } = this;
-        const { error, fetching } = this.state;
+        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink, toggleLinkActive } = this;
+        const { error, fetching, transactionLinkActive, liquidityLinkActive, investmentsLinkActive } = this.state;
 
         return (
             <div className="side-nav">
                 <ul className="nav-base-level">
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
 
-                    <li>
+                    <li onClick={() => toggleLinkActive("transactionLinkActive")} className={transactionLinkActive ? "active" : ""}>
                         <a className="transaction-link">
                             <div className="icon"><FontAwesome name="laptop" size="lg" /></div>
                             <div className="title">Transaction</div>
                         </a>
-                        <ul className="nav-second-level">
+                        <ul className={`nav-second-level`}>
                             <li className="nav-heading">Transaction</li>
                             <li><a href="">Transaction Review</a></li>
                             <li><a href="">Cash Management Account</a></li>
@@ -74,11 +93,31 @@ export default class SideNav extends React.Component {
                             <li><a href="">Share Draft Services</a></li>
                             <li><a href="">Check Deposit Services</a></li>
                         </ul>
-
                     </li>
-                    {/* {renderNavLink("Transaction", "transaction-link", "/transaction", "laptop")} */}
-                    {renderNavLink("Liquidity", "liquidity-link", "/liquidity", "money-bill-alt")}
-                    {renderNavLink("Investments", "investments-link", "/investments", "chart-pie")}
+
+                    <li onClick={() => toggleLinkActive("liquidityLinkActive")} className={liquidityLinkActive ? "active" : ""}>
+                        <a className="liquidity-link">
+                            <div className="icon"><FontAwesome name="money-bill-alt" size="lg" /></div>
+                            <div className="title">Liquidity</div>
+                        </a>
+                        <ul className={`nav-second-level`}>
+                            <li className="nav-heading">Liquidity</li>
+                            <li><a href="">Cash Management Account</a></li>
+                            <li><a href="">Domestic Wires</a></li>
+                        </ul>
+                    </li>
+
+                    <li onClick={() => toggleLinkActive("investmentsLinkActive")} className={investmentsLinkActive ? "active" : ""}>
+                        <a className="investments-link">
+                            <div className="icon"><FontAwesome name="chart-pie" size="lg" /></div>
+                            <div className="title">Investments</div>
+                        </a>
+                        <ul className={`nav-second-level`}>
+                            <li className="nav-heading">Investments</li>
+                            <li><a href="">Cash Management Account</a></li>
+                            <li><a href="">Domestic Wires</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <div className="fasttrack">
