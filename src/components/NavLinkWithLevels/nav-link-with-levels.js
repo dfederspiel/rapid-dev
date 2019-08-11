@@ -38,13 +38,18 @@ export default class NavLinkWithLevels extends React.Component {
         const { active } = this.state;
         const { toggle } = this;
 
+        if (!this.props.title)
+            return null;
+
         return (
             <li className={active ? "active" : ""} ref={node => this.node = node}>
                 <a href="javascript:void(0)" onClick={toggle}>
-                    <div className="icon"><FontAwesome name={icon} size="lg" /></div>
+                    <div className="icon"><FontAwesome name={icon ? icon : "star"} size="lg" /></div>
                     <div className="title">{title}</div>
                 </a>
-                {<NavSecondLevel title={title} links={links} />}
+                {
+                    links && <NavSecondLevel title={title} links={links} />
+                }
             </li>
         );
     }
