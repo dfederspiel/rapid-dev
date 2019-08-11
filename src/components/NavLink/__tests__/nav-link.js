@@ -1,13 +1,13 @@
 import React from 'react';
+import NavLink from '../nav-link';
 import { shallow } from 'enzyme';
 import '../../../tests-setup';
-import NavLinkWithLevels from '../nav-link-with-levels';
 
-describe('The navigation link with levels component', () => {
+describe('The  navigation link component', () => {
     let _component;
 
     beforeEach(() => {
-        _component = shallow(<NavLinkWithLevels title="" icon="" links={[]} />);
+        _component = shallow(<NavLink title="" href="" icon="" />);
     });
     
     it("Exists", () => {

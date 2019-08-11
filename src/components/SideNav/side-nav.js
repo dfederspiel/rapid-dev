@@ -1,8 +1,8 @@
 ﻿import React from 'react';
-import FontAwesome from 'react-fontawesome';
 import Api from '../../services/Api';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
-import {transactionsLinks, liquidityLinks, investmentsLinks} from './side-nav.links';
+import { transactionsLinks, liquidityLinks, investmentsLinks } from './side-nav.links';
+import NavLink from '../NavLink/nav-link';
 
 export default class SideNav extends React.Component {
 
@@ -36,32 +36,21 @@ export default class SideNav extends React.Component {
     renderFastTrackLinks = () => {
         return (
             this.state.fasttrackLinks.map((item, index) =>
-                this.renderNavLink(item.title, "", item.href, item.icon, index)
+                <NavLink {...item} key={index} />
             )
         )
     }
 
-    renderNavLink = (title, className, href, icon, key) => {
-        return (
-            <li key={key && key}>
-                <a href={href} className={className}>
-                    <div className="icon"><FontAwesome name={icon} size="lg" /></div>
-                    <div className="title">{title}</div>
-                </a>
-            </li>
-        )
-    }
-
     render() {
-        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink } = this;
+        const { renderFastTrackLinks, hasFastTrackLinks } = this;
         const { error, fetching } = this.state;
         const { openSideNav } = this.props;
 
         return (
             <div className="side-nav" >
                 <ul className="nav-base-level">
-                    
-                    {renderNavLink("Home Overview", "home-link", "/", "home")}
+
+                    {<NavLink title="Home Overview" href="/" icon="home" />}
 
                     {<NavLinkWithLevels
                         title="Transactions"
@@ -69,6 +58,7 @@ export default class SideNav extends React.Component {
                         openSideNav={openSideNav}
                         links={transactionsLinks()}
                     />}
+
                     {<NavLinkWithLevels
                         title="Liquidity"
                         icon="money-bill-alt"

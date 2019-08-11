@@ -2,73 +2,53 @@ import React from 'react';
 import SideNav from '../side-nav';
 import { shallow } from 'enzyme';
 import Api from '../../../services/Api';
+import { transactionsLinks, liquidityLinks, investmentsLinks } from '../side-nav.links';
 import { promise, rejected, resolved } from '../../../tests-setup';
 
 describe('The side navigation component', () => {
-    let _component, _link;
+    let _component;
+    let _callback = () => { return };
     let spy = () => { return spyOn(Api, "fetch") };
 
     beforeEach(() => {
-        _component = shallow(<SideNav />, true);
+        _component = shallow(<SideNav openSideNav={_callback} />, true);
     });
 
-    describe("containing the Home Overview link", () => {
-        beforeEach(() => {
-            _link = _component.find(".home-link");
-        });
+    it("has a Home Overview navigation link", () => {
+        let _props = _component.find("NavLink").props();
 
-        it("has a href", () => {
-            expect(_link.props().href).toEqual("/")
-        });
-
-        it("has an icon", () => {
-            expect(_link.find("FontAwesome").props().name).toEqual("home")
-        });
+        expect(_props.title).toEqual("Home Overview");
+        expect(_props.href).toEqual("/");
+        expect(_props.icon).toEqual("home");
     });
 
-    describe("containing Transaction link", () => {
-        beforeEach(() => {
-            _link = _component.find(".transaction-link");
-        });
+    it("has a Transactions navigation link with levels", () => {
+        let _props = _component.find("NavLinkWithLevels").at(0).props();
 
-        // it("has a href", () => {
-        //     expect(_link.props().href).toEqual("/transaction")
-        // });
-
-        it("has an icon", () => {
-            expect(_link.find("FontAwesome").props().name).toEqual("laptop")
-        });
+        expect(_props.title).toEqual("Transactions");
+        expect(_props.icon).toEqual("laptop");
+        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.links).toEqual(transactionsLinks());
     });
 
-    describe("containing Liquidity link", () => {
-        beforeEach(() => {
-            _link = _component.find(".liquidity-link");
-        });
+     it("has a Liquidity navigation link with levels", () => {
+        let _props = _component.find("NavLinkWithLevels").at(1).props();
 
-        it("has a href", () => {
-            expect(_link.props().href).toEqual("/liquidity")
-        });
-
-        it("has an icon", () => {
-            expect(_link.find("FontAwesome").props().name).toEqual("money-bill-alt")
-        });
+        expect(_props.title).toEqual("Liquidity");
+        expect(_props.icon).toEqual("money-bill-alt");
+        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.links).toEqual(liquidityLinks());
     });
 
-    describe("containing Investments link", () => {
-        beforeEach(() => {
-            _link = _component.find(".investments-link");
-        });
+    it("has a Investments navigation link with levels", () => {
+        let _props = _component.find("NavLinkWithLevels").at(2).props();
 
-        it("has a href", () => {
-            expect(_link.props().href).toEqual("/investments")
-        });
-
-        it("has an icon", () => {
-            expect(_link.find("FontAwesome").props().name).toEqual("chart-pie")
-        });
+        expect(_props.title).toEqual("Investments");
+        expect(_props.icon).toEqual("chart-pie");
+        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.links).toEqual(investmentsLinks());
     });
-
-
+    
     describe("when the component mounts", () => {
         it('calls the api to get FastTrack links', () => {
             spy().and.returnValue(promise());
@@ -106,7 +86,7 @@ describe('The side navigation component', () => {
                 });
 
                 it("sets the FastTrack links state", () => {
-                    expect(_component.state().links).toEqual(mockLinks());
+                    expect(_component.state().fasttrackLinks).toEqual(mockLinks());
                 });
 
                 it("sets the href for each link", () => {

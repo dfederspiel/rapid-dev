@@ -29,11 +29,11 @@ export function liquidityLinks() {
 
 export function investmentsLinks() {
     return [
-        { title: "Investments Link 1", href: ""  },
-        { title: "Investments Link 2", href: ""  },
-        { title: "Investments Link 3", href: ""  },
-        { title: "Investments Link 4", href: ""  },
-        { title: "Investments Link 5", href: ""  },
-        { title: "Investments Link 6", href: ""  },
+        { title: "Investments Link 1", href: "" },
+        { title: "Investments Link 2", href: "" },
+        { title: "Investments Link 3", href: "" },
+        { title: "Investments Link 4", href: "" },
+        { title: "Investments Link 5", href: "" },
+        { title: "Investments Link 6", href: "" },
     ]
 }
