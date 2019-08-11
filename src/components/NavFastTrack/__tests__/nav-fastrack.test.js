@@ -48,26 +48,11 @@ describe('The FastTrack Navigation component', () => {
                     _component = shallow(<NavFastTrack />);
                 });
 
-                it("sets the FastTrack links state", () => {
-                    expect(_component.state().links).toEqual(mockLinks());
-                });
+                it("displays as a list of navigation links", () => {
+                    let _links = _component.find("NavLink");
 
-                it("sets the href for each link", () => {
-                    let _links = _component.find(".fasttrack a");
                     _links.map((item, index) =>
-                        expect(item.props().href).toEqual(itemAtPosition(index).href))
-                });
-
-                it("sets the icon for each link", () => {
-                    let _icons = _component.find(".fasttrack a .icon FontAwesome");
-                    _icons.map((item, index) =>
-                        expect(item.props().name).toEqual(itemAtPosition(index).icon))
-                });
-
-                it("sets the icon for each link", () => {
-                    let _icons = _component.find(".fasttrack a .title");
-                    _icons.map((item, index) =>
-                        expect(item.text()).toEqual(itemAtPosition(index).title))
+                        expect(item.props()).toEqual(itemAtPosition(index)))
                 });
             });
         });

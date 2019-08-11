@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import Api from '../../services/Api';
+import NavLink from '../NavLink/nav-link';
 
 export default class NavFastTrack extends React.Component {
     constructor(props) {
@@ -12,8 +13,7 @@ export default class NavFastTrack extends React.Component {
     }
 
     componentDidMount() {
-        Api.fetch("/api/fasttrack")
-            .then(this.setLinks)
+        Api.fetch("/api/fasttrack").then(this.setLinks)
             .catch(this.displayError);
     }
 
