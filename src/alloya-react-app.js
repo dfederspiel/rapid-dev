@@ -39,6 +39,7 @@ export default class AlloyaReactApp extends React.Component {
     closeSideNav = () => {
         this.setState({ sideNavIsOpen: false });
     }
+    
     render() {
         const { toggleSideNav, openSideNav } = this;
         const { sideNavIsOpen } = this.state;

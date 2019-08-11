@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+
+.nav-second-level {
+    @include noBullets;
+    position: absolute;
+    left: 5rem;
+    top: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    transition-duration: .3s;
+    padding: 2.5rem 0;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    z-index: 20;
+    @include fadeOut;
+    box-shadow: 0 0 2rem rgba(#ccc, .5);
+
+    &>li {
+        width: 24rem;
+
+        &>a {
+            color: $body;
+            display: block;
+            padding: 2rem 2.5rem;
+            box-sizing: border-box;
+            border-bottom: .1rem solid #efefef;
+            transition-duration: .2s;
+
+            @include states {
+                background-color: $primary-2;
+                color: $white;
+            }
+        }
+    }
+
+    .nav-heading {
+        font-size: 1.6rem;
+        padding: 0 2.5rem 1rem;
+        color: $primary;
+        font-weight: $font-weight-bold;
+        display: block;
+        box-sizing: border-box;
+    }
+
+
+}
+
+li.active .nav-second-level {
+    @include fadeIn;
+    left: 7rem;
+}
+
+.side-nav-expanded {
+    ul.nav-second-level {
+        width: 24rem;
+    }
+}

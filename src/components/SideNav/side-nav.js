@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import Api from '../../services/Api';
+import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 
 export default class SideNav extends React.Component {
 
@@ -9,10 +10,7 @@ export default class SideNav extends React.Component {
         this.state = {
             fetching: true,
             error: false,
-            transactionLinkActive: false,
-            liquidityLinkActive: false,
-            investmentsLinkActive: false,
-            links: [],
+            fasttrackLinks: [],
         };
     }
 
@@ -23,7 +21,7 @@ export default class SideNav extends React.Component {
     }
 
     setLinks = (linksArray) => {
-        this.setState({ links: linksArray, fetching: false });
+        this.setState({ fasttrackLinks: linksArray, fetching: false });
     }
 
     displayError = () => {
@@ -31,29 +29,12 @@ export default class SideNav extends React.Component {
     }
 
     hasFastTrackLinks = () => {
-        return this.state.links.length > 0;
-    }
-
-    toggleLinkActive = (ref) => {
-        this.closeAllActiveLinks();
-        this.setState({ [ref]: !this.state[ref] }, this.props.openSideNav);
-    }
-
-    closeAllActiveLinks = (ref) => {
-        let links = [
-            "transactionLinkActive",
-            "liquidityLinkActive",
-            "investmentsLinkActive"
-        ]
-
-        links.map((item, key) =>
-            this.setState({ [item]: false })
-        )
+        return this.state.fasttrackLinks.length > 0;
     }
 
     renderFastTrackLinks = () => {
         return (
-            this.state.links.map((item, index) =>
+            this.state.fasttrackLinks.map((item, index) =>
                 this.renderNavLink(item.title, "", item.href, item.icon, index)
             )
         )
@@ -70,82 +51,64 @@ export default class SideNav extends React.Component {
         )
     }
 
-    renderNavLinkWithLevels = (title, className, icon, linkIsActive, navSecondLevelLinks) => {
-        return (
-            <li onClick={() => this.toggleLinkActive(linkIsActive)} className={this.state[linkIsActive] ? "active" : ""}>
-                <a className={className}>
-                    <div className="icon"><FontAwesome name={icon} size="lg" /></div>
-                    <div className="title">{title}</div>
-                </a>
-                <ul className={`nav-second-level`}>
-                    <li className="nav-heading">{title}</li>
-                    {navSecondLevelLinks.map((item, key) =>
-                        <li key={key}>
-                            <a href={item.href}>{item.title}</a>
-                            {
-                                item.sublinks && item.sublinks.length > 0 &&
-                                <ul className="nav-third-level">
-                                    {item.sublinks.map((subItem, key) =>
-                                        <li key={key}>
-                                            <a href={subItem.href}>{subItem.title}</a>
-                                        </li>
-                                    )}
-                                </ul>
-                            }
-                        </li>)}
-                </ul>
-            </li>
-        )
-    }
-
     render() {
-        const { renderFastTrackLinks, renderNavLinkWithLevels, hasFastTrackLinks, renderNavLink } = this;
+        const { renderFastTrackLinks, hasFastTrackLinks, renderNavLink } = this;
         const { error, fetching } = this.state;
+        const { openSideNav } = this.props;
 
         return (
-            <div className="side-nav">
+            <div className="side-nav" >
                 <ul className="nav-base-level">
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
 
-                    {renderNavLinkWithLevels("Transactions", "transaction-link", "laptop", "transactionLinkActive",
-                        [
-                            { href: "", title: "Transaction Review" },
-                            { href: "", title: "Cash Management Account" },
-                            { href: "", title: "International Wires" },
+                    {<NavLinkWithLevels
+                        title="Transactions"
+                        icon="laptop"
+                        openSideNav={openSideNav}
+                        links={[
+                            { title: "Transaction Review", href: "" },
+                            { title: "Cash Management Account", href: "" },
+                            { title: "International Wires", href: "" },
                             {
-                                href: "", title: "Share Draft Services",
+                                title: "Share Draft Services", href: "",
                                 sublinks:
                                     [
-                                        { href: "", title: "Transaction Review" },
-                                        { href: "", title: "Cash Management Account" },
-                                        { href: "", title: "International Wires" },
+                                        { title: "Third Level 1", href: "" },
+                                        { title: "Third Level 2", href: "" },
+                                        { title: "Third Level 3", href: "" },
                                     ]
                             },
-                            { href: "", title: "Check Deposit Services" },
-                        ]
-                    )}
-
-                    {renderNavLinkWithLevels("Liquidity", "liquidity-link", "money-bill-alt", "liquidityLinkActive",
-                        [
+                            { title: "Check Deposit Services", href: "" },
+                        ]}
+                    />}
+                    {<NavLinkWithLevels
+                        title="Liquidity"
+                        icon="money-bill-alt"
+                        openSideNav={openSideNav}
+                        links={[
                             { href: "", title: "Liquidity Link 1" },
                             { href: "", title: "Liquidity Link 2" },
                             { href: "", title: "Liquidity Link 3" },
                             { href: "", title: "Liquidity Link 4" },
                             { href: "", title: "Liquidity Link 5" },
                             { href: "", title: "Liquidity Link 6" },
-                        ]
-                    )}
+                        ]}
+                    />}
 
-                    {renderNavLinkWithLevels("Investments", "investments-link", "chart-pie", "investmentsLinkActive",
-                        [
+                    {<NavLinkWithLevels
+                        title="Investments"
+                        icon="chart-pie"
+                        openSideNav={openSideNav}
+                        links={[
                             { href: "", title: "Investments Link 1" },
                             { href: "", title: "Investments Link 2" },
                             { href: "", title: "Investments Link 3" },
                             { href: "", title: "Investments Link 4" },
                             { href: "", title: "Investments Link 5" },
                             { href: "", title: "Investments Link 6" },
-                        ]
-                    )}
+                        ]}
+                    />}
+
                 </ul>
 
                 <div className="fasttrack">
