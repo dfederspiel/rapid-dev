@@ -3,6 +3,7 @@ import Api from '../../services/Api';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 import { transactionsLinks, liquidityLinks, investmentsLinks } from './side-nav.links';
 import NavLink from '../NavLink/nav-link';
+import NavFastTrack from '../NavFastTrack/nav-fasttrack';
 
 export default class SideNav extends React.Component {
 
@@ -73,28 +74,7 @@ export default class SideNav extends React.Component {
                         links={investmentsLinks()}
                     />}
                 </ul>
-
-                <div className="fasttrack">
-                    <ul className="nav-base-level">
-                        <label className="heading">FastTrack</label>
-                        {
-                            fetching && !error && !hasFastTrackLinks() &&
-                            <div> Loading...</div>
-                        }
-                        {
-                            !fetching && !error && hasFastTrackLinks() &&
-                            renderFastTrackLinks()
-                        }
-                        {
-                            !fetching && !error && !hasFastTrackLinks() &&
-                            <div className="no-data-message">No FastTrack items found.</div>
-                        }
-                        {
-                            !fetching && error && !hasFastTrackLinks() &&
-                            <div className="error">There was an error retrieving FastTrack.</div>
-                        }
-                    </ul>
-                </div>
+                <NavFastTrack />
             </div>
         );
     }
