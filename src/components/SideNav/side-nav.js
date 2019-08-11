@@ -2,6 +2,7 @@
 import FontAwesome from 'react-fontawesome';
 import Api from '../../services/Api';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
+import {transactionsLinks, liquidityLinks, investmentsLinks} from './side-nav.links';
 
 export default class SideNav extends React.Component {
 
@@ -59,56 +60,28 @@ export default class SideNav extends React.Component {
         return (
             <div className="side-nav" >
                 <ul className="nav-base-level">
+                    
                     {renderNavLink("Home Overview", "home-link", "/", "home")}
 
                     {<NavLinkWithLevels
                         title="Transactions"
                         icon="laptop"
                         openSideNav={openSideNav}
-                        links={[
-                            { title: "Transaction Review", href: "" },
-                            { title: "Cash Management Account", href: "" },
-                            { title: "International Wires", href: "" },
-                            {
-                                title: "Share Draft Services", href: "",
-                                sublinks:
-                                    [
-                                        { title: "Third Level 1", href: "" },
-                                        { title: "Third Level 2", href: "" },
-                                        { title: "Third Level 3", href: "" },
-                                    ]
-                            },
-                            { title: "Check Deposit Services", href: "" },
-                        ]}
+                        links={transactionsLinks()}
                     />}
                     {<NavLinkWithLevels
                         title="Liquidity"
                         icon="money-bill-alt"
                         openSideNav={openSideNav}
-                        links={[
-                            { href: "", title: "Liquidity Link 1" },
-                            { href: "", title: "Liquidity Link 2" },
-                            { href: "", title: "Liquidity Link 3" },
-                            { href: "", title: "Liquidity Link 4" },
-                            { href: "", title: "Liquidity Link 5" },
-                            { href: "", title: "Liquidity Link 6" },
-                        ]}
+                        links={liquidityLinks()}
                     />}
 
                     {<NavLinkWithLevels
                         title="Investments"
                         icon="chart-pie"
                         openSideNav={openSideNav}
-                        links={[
-                            { href: "", title: "Investments Link 1" },
-                            { href: "", title: "Investments Link 2" },
-                            { href: "", title: "Investments Link 3" },
-                            { href: "", title: "Investments Link 4" },
-                            { href: "", title: "Investments Link 5" },
-                            { href: "", title: "Investments Link 6" },
-                        ]}
+                        links={investmentsLinks()}
                     />}
-
                 </ul>
 
                 <div className="fasttrack">
