@@ -4,6 +4,8 @@
 @import 'rad-strip';
 @import 'contract-dashboard';
 @import 'kendo-toolbar';
+@import 'rad-toolbar';
+@import 'rad-combo-box';
 
 #TheContent, #ctl00_PinValidationPanel {
     margin: 3rem;
@@ -15,7 +17,7 @@
         font-size: 2.3rem;
         font-weight: $font-weight-black;
     }
-
+    
     .PageHeaderToolbar {
         background-color: $primary-4;
     }
@@ -130,19 +132,21 @@
 
     .sectionbody {
         margin-bottom: 2rem;
+        padding-left: .5rem;
     }
 
     .disabledcell {
         background-color: $light-background;
         opacity: .7;
         width: 30rem;
-        padding:.3rem;
+        padding: .3rem;
     }
 
     .ButtonRow {
         margin-top: 1.5rem;
-        input:first-child{
-            margin-left:0;
+
+        input:first-child {
+            margin-left: 0;
         }
     }
 
@@ -155,15 +159,28 @@
         border-radius: .25rem;
         margin-bottom: 1.5rem;
         width: 50%;
-        align-items:center;
+        align-items: center;
 
-        i{
-            font-size:7rem;
-            margin-right:1.5rem;
+        i {
+            font-size: 7rem;
+            margin-right: 1.5rem;
         }
 
-        p{
-            font-size:1.2rem;
+        .title {
+            font-size: 2rem;
         }
+
+        p {
+            font-size: 1.4rem;
+        }
+    }
+
+    .form-checkbox {
+        margin-left: 1.5rem;
+        margin-bottom: .5rem;
+    }
+
+    .ButtonExpando{
+        width:15rem;
     }
 }
