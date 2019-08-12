@@ -14,6 +14,7 @@ export default class NavSecondLevel extends React.Component {
                 <li className="nav-heading">{title}</li>
                 {
                     links && links.map((item, key) =>
+                        item.href || (item.sublinks && item.sublinks.length > 0) &&
                         <li key={key}>
                             {
                                 item.href && !item.sublinks || (item.sublinks && item.sublinks.length === 0) &&
