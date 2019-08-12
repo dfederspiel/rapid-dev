@@ -41,30 +41,53 @@ describe('The  second level navigation component', () => {
 
             describe("given an item does not have a href link", () => {
                 describe("and it does not have sublinks", () => {
-                    it("does not display the link", () => {
-                        _component = componentWithTitle(linksWithoutHrefNorSublinks());
-                        _secondLevelLinks = _component.find(_secondLevelLinksSelector);
-
+                    it("does not show the title", () => {
                         expect(_secondLevelLinks.length).toEqual(0);
+                    });
+
+                    it("does not display the sublinks", () => {
+                        expect(_component.find("NavThirdLevel").length).toEqual(0);
                     });
                 });
 
                 describe("and it does have sublinks", () => {
-                    it("shows the links", () => {
+                    let sublinksLength;
+                    
+                    beforeEach(() => {
+                        sublinksLength = linksWithoutHrefWithSublinks().length - 1;
                         _component = componentWithTitle(linksWithoutHrefWithSublinks());
                         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+                    });
 
-                        expect(_secondLevelLinks.length).toEqual(linksWithoutHrefWithSublinks().length - 1);
+                    it("shows the title", () => {
+                        expect(_secondLevelLinks.length).toEqual(sublinksLength);
+                    });
+
+                    it("shows the sublinks", () => {
+                        expect(_component.find("NavThirdLevel").length).toEqual(sublinksLength);
                     });
                 });
             });
 
-            //     it("shows the same number of links", () => {
-            //         _component = componentWithTitle(linksWithoutSublinks());
-            //         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+            describe("given an item has a href link", () => {
+                it("shows the link", () => {
+                    _component = componentWithTitle(linksWithoutSublinks());
+                    _secondLevelLinks = _component.find(_secondLevelLinksSelector);
 
-            //         expect(_secondLevelLinks.length).toEqual(linksWithoutSublinks().length);
-            //     });
+                    expect(_secondLevelLinks.length).toEqual(5);
+                });
+
+                describe("and has sublinks", () => {
+                    it("shows the sublinks", () => {
+                        let linkWithHrefAndSublinks = linksWithoutSublinks()[0];
+                        linkWithHrefAndSublinks.sublinks = linksWithoutSublinks();
+                        _component = componentWithTitle([linkWithHrefAndSublinks]);
+                        _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+
+                        expect(_secondLevelLinks.length).toEqual(1);
+                    });
+                });
+            });
         });
 
     });

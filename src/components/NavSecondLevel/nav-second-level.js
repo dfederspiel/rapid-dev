@@ -14,14 +14,13 @@ export default class NavSecondLevel extends React.Component {
                 <li className="nav-heading">{title}</li>
                 {
                     links && links.map((item, key) =>
-                        item.href || (item.sublinks && item.sublinks.length > 0) &&
                         <li key={key}>
                             {
-                                item.href && !item.sublinks || (item.sublinks && item.sublinks.length === 0) &&
+                                item.href && !item.sublinks &&
                                 <a href={item.href}>{item.title}</a>
                             }
                             {
-                                !item.href && item.sublinks && item.sublinks.length > 0 &&
+                                item.sublinks && item.sublinks.length > 0 &&
                                 <React.Fragment>
                                     <a href="javascript:void(0)">{item.title}</a>
                                     <NavThirdLevel links={item.sublinks} />
