@@ -2,7 +2,6 @@
 import NavThirdLevel from '../NavThirdLevel/nav-third-level';
 
 export default class NavSecondLevel extends React.Component {
-
     render() {
         const { title, links } = this.props;
 
@@ -21,10 +20,7 @@ export default class NavSecondLevel extends React.Component {
                             }
                             {
                                 item.sublinks && item.sublinks.length > 0 &&
-                                <React.Fragment>
-                                    <a href="javascript:void(0)">{item.title}</a>
-                                    <NavThirdLevel links={item.sublinks} />
-                                </React.Fragment>
+                                <NavThirdLevel title={item.title} links={item.sublinks} />
                             }
                         </li>)
                 }

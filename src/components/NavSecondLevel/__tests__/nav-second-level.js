@@ -45,25 +45,21 @@ describe('The  second level navigation component', () => {
                         expect(_secondLevelLinks.length).toEqual(0);
                     });
 
-                    it("does not display the sublinks", () => {
+                    it("does not display the third level navigation", () => {
                         expect(_component.find("NavThirdLevel").length).toEqual(0);
                     });
                 });
 
                 describe("and it does have sublinks", () => {
                     let sublinksLength;
-                    
+
                     beforeEach(() => {
                         sublinksLength = linksWithoutHrefWithSublinks().length - 1;
                         _component = componentWithTitle(linksWithoutHrefWithSublinks());
                         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
                     });
 
-                    it("shows the title", () => {
-                        expect(_secondLevelLinks.length).toEqual(sublinksLength);
-                    });
-
-                    it("shows the sublinks", () => {
+                    it("shows the third level navigation", () => {
                         expect(_component.find("NavThirdLevel").length).toEqual(sublinksLength);
                     });
                 });
@@ -78,18 +74,25 @@ describe('The  second level navigation component', () => {
                 });
 
                 describe("and has sublinks", () => {
-                    it("shows the sublinks", () => {
-                        let linkWithHrefAndSublinks = linksWithoutSublinks()[0];
+                    let linkWithHrefAndSublinks;
+
+                    beforeEach(() => {
+                        linkWithHrefAndSublinks = linksWithoutSublinks()[0];
                         linkWithHrefAndSublinks.sublinks = linksWithoutSublinks();
                         _component = componentWithTitle([linkWithHrefAndSublinks]);
                         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+                    });
 
-                        expect(_secondLevelLinks.length).toEqual(1);
+                    it("does not show the link title", () => {
+                        expect(_secondLevelLinks.length).toEqual(0);
+                    });
+
+                    it("shows the third level navigation", () => {
+                        expect(_component.find("NavThirdLevel").length).toEqual(1);
                     });
                 });
             });
         });
-
     });
 
     function componentWithTitle(links) {
