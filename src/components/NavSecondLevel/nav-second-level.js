@@ -2,12 +2,18 @@
 import NavThirdLevel from '../NavThirdLevel/nav-third-level';
 
 export default class NavSecondLevel extends React.Component {
+    
     render() {
+        const { title , links} = this.props;
+
+        if (!this.props.title)
+            return null;
+
         return (
             <ul className={`nav-second-level`}>
-                <li className="nav-heading">{this.props.title}</li>
+                <li className="nav-heading">{title}</li>
                 {
-                    this.props.links.map((item, key) =>
+                    links && links.map((item, key) =>
                         <li key={key}>
                             <a href={item.href}>{item.title}</a>
                             {

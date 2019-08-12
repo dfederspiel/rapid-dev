@@ -25,3 +25,10 @@ export function fakeWindowObjectProperty(propertyName, value) {
         value: value,
     });
 }
+
+export function fakeDocumentObjectProperty(propertyName, value) {
+    return Object.defineProperty(document, propertyName, {
+         writable: true,
+         value: value,
+     });
+ }

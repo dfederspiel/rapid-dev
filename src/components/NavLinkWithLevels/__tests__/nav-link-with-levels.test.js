@@ -65,21 +65,33 @@ describe('The navigation link with levels component', () => {
 
         describe("given sub links", () => {
             it("displays the second level navigation", () => {
-                _component = shallow(<NavLinkWithLevels  title="My Page" links={[{}, {}]} />);
+                _component = shallow(<NavLinkWithLevels title="My Page" links={links()} />);
 
                 expect(_component.find("NavSecondLevel").props().title).toEqual("My Page");
-                expect(_component.find("NavSecondLevel").props().links).toEqual([{}, {}]);
+                expect(_component.find("NavSecondLevel").props().links).toEqual(links());
             });
         });
 
-        describe("when the link is clicked", ()=>{
-            it("toggles the active state", ()=>{
-                _component.setState({active:false});
+        describe("when the link is clicked", () => {
+            it("toggles the active state", () => {
                 _component.find("a").simulate("click");
 
                 expect(_component.state().active).toEqual(true);
-                
+            });
+        });
+
+        describe("when clicking the second level of the link", () => {
+            it("keeps the link active", () => {
+                _component = shallow(<NavLinkWithLevels title="My Page" links={links()} />);
+                _component.setState({ active: true });
+                _component.find("NavSecondLevel").simulate("click");
+
+                expect(_component.state().active).toEqual(true);
             });
         });
     });
+
+    function links(){
+        return [{href:"href1", title:"title1"}, {href:"href2", title:"title2"}];
+    }
 });
