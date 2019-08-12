@@ -6,20 +6,36 @@ export default class NavLink extends React.Component {
         super(props);
     }
 
+    renderIcon = (icon) => {
+        return (
+            <div className="icon">
+                <FontAwesome name={icon} size="lg" />
+            </div>
+        )
+    }
     render() {
         const { href, icon, title } = this.props;
+        const { renderIcon } = this;
 
-        if (!this.props.href)
-            return null;
+        if(!href && !title)
+            return;
 
         return (
             <li >
-                <a href={href}>
-                    <div className="icon">
-                        <FontAwesome name={icon ? icon : "star"} size="lg" />
-                    </div>
-                    <div className="title">{title ? title : href}</div>
-                </a>
+                {
+                    href &&
+                    <a href={href}>
+                        {icon && renderIcon(icon)}
+                        <div className="title">{title ? title : href}</div>
+                    </a>
+                }
+                {
+                    !href && title &&
+                    <a>
+                        {icon && renderIcon(icon)}
+                        <div className="title">{title}</div>
+                    </a>
+                }
             </li>
         )
     }

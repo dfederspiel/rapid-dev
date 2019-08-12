@@ -16,22 +16,23 @@
     font-size: 1.4rem;
     z-index: 20;
     @include fadeOut;
+    z-index: -10;
     box-shadow: 0 0 2rem rgba(#ccc, .5);
 
     &>li {
         width: 24rem;
 
         &>a {
-            color: $body;
-            display: block;
+            color: $light-font;
+            display: flex;
             padding: 2rem 2.5rem;
             box-sizing: border-box;
             border-bottom: .1rem solid #efefef;
             transition-duration: .2s;
 
             @include states {
-                background-color: $primary-2;
-                color: $white;
+                color: $body;
+                font-weight: $font-weight-bold;
             }
         }
     }
@@ -51,6 +52,8 @@
 li.active .nav-second-level {
     @include fadeIn;
     left: 7rem;
+    z-index: 20;
+
 }
 
 .side-nav-expanded {

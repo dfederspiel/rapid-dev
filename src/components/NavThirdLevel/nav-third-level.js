@@ -1,5 +1,7 @@
 ﻿import React from 'react';
+import FontAwesome from 'react-fontawesome';
 import AnimateHeight from 'react-animate-height';
+import NavLink from '../NavLink/nav-link';
 
 export default class NavThirdLevel extends React.Component {
     constructor(props) {
@@ -16,19 +18,23 @@ export default class NavThirdLevel extends React.Component {
         const { height } = this.state;
         const { title, links } = this.props;
 
+        if (!title || !links)
+            return;
+
         return (
-            <React.Fragment>
-                <a href="javascript:void(0)" onClick={toggleSublinks}>{title}</a>
+            <li className={`third-level-trigger ${height ? "active" : ""}`}>
+                <a href="javascript:void(0)" onClick={toggleSublinks}>
+                    <div className="title">{title}</div>
+                    <div className="icon"><FontAwesome name="angle-down" /></div>
+                </a>
                 <AnimateHeight duration={300} height={height}>
                     <ul className="nav-third-level">
                         {links.map((link, key) =>
-                            <li key={key}>
-                                <a href={link.href}>{link.title}</a>
-                            </li>
+                            <NavLink href={link.href} title={link.title} key={key} />
                         )}
                     </ul>
                 </AnimateHeight >
-            </React.Fragment>
+            </li>
         )
     }
 }
