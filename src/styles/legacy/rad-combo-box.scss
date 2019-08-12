@@ -1,0 +1,20 @@
+﻿@import '../variables';
+
+.RadComboBox {
+    .rcbInputCell, .rcbArrowCell {
+        background-color: $light-background;
+        border: none;
+        font-size: 1.6rem;
+        padding: .1rem 0;
+    }
+
+    .rcbInputCell {
+        background-image:none;
+    }
+
+    .rcbArrowCellRight {
+        background-image: url('../img/caret-down-solid.svg');
+        background-position:center;
+        background-size:.75rem;
+    }
+}

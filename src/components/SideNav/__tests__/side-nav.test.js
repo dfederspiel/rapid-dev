@@ -11,8 +11,4 @@ describe('the side navigation component', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    describe("in mobile", () => {
-        const nav = shallow(<SideNav open={false} />);
-        expect(nav.contains(<div></div>)).toBe(true);
-    });
 });

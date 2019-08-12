@@ -27,14 +27,14 @@ const log = (o, level = 0) => {
         console.log(`${colors.red('prop:')}${p}: ${o[p]}`);
         if (o[p] != null && typeof o[p] == 'object') {
             try {
-                console.log("DETAILS")
+                console.log("DETAILS");
                 log(o[p], level + 1);
             } catch (err) {
-                console.log('CANT GET INFO')
+                console.log('CANT GET INFO');
             }
         }
     }
-}
+};
 
 let router = express.Router();
 let jsonServer = require('json-server');
@@ -65,7 +65,7 @@ const json = (callback) => {
             if (err) {
                 console.log('[JSON] ' + colors.red(err));
                 if (callback)
-                    callback()
+                    callback();
             } else {
                 console.log(colors.green('[JSON] DB.json Saved'.bold));
                 if (callback)
@@ -119,7 +119,7 @@ const img = (callback) => {
 const font = () => {
     console.log('[FONT] ' + colors.cyan('Copying Fonts'));
     return gulp.src('./src/fonts/**/*.*')
-        .pipe(multiDest(config.distribution.fonts))
+        .pipe(multiDest(config.distribution.fonts));
 };
 
 const js = (callback) => {
@@ -154,7 +154,7 @@ const js = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js))
+        .pipe(multiDest(config.distribution.js));
 };
 
 const jsv = (callback) => {
@@ -190,7 +190,7 @@ const jsv = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js))
+        .pipe(multiDest(config.distribution.js));
 };
 
 const scss = (callback) => {
@@ -280,7 +280,7 @@ const watch = (done) => {
                     bs.notify("Done Transpiling" + task.name, 1000);
                     cb();
                 });
-            })
+            });
         });
 
     gulp.watch(['./src/**/*.scss'])
@@ -292,7 +292,7 @@ const watch = (done) => {
                 scss(() => {
                     bs.notify("Done Transpiling" + task.name, 1000);
                 });
-            })
+            });
         });
 
     gulp.watch(['./src/*.js', './src/js/**/*.js', './src/components/**/*.js', './src/pages/**/*.js'])
@@ -303,9 +303,9 @@ const watch = (done) => {
                 bs.notify("Transpiling" + task.name, 1000);
                 js(() => {
                     bs.notify("Done Transpiling" + task.name, 1000);
-                    reload()
+                    reload();
                 });
-            })
+            });
         });
         
     gulp.watch(['./src/data/generate.js'])
@@ -318,9 +318,9 @@ const watch = (done) => {
                     build_routes(() => {
                         reload();
                         done();
-                    })
+                    });
                 });
-            })
+            });
         });
 
     gulp.watch(['./src/img/**/*'])
@@ -333,7 +333,7 @@ const watch = (done) => {
                     reload();
                     done();
                 });
-            })
+            });
         });
 
     gulp.watch('./src/**/*')

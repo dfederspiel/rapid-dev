@@ -1,15 +1,29 @@
 @import 'variables';
 
-header {
-    padding: 2.5rem;
-    border-bottom: solid .2rem #ddd;
-}
 
 main {
-    background-color: #FFFFFF;
-    min-height: calc(100vh - 10rem);
+    position: relative;
     display: flex;
-    overflow: auto;
+    flex-wrap: nowrap;
+    height: calc(100vh - 7.5rem);
+    overflow-x: hidden;
+}
+
+.alloya-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition-duration: 0.3s;
+    background-color:$light-background;
+    padding:2.5rem;
+    box-sizing: border-box;
+
+    @include tablet {
+        left: 7rem;
+        width: calc(100% - 7rem);
+        z-index: 30;
+    }
 }
 
 footer {

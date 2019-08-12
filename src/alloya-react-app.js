@@ -1,64 +1,59 @@
-﻿import Services from './js/services';
-import React from 'react';
-
-import {
-    BrowserRouter as Router,
-    Route
-} from 'react-router-dom';
-
+﻿import React from 'react';
 import TopNav from './components/TopNav/top-nav';
 import SideNav from './components/SideNav/side-nav';
 import Dashboard from './pages/Dashboard/dashboard';
 import DiscoverPremierView from './pages/DiscoverPremierView/discover-premier-view';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class AlloyaReactApp extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
-            isMobile: false,
-            minimal: false
+            sideNavIsOpen: true,
         };
-        window.onresize = this.setViewState;
     }
 
-    componentDidMount() {
-        this.setViewState();
+    componentWillMount() {
+        document.addEventListener("mousedown", this.handleClick, false);
     }
 
-    getNavigationState = () => {
-        return Services.getAppState().sideNav.expanded;
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.handleClick, false);
     }
 
-    setViewState = () => {
-        console.log(window.innerWidth);
-        if (window.innerWidth < 768)
-            this.setState({ isMobile: true });
-        else
-            this.setState({ isMobile: false, minimal: false });
+    handleClick = (e) => {
+        if (this.sideNavNode.contains(e.target) || this.headerNode.contains(e.target))
+            return;
+        this.setState({ sideNavIsOpen: false });
     }
 
-    menuClicked = () => {
-        if (this.state.isMobile)
-            this.setState({ open: !this.state.open });
-        else
-            this.setState({ minimal: !this.state.minimal, open: true });
+    toggleSideNav = () => {
+        this.setState({ sideNavIsOpen: !this.state.sideNavIsOpen });
     }
 
     render() {
+        const { toggleSideNav } = this;
+        const { sideNavIsOpen } = this.state;
+
         return (
-            <Router>
-                <header>
-                    <TopNav menuClicked={this.menuClicked} notificationCount={300} />
+            <div className={`alloya-body ${sideNavIsOpen ? "side-nav-expanded" : ""}`}>
+                <header ref={node => (this.headerNode = node)}>
+                    <TopNav toggleSideNav={toggleSideNav} />
                 </header>
                 <main>
-                    <SideNav minimal={this.state.minimal} open={this.state.open} />
-                    <Route path="/" exact component={Dashboard} />
-                    <Route path="/discover/:serviceType" component={DiscoverPremierView} />
-                    <Route exact path="/home.html" component={Dashboard} />
+                    <div ref={node => (this.sideNavNode = node)}>
+                        <SideNav />
+                    </div>
+                    <div className="alloya-content">
+                        <Router>
+                            <Route path="/" exact component={Dashboard} />
+                            <Route path="/discover/:serviceType" component={DiscoverPremierView} />
+                            <Route exact path="/home.html" component={Dashboard} />
+                        </Router>
+                    </div>
                 </main>
-            </Router>
+            </div>
         );
     }
 }
