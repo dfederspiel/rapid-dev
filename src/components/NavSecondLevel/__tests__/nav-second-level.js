@@ -30,6 +30,15 @@ describe('The  second level navigation component', () => {
         });
 
         describe("with links", () => {
+            beforeEach(() => {
+                _component = componentWithTitle(linksWithoutHrefNorSublinks());
+                _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+            });
+
+            it("shows a navigation header", () => {
+                expect(_component.find(".nav-heading").text()).toEqual("The other thing")
+            })
+
             describe("given an item does not have a href link", () => {
                 describe("and it does not have sublinks", () => {
                     it("does not display the link", () => {
@@ -41,12 +50,10 @@ describe('The  second level navigation component', () => {
                 });
 
                 describe("and it does have sublinks", () => {
-                    beforeEach(()=>{
+                    it("shows the links", () => {
                         _component = componentWithTitle(linksWithoutHrefWithSublinks());
                         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
-                    });
 
-                    it("shows the links", () => {
                         expect(_secondLevelLinks.length).toEqual(linksWithoutHrefWithSublinks().length - 1);
                     });
                 });
