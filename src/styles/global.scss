@@ -42,7 +42,7 @@ select.error {
 input[type="button"] {
     font-weight: $font-weight-medium;
     border: none;
-    width: 10rem;
+    min-width: 10rem;
     margin-left: 1.5rem;
     background-color: $primary;
     text-align: center;

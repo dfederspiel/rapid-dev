@@ -6,6 +6,7 @@
 @import 'kendo-toolbar';
 @import 'rad-toolbar';
 @import 'rad-combo-box';
+@import 'announcements';
 
 #TheContent, #ctl00_PinValidationPanel {
     margin: 3rem;
@@ -181,6 +182,7 @@
     }
 
     .ButtonExpando{
-        width:15rem;
+        min-width:15rem;
+        margin-left:0;
     }
 }
