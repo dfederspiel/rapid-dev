@@ -73,6 +73,7 @@
         "popper.js": "^1.15.0",
         "react": "^16.8.6",
         "react-addons-shallow-compare": "^15.6.2",
+        "react-animate-height": "^2.0.15",
         "react-data-table-component": "^1.7.4",
         "react-dates": "12.7.0",
         "react-dom": "^16.8.6",
