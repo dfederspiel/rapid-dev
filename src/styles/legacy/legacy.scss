@@ -6,6 +6,7 @@
 @import 'kendo-toolbar';
 @import 'rad-toolbar';
 @import 'rad-combo-box';
+@import 'announcements';
 @import 'crystal-report-viewer';
 
 #TheContent, #ctl00_PinValidationPanel {
@@ -178,6 +179,7 @@
     }
 
     .ButtonExpando{
-        width:15rem;
+        min-width:15rem;
+        margin-left:0;
     }
 }
