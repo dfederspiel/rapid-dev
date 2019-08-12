@@ -18,11 +18,11 @@ describe('The  second level navigation component', () => {
 
     describe("given a title", () => {
         let _secondLevelLinks;
-        let _secondLevelLinksSelector = ".nav-second-level li:not(.nav-heading)";
+        let _secondLevelLinksSelector = ".nav-second-level li a";
 
         describe("without links", () => {
             it("does not show the links", () => {
-                _component = shallow(<NavSecondLevel title="The thing that does the thing" />);
+                _component = componentWithTitle(null);
                 _secondLevelLinks = _component.find(_secondLevelLinksSelector);
 
                 expect(_secondLevelLinks.length).toEqual(0);
@@ -30,22 +30,73 @@ describe('The  second level navigation component', () => {
         });
 
         describe("with links", () => {
-            it("shows the links", () => {
-                _component = shallow(<NavSecondLevel title="The other thing" links={links()} />);
-                _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+            describe("given a link does not have a href link", () => {
+                describe("and it does not have sublinks", () => {
+                    it("does not display the link", () => {
+                        _component = componentWithTitle(linksWithoutHrefNorSublinks());
+                        _secondLevelLinks = _component.find(_secondLevelLinksSelector);
 
-                expect(_secondLevelLinks.length).toEqual(links().length);
+                        expect(_secondLevelLinks.length).toEqual(0);
+                    });
+                });
+
+                describe("and it does have sublinks", () => {
+                    beforeEach(()=>{
+                        _component = componentWithTitle(linksWithoutHrefWithSublinks());
+                        _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+                    });
+
+                    it("displays the link", () => {
+                        expect(_secondLevelLinks.length).toEqual(5);
+                    });
+
+                    it("shows the same number of links", () => {
+                        expect(_secondLevelLinks.length).toEqual(linksWithoutHrefWithSublinks().length);
+                    });
+                });
             });
+
+            //     it("shows the same number of links", () => {
+            //         _component = componentWithTitle(linksWithoutSublinks());
+            //         _secondLevelLinks = _component.find(_secondLevelLinksSelector);
+
+            //         expect(_secondLevelLinks.length).toEqual(linksWithoutSublinks().length);
+            //     });
         });
+
     });
 
-    function links(){
+    function componentWithTitle(links) {
+        return shallow(<NavSecondLevel title="The other thing" links={links} />);
+    }
+
+    function linksWithoutSublinks() {
         return [
-            {href:"href1", title:"title1"}, 
-            {href:"href2", title:"title2"},
-            {href:"href3", title:"title3"},
-            {href:"href4", title:"title4"},
-            {href:"href5", title:"title5"},
+            { href: "href1", title: "title1" },
+            { href: "href2", title: "title2" },
+            { href: "href3", title: "title3" },
+            { href: "href4", title: "title4" },
+            { href: "href5", title: "title5" },
+        ];
+    }
+
+    function linksWithoutHrefNorSublinks() {
+        return [
+            { href: "", title: "title1" },
+            { href: "", title: "title2" },
+            { href: "", title: "title3" },
+            { href: "", title: "title4" },
+            { href: "", title: "title5" },
+        ];
+    }
+
+    function linksWithoutHrefWithSublinks() {
+        return [
+            { href: "", title: "title1", sublinks: [] },
+            { href: "", title: "title2", sublinks: [{ href: "http//www.weehaw.com", title: "the" }, { href: "http//www.weehaw2.com", title: "At" }] },
+            { href: "", title: "title3", sublinks: linksWithoutSublinks() },
+            { href: "", title: "title4", sublinks: linksWithoutSublinks() },
+            { href: "", title: "title5", sublinks: linksWithoutSublinks() },
         ];
     }
 });

@@ -2,9 +2,9 @@
 import NavThirdLevel from '../NavThirdLevel/nav-third-level';
 
 export default class NavSecondLevel extends React.Component {
-    
+
     render() {
-        const { title , links} = this.props;
+        const { title, links } = this.props;
 
         if (!this.props.title)
             return null;
@@ -15,10 +15,16 @@ export default class NavSecondLevel extends React.Component {
                 {
                     links && links.map((item, key) =>
                         <li key={key}>
-                            <a href={item.href}>{item.title}</a>
                             {
-                                item.sublinks && item.sublinks.length > 0 &&
-                                <NavThirdLevel links={item.sublinks} />
+                                item.href && !item.sublinks || (item.sublinks && item.sublinks.length === 0) &&
+                                <a href={item.href}>{item.title}</a>
+                            }
+                            {
+                                !item.href && item.sublinks && item.sublinks.length > 0 &&
+                                <React.Fragment>
+                                    <a href="javascript:void(0)">{item.title}</a>
+                                    <NavThirdLevel links={item.sublinks} />
+                                </React.Fragment>
                             }
                         </li>)
                 }
