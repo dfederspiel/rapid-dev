@@ -132,7 +132,7 @@ if [ -e "$DEPLOYMENT_TARGET/gulpfile.babel.js" ]; then
     echo Installing Gulp
     eval npm install gulp
     echo Running Gulp
-    eval node ./node_modules/.bin/gulp build
+    eval node ./node_modules/gulp/bin/gulp build
     exitWithMessageOnError "gulp failed"
 fi
 
