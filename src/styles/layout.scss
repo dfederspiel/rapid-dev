@@ -22,7 +22,6 @@ main {
     @include tablet {
         left: 7rem;
         width: calc(100% - 7rem);
-        z-index: 30;
     }
 }
 

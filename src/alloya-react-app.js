@@ -10,7 +10,7 @@ export default class AlloyaReactApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sideNavIsOpen: true,
+            sideNavIsOpen: false,
         };
     }
 
@@ -25,15 +25,23 @@ export default class AlloyaReactApp extends React.Component {
     handleClick = (e) => {
         if (this.sideNavNode.contains(e.target) || this.headerNode.contains(e.target))
             return;
-        this.setState({ sideNavIsOpen: false });
+        this.closeSideNav();
     }
 
     toggleSideNav = () => {
         this.setState({ sideNavIsOpen: !this.state.sideNavIsOpen });
     }
 
+    openSideNav = () => {
+        this.setState({ sideNavIsOpen: true });
+    }
+
+    closeSideNav = () => {
+        this.setState({ sideNavIsOpen: false });
+    }
+    
     render() {
-        const { toggleSideNav } = this;
+        const { toggleSideNav, openSideNav } = this;
         const { sideNavIsOpen } = this.state;
 
         return (
@@ -42,14 +50,14 @@ export default class AlloyaReactApp extends React.Component {
                     <TopNav toggleSideNav={toggleSideNav} />
                 </header>
                 <main>
-                    <div ref={node => (this.sideNavNode = node)}>
-                        <SideNav />
+                    <div className="side-nav-wrapper" ref={node => (this.sideNavNode = node)}>
+                        <SideNav openSideNav={openSideNav} />
                     </div>
                     <div className="alloya-content">
                         <Router>
                             <Route path="/" exact component={Dashboard} />
+                            <Route path="/transaction" exact component={DiscoverPremierView} />
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
-                            <Route exact path="/home.html" component={Dashboard} />
                         </Router>
                     </div>
                 </main>

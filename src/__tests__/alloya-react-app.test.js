@@ -20,14 +20,14 @@ describe("The Alloya app", () => {
     });
 
     describe("when the component will mount", () => {
-        it("adds and event listener", () => {
+        it("adds an event listener to handle click events", () => {
             _component.instance().componentWillMount();
             expect(document.addEventListener).toHaveBeenCalledWith("mousedown", _component.instance().handleClick, false);
         });
     });
 
     describe("when the component will unmount", () => {
-        it("removes and event listener", () => {
+        it("removes the event listener to handle click events", () => {
             _component.instance().componentWillUnmount();
             expect(document.removeEventListener).toHaveBeenCalledWith("mousedown", _component.instance().handleClick, false);
         });
