@@ -30,7 +30,7 @@ li.third-level-trigger {
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                transition-duration: .3s;
+                transition-duration: .5s;
                 transform: translate(-50%, -50%) rotate(0);
             }
         }
@@ -46,7 +46,7 @@ li.third-level-trigger {
             display: block;
             padding: 1.8rem 3.5rem;
             color: $body;
-            transition-duration: .3s;
+            transition-duration: .5s;
 
             @include states {
                 text-decoration: underline;

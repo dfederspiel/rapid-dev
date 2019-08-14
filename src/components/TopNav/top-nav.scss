@@ -7,7 +7,7 @@
     background-color: #fff;
     border-bottom: .2rem solid $light-background;
     box-shadow: 0 0 2rem rgba(#ccc, .27);
-    transition-duration: .3s;
+    transition-duration: .5s;
     z-index: 10;
 
     .trigger {
@@ -31,7 +31,7 @@
         background-color: red;
         z-index: 100;
         overflow-y: auto;
-        transition-duration: .3s;
+        transition-duration: .5s;
     }
 }
 

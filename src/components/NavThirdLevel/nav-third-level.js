@@ -27,7 +27,7 @@ export default class NavThirdLevel extends React.Component {
                     <div className="title">{title}</div>
                     <div className="icon"><FontAwesome name="angle-down" /></div>
                 </a>
-                <AnimateHeight duration={300} height={height}>
+                <AnimateHeight duration={500} height={height}>
                     <ul className="nav-third-level">
                         {links.map((link, key) =>
                             <NavLink href={link.href} title={link.title} key={key} />

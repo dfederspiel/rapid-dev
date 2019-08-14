@@ -7,7 +7,7 @@
     width: 7rem;
     background-color: #fff;
     min-height: 100vh;
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
     height: 100%;
     overflow-y: auto;
     z-index: 5;
@@ -27,7 +27,7 @@
         padding-left: 2.5rem;
         font-size: 1.4rem;
         font-weight: $font-weight-bold;
-        transition-duration: .3s;
+        transition-duration: .5s;
         @include fadeOut;
     }
 
@@ -65,7 +65,7 @@
                 font-size: 1.4rem;
                 font-weight: $font-weight-bold;
                 color: $light-font;
-                transition-duration: .3s;
+                transition-duration: .5s;
                 cursor: pointer;
 
                 &:before {
@@ -92,7 +92,7 @@
 
                 .title {
                     transition-property: opacity;
-                    transition-duration: .3s;
+                    transition-duration: .5s;
                     @include fadeOut;
                 }
             }
