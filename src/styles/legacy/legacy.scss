@@ -142,9 +142,14 @@
 
     .ButtonRow {
         margin-top: 1.5rem;
+        margin-bottom:1.5rem;
 
         input:first-child {
             margin-left: 0;
+        }
+
+        input[type='submit']{
+            border:solid .1rem $primary;
         }
     }
 
@@ -181,5 +186,9 @@
     .ButtonExpando{
         min-width:15rem;
         margin-left:0;
+    }
+
+    .add-button{
+        width:10rem;
     }
 }
