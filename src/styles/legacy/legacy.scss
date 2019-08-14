@@ -6,6 +6,8 @@
 @import 'kendo-toolbar';
 @import 'rad-toolbar';
 @import 'rad-combo-box';
+@import 'announcements';
+@import 'crystal-report-viewer';
 
 #TheContent, #ctl00_PinValidationPanel {
     margin: 3rem;
@@ -16,10 +18,6 @@
         margin-bottom: 0;
         font-size: 2.3rem;
         font-weight: $font-weight-black;
-    }
-    
-    .PageHeaderToolbar {
-        background-color: $primary-4;
     }
 
     .PageHeaderCrumb > a {
@@ -181,6 +179,7 @@
     }
 
     .ButtonExpando{
-        width:15rem;
+        min-width:15rem;
+        margin-left:0;
     }
 }

@@ -104,9 +104,12 @@ echo Handling node.js deployment.
 
 # 1. Select node version
 # selectNodeVersion
+echo "#1 SELECTING THE NODE VERSION"
 NPM_CMD="node /opt/nodjs/10.14.2/bin/npm"
 
 # 4. KuduSync
+echo "#2 SYNCING FILES TO WWW ROOT WITH KUDU"
+
 echo Copying to WwwRoot
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
   "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
@@ -114,6 +117,7 @@ if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
 fi
 
 # 2. Install npm packages
+echo "#3 INSTALLING NPM PACKAGES"
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   echo "Running npm install --production"
@@ -122,12 +126,13 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 # 3. Run GULP
+echo "#4 RUNNING GULP"
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.babel.js" ]; then
     cd "$DEPLOYMENT_TARGET"
-    echo Installing Gulp
-    eval npm install gulp
+    #echo Installing Gulp
+    #eval npm install gulp
     echo Running Gulp
-    eval node ./node_modules/.bin/gulp build
+    eval node ./node_modules/gulp/bin/gulp build
     exitWithMessageOnError "gulp failed"
 fi
 

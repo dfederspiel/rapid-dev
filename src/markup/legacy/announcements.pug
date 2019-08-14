@@ -1,0 +1,85 @@
+﻿extends ../base.pug
+block main
+    #TheContent
+      #ThePageHeader
+        .PageHeader2.clearfix
+          | Premier Portfolio
+      hr
+      .messages-control(data-messages-control='true' style='display: none;')
+        ul
+          li(style='display:none')
+      .announcediv
+        .announcement
+          .announcehdr  1st PP Announcement 
+          .announcebody
+            span(style='font-size: 13px;')
+              strong(style='color: #ff0000;')
+                | 1st PP Announcement
+                br
+                br
+              span(style='color: #8064a2;')
+                em So generic it applies to everyone, purple is the new trend
+              strong(style='color: #ff0000;')
+                br
+        br
+        .announcement
+          .announcehdr  3rd PP Announcement 
+          .announcebody
+            span(style='font-size: 22px;')
+              strong
+                em
+                  span(style='text-decoration: underline;')
+                    | 3rd PP Announcement
+                    br
+                    br
+                    del
+                    br
+                    span(style='color: #d7e3bc;')
+                    | This
+                  | is 
+                  span(style='text-decoration: underline;')
+                    span(style='color: #953734;') outra
+                    | geously 
+                    span(style='color: #ff0000;') artistic, 
+                    span(style='color: #7030a0;') but too bad 
+                    | no
+                span(style='text-decoration: underline;') one can 
+                em
+                  span(style='text-decoration: underline;')
+                    | see it
+                    br
+                    br
+                    span(style='font-size: 8px;')
+                      | or&nbsp;&nbsp; 
+                      span(style='font-size: 16px;')
+                        | lucky 
+                        span(style='font-size: 22px;')
+                          | for you, 
+                          span(style='font-size: 8px;')
+                            | the 
+                            span(style='font-size: 16px;')
+              em
+                span(style='text-decoration: underline;')
+                  span(style='font-size: 8px;')
+                    span(style='font-size: 16px;')
+                      span(style='font-size: 22px;')
+                        span(style='font-size: 8px;')
+                          span(style='font-size: 16px;')
+                            | admin 
+                            span(style='font-size: 20px;')
+                              del
+                                | forgot 
+                                span(style='color: #00b050;')
+                                  | to 
+                                  span(style='color: #c0504d;')
+                                    | disable it
+                                    br
+                                    br
+                                    | HAVE A NICE DAY!
+              strong
+                em
+                  span(style='text-decoration: underline;')
+                    br
+        br
+        div
+          input#continueBtn.ButtonExpando(type='button' value='Continue to Premier Portfolio' onclick="global_Navigate('/Investments/PremierPortfolio/Continue/0')" autofocus='autofocus')
