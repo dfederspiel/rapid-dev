@@ -200,6 +200,7 @@ const react = (callback) => {
     b.require('react');
     b.require('react-dom');
     b.require('react-fontawesome');
+    
 
     return b
         .bundle((err) => {
@@ -412,7 +413,7 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, react, img, font)));
 gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));

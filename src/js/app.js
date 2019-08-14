@@ -19,9 +19,6 @@ import ReactDatePicker from '../components/DatePicker/date-picker';
 import TopNav from '../components/TopNav/top-nav';
 import SideNav from '../components/SideNav/side-nav';
 
-//const Components = require("expose-loader?Components!{}");
-window.Components = require('./component-index.js');
-
 renderReactComponents();
 var appState = Services.getAppState();
 
