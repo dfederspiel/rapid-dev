@@ -66,7 +66,7 @@ module.exports = function () {
         }),
 
         fasttrack: _.times(10, function (n) {
-            let fakeFontAwesome = ["star", "rocket", "home", "money-bill-alt", "chart-pie", "laptop", "spinner", "cog", "coffee","check-square"]
+            let fakeFontAwesome = ["star", "rocket", "home", "money-bill-alt", "chart-pie", "laptop", "spinner", "cog", "coffee", "check-square"]
             return {
                 title: faker.random.words(1),
                 href: faker.internet.url(),
