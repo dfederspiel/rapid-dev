@@ -10,7 +10,7 @@
     transition-duration: 0.3s;
     height: 100%;
     overflow-y: auto;
-    z-index: 10;
+    z-index: 5;
 
     @include tablet {
         left: 0;

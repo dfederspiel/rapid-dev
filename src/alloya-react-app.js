@@ -11,6 +11,7 @@ export default class AlloyaReactApp extends React.Component {
         super(props);
         this.state = {
             sideNavIsOpen: false,
+            rightNavIsOpen: false,
         };
     }
 
@@ -32,6 +33,10 @@ export default class AlloyaReactApp extends React.Component {
         this.setState({ sideNavIsOpen: !this.state.sideNavIsOpen });
     }
 
+    toggleRightNav = () => {
+        this.setState({ rightNavIsOpen: !this.state.rightNavIsOpen });
+    }
+
     openSideNav = () => {
         this.setState({ sideNavIsOpen: true });
     }
@@ -39,15 +44,18 @@ export default class AlloyaReactApp extends React.Component {
     closeSideNav = () => {
         this.setState({ sideNavIsOpen: false });
     }
-    
+
     render() {
-        const { toggleSideNav, openSideNav } = this;
-        const { sideNavIsOpen } = this.state;
+        const { toggleSideNav, toggleRightNav, openSideNav } = this;
+        const { sideNavIsOpen, rightNavIsOpen } = this.state;
 
         return (
-            <div className={`alloya-body ${sideNavIsOpen ? "side-nav-expanded" : ""}`}>
+            <div className={`alloya-body 
+                            ${sideNavIsOpen ? "side-nav-expanded" : ""}
+                            ${rightNavIsOpen ? "right-nav-open" : ""}
+                            `}>
                 <header ref={node => (this.headerNode = node)}>
-                    <TopNav toggleSideNav={toggleSideNav} />
+                    <TopNav toggleSideNav={toggleSideNav} toggleRightNav={toggleRightNav} />
                 </header>
                 <main>
                     <div className="side-nav-wrapper" ref={node => (this.sideNavNode = node)}>
