@@ -74,11 +74,22 @@ describe('The navigation link with levels component', () => {
 
         describe("when the link is clicked", () => {
             it("toggles the active state", () => {
-                _component.find("a").simulate("click");
+                _component.setState({active:false});
+                _component.find("a.link").simulate("click");
 
                 expect(_component.state().active).toEqual(true);
             });
         });
+
+        describe("when the trigger is clicked", () => {
+            it("toggles the active state", () => {
+                _component.setState({active:false});
+                _component.find("a.active-trigger").simulate("click");
+
+                expect(_component.state().active).toEqual(true);
+            });
+        });
+
 
         describe("when clicking the second level of the link", () => {
             it("keeps the link active", () => {

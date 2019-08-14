@@ -43,6 +43,20 @@
             height: 5rem;
             width: 22rem;
 
+            @include states {
+                &>a {
+                    color: #222;
+
+                    &:before {
+                        background-color: $primary;
+                    }
+
+                    .icon {
+                        color: $primary;
+                    }
+                }
+            }
+
             &>a {
                 position: relative;
                 display: flex;
@@ -65,17 +79,7 @@
                     transition-duration: .2s;
                 }
 
-                @include states {
-                    color: #222;
 
-                    &:before {
-                        background-color: $primary;
-                    }
-
-                    .icon {
-                        color: $primary;
-                    }
-                }
 
                 .icon {
                     display: flex;
@@ -92,9 +96,9 @@
                     @include fadeOut;
                 }
             }
-            
+
             .active-trigger {
-                display: none;
+                display: flex;
                 width: 7rem;
                 height: 5rem;
                 justify-content: center;
@@ -115,19 +119,20 @@
                 }
             }
 
-            &:nth-child(2){
-                .active-trigger{
+            &:nth-child(2) {
+                .active-trigger {
                     top: 75px;
                 }
             }
 
-            &:nth-child(3){
-                .active-trigger{
+            &:nth-child(3) {
+                .active-trigger {
                     top: 125px;
                 }
             }
-            &:nth-child(4){
-                .active-trigger{
+
+            &:nth-child(4) {
+                .active-trigger {
                     top: 175px;
                 }
             }
