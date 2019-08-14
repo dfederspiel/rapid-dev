@@ -42,10 +42,13 @@ export default class NavLinkWithLevels extends React.Component {
             return null;
 
         return (
-            <li className={active ? "active" : ""} ref={node => this.node = node}>
+            <li className={`nav-link-with-levels ${active ? "active" : ""}`} ref={node => this.node = node}>
                 <a href="javascript:void(0)" onClick={toggle}>
                     <div className="icon"><FontAwesome name={icon ? icon : "star"} size="lg" /></div>
                     <div className="title">{title}</div>
+                </a>
+                <a className="active-trigger" href="javascript:void(0)" onClick={toggle}>
+                    <div className="icon"><FontAwesome name={icon ? icon : "star"} size="lg" /></div>
                 </a>
                 {
                     links && <NavSecondLevel title={title} links={links} />

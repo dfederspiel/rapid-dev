@@ -43,8 +43,6 @@ export default class SideNav extends React.Component {
     }
 
     render() {
-        const { renderFastTrackLinks, hasFastTrackLinks } = this;
-        const { error, fetching } = this.state;
         const { openSideNav } = this.props;
 
         return (

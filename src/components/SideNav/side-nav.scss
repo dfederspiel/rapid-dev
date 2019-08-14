@@ -92,17 +92,67 @@
                     @include fadeOut;
                 }
             }
-
-            &.active>a {
-                color: #222;
+            .active-trigger {
+                display: none;
+                width: 7rem;
+                height: 5rem;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                background-color: white;
+                z-index: 100;
 
                 &:before {
-                    background-color: $primary;
+                    content: "";
+                    height: 100%;
+                    width: .5rem;
+                    background-color: transparent;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    transition-duration: .2s;
+                }
+            }
+
+            &:nth-child(2){
+                .active-trigger{
+                    top: 75px;
+                }
+            }
+
+            &:nth-child(3){
+                .active-trigger{
+                    top: 125px;
+                }
+            }
+            &:nth-child(4){
+                .active-trigger{
+                    top: 175px;
+                }
+            }
+
+
+            &.active {
+                &>a {
+                    color: #222;
+
+                    &:before {
+                        background-color: $primary;
+                    }
+
+                    .icon {
+                        color: $primary;
+                        box-shadow: -2rem 0 2rem rgba(#ccc, .5);
+                    }
                 }
 
-                .icon {
+                .active-trigger {
+                    display: flex;
                     color: $primary;
-                    box-shadow: 0 0 2rem rgba(#ccc, .5);
+
+                    &:before {
+                        background-color: $primary;
+                    }
                 }
             }
         }

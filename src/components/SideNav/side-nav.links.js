@@ -4,7 +4,7 @@ export function transactionsLinks() {
         { title: "Transaction Review", href:"/" },
         { title: "Cash Management Account", href:"/" },
         {
-            title: "Domestic Wires", href:"",
+            title: "Domestic Wires",
             sublinks:
                 [
                     { title: "Create Domestic Wire", href:"/" },
@@ -14,7 +14,7 @@ export function transactionsLinks() {
                 ]
         },
         {
-            title: "International Wires", href:"",
+            title: "International Wires", 
             sublinks:
                 [
                     { title: "Third Level 1", href:"/" },
@@ -23,7 +23,7 @@ export function transactionsLinks() {
                 ]
         },
         {
-            title: "Share Draft Services", href:"",
+            title: "Share Draft Services",
             sublinks:
                 [
                     { title: "Third Level 1", href:"/" },
@@ -32,7 +32,7 @@ export function transactionsLinks() {
                 ]
         },
         {
-            title: "Check Deposit Service", href:"",
+            title: "Check Deposit Service",
             sublinks:
                 [
                     { title: "Third Level 1", href:"/" },
