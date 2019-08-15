@@ -7,10 +7,11 @@
     background-color: #fff;
     border-bottom: .2rem solid $light-background;
     box-shadow: 0 0 2rem rgba(#ccc, .27);
-    left:0;
+    left: 0;
     transition-duration: .5s;
     z-index: 5;
-    @include tablet{
+
+    @include tablet {
         z-index: 10;
     }
 
@@ -24,30 +25,48 @@
         align-items: center;
     }
 
-    .more-menu {
-        position: fixed;
-        right:-32rem;
-        top: 0;
-        width: 100vw;
-        max-width:32rem;
-        height: 100%;
-        min-height: 100vh;
-        background-color: red;
-        z-index: 100;
-        overflow-y: auto;
-        transition-duration: .5s;
+    .more {
+        .trigger {
+            cursor: pointer;
+        }
+
+        .more-menu {
+            position: fixed;
+            right: -32rem;
+            top: 0;
+            width: 100vw;
+            max-width: 32rem;
+            height: 100%;
+            min-height: 100vh;
+            background-color: #fff;
+            box-shadow: 0 0 2rem rgba(204, 204, 204, .5);
+            z-index: 100;
+            overflow-y: auto;
+            transition-duration: .5s;
+        }
     }
 }
 
 .right-nav-open {
-    .more-menu {
-        right: 0;
+    .more {
+        .more-menu {
+            right: 0;
+        }
     }
 
     .alloya-content {
         left: -3rem;
+
+        &:before {
+            left: -32rem;
+            background-color: rgba(#000, .8);
+            @include fadeIn;
+            z-index: 1000;
+        }
     }
-    .side-nav, .top-nav {
+
+    .side-nav,
+    .top-nav {
         left: -7rem;
     }
 }

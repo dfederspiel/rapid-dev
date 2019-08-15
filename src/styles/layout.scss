@@ -19,6 +19,20 @@ main {
     padding:2.5rem;
     box-sizing: border-box;
 
+    &:before {
+        @include fadeOut;
+        content: "";
+        width: calc(100% - 32rem);
+        width:100%;
+        height: 100%;
+        z-index: 1000;
+        position: fixed;
+        left: 0;
+        top: 7rem;
+        transition-duration:.5s;
+        background-color: rgba(#222, .5);
+    }
+
     @include tablet {
         left: 7rem;
         width: calc(100% - 7rem);

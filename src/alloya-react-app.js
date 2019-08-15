@@ -34,7 +34,7 @@ export default class AlloyaReactApp extends React.Component {
     }
 
     toggleRightNav = () => {
-        this.setState({ rightNavIsOpen: !this.state.rightNavIsOpen });
+        this.setState({ rightNavIsOpen: !this.state.rightNavIsOpen, sideNavIsOpen:false });
     }
 
     openSideNav = () => {
