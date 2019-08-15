@@ -7,8 +7,12 @@
     background-color: #fff;
     border-bottom: .2rem solid $light-background;
     box-shadow: 0 0 2rem rgba(#ccc, .27);
+    left:0;
     transition-duration: .5s;
-    z-index: 10;
+    z-index: 5;
+    @include tablet{
+        z-index: 10;
+    }
 
     .trigger {
         padding: 1.5rem;
