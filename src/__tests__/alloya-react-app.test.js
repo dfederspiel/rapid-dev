@@ -12,11 +12,11 @@ describe("The Alloya app", () => {
     });
     
     it("has a side navigation", () => {
-        expect(_component.find("SideNav").length).toEqual(1);
+        expect(_component.find("LeftSideNav").length).toEqual(1);
     });
 
     it("has a top navigation that passes a callback to handle side navigation toggling", () => {
-        expect(_component.find("TopNav").props().toggleSideNav).toEqual(_component.instance().toggleSideNav);
+        expect(_component.find("TopNav").props().toggleLeftSideNav).toEqual(_component.instance().toggleLeftSideNav);
     });
 
     describe("when the component will mount", () => {
@@ -35,16 +35,16 @@ describe("The Alloya app", () => {
 
     describe("given a call to toggle the side navigation", () => {
         it("toggles the side navigation", () => {
-            _component.setState({ sideNavIsOpen: true });
-            _component.instance().toggleSideNav();
-            expect(_component.state().sideNavIsOpen).toEqual(false);
+            _component.setState({ LeftSideNavIsOpen: true });
+            _component.instance().toggleLeftSideNav();
+            expect(_component.state().LeftSideNavIsOpen).toEqual(false);
         });
     });
     
     describe("given a call to toggle the right navigation", () => {
         it("toggles the right navigation", () => {
             _component.setState({ rightNavIsOpen: true });
-            _component.instance().toggleRightNav();
+            _component.instance().toggleRightSideNav();
             expect(_component.state().rightNavIsOpen).toEqual(false);
         });
     });

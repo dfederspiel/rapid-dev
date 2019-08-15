@@ -1,12 +1,11 @@
 ﻿import React from 'react';
 import Api from '../../services/Api';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
-import { transactionsLinks, liquidityLinks, investmentsLinks } from './side-nav.links';
+import { transactionsLinks, liquidityLinks, investmentsLinks } from './left-side-nav.links';
 import NavLink from '../NavLink/nav-link';
 import NavFastTrack from '../NavFastTrack/nav-fasttrack';
 
-export default class SideNav extends React.Component {
-
+export default class LeftSideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,7 +42,7 @@ export default class SideNav extends React.Component {
     }
 
     render() {
-        const { openSideNav } = this.props;
+        const { openLeftSideNav } = this.props;
 
         return (
             <div className="side-nav" >
@@ -54,21 +53,21 @@ export default class SideNav extends React.Component {
                     {<NavLinkWithLevels
                         title="Transactions"
                         icon="laptop"
-                        openSideNav={openSideNav}
+                        openLeftSideNav={openLeftSideNav}
                         links={transactionsLinks()}
                     />}
 
                     {<NavLinkWithLevels
                         title="Liquidity"
                         icon="money-bill-alt"
-                        openSideNav={openSideNav}
+                        openLeftSideNav={openLeftSideNav}
                         links={liquidityLinks()}
                     />}
 
                     {<NavLinkWithLevels
                         title="Investments"
                         icon="chart-pie"
-                        openSideNav={openSideNav}
+                        openLeftSideNav={openLeftSideNav}
                         links={investmentsLinks()}
                     />}
                 </ul>
