@@ -47,6 +47,18 @@
     visibility: hidden;
 }
 
+@mixin fadeInBlur() {
+    opacity: 1;
+    visibility: visible;
+    filter:blur(.5rem);
+}
+
+
+@mixin fadeOutBlur() {
+    opacity: 0;
+    visibility: hidden;
+}
+
 @mixin fadeIn() {
     opacity: 1;
     visibility: visible;

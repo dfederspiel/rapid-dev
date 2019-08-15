@@ -40,4 +40,12 @@ describe("The Alloya app", () => {
             expect(_component.state().sideNavIsOpen).toEqual(false);
         });
     });
+    
+    describe("given a call to toggle the right navigation", () => {
+        it("toggles the right navigation", () => {
+            _component.setState({ rightNavIsOpen: true });
+            _component.instance().toggleRightNav();
+            expect(_component.state().rightNavIsOpen).toEqual(false);
+        });
+    });
 });
