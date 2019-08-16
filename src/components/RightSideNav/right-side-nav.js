@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import NavLink from '../NavLink/nav-link';
+import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 
 export default class RightSideNav extends React.Component {
 
@@ -16,7 +18,6 @@ export default class RightSideNav extends React.Component {
                         {/* <ul>
                             <li>Suck it</li>
                         </ul> */}
-
                     </div>
                 </div>
                 <button className="trigger" onClick={toggleRightSideNav}>
@@ -24,10 +25,16 @@ export default class RightSideNav extends React.Component {
                 </button>
                 <div className="right-side-menu">
                     <button onClick={toggleRightSideNav}>X</button>
-                    {/* <li><a href="">Test</a></li> */}
+                    <div className="settings">
+                        <ul>
+                            <NavLinkWithLevels title="Administration" links={[]}/>
+                            <NavLinkWithLevels title="Administration" links={[]}/>
+                        </ul>
+                    </div>
+                    <div className="info">
+
+                    </div>
                 </div>
-
-
             </div>
         );
     }
