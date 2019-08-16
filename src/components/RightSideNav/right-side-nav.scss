@@ -1,8 +1,10 @@
 @import '../../styles/variables';
 
 .right-side-nav {
-    display:flex;
+    display: flex;
+
     .trigger {
+        @include unstyleButton;
         cursor: pointer;
     }
 
@@ -23,11 +25,75 @@
             max-width: 32rem;
             right: -32rem;
         }
+
+        .close-right-nav {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                @include unstyleButton;
+                display: flex;
+                float: none;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                padding: 3rem;
+                color: $primary;
+            }
+
+            .title,
+            .icon {
+                display: inline-block;
+                padding: .7rem;
+                font-weight: $font-weight-normal;
+                font-size: 1.2rem;
+            }
+
+            .icon {
+                position: relative;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 1rem;
+                border: .2rem solid $primary;
+
+                span {
+                    color: $primary;
+                    position: absolute;
+                    height: 1.2rem;
+                    width: 1.2rem;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        ul {
+            @include noBullets;
+            padding: .5rem 0;
+
+            &:not(:last-child) {
+                border-bottom: .1rem solid #efefef;
+            }
+
+            &>li {
+                &>a {
+                    display: inline-block;
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                    color: $body;
+                    font-weight: $font-weight-bold;
+                    padding: 1.5rem 3rem;
+                    box-sizing: border-box;
+                }
+            }
+        }
     }
 }
+
 .right-nav-open {
     .right-side-menu {
-            right: 0;
+        right: 0;
     }
 
     .alloya-content {

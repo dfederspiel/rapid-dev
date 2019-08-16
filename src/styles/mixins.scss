@@ -68,3 +68,9 @@
     list-style: none;
     padding: 0;
 }
+
+@mixin unstyleButton(){
+    background-color:initial;
+    border:none;
+    font-weight: $font-weight-normal;
+}

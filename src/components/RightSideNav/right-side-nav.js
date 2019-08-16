@@ -15,25 +15,42 @@ export default class RightSideNav extends React.Component {
                         <div className="icon"><FontAwesome name='bell' size="lg" /></div>
                     </div>
                     <div className="notifications-menu">
-                        {/* <ul>
-                            <li>Suck it</li>
-                        </ul> */}
+
                     </div>
                 </div>
                 <button className="trigger" onClick={toggleRightSideNav}>
                     <FontAwesome name='ellipsis-h' size="lg" />
                 </button>
                 <div className="right-side-menu">
-                    <button onClick={toggleRightSideNav}>X</button>
-                    <div className="settings">
-                        <ul>
-                            <NavLinkWithLevels title="Administration" links={[]}/>
-                            <NavLinkWithLevels title="Administration" links={[]}/>
-                        </ul>
+                    <div className="close-right-nav">
+                        <button onClick={toggleRightSideNav}>
+                            <span className="title">CLOSE</span>
+                            <span className="icon"><FontAwesome name="times" /></span>
+                        </button>
                     </div>
-                    <div className="info">
+                    <ul className="settings">
+                        <NavLink title="Administration" href="/" />
+                        <NavLink title="Corporate Tool Box" href="/" />
+                        <NavLink title="Contract Management" href="/" />
+                    </ul>
+                    <ul className="info">
+                        <NavLink title="Training and Events" href="/" />
+                        <NavLink title="KnowledgeCenter" href="/" />
+                        <NavLink title="Premier View FAQ's" href="/" />
+                    </ul>
+                    <ul className="member">
+                        <NavLink title="Transaction Cutoff Times" href="/" />
+                        <NavLink title="Contact Alloya" href="/" />
+                        <NavLink title="Member Pay" href="/" />
+                        <NavLink title="Alloya Home" href="/" />
 
-                    </div>
+                    </ul>
+                    <ul>
+                        <NavLink title="Sign Out" href="/" />
+                    </ul>
+                    <ul>
+                        <NavLink title="BACK TO INDEX" href="/" />
+                    </ul>
                 </div>
             </div>
         );
