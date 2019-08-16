@@ -3,9 +3,9 @@
 
 .nav-second-level {
     @include noBullets;
-    position: absolute;
+    position: fixed;
     left: 5rem;
-    top: 0;
+    top: 7rem;
     height: 100%;
     overflow: hidden;
     background-color: #fff;
