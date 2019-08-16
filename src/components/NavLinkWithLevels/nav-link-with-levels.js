@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import NavSecondLevel from '../NavSecondLevel/nav-second-level';
+import Caret from '../icons/Caret/caret';
 
 export default class NavLinkWithLevels extends React.Component {
 
@@ -34,7 +35,7 @@ export default class NavLinkWithLevels extends React.Component {
     }
 
     render() {
-        const { title, icon, links } = this.props;
+        const { title, icon, links, showCaret } = this.props;
         const { active } = this.state;
         const { toggle } = this;
 
@@ -45,6 +46,7 @@ export default class NavLinkWithLevels extends React.Component {
             <li className={`nav-link-with-levels ${active ? "active" : ""}`} ref={node => this.node = node}>
                 <a className="link" href="javascript:void(0)" onClick={toggle}>
                     <div className="title">{title}</div>
+                    {showCaret && <Caret direction="down" />}
                 </a>
                 {
                     icon &&

@@ -8,6 +8,48 @@
         cursor: pointer;
     }
 
+    .close-right-nav {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            @include unstyleButton;
+            display: flex;
+            float: none;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            color: $primary;
+        }
+
+        .title,
+        .icon {
+            display: inline-block;
+            padding: .7rem;
+            font-weight: $font-weight-normal;
+            font-size: 1.2rem;
+        }
+
+        .icon {
+            position: relative;
+            height: 2rem;
+            width: 2rem;
+            border-radius: 1rem;
+            border: .2rem solid $primary;
+
+            span {
+                color: $primary;
+                position: absolute;
+                height: 1.2rem;
+                width: 1.2rem;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
     .right-side-menu {
         position: fixed;
         top: 0;
@@ -26,66 +68,80 @@
             right: -32rem;
         }
 
-        .close-right-nav {
-            display: flex;
-            justify-content: flex-end;
-
-            button {
-                @include unstyleButton;
-                display: flex;
-                float: none;
-                position: relative;
-                justify-content: center;
-                align-items: center;
-                padding: 3rem;
-                color: $primary;
-            }
-
-            .title,
-            .icon {
-                display: inline-block;
-                padding: .7rem;
-                font-weight: $font-weight-normal;
-                font-size: 1.2rem;
-            }
-
-            .icon {
-                position: relative;
-                height: 2rem;
-                width: 2rem;
-                border-radius: 1rem;
-                border: .2rem solid $primary;
-
-                span {
-                    color: $primary;
-                    position: absolute;
-                    height: 1.2rem;
-                    width: 1.2rem;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-            }
-        }
-
-        ul {
+        &>ul {
             @include noBullets;
             padding: .5rem 0;
 
             &:not(:last-child) {
                 border-bottom: .1rem solid #efefef;
             }
+        }
 
-            &>li {
-                &>a {
-                    display: inline-block;
-                    font-size: 1.6rem;
-                    text-decoration: none;
-                    color: $body;
-                    font-weight: $font-weight-bold;
-                    padding: 1.5rem 3rem;
-                    box-sizing: border-box;
+        li {
+            &>a {
+                display: inline-block;
+                font-size: 1.6rem;
+                text-decoration: none;
+                color: $body;
+                font-weight: $font-weight-bold;
+                padding: 1.5rem 3rem;
+                box-sizing: border-box;
+                border-bottom: none;
+
+                @include states {
+                    color: $primary;
                 }
+            }
+
+        }
+
+        .nav-link-with-levels {
+            a.link {
+                width: 100%;
+
+
+                &>.title {
+                    left: initial;
+                }
+            }
+
+            .nav-second-level {
+                max-height: 0;
+                transition-duration: .5s;
+                @include fadeOut;
+            }
+
+            &.active {
+                .nav-second-level {
+                    max-height: 30rem;
+                    display: block;
+                    @include fadeIn;
+                }
+            }
+        }
+
+        .nav-second-level {
+            @include fadeIn;
+            position: relative;
+            width: auto;
+            left: 0;
+            background-color: transparent;
+            box-shadow: none;
+            left: 0;
+            padding: 0;
+
+            &>li,
+            &>li>a {
+                width: 100%;
+            }
+
+            &>li>a {
+                padding: .75rem 3rem .75rem 4.5rem;
+                font-weight: $font-weight-normal;
+            }
+
+            .nav-heading {
+                display: none;
             }
         }
     }

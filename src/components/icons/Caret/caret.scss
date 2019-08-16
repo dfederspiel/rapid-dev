@@ -1,0 +1,21 @@
+a {
+  position: relative;
+
+  .alloya-caret {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: .5rem solid transparent;
+    border-right: .5rem solid transparent;
+    border-top: .5rem solid black;
+    transition-duration: .5s;
+    transform-origin:center;
+  }
+}
+
+.active .alloya-caret {
+  transform: rotate(-180deg);
+}

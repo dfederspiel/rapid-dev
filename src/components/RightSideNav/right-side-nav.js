@@ -2,6 +2,7 @@
 import FontAwesome from 'react-fontawesome';
 import NavLink from '../NavLink/nav-link';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
+import NavSecondLevel from '../NavSecondLevel/nav-second-level';
 
 export default class RightSideNav extends React.Component {
 
@@ -29,9 +30,21 @@ export default class RightSideNav extends React.Component {
                         </button>
                     </div>
                     <ul className="settings">
-                        <NavLink title="Administration" href="/" />
-                        <NavLink title="Corporate Tool Box" href="/" />
-                        <NavLink title="Contract Management" href="/" />
+                        <NavLinkWithLevels
+                            title="Administration"
+                            showCaret={true}
+                            links={[{ href: '/', title: "Admin Level 2" }, { href: '/', title: "Admin Level 2" }]}
+                        />
+                        <NavLinkWithLevels
+                            title="Corporate Tool Box"
+                            showCaret={true}
+                            links={[{ href: '/', title: "Corporate Level 2" }, { href: '/', title: "Corporate Level 2" }]}
+                        />
+                        <NavLinkWithLevels
+                            title="Contract Management"
+                            showCaret={true}
+                            links={[{ href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }]}
+                        />
                     </ul>
                     <ul className="info">
                         <NavLink title="Training and Events" href="/" />
@@ -43,7 +56,6 @@ export default class RightSideNav extends React.Component {
                         <NavLink title="Contact Alloya" href="/" />
                         <NavLink title="Member Pay" href="/" />
                         <NavLink title="Alloya Home" href="/" />
-
                     </ul>
                     <ul>
                         <NavLink title="Sign Out" href="/" />
