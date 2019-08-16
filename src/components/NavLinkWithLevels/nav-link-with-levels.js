@@ -46,9 +46,12 @@ export default class NavLinkWithLevels extends React.Component {
                 <a className="link" href="javascript:void(0)" onClick={toggle}>
                     <div className="title">{title}</div>
                 </a>
-                <a className="active-trigger" href="javascript:void(0)" onClick={toggle}>
-                    <div className="icon"><FontAwesome name={icon ? icon : "star"} size="lg" /></div>
-                </a>
+                {
+                    icon &&
+                    <a className="active-trigger" href="javascript:void(0)" onClick={toggle}>
+                        <div className="icon"><FontAwesome name={icon} size="lg" /></div>
+                    </a>
+                }
                 {
                     links && <NavSecondLevel title={title} links={links} />
                 }

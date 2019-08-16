@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import Api from '../../services/Api';
 import NavLink from '../NavLink/nav-link';
+import Loading from '../Loading/loading';
 
 export default class NavFastTrack extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ export default class NavFastTrack extends React.Component {
     renderLinks = () => {
         return (
             this.state.links.map((item, index) =>
-                <NavLink {...item} key={index} />
+                <NavLink {...item} icon={item.icon || "star"} key={index} />
             )
         )
     }
@@ -47,7 +48,7 @@ export default class NavFastTrack extends React.Component {
                     <label className="heading">FastTrack</label>
                     {
                         fetching && !error && !haslinks() &&
-                        <div> Loading...</div>
+                        <Loading />
                     }
                     {
                         !fetching && !error && haslinks() &&
