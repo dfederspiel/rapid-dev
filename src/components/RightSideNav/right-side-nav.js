@@ -5,20 +5,25 @@ import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 import NavSecondLevel from '../NavSecondLevel/nav-second-level';
 
 export default class RightSideNav extends React.Component {
+    renderNotifications = () => {
+        return (
+            <div className="notifications">
+                <div className="trigger">
+                    <div className="icon"><FontAwesome name='bell' size="lg" /></div>
+                </div>
+                <div className="notifications-menu">
 
+                </div>
+            </div>
+        )
+    }
     render() {
         const { toggleRightSideNav } = this.props;
+        const { renderNotifications } = this;
 
         return (
             <div className="right-side-nav">
-                <div className="notifications">
-                    <div className="trigger">
-                        <div className="icon"><FontAwesome name='bell' size="lg" /></div>
-                    </div>
-                    <div className="notifications-menu">
-
-                    </div>
-                </div>
+                {renderNotifications()}
                 <button className="trigger" onClick={toggleRightSideNav}>
                     <FontAwesome name='ellipsis-h' size="lg" />
                 </button>

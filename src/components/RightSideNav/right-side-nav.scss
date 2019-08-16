@@ -106,6 +106,7 @@
             }
 
             .nav-second-level {
+                top:0;
                 max-height: 0;
                 transition-duration: .5s;
                 @include fadeOut;
