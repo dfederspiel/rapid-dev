@@ -105,7 +105,6 @@
                 align-items: center;
                 position: absolute;
                 background-color: white;
-                z-index: 100;
 
                 &:before {
                     content: "";
@@ -155,6 +154,8 @@
                 .active-trigger {
                     display: flex;
                     color: $primary;
+                    z-index: 100;
+
 
                     &:before {
                         background-color: $primary;
