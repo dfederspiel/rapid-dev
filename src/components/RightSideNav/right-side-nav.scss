@@ -21,6 +21,13 @@
             align-items: center;
             padding: 3rem;
             color: $primary;
+
+            @include states {
+                color: $light-font;
+                .icon{
+                    border-color:$light-font;
+                }
+            }
         }
 
         .title,
@@ -29,6 +36,8 @@
             padding: .7rem;
             font-weight: $font-weight-normal;
             font-size: 1.2rem;
+            transition-duration: .5s;
+
         }
 
         .icon {
@@ -39,7 +48,6 @@
             border: .2rem solid $primary;
 
             span {
-                color: $primary;
                 position: absolute;
                 height: 1.2rem;
                 width: 1.2rem;

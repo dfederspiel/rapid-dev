@@ -17,6 +17,11 @@
 
     .trigger {
         padding: 2.5rem;
+        color: $light-font;
+        transition-duration: .5s;
+        @include states{
+            color:$primary;
+        }
     }
 
     .left-side,
@@ -25,46 +30,3 @@
         align-items: center;
     }
 }
-
-
-
-
-// .top-nav {
-//     display: flex;
-//     flex-wrap: nowrap;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     .tools {
-//         display: flex;
-//         flex-wrap: nowrap;
-//         justify-content: space-between;
-
-//         & > div {
-//             padding: 0 1rem;
-//         }
-
-//         .notification-toggle {
-//             position: relative;
-
-//             .notification-count {
-//                 justify-content: center;
-//                 display: flex;
-//                 align-items: center;
-//                 position: absolute;
-//                 color: #fff;
-//                 font-weight: 700;
-//                 background-color: maroon;
-//                 min-width: 2.4rem;
-//                 min-height: 2.4rem;
-//                 border: solid .2rem #fff;
-//                 border-radius: 1.2rem;
-//                 top: -1rem;
-//                 right: -.6rem;
-//                 font-size: .9rem;
-//                 padding: 0;
-//                 margin: 0;
-//             }
-//         }
-//     }
-// }
