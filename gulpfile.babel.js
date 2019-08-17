@@ -27,14 +27,14 @@ const log = (o, level = 0) => {
         console.log(`${colors.red('prop:')}${p}: ${o[p]}`);
         if (o[p] != null && typeof o[p] == 'object') {
             try {
-                console.log("DETAILS");
+                console.log("DETAILS")
                 log(o[p], level + 1);
             } catch (err) {
-                console.log('CANT GET INFO');
+                console.log('CANT GET INFO')
             }
         }
     }
-};
+}
 
 let router = express.Router();
 let jsonServer = require('json-server');
@@ -65,7 +65,7 @@ const json = (callback) => {
             if (err) {
                 console.log('[JSON] ' + colors.red(err));
                 if (callback)
-                    callback();
+                    callback()
             } else {
                 console.log(colors.green('[JSON] DB.json Saved'.bold));
                 if (callback)
@@ -119,7 +119,42 @@ const img = (callback) => {
 const font = () => {
     console.log('[FONT] ' + colors.cyan('Copying Fonts'));
     return gulp.src('./src/fonts/**/*.*')
-        .pipe(multiDest(config.distribution.fonts));
+        .pipe(multiDest(config.distribution.fonts))
+};
+
+const components = (callback) => {
+    console.log(colors.cyan('[JS] Bundling and Babeling JS'));
+    var b = browserify({
+        entries: './src/js/server-components.js',
+        debug: true
+    })
+        .external(dependencies)
+        .transform('babelify', {
+            presets: ['@babel/preset-env']
+        });
+
+    return b
+        .bundle((err) => {
+            if (err)
+                console.log('[JS] ' + colors.red(err.toString()));
+
+            if (callback)
+                callback();
+        })
+        .on('error', function (err) {
+            console.log('[JS] ' + colors.red(err.toString()));
+            callback();
+        })
+        .on('end', function () {
+            callback();
+        })
+        .pipe(source('components.min.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(multiDest(config.distribution.js))
 };
 
 const js = (callback) => {
@@ -129,7 +164,9 @@ const js = (callback) => {
             debug: true
         })
         .external(dependencies)
-        .transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]});
+        .transform('babelify', {
+            presets: ['@babel/preset-env']
+        });
 
     return b
         .bundle((err) => {
@@ -152,14 +189,49 @@ const js = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
+        .pipe(multiDest(config.distribution.js))
+};
+const react = (callback) => {
+    console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
+    var b = browserify({
+        debug: true
+    }).transform("babelify", { presets: ["@babel/preset-env", "@babel/preset-react"] });
+
+    b.require('react');
+    b.require('react-dom');
+    b.require('react-fontawesome');
+    
+
+    return b
+        .bundle((err) => {
+            if (err)
+                console.log('[JS V] ' + colors.red(err.toString()));
+
+            if (callback)
+                callback();
+        })
+        .on('error', function (err) {
+            console.log('[JS V] ' + colors.red(err.toString()));
+            callback();
+        })
+        .on('end', function () {
+            callback();
+        })
+        .pipe(source('react-vendor.min.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
+        .pipe(sourcemaps.write('./'))
         .pipe(multiDest(config.distribution.js));
 };
-
 const jsv = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
     var b = browserify({
         debug: true
-    }).transform("babelify", {presets: ["@babel/preset-env", "@babel/preset-react"]})
+    }).transform('babelify', {
+        presets: ['@babel/preset-env']
+    });
 
     dependencies.forEach(lib => {
         b.require(lib);
@@ -186,7 +258,7 @@ const jsv = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js));
+        .pipe(multiDest(config.distribution.js))
 };
 
 const scss = (callback) => {
@@ -276,7 +348,7 @@ const watch = (done) => {
                     bs.notify("Done Transpiling" + task.name, 1000);
                     cb();
                 });
-            });
+            })
         });
 
     gulp.watch(['./src/**/*.scss'])
@@ -288,7 +360,7 @@ const watch = (done) => {
                 scss(() => {
                     bs.notify("Done Transpiling" + task.name, 1000);
                 });
-            });
+            })
         });
 
     gulp.watch(['./src/*.js', './src/js/**/*.js', './src/components/**/*.js', './src/pages/**/*.js'])
@@ -299,9 +371,9 @@ const watch = (done) => {
                 bs.notify("Transpiling" + task.name, 1000);
                 js(() => {
                     bs.notify("Done Transpiling" + task.name, 1000);
-                    reload();
+                    reload()
                 });
-            });
+            })
         });
         
     gulp.watch(['./src/data/generate.js'])
@@ -314,9 +386,9 @@ const watch = (done) => {
                     build_routes(() => {
                         reload();
                         done();
-                    });
+                    })
                 });
-            });
+            })
         });
 
     gulp.watch(['./src/img/**/*'])
@@ -329,7 +401,7 @@ const watch = (done) => {
                     reload();
                     done();
                 });
-            });
+            })
         });
 
     gulp.watch('./src/**/*')
@@ -341,8 +413,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, react, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));

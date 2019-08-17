@@ -60,7 +60,9 @@ block main
                         textarea#ctl00_PageBody_CreateUpdateControl_Comment(name='ctl00$PageBody$CreateUpdateControl$Comment' rows='3' cols='20' style='width:350px;')
                     .d-flex.flex-row.align-items-center
                         label(for='ctl00_PageBody_CreateUpdateControl_Comment') Flag For Callback:
-                        input#ctl00_PageBody_CreateUpdateControl_Callback.form-checkbox(type='checkbox' name='ctl00$PageBody$CreateUpdateControl$Callback')
+                        label.form-checkbox
+                            input#ctl00_PageBody_CreateUpdateControl_Callback(type='checkbox' name='ctl00$PageBody$CreateUpdateControl$Callback')
+                            span.checkmark
             div
                 .sectionhdg Receiving Institution
                 .sectionbody
@@ -103,7 +105,7 @@ block main
                             .d-flex.flex-row
                                 input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorName(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorName' type='text' maxlength='35' style='width:350px;')
                                 input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorPrefillBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorPrefillBtn' value='Prefill' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$OriginatorPrefillBtn','')")
-                                input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorClearBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn','')")
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorClearBtn.btn.btn-light(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$OriginatorClearBtn','')")
                         .d-flex.flex-column
                             label(for='ctl00_PageBody_CreateUpdateControl_Entry_OriginatorId') ID:*
                             input#ctl00_PageBody_CreateUpdateControl_Entry_OriginatorId(name='ctl00$PageBody$CreateUpdateControl$Entry$OriginatorId' type='text' maxlength='34' style='width:350px;')
@@ -128,7 +130,7 @@ block main
                             .d-flex.flex-row
                                 input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryName(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryName' type='text' maxlength='35' style='width:350px;')      
                                 input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryPrefillBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryPrefillBtn' value='Prefill' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryPrefillBtn','')")
-                                input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryClearBtn.Button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn','')")
+                                input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryClearBtn.btn.btn-light(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn' value='Clear' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryClearBtn','')")
                         .d-flex.flex-column
                             label(for='ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryId') ID:*
                             input#ctl00_PageBody_CreateUpdateControl_Entry_BeneficiaryId(name='ctl00$PageBody$CreateUpdateControl$Entry$BeneficiaryId' type='text' maxlength='34' style='width:350px;')
@@ -149,15 +151,15 @@ block main
                 .sectionbody
                     .d-flex.flex-column
                         .d-flex.flex-column
-                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneBankAddBtn.ButtonExpando(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn' value='Add Beneficiary FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn','')")
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_BeneBankAddBtn.ButtonExpando.add-button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn' value='Add Beneficiary FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$BeneBankAddBtn','')")
             div
                 .sectionhdg Intermediate FI
                 .sectionbody
                     .d-flex.flex-column
                         .d-flex.flex-column
-                            input#ctl00_PageBody_CreateUpdateControl_Entry_IntermediateBankAddBtn.ButtonExpando(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn' value='Add Intermediate FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn','')")
+                            input#ctl00_PageBody_CreateUpdateControl_Entry_IntermediateBankAddBtn.ButtonExpando.add-button(type='button' name='ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn' value='Add Intermediate FI' onclick="javascript:__doPostBack('ctl00$PageBody$CreateUpdateControl$Entry$IntermediateBankAddBtn','')")
 
             .ButtonRow
-              input#ctl00_PageBody_CreateUpdateControl_SubmitBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$SubmitBtn' value='Submit' onclick='ShowProcessctl00_PageBody_CreateUpdateControl_SubmitBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$CreateUpdateControl$SubmitBtn", "", true, "", "", false, false))')
+              input#ctl00_PageBody_CreateUpdateControl_SubmitBtn.Button(type='submit' name='ctl00$PageBody$CreateUpdateControl$SubmitBtn' value='Submit' onclick='ShowProcessctl00_PageBody_CreateUpdateControl_SubmitBtn();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$PageBody$CreateUpdateControl$SubmitBtn", "", true, "", "", false, false))')
               input#ctl00_PageBody_CreateUpdateControl_CancelBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$CancelBtn' value='Cancel' onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_CreateUpdateControl_CancelBtn();')
               input#ctl00_PageBody_CreateUpdateControl_ResetBtn.btn.btn-light(type='submit' name='ctl00$PageBody$CreateUpdateControl$ResetBtn' value='Reset' onclick='Page_BlockSubmit = false; ShowProcessctl00_PageBody_CreateUpdateControl_ResetBtn();')
