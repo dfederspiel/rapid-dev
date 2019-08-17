@@ -3,9 +3,9 @@
 
 .nav-second-level {
     @include noBullets;
-    position: fixed;
+    position: absolute;
+    top: 0;
     left: 5rem;
-    top: 7rem;
     height: 100%;
     overflow: hidden;
     background-color: #fff;
@@ -17,6 +17,10 @@
     @include fadeOut;
     z-index: -10;
     box-shadow: 0 0 2rem rgba(#ccc, .5);
+    @include tablet{
+        position: fixed;
+        top: 7rem;
+    }
 
     &>li {
         width: 24rem;

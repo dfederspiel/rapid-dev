@@ -8,7 +8,7 @@
         cursor: pointer;
     }
 
-    .close-right-nav {
+    .alloya-close{
         display: flex;
         justify-content: flex-end;
 
@@ -196,7 +196,7 @@
 
 @keyframes fade-to-blur-initial {
     0% {
-        filter: blur(3px);
+        filter: blur(.5rem);
     }
 
     100% {
@@ -210,6 +210,6 @@
     }
 
     100% {
-        filter: blur(3px);
+        filter: blur(.5rem);
     }
 }
