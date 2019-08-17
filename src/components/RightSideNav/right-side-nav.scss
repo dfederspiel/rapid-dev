@@ -8,7 +8,7 @@
         cursor: pointer;
     }
 
-    .alloya-close{
+    .alloya-close {
         display: flex;
         justify-content: flex-end;
 
@@ -24,8 +24,9 @@
 
             @include states {
                 color: $light-font;
-                .icon{
-                    border-color:$light-font;
+
+                .icon {
+                    border-color: $light-font;
                 }
             }
         }
@@ -106,10 +107,18 @@
         .nav-link-with-levels {
             a.link {
                 width: 100%;
+                position: relative;
 
 
                 &>.title {
                     left: initial;
+                }
+
+                .icon {
+                    position: absolute;
+                    right: 3rem;
+                    top: 50%;
+                    transform: translateY(-50%);
                 }
             }
 

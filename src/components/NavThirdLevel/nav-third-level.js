@@ -2,6 +2,7 @@
 import FontAwesome from 'react-fontawesome';
 import AnimateHeight from 'react-animate-height';
 import NavLink from '../NavLink/nav-link';
+import Icon from '../Icon/icon';
 
 export default class NavThirdLevel extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ export default class NavThirdLevel extends React.Component {
             <li className={`third-level-trigger ${height ? "active" : ""}`}>
                 <a href="javascript:void(0)" onClick={toggleSublinks}>
                     <div className="title">{title}</div>
-                    <div className="icon"><FontAwesome name="angle-down" /></div>
+                    <Icon name="angle-down" />
                 </a>
                 <AnimateHeight duration={500} height={height}>
                     <ul className="nav-third-level">
