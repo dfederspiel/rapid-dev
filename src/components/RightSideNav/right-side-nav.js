@@ -6,10 +6,16 @@ import Icon from '../Icon/icon';
 
 export default class RightSideNav extends React.Component {
     renderNotifications = () => {
+        let count = 3;
+        let countIsOver99 = count > 99;
         return (
             <div className="notifications">
                 <div className="trigger">
-                    <div className="icon"><FontAwesome name='bell' size="lg" /></div>
+                    <Icon name="bell" size="lg" />
+                    <div className="notification-count">
+                        <span className={`count ${countIsOver99 && "small"}`}>
+                            {countIsOver99 ? "99+" : count}</span>
+                    </div>
                 </div>
                 <div className="notifications-menu">
 

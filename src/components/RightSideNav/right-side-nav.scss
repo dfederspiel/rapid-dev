@@ -1,5 +1,33 @@
 @import '../../styles/variables';
 
+.notifications {
+    position: relative;
+
+    .notification-count {
+        position: absolute;
+        right: 13px;
+        top: 20px;
+        background-color: #762f4f;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 1.6rem;
+        border: .2rem solid #fff;
+
+        .count {
+            position: absolute;
+            color:$white;
+            font-size: 1rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &.small{
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
 .right-side-nav {
     display: flex;
 
