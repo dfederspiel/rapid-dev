@@ -53,14 +53,11 @@ export default class RightSideNav extends React.Component {
 
     renderInfo = () => {
         return (
-            <>
-                <Icon name="rocket" />
-                <ul className="info">
-                    <NavLink title="Training and Events" href="/" />
-                    <NavLink title="KnowledgeCenter" href="/" />
-                    <NavLink title="Premier View FAQ's" href="/" />
-                </ul>
-            </>
+            <ul className="info">
+                <NavLink title="Training and Events" href="/" />
+                <NavLink title="KnowledgeCenter" href="/" />
+                <NavLink title="Premier View FAQ's" href="/" />
+            </ul>
         )
     }
 
