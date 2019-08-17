@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import Icon from '../Icon/icon';
+import NavLink from '../NavLink/nav-link';
 
 export default class Notifications extends React.Component {
     render() {
@@ -15,7 +16,9 @@ export default class Notifications extends React.Component {
                     </div>
                 </div>
                 <div className="notifications-menu">
-
+                    <ul>
+                        <NavLink title="Link" href="/" />
+                    </ul>
                 </div>
             </div>
         )

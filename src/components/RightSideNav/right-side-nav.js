@@ -3,6 +3,7 @@ import FontAwesome from 'react-fontawesome';
 import NavLink from '../NavLink/nav-link';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 import Notifications from '../Notifications/notifications';
+import Icon from '../Icon/icon';
 
 export default class RightSideNav extends React.Component {
     renderClose = () => {
@@ -82,7 +83,7 @@ export default class RightSideNav extends React.Component {
             <div className="right-side-nav">
                  <Notifications />
                 <button className="trigger" onClick={toggleRightSideNav}>
-                    <FontAwesome name='ellipsis-h' size="lg" />
+                    <Icon name='ellipsis-h' size="lg" />
                 </button>
                 <div className="right-side-menu">
                     {renderClose()}

@@ -1,6 +1,13 @@
 .notifications {
   position: relative;
 
+  @include states {
+    .notifications-menu {
+      @include fadeIn;
+      top: 100%;
+    }
+  }
+
   .notification-count {
     position: absolute;
     right: 13px;
@@ -32,6 +39,23 @@
         line-height: .8rem;
         width: 1.2rem;
       }
+    }
+  }
+
+  .notifications-menu {
+    @include fadeOut;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 5rem);
+    background-color: $white;
+    min-width: 25rem;
+    padding:1.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 2rem rgba(204, 204, 204, .5);
+    transition-duration: .5s;
+
+    ul {
+      @include noBullets;
     }
   }
 }
