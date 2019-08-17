@@ -18,8 +18,8 @@ describe('The Caret component', () => {
 
     describe("given a direction", () => {
         it("shows the caret in that direction", () => {
-            _component = shallow(<Caret direction="nodefined" />);
-            expect(_component.props().className).toEqual("alloya-caret nodefined");
+            _component = shallow(<Caret direction="notdefined" />);
+            expect(_component.props().className).toEqual("alloya-caret notdefined");
         });
     });
 
