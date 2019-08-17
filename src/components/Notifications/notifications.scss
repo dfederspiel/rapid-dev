@@ -5,11 +5,13 @@
     position: absolute;
     right: 13px;
     top: 20px;
-    background-color: #762f4f;
+    background-color: $primary;
     height: 2rem;
     width: 2rem;
     border-radius: 2rem;
     border: .2rem solid #fff;
+    transition-duration: .5s;
+
 
     .count {
       position: absolute;
@@ -22,11 +24,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition-duration: .5s;
+
 
       &.small {
         font-size: .8rem;
         line-height: .8rem;
-        width:1.2rem;
+        width: 1.2rem;
       }
     }
   }
