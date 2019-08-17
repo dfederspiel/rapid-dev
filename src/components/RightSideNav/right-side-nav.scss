@@ -106,7 +106,7 @@
             }
 
             .nav-second-level {
-                top:0;
+                top: 0;
                 max-height: 0;
                 transition-duration: .5s;
                 @include fadeOut;
@@ -153,13 +153,27 @@
         right: 0;
     }
 
+    .side-nav-wrapper {
+        z-index: 0;
+    }
+
+    .owl-carousel {
+        z-index: 0;
+    }
+
     .alloya-content {
         left: -3rem;
         animation-name: fade-to-blur;
 
         @include tablet {
-            &:before {
-                left: -32rem;
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                ;
             }
         }
     }
