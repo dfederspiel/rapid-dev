@@ -51,7 +51,7 @@ export default class NavLinkWithLevels extends React.Component {
                 {
                     icon &&
                     <a className="active-trigger" href="javascript:void(0)" onClick={toggle}>
-                        <div className="icon"><FontAwesome name={icon} size="lg" /></div>
+                        <Icon name={icon} size="lg"/>
                     </a>
                 }
                 {
