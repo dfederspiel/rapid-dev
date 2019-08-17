@@ -4,7 +4,7 @@ import Caret from './Caret/caret';
 
 export default class Icon extends React.Component {
     render() {
-        const { name, size } = this.props;
+        const { name, size, spin } = this.props;
 
         if(!name)
             return;
@@ -13,7 +13,7 @@ export default class Icon extends React.Component {
             <div className="icon">
                 {
                     name !== "caret" &&
-                    <FontAwesome name={name} size={size && size}/>
+                    <FontAwesome name={name} size={size} spin={spin}/>
                 }
                  {
                     name == "caret" &&

@@ -1,11 +1,11 @@
 ﻿import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import Icon from '../Icon/icon';
 
 export default class Loading extends React.Component {
     render() {
         return (
            <div className="loading">
-               <FontAwesome name="spinner" spin/>
+               <Icon name="spinner" spin={true}/>
            </div>
         );
     }
