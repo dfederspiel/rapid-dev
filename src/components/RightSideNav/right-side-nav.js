@@ -2,28 +2,9 @@
 import FontAwesome from 'react-fontawesome';
 import NavLink from '../NavLink/nav-link';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
-import Icon from '../Icon/icon';
+import Notifications from '../Notifications/notifications';
 
 export default class RightSideNav extends React.Component {
-    renderNotifications = () => {
-        let count = 3;
-        let countIsOver99 = count > 99;
-        return (
-            <div className="notifications">
-                <div className="trigger">
-                    <Icon name="bell" size="lg" />
-                    <div className="notification-count">
-                        <span className={`count ${countIsOver99 && "small"}`}>
-                            {countIsOver99 ? "99+" : count}</span>
-                    </div>
-                </div>
-                <div className="notifications-menu">
-
-                </div>
-            </div>
-        )
-    }
-
     renderClose = () => {
         return (
             <div className="alloya-close">
@@ -99,7 +80,7 @@ export default class RightSideNav extends React.Component {
 
         return (
             <div className="right-side-nav">
-                {renderNotifications()}
+                 <Notifications />
                 <button className="trigger" onClick={toggleRightSideNav}>
                     <FontAwesome name='ellipsis-h' size="lg" />
                 </button>
