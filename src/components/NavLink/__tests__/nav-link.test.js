@@ -24,7 +24,7 @@ describe('The navigation link component', () => {
 
         describe("without an icon", () => {
             it("does not show the icon", () => {
-                expect(_component.find(".icon").length).toEqual(0);
+                expect(_component.find("Icon").length).toEqual(0);
             });
         });
 
@@ -32,7 +32,7 @@ describe('The navigation link component', () => {
             it("shows the icon", () => {
                 _component = shallow(<NavLink href="wahzup.html" icon="home" />);
 
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("home");
+                expect(_component.find("Icon").props().name).toEqual("home");
             });
         });
 
@@ -58,7 +58,7 @@ describe('The navigation link component', () => {
 
         describe("without an icon", () => {
             it("does not show the icon", () => {
-                expect(_component.find(".icon").length).toEqual(0);
+                expect(_component.find("Icon").length).toEqual(0);
             });
         });
 
@@ -66,7 +66,7 @@ describe('The navigation link component', () => {
             it("shows the icon", () => {
                 _component = shallow(<NavLink title="Title Yo" icon="home" />);
 
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("home");
+                expect(_component.find("Icon").props().name).toEqual("home");
             });
         });
 

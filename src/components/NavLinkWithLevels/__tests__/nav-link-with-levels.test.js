@@ -53,7 +53,7 @@ describe('The navigation link with levels component', () => {
             it("shows the icon", () => {
                 _component = shallow(<NavLinkWithLevels title="My Page" icon="spinnyThang" />);
 
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("spinnyThang");
+                expect(_component.find("Icon").props().name).toEqual("spinnyThang");
             });
         });
 

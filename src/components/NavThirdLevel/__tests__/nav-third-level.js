@@ -41,7 +41,7 @@ describe('The third level navigation component', () => {
             });
 
             it("displays an icon to show it is a toggle ", () => {
-                expect(_component.find("a .icon FontAwesome").props().name).toEqual("angle-down");
+                expect(_component.find("a Icon").props().name).toEqual("angle-down");
             });
 
             it("shows the links as navigation links", ()=>{
