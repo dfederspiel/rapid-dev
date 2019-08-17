@@ -2,7 +2,7 @@
 import FontAwesome from 'react-fontawesome';
 import NavLink from '../NavLink/nav-link';
 import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
-import NavSecondLevel from '../NavSecondLevel/nav-second-level';
+import Icon from '../Icon/icon';
 
 export default class RightSideNav extends React.Component {
     renderNotifications = () => {
@@ -53,11 +53,14 @@ export default class RightSideNav extends React.Component {
 
     renderInfo = () => {
         return (
-            <ul className="info">
-                <NavLink title="Training and Events" href="/" />
-                <NavLink title="KnowledgeCenter" href="/" />
-                <NavLink title="Premier View FAQ's" href="/" />
-            </ul>
+            <>
+                <Icon name="rocket" />
+                <ul className="info">
+                    <NavLink title="Training and Events" href="/" />
+                    <NavLink title="KnowledgeCenter" href="/" />
+                    <NavLink title="Premier View FAQ's" href="/" />
+                </ul>
+            </>
         )
     }
 
