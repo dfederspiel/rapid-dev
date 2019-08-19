@@ -6,4 +6,51 @@ mixin page(title, url)
 
 //- this block will overwrite what is in template.pug
 block body
-    h1 Login here!
+    .d-flex.flex-column.flex-fill
+        .d-flex.flex-row.flex-jc
+            .d-flex.flex-column
+                h2 How can we simplify your life today?
+
+        .d-flex.flex-row.flex-jc
+            //-.d-flex.flex-column
+            .transaction-card
+                .transaction-row
+                    div Transactions
+                    i.fas.fa-desktop
+            //-.d-flex.flex-column
+            .liquidity-card
+                .transaction-row
+                    div Liquidity
+                    i.fas.fa-money-bill-alt
+            //-.d-flex.flex-column
+            .investments-card
+                .transaction-row
+                    div Investments
+                    i.fas.fa-chart-pie
+                
+
+        .alloya-login
+            .logo-container 
+                .alloya-logo Alloya Premier View
+                .sub-text 
+                    +ipsum(35)
+
+            form(action="", method="post").login-form
+                h1 Login
+                .field
+                    input(type="text", id="username", name="username", required)
+                    label.elevate(for="username") Email Address
+                .field
+                    input(type="password", id="password", name="password", required)
+                    label.elevate(for="password") Password
+                //-.d-flex.flex-row.flex-js
+                .forgot-password
+                    .field
+                        input(type="checkbox", id="rememberme", name="rememberme", required)
+                        label(for="rememberme") Remember Me
+                    .field
+                        a(href="/ForgotPassword") Forgot Password?
+                .field
+                    input(type="submit", name="login", value="Login").btn.btn-primary
+
+    

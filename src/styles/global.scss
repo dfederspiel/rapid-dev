@@ -29,8 +29,8 @@ body {
 input[type="text"],
 select,
 textarea {
-    background-color: $light-background;
-    border: none;
+    // background-color: $light-background;
+    // border: none;
 }
 
 input[type="text"].error,
@@ -234,11 +234,11 @@ h1 {
         }
     }
 
-    &:hover input ~ .checkmark {
+    &:hover input~.checkmark {
         background-color: #ccc;
     }
 
-    input:checked ~ .checkmark {
+    input:checked~.checkmark {
         background-color: $primary;
 
         &:after {
@@ -246,3 +246,165 @@ h1 {
         }
     }
 }
+
+
+.btn {
+    background-color: #793352;
+}
+
+// .flex-jc {
+//     justify-content: space-around;
+// }
+// .flex-grow {
+//     min-height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     flex-basis: auto;
+//     flex-grow: 1;
+// }
+// .flex-fill {
+//     min-height: 100vh;
+// }
+
+.alloya-login {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100rem;
+    align-items: center;
+
+    @include tablet {
+        padding: 10rem;
+        flex-direction: row;
+    }
+
+    .logo-container {
+        flex: 0 0 50%;
+        .alloy-logo {}
+
+        .sub-text {}
+    }
+
+    .login-form {
+        flex: 0 0 50%;
+        .field {
+            position: relative;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+
+            label {
+                position: absolute;
+                
+                &.elevate {
+                    opacity: 0.5;
+                    left: 0;
+                    
+                    top: .15rem;
+                    // padding: 6px 0 0 13px;
+                    transition: all 200ms;
+                }
+            }
+    
+            input {
+                width: 100%;
+                border: 0px;
+                border-bottom: 1px solid #ccc;
+
+                &[type='checkbox'], &[type='submit']{
+                    width: auto;
+                }
+            }
+    
+            input:focus {
+                border-bottom: 1px solid #666;
+            }
+    
+            input:focus+label.elevate,
+            input:valid+label.elevate {
+                // font-size: 75%;
+                transform: translate3d(0%, -110%, 0);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// .login-column {
+//     // min-width: 80%;
+//     justify-content:center;
+//     align-items: center;
+//     align-self: center;
+//     flex: 1;
+// }
+// .login-column h1 {
+//     margin: 1.5rem;
+//     align-self: flex-start;
+// }
+// .login-column .field {
+//     // width: 80%;
+// }
+
+
+
+
+// .content-left {
+//     min-height: 100%;
+//     flex-basis: auto;
+//     -webkit-flex-grow: 1;
+//     flex-grow: 1;
+// }
+
+//     .content-left .image-fill {
+//         -webkit-flex-grow: 1;
+//         flex-grow: 1;
+//         min-height: 100vh;
+//         max-height: 100vh;
+//     }
+
+// .content-right {
+//     background-color: #FFF;
+//     min-height: 100%;
+//     display: flex;
+//     -webkit-justify-content: space-between;
+//     justify-content: space-between;
+//     -ms-flex-direction: column;
+//     -webkit-flex-direction: column;
+//     flex-direction: column;
+//     flex-basis: auto;
+//     -webkit-flex-grow: 1;
+//     flex-grow: 1;
+//     -webkit-align-items: center;
+//     align-items: center;
+//     max-width: 50%;
+//     min-width: 49%;
+// }
+//     .content-right-shade {
+//         background-color: #CAD1DE;
+//     }
+//     .content-right .form-fill {
+//         flex-basis: 1;
+//         -webkit-flex-grow: 1;
+//         flex-grow: 1;
+//         -webkit-align-items: center;
+//         align-items: center;
+//         display: flex;
+//         -ms-flex-direction: column;
+//         -webkit-flex-direction: column;
+//         flex-direction: column;
+//         -webkit-justify-content: center;
+//         justify-content: center;
+//     }
+
+//         .content-right .form-fill h1 {
+//             /*flex-basis: 1;
+//             -webkit-flex-grow: 1;
+//             flex-grow: 1;*/
+//             -webkit-align-items: center;
+//             align-items: center;
+//             display: flex;
+//             -webkit-justify-content: center;
+//             justify-content: center;
+//         }
+//         .content-right .form-fill h1 img {
+//             max-width: 90%;
+//         }
