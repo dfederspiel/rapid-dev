@@ -1,0 +1,41 @@
+﻿extends login-base.pug
+
+mixin page(title, url)
+    //- tags can be inlined with the #[] syntax
+    li #[a(href= url)= title]
+
+//- this block will overwrite what is in template.pug
+block body
+    .flex-fill
+        form(action="", method="post").vertical-form
+            .alloya-logo 
+                .alloya-name &#9651; alloya
+                .alloya-product Premier View
+            h1 Enter Token Validation
+            .small Please enter the response code from your token
+            .field
+                input(type="text", id="responseCode", name="responseCode", required)
+                label.elevate(for="responseCode") Response Code
+            .field
+                input(type="text", id="username", name="username", value="@Model.Username", readonly) 
+                label.elevate(for="username") Login Name
+            .field
+                input(type="submit", value="Submit").btn.btn-primary
+
+        .col-container.flex-grow.shade
+            .help-container
+                .section.col-container
+                    h4 For Alloya model tokens: 
+                    ol
+                        li Press and HOLD on the Alloya logo for 3 seconds 
+                        li After loading, you will see your eight (8) digital Token Validation Code.
+                    .oath-token 
+                        img(alt='Oath Token' src='')
+
+                .section.col-container
+                    h4 For Entrust model tokens: 
+                    ol
+                        li Press and HOLD the power button for 3 seconds 
+                        li After loading, you will see your eight (8) digital Token Validation Code.
+                    .entrust-token 
+                        img(alt='Entrust Token' src='')
