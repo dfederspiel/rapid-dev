@@ -75,11 +75,15 @@
 }
 
 .shade-triange {
-    // background: linear-gradient(to right, #793352, #E49720, #597241);
-    //background: rgb(121,51,82);
-    background: linear-gradient(45deg, #597241 10%, #E49720 35%, #793352 84%);
-    align-items: center;
-    padding: 4rem;
+    display: none;
+
+    @include tablet {
+        background: linear-gradient(45deg, #597241 15%, #E49720 45%, #793352 84%);
+        align-items: center;
+        justify-content: center;
+        padding: 4rem;
+        display: block;
+    }
 }
 
 .help-container {
@@ -96,6 +100,7 @@
 .col-container {
     flex: 1 0 50%;
     display: flex;
+    flex-direction: column;
 }
 
 .alloya-logo {
@@ -103,6 +108,20 @@
 
     img {
         max-width: 100%;
+    }
+}
+
+.mobile {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.tablet {
+    display: none;
+    @include tablet {
+        display: block;
     }
 }
 
@@ -181,10 +200,6 @@
         }
     }
 
-    .form-fill {
-        align-self: self-start;
-    }
-
     .disclaimer, .disclaimers {
         width: 100%;
         border: 0;
@@ -207,6 +222,17 @@
         }
     }
 }
+
+.form-fill {
+    align-self: self-start;
+}
+
+.oath-token, .entrust-token {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .alloya-login {
     padding: 1rem;
