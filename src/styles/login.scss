@@ -63,7 +63,15 @@
 }
 
 .shade {
-    background-color: #CAD1DE;
+    background: #CAD1DE;
+}
+
+.shade-triange {
+    // background: linear-gradient(to right, #793352, #E49720, #597241);
+    //background: rgb(121,51,82);
+    background: linear-gradient(45deg, #597241 10%, #E49720 35%, #793352 84%);
+    align-items: center;
+    padding: 4rem;
 }
 
 .help-container {
@@ -79,17 +87,14 @@
 
 .col-container {
     flex: 1 0 50%;
+    display: flex;
 }
 
 .alloya-logo {
-    .alloya-emblem {
-        font-size: 1.5rem;
-    }
-    .alloya-name {
-        font-size: 4em;
-    }
-    .alloya-product {
-        font-size: 2em;
+    max-width: 100%;
+
+    img {
+        max-width: 100%;
     }
 }
 
@@ -110,9 +115,9 @@
         margin-bottom: 1.5rem;
 
         label {
-            position: absolute;
-
+            
             &.elevate {
+                position: absolute;
                 opacity: 0.5;
                 left: 0;
 
@@ -138,6 +143,13 @@
             border-bottom: 1px solid #666;
         }
 
+        select {
+            position: relative;
+        }
+
+        select:focus+label.elevate,
+        select:valid+label.elevate,
+        select:read-only+label.elevate,
         input:focus+label.elevate,
         input:valid+label.elevate,
         input:read-only+label.elevate {
@@ -157,6 +169,32 @@
             }
             input {
                 margin-right: .5rem;
+            }
+        }
+    }
+
+    .form-fill {
+        align-self: self-start;
+    }
+
+    .disclaimer, .disclaimers {
+        width: 100%;
+        border: 0;
+
+        .field {
+            input[type="button"], input[type="submit"] {
+                width: auto;
+
+            }
+        }
+    }
+    .announcement, .announcements {
+        width: 100%;
+        border: 0;
+
+        .field {
+            input[type="button"], input[type="submit"] {
+                width: auto;
             }
         }
     }
