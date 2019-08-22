@@ -138,6 +138,13 @@ h1 {
     i {
         font-size: 4rem;
     }
+
+    img {
+        opacity: 0.3;
+        max-width: 80%;
+        max-height: 80%;
+        overflow: hidden;
+    }
 }
 
 .transaction-card {
