@@ -30,7 +30,13 @@ block body
                 .alloya-logo
                     img(src="img/alloya-logo.png", alt="Alloya Corporate Federal Credit Union", aria-hidden="true")
                 .sub-text 
-                    +ipsum(35)
+                    p.font-italic Security Notification! This site is for authorized purposes only! Unauthorized attempts are strictly prohibited and are subject to prosecution under the Computer Fraud and Abuse Act of 1986 and Title 18 U.S.C. Sec. 1001 and 1030.
+                    p.text-center 
+                        | @Html.Raw(globalLocalizer["Copyright"]
+                        br
+                        | All Rights Reserved.
+                        br
+                        a.pi-href.pi-green(href="https://@globalLocalizer['HomeUrl']") @globalLocalizer["HomeUrl"]
 
             form(action="", method="post").vertical-form
                 h1 Login
