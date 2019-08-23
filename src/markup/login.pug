@@ -9,7 +9,6 @@ block body
     .alloya-login-container
         .alloya-welcome
             h2 How can we simplify your life today?
-
         .alloya-tiles
             .transaction-card
                 .transaction-row
@@ -23,30 +22,35 @@ block body
                 .transaction-row
                     div Investments
                     img(src='img/investments-watermark.png')
-
-
         .alloya-login
-            .col-container
+            .notification-area
                 .alloya-logo
                     img(src="img/alloya-logo.png", alt="Alloya Corporate Federal Credit Union", aria-hidden="true")
                 .sub-text 
-                    +ipsum(35)
-
-            form(action="", method="post").vertical-form
-                h1 Login
-                .field
-                    input(type="text", id="username", name="username", required)
-                    label.elevate(for="username") Email Address
-                .field
-                    input(type="password", id="password", name="password", required)
-                    label.elevate(for="password") Password
-                .login-options
+                    p.font-italic 
+                        | Security Notification! This site is for authorized purposes only! Unauthorized attempts are strictly prohibited and are subject to prosecution under the Computer Fraud and Abuse Act of 1986 and Title 18 U.S.C. Sec. 1001 and 1030.
+                    p.text-center 
+                        | Copyright alloya corp 1997
+                        br
+                        | All Rights Reserved.
+                        br
+                        a.pi-href.pi-green(href="https://@globalLocalizer['HomeUrl']") go places
+            .login-form
+                form(action="", method="post")
+                    h1 Login
                     .field
-                        input(type="checkbox", id="rememberme", name="rememberme", required)
-                        label(for="rememberme") Remember Me
+                        input(type="text", id="username", name="username", required)
+                        label.elevate(for="username") Email Address
                     .field
-                        a(href="/ForgotPassword") Forgot Password?
-                .field
-                    input(type="submit", name="login", value="Login").btn.btn-primary
+                        input(type="password", id="password", name="password", required)
+                        label.elevate(for="password") Password
+                    .login-options
+                        .field
+                            input(type="checkbox", id="rememberme", name="rememberme", required)
+                            label(for="rememberme") Remember Me
+                        .field
+                            a(href="/ForgotPassword") Forgot Password?
+                    .field
+                        input(type="submit", name="login", value="Login").btn.btn-primary
 
     

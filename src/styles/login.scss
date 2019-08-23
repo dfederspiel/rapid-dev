@@ -3,8 +3,164 @@
 
 @import 'mixins';
 
-
 .alloya-login-container {
+    //padding: 4rem;
+    margin: 0 auto;
+
+    @include tablet {
+        max-width: 100rem;
+    }
+    .alloya-login {
+        width: 100%; 
+        padding: 0;
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+}
+
+.alloya-token-container {
+    padding: 0;
+
+    .alloya-login { 
+        padding: 0;
+        margin: 0;
+        max-width: inherit;
+    }
+}
+
+.alloya-login-container, .alloya-token-container {
+    display: flex;
+    flex-direction: column;
+
+    .alloya-login {
+
+        @include tablet {
+            max-width: inherit;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .notification-area {
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            flex: 0 0 50%;
+            @include tablet {
+                //padding: 5rem;
+            }
+        }
+    }
+
+    .login-form {
+        flex:0 0 50%;
+
+        form {
+            padding: 4rem;
+        }
+        @include tablet {
+            
+        }
+
+        .field {
+            position: relative;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+
+            input {
+                width: 100%;
+                border: 0px;
+                border-bottom: 1px solid #ccc;
+
+                &[type='checkbox'], &[type='submit']{
+                    width: auto;
+                }
+                &[type='submit']{
+                    margin-left: 0rem;
+                }
+            }
+
+            input:focus {
+                border-bottom: 1px solid #666;
+            }
+
+            select {
+                position: relative;
+            }
+
+
+            
+            label {
+                &.elevate {
+                    position: absolute;
+                    top: -2rem;
+                    left: 0;
+                }
+            }
+
+            @include coolNonIEThing {
+                label {
+                
+                    &.elevate {
+                        position: absolute;
+                        opacity: 0.5;
+                        left: 0;
+    
+                        top: .15rem;
+                        transition: all 200ms;
+                    }
+                }
+             
+                select:focus+label.elevate,
+                select:valid+label.elevate,
+                select:read-only+label.elevate,
+                input:focus+label.elevate,
+                input:valid+label.elevate,
+                input:read-only+label.elevate {
+                    transform: translate3d(0%, -110%, 0);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .login-options {
+            display: flex;
+            flex-direction: row;
+            .field {
+                flex-direction: row;
+                flex: 0 0 50%;
+                &:last-child {
+                    text-align: right;
+                }
+                input {
+                    margin-right: .5rem;
+                }
+            }
+        }
+
+        .disclaimer, .disclaimers {
+            width: 100%;
+            border: 0;
+
+            .field {
+                input[type="button"], input[type="submit"] {
+                    width: auto;
+
+                }
+            }
+        }
+        .announcement, .announcements {
+            width: 100%;
+            border: 0;
+
+            .field {
+                input[type="button"], input[type="submit"] {
+                    width: auto;
+                }
+            }
+        }
+    }
+    
     .btn {
         background-color: #793352;
     }
@@ -12,27 +168,36 @@
     .alloya-welcome {
         display: flex;
         flex-direction: column;
-        max-width: 100rem;
+        //max-width: 100rem;
         align-items: center;
-        flex: 0 0 50%;
         justify-content: space-around;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
 
         @include tablet {
             flex-direction: row;
         }
     }
 
+    .alloya-home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .alloya-tiles {
         padding: 1rem;
         display: flex;
         flex-direction: column;
-        max-width: 100rem;
-        align-items: center;
-        flex: 0 0 50%;
-        justify-content: space-around;
+        //max-width: 100rem;
+        //align-items: center;
+        //flex: 0 0 50%;
+        //justify-content: space-around;
         
         @include tablet {
+            display: flex;
             flex-direction: row;
+            justify-content: space-around;
             min-width: 80rem;
         }
 
@@ -99,19 +264,8 @@
         }
     }
 
-    .col-container {
-        flex: 1 0 50%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
     .alloya-logo {
-        max-width: 100%;
-
-        img {
-            max-width: 100%;
-        }
+        img { max-width: 100%; }
     }
 
     .mobile {
@@ -129,102 +283,10 @@
     }
 
     .sub-text {
-        max-width: 100%;
+        text-align: justify;
     }
 
-    .vertical-form {
-        flex: 1 0 50%;
-
-        @include tablet {
-            padding: 4rem;
-        }
-
-        .field {
-            position: relative;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-
-            label {
-                
-                &.elevate {
-                    position: absolute;
-                    opacity: 0.5;
-                    left: 0;
-
-                    top: .15rem;
-                    transition: all 200ms;
-                }
-            }
-
-            input {
-                width: 100%;
-                border: 0px;
-                border-bottom: 1px solid #ccc;
-
-                &[type='checkbox'], &[type='submit']{
-                    width: auto;
-                }
-                &[type='submit']{
-                    margin-left: 0rem;
-                }
-            }
-
-            input:focus {
-                border-bottom: 1px solid #666;
-            }
-
-            select {
-                position: relative;
-            }
-
-            select:focus+label.elevate,
-            select:valid+label.elevate,
-            select:read-only+label.elevate,
-            input:focus+label.elevate,
-            input:valid+label.elevate,
-            input:read-only+label.elevate {
-                transform: translate3d(0%, -110%, 0);
-                opacity: 1;
-            }
-        }
-
-        .login-options {
-            display: flex;
-            flex-direction: row;
-            .field {
-                flex-direction: row;
-                flex: 0 0 50%;
-                &:last-child {
-                    text-align: right;
-                }
-                input {
-                    margin-right: .5rem;
-                }
-            }
-        }
-
-        .disclaimer, .disclaimers {
-            width: 100%;
-            border: 0;
-
-            .field {
-                input[type="button"], input[type="submit"] {
-                    width: auto;
-
-                }
-            }
-        }
-        .announcement, .announcements {
-            width: 100%;
-            border: 0;
-
-            .field {
-                input[type="button"], input[type="submit"] {
-                    width: auto;
-                }
-            }
-        }
-    }
+    
 
     .form-fill {
         align-self: self-start;
@@ -234,29 +296,5 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-
-    .alloya-login {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        max-width: 100rem;
-        align-items: center;
-
-        @include tablet {
-            padding: 5rem;
-            flex-direction: row;
-        }
-        .col-container {
-            @include tablet {
-                padding: 1rem;
-            }
-        }
-        .vertical-form {
-            @include tablet {
-                padding: 1rem;
-            }    
-        }
     }
 }
