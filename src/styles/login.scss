@@ -4,9 +4,8 @@
 @import 'mixins';
 
 .alloya-login-container {
-    //padding: 4rem;
     margin: 0 auto;
-
+    padding: 4rem;
     @include tablet {
         max-width: 100rem;
     }
@@ -91,6 +90,7 @@
 
             
             label {
+                white-space: nowrap;
                 &.elevate {
                     position: absolute;
                     top: -2rem;
@@ -168,11 +168,9 @@
     .alloya-welcome {
         display: flex;
         flex-direction: column;
-        //max-width: 100rem;
+        margin-bottom: 1.5rem;
         align-items: center;
         justify-content: space-around;
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
 
         @include tablet {
             flex-direction: row;
@@ -186,19 +184,13 @@
     }
 
     .alloya-tiles {
-        padding: 1rem;
         display: flex;
         flex-direction: column;
-        //max-width: 100rem;
-        //align-items: center;
-        //flex: 0 0 50%;
-        //justify-content: space-around;
         
         @include tablet {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            min-width: 80rem;
         }
 
         
@@ -239,6 +231,7 @@
 
     .shade {
         background: #CAD1DE;
+        //padding: 0 4rem;
     }
 
     .shade-triange {
@@ -258,9 +251,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 4rem;
         @include tablet {
-            padding: 4rem;
+            
             min-height: 100vh;
+        }
+
+        .section {
+            max-width: 100%;
         }
     }
 
