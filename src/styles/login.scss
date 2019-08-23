@@ -14,10 +14,18 @@
     align-items: center;
     flex: 0 0 50%;
     justify-content: space-around;
-
+    margin-top: 1.5rem;
+    
     @include tablet {
         flex-direction: row;
     }
+}
+
+.alloya-home {
+    display: flex;
+    flex-direction: column;
+    // max-width: 100rem;
+    align-items: center;
 }
 
 .alloya-tiles {
