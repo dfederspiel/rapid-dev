@@ -27,7 +27,7 @@
     }
 }
 
-.alloya-login-container, .alloya-token-container {
+.alloya-login-container, .alloya-token-container, .alloya-lr-container {
     display: flex;
     flex-direction: column;
 
@@ -210,6 +210,12 @@
         }
     }
 
+    .alloya-mfa-down {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .flex-fill {
         display: flex;
         flex-direction: column;
@@ -294,5 +300,30 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+.alloya-lr-container {
+
+    @include tablet {
+    }
+
+    .alloya-login {
+
+        @include tablet {
+            min-height: 100vh;
+        }
+    }
+
+    .shade-triange {
+        display: none;
+
+        @include tablet {
+            background: linear-gradient(45deg, #597241 15%, #E49720 45%, #793352 84%);
+            align-items: center;
+            justify-content: center;
+            padding: 0rem;
+            display: block;
+        }
     }
 }
