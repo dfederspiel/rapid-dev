@@ -57,7 +57,7 @@ export default class AlloyaReactApp extends React.Component {
                 <header ref={node => (this.headerNode = node)}>
                     <TopNav toggleLeftSideNav={toggleLeftSideNav} toggleRightSideNav={toggleRightSideNav} />
                 </header>
-                <main>
+                <main className="main">
                     <div className="side-nav-wrapper" ref={node => (this.LeftSideNavNode = node)}>
                         <LeftSideNav openLeftSideNav={openLeftSideNav} />
                     </div>
@@ -68,7 +68,7 @@ export default class AlloyaReactApp extends React.Component {
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
                         </Router>
                     </div>
-                </div>
+                </main>
             </div>
         );
     }

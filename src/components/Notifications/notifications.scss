@@ -8,6 +8,10 @@
     }
   }
 
+  .trigger {
+    @include unstyleButton;
+  }
+
   .notification-count {
     position: absolute;
     right: 13px;
@@ -49,7 +53,7 @@
     top: calc(100% + 5rem);
     background-color: $white;
     min-width: 25rem;
-    padding:1.5rem;
+    padding: 1.5rem;
     box-sizing: border-box;
     box-shadow: 0 0 2rem rgba(204, 204, 204, .5);
     transition-duration: .5s;
