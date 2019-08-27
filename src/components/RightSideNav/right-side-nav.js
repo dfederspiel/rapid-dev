@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import NavLink from '../NavLink/nav-link';
-import NavLinkWithLevels from '../NavLinkWithLevels/nav-link-with-levels';
 import Notifications from '../Notifications/notifications';
 import Icon from '../Icon/icon';
+import NavThirdLevel from '../NavThirdLevel/nav-third-level';
 
 export default class RightSideNav extends React.Component {
     renderClose = () => {
@@ -19,52 +19,56 @@ export default class RightSideNav extends React.Component {
 
     renderSettings = () => {
         return (
-            <ul className="settings">
-                <NavLinkWithLevels
-                    title="Administration"
-                    showCaret={true}
-                    links={[{ href: '/', title: "Admin Level 2" }, { href: '/', title: "Admin Level 2" }]}
-                />
-                <NavLinkWithLevels
-                    title="Corporate Tool Box"
-                    showCaret={true}
-                    links={[{ href: '/', title: "Corporate Level 2" }, { href: '/', title: "Corporate Level 2" }]}
-                />
-                <NavLinkWithLevels
-                    title="Contract Management"
-                    showCaret={true}
-                    links={[{ href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }, { href: '/', title: "Contract Level 2" }]}
-                />
-            </ul>
+            <div className="settings">
+                <ul>
+                    <NavThirdLevel title="Administration"
+                        links={[{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]}
+                    />
+
+                    <NavThirdLevel title="Corporate Tool Box"
+                        links={[{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]}
+                    />
+
+                    <NavThirdLevel title="Contract Management"
+                        links={[{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]}
+                    />
+                </ul>
+            </div>
         )
     }
 
     renderInfo = () => {
         return (
-            <ul className="info">
-                <NavLink title="Training and Events" href="/" />
-                <NavLink title="KnowledgeCenter" href="/" />
-                <NavLink title="Premier View FAQ's" href="/" />
-            </ul>
+            <div className="info">
+                <ul>
+                    <NavLink title="Training and Events" href="/" />
+                    <NavLink title="KnowledgeCenter" href="/" />
+                    <NavLink title="Premier View FAQ's" href="/" />
+                </ul>
+            </div>
         )
     }
 
     renderMember = () => {
         return (
-            <ul className="member">
-                <NavLink title="Transaction Cutoff Times" href="/" />
-                <NavLink title="Contact Alloya" href="/" />
-                <NavLink title="Member Pay" href="/" />
-                <NavLink title="Alloya Home" href="/" />
-            </ul>
+            <div className="member">
+                <ul>
+                    <NavLink title="Transaction Cutoff Times" href="/" />
+                    <NavLink title="Contact Alloya" href="/" />
+                    <NavLink title="Member Pay" href="/" />
+                    <NavLink title="Alloya Home" href="/" />
+                </ul>
+            </div>
         )
     }
 
     renderSignOut = () => {
         return (
-            <ul>
-                <NavLink title="Sign Out" href="/" />
-            </ul>
+            <div>
+                <ul>
+                    <NavLink title="Sign Out" href="/" />
+                </ul>
+            </div>
         )
     }
 
@@ -81,7 +85,7 @@ export default class RightSideNav extends React.Component {
 
         return (
             <div className="right-side-nav">
-                 <Notifications />
+                <Notifications />
                 <button className="trigger" onClick={toggleRightSideNav}>
                     <Icon name='ellipsis-h' size="lg" />
                 </button>
@@ -91,9 +95,11 @@ export default class RightSideNav extends React.Component {
                     {renderInfo()}
                     {renderMember()}
                     {renderSignOut()}
-                    <ul>
-                        <NavLink title="BACK TO INDEX" href="/" />
-                    </ul>
+                    <div>
+                        <ul>
+                            <NavLink title="BACK TO INDEX" href="/" />
+                        </ul>
+                    </div>
                 </div>
             </div>
         );
