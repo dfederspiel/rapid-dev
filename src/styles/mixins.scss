@@ -33,6 +33,12 @@
 
 /*-------A-TAG STATES-------*/
 
+@mixin coolNonIEThing() {
+    @supports not (-ms-high-contrast: none) {
+        @content;
+    }
+}
+
 @mixin states {
 
     &:hover,

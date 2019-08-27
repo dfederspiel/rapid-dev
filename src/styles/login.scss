@@ -1,0 +1,338 @@
+@import 'variables';
+@import 'style-guide';
+
+@import 'mixins';
+
+.alloya-login-container {
+    margin: 0 auto;
+    padding: 4rem;
+    @include tablet {
+        max-width: 100rem;
+    }
+
+    .shade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 15rem;
+        background-color: lighten($light-font, 15%);
+    }
+
+    .alloya-login {
+        width: 100%; 
+        padding: 0;
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+}
+
+.alloya-token-container {
+    padding: 0;
+
+    .shade {
+        background-color: lighten($light-font, 15%);
+    }
+
+    .alloya-login { 
+        padding: 0;
+        margin: 0;
+        max-width: inherit;
+    }
+}
+
+.alloya-login-container, .alloya-token-container, .alloya-lr-container {
+    display: flex;
+    flex-direction: column;
+
+    .alloya-login {
+
+        @include tablet {
+            max-width: inherit;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .notification-area {
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            flex: 0 0 50%;
+            @include tablet {
+                //padding: 5rem;
+            }
+        }
+    }
+
+    .login-form {
+        flex:0 0 50%;
+
+        form {
+            padding: 4rem;
+        }
+        @include tablet {
+            
+        }
+
+        .field {
+            position: relative;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+
+            input {
+                width: 100%;
+                border: 0px;
+                border-bottom: 1px solid #ccc;
+
+                &[type='checkbox'], &[type='submit']{
+                    width: auto;
+                }
+                &[type='submit']{
+                    margin-left: 0rem;
+                }
+            }
+
+            input:focus {
+                border-bottom: 1px solid #666;
+            }
+
+            select {
+                position: relative;
+            }
+
+
+            
+            label {
+                white-space: nowrap;
+                &.elevate {
+                    position: absolute;
+                    top: -2rem;
+                    left: 0;
+                }
+            }
+
+            @include coolNonIEThing {
+                label {
+                
+                    &.elevate {
+                        position: absolute;
+                        opacity: 0.5;
+                        left: 0;
+    
+                        top: .15rem;
+                        transition: all 200ms;
+                    }
+                }
+             
+                select:focus+label.elevate,
+                select:valid+label.elevate,
+                select:read-only+label.elevate,
+                input:focus+label.elevate,
+                input:valid+label.elevate,
+                input:read-only+label.elevate {
+                    transform: translate3d(0%, -110%, 0);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .login-options {
+            display: flex;
+            flex-direction: row;
+            .field {
+                flex-direction: row;
+                flex: 0 0 50%;
+                &:last-child {
+                    text-align: right;
+                }
+                input {
+                    margin-right: .5rem;
+                }
+            }
+        }
+
+        .disclaimer, .disclaimers {
+            width: 100%;
+            border: 0;
+
+            .field {
+                input[type="button"], input[type="submit"] {
+                    width: auto;
+
+                }
+            }
+        }
+        .announcement, .announcements {
+            width: 100%;
+            border: 0;
+
+            .field {
+                input[type="button"], input[type="submit"] {
+                    width: auto;
+                }
+            }
+        }
+    }
+    
+    .btn {
+        background-color: #793352;
+    }
+
+    .alloya-welcome {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        align-items: center;
+        justify-content: space-around;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    .alloya-home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .alloya-tiles {
+        display: flex;
+        flex-direction: column;
+        
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        
+        .transaction-card, .liquidity-card, .investments-card {
+            margin-right: 0;
+            width: 100%;
+            height: 12rem;
+            overflow: hidden;
+            
+            @include tablet {
+                width: 24rem;
+            }
+            
+            .transaction-row {
+                width: 100%;
+            }
+        }
+    }
+
+    .alloya-mfa-down {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex-fill {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            align-items: center;
+            justify-content: space-around;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        .flex-grow {
+            
+            @include tablet {
+                flex-grow: 1;
+                min-height: 100vh;
+            }
+        }
+    }
+
+    .shade-triange {
+        display: none;
+
+        @include tablet {
+            background: linear-gradient(45deg, #597241 15%, #E49720 45%, #793352 84%);
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            display: block;
+        }
+    }
+
+    .help-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem;
+        @include tablet {
+            
+            min-height: 100vh;
+        }
+
+        .section {
+            max-width: 100%;
+        }
+    }
+
+    .alloya-logo {
+        img { max-width: 100%; }
+    }
+
+    .mobile {
+        display: block;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    .tablet {
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+
+    .sub-text {
+        text-align: justify;
+    }
+
+    
+
+    .form-fill {
+        align-self: self-start;
+    }
+
+    .oath-token, .entrust-token {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.alloya-lr-container {
+
+    @include tablet {
+    }
+
+    .alloya-login {
+
+        @include tablet {
+            min-height: 100vh;
+        }
+    }
+
+    .shade-triange {
+        display: none;
+
+        @include tablet {
+            background: linear-gradient(45deg, #597241 15%, #E49720 45%, #793352 84%);
+            align-items: center;
+            justify-content: center;
+            padding: 0rem;
+            display: block;
+        }
+    }
+}

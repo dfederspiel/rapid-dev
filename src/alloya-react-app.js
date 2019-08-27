@@ -68,7 +68,7 @@ export default class AlloyaReactApp extends React.Component {
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
                         </Router>
                     </div>
-                </main>
+                </div>
             </div>
         );
     }

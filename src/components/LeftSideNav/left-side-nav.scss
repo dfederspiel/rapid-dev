@@ -14,7 +14,7 @@
 
     @include tablet {
         left: 0;
-        overflow-y: initial;
+        overflow: hidden;
         position: relative;
         height: auto;
     }

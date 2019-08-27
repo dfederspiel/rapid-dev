@@ -16,8 +16,9 @@ const gulp = require('gulp'),
     multiDest = require("gulp-multi-dest"),
     cleanCSS = require('gulp-clean-css'),
     shell = require('gulp-shell'),
-    path = require('path');
-
+    path = require('path'),
+    postcss = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer');
 const appRoot = path.resolve(__dirname);
 
 const log = (o, level = 0) => {
@@ -27,14 +28,14 @@ const log = (o, level = 0) => {
         console.log(`${colors.red('prop:')}${p}: ${o[p]}`);
         if (o[p] != null && typeof o[p] == 'object') {
             try {
-                console.log("DETAILS")
+                console.log("DETAILS");
                 log(o[p], level + 1);
             } catch (err) {
-                console.log('CANT GET INFO')
+                console.log('CANT GET INFO');
             }
         }
     }
-}
+};
 
 let router = express.Router();
 let jsonServer = require('json-server');
@@ -65,7 +66,7 @@ const json = (callback) => {
             if (err) {
                 console.log('[JSON] ' + colors.red(err));
                 if (callback)
-                    callback()
+                    callback();
             } else {
                 console.log(colors.green('[JSON] DB.json Saved'.bold));
                 if (callback)
@@ -119,7 +120,7 @@ const img = (callback) => {
 const font = () => {
     console.log('[FONT] ' + colors.cyan('Copying Fonts'));
     return gulp.src('./src/fonts/**/*.*')
-        .pipe(multiDest(config.distribution.fonts))
+        .pipe(multiDest(config.distribution.fonts));
 };
 
 const components = (callback) => {
@@ -154,7 +155,7 @@ const components = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js))
+        .pipe(multiDest(config.distribution.js));
 };
 
 const js = (callback) => {
@@ -189,7 +190,7 @@ const js = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js))
+        .pipe(multiDest(config.distribution.js));
 };
 const react = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
@@ -258,38 +259,43 @@ const jsv = (callback) => {
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js))
+        .pipe(multiDest(config.distribution.js));
 };
 
 const scss = (callback) => {
-    console.log(colors.cyan('[SCSS] Transpiling Sass to Css'));
-    var postcss = require('gulp-postcss');
-    var autoprefixer = require('autoprefixer');
-
+    console.log(colors.cyan('[SCSS] Transpiling Global Sass to Css'));
     return bundle([
         './src/styles/global.scss'
-    ], 'bundle.min.css');
+    ], 'bundle.min.css', callback);
 
-    function bundle(source, dest) {
-        return gulp.src(source)
-            .pipe(sourcemaps.init())
-            .pipe(sass().on('error', sass.logError))
-            .pipe(concat(dest))
-            .pipe(postcss([autoprefixer()]))
-            .pipe(cleanCSS({
-                compatibility: 'ie8'
-            }))
-            .pipe(sourcemaps.write('.'))
-            .on('end', callback)
-            .on('error', function (err) {
-                console.log(colors.red('[SCSS] ' + err.toString()));
-                callback();
-            })
-            .pipe(multiDest(config.distribution.css))
-            .pipe(bs.stream());
-
-    }
 };
+
+const loginscss = (callback) => {
+    console.log(colors.cyan('[SCSS] Transpiling Login Sass to Css'));
+    return bundle([
+        './src/styles/login.scss'
+    ], 'login-bundle.min.css', callback);
+};
+
+function bundle(source, dest, callback) {
+    return gulp.src(source)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat(dest))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(cleanCSS({
+            compatibility: 'ie8'
+        }))
+        .pipe(sourcemaps.write('.'))
+        .on('end', callback)
+        .on('error', function (err) {
+            console.log(colors.red('[SCSS] ' + err.toString()));
+            callback();
+        })
+        .pipe(multiDest(config.distribution.css))
+        .pipe(bs.stream());
+
+}
 
 const serve = (callback) => {
     console.log(colors.cyan('[SERVE] Says: standing up your server'));
@@ -348,7 +354,7 @@ const watch = (done) => {
                     bs.notify("Done Transpiling" + task.name, 1000);
                     cb();
                 });
-            })
+            });
         });
 
     gulp.watch(['./src/**/*.scss'])
@@ -358,9 +364,12 @@ const watch = (done) => {
             }, (task) => {
                 bs.notify("Transpiling" + task.name, 1000);
                 scss(() => {
-                    bs.notify("Done Transpiling" + task.name, 1000);
+                    bs.notify("Done Transpiling Global " + task.name, 1000);
                 });
-            })
+                loginscss(() => {
+                    bs.notify("Done Transpiling Login " + task.name, 1000);
+                });
+            });
         });
 
     gulp.watch(['./src/*.js', './src/js/**/*.js', './src/components/**/*.js', './src/pages/**/*.js'])
@@ -371,9 +380,9 @@ const watch = (done) => {
                 bs.notify("Transpiling" + task.name, 1000);
                 js(() => {
                     bs.notify("Done Transpiling" + task.name, 1000);
-                    reload()
+                    reload();
                 });
-            })
+            });
         });
         
     gulp.watch(['./src/data/generate.js'])
@@ -386,9 +395,9 @@ const watch = (done) => {
                     build_routes(() => {
                         reload();
                         done();
-                    })
+                    });
                 });
-            })
+            });
         });
 
     gulp.watch(['./src/img/**/*'])
@@ -401,7 +410,7 @@ const watch = (done) => {
                     reload();
                     done();
                 });
-            })
+            });
         });
 
     gulp.watch('./src/**/*')
@@ -413,8 +422,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, react, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, loginscss, js, jsv, components, react, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, loginscss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));
