@@ -18,11 +18,9 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard-container">
-                <div className="carousel-row">
-                    <div className="carousel-col">
-                        <label>Discover Premier View</label>
-                        <DiscoverTiles />
-                    </div>
+                <div className="carousel-col">
+                    <label>Discover Premier View</label>
+                    <DiscoverTiles />
                 </div>
                 <div className="flex-wrap-row">
                     <div className="flex-wrap-column">
