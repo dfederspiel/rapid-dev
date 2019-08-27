@@ -52,8 +52,7 @@
 
 }
 
-li.active .nav-second-level,
-.nav-second-level:hover {
+li.active .nav-second-level {
     @include fadeIn;
     left: 7rem;
     z-index: 20;
