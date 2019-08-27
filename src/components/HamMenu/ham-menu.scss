@@ -2,7 +2,8 @@
     width: 2rem;
     height: 2rem;
     padding: 2.5rem;
-    box-sizing: initial;
+    display: inline;
+    box-sizing: content-box;
     background-color:transparent;
     border: none;
     cursor: pointer;
