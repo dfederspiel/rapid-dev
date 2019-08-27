@@ -60,8 +60,10 @@ var dependencies = Object.keys(packageJSON && packageJSON.dependencies || {});
 const json = (callback) => {
     console.log(colors.cyan('[JSON] Generating a new DB'));
 
+    // Must delete cached object and re-require or else
     delete require.cache[require.resolve('./src/data/generate.js')];
     jsonData = require('./src/data/generate.js');
+
     try {
         fs.writeFile("./src/data/db.json", JSON.stringify(jsonData()), 'utf8', (err) => {
             if (err) {
@@ -134,7 +136,11 @@ const jsbundle = (input, output, destinations, callback) => {
             presets: ["@babel/preset-env", "@babel/preset-react"]
         });
 
-    return b
+    return bundleJS(b, output, destinations, callback);
+}
+
+const bundleJS = (browserify, output, destinations, callback) => {
+    return browserify
         .bundle((err) => {
             if (err)
                 console.log('[JS] ' + colors.red(err.toString()));
@@ -161,74 +167,13 @@ const jsbundle = (input, output, destinations, callback) => {
 const components = (callback) => {
     console.log(colors.cyan('[JS] Bundling and Babeling JS'));
     jsbundle('./src/js/server-components.js', 'components.min.js', config.distribution.js, callback);
-    // var b = browserify({
-    //         entries: './src/js/server-components.js',
-    //         debug: true
-    //     })
-    //     .external(dependencies)
-    //     .transform('babelify', {
-    //         presets: ['@babel/preset-env']
-    //     });
-
-    // return b
-    //     .bundle((err) => {
-    //         if (err)
-    //             console.log('[JS] ' + colors.red(err.toString()));
-
-    //         if (callback)
-    //             callback();
-    //     })
-    //     .on('error', function (err) {
-    //         console.log('[JS] ' + colors.red(err.toString()));
-    //         callback();
-    //     })
-    //     .on('end', function () {
-    //         callback();
-    //     })
-    //     .pipe(source('components.min.js'))
-    //     .pipe(buffer())
-    //     .pipe(sourcemaps.init({
-    //         loadMaps: true
-    //     }))
-    //     .pipe(sourcemaps.write('./'))
-    //     .pipe(multiDest(config.distribution.js));
 };
 
 const js = (callback) => {
     console.log(colors.cyan('[JS] Bundling and Babeling JS'));
     jsbundle('./src/js/app.js', 'app.min.js', config.distribution.js, callback);
-    // var b = browserify({
-    //         entries: './src/js/app.js',
-    //         debug: true
-    //     })
-    //     .external(dependencies)
-    //     .transform('babelify', {
-    //         presets: ['@babel/preset-env']
-    //     });
-
-    // return b
-    //     .bundle((err) => {
-    //         if (err)
-    //             console.log('[JS] ' + colors.red(err.toString()));
-
-    //         if (callback)
-    //             callback();
-    //     })
-    //     .on('error', function (err) {
-    //         console.log('[JS] ' + colors.red(err.toString()));
-    //         callback();
-    //     })
-    //     .on('end', function () {
-    //         callback();
-    //     })
-    //     .pipe(source('app.min.js'))
-    //     .pipe(buffer())
-    //     .pipe(sourcemaps.init({
-    //         loadMaps: true
-    //     }))
-    //     .pipe(sourcemaps.write('./'))
-    //     .pipe(multiDest(config.distribution.js));
 };
+
 const react = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling React Server JS'));
     var b = browserify({
@@ -241,30 +186,9 @@ const react = (callback) => {
     b.require('react-dom');
     b.require('react-fontawesome');
 
-
-    return b
-        .bundle((err) => {
-            if (err)
-                console.log('[JS V] ' + colors.red(err.toString()));
-
-            if (callback)
-                callback();
-        })
-        .on('error', function (err) {
-            console.log('[JS V] ' + colors.red(err.toString()));
-            callback();
-        })
-        .on('end', function () {
-            callback();
-        })
-        .pipe(source('react-vendor.min.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js));
+    bundleJS(b, 'react-vendor.min.js', config.distribution.js, callback);
 };
+
 const jsv = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
     var b = browserify({
@@ -277,33 +201,12 @@ const jsv = (callback) => {
         b.require(lib);
     });
 
-    return b
-        .bundle((err) => {
-            if (err)
-                console.log('[JS V] ' + colors.red(err.toString()));
-
-            if (callback)
-                callback();
-        })
-        .on('error', function (err) {
-            console.log('[JS V] ' + colors.red(err.toString()));
-            callback();
-        })
-        .on('end', function () {
-            callback();
-        })
-        .pipe(source('vendor.min.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js));
+    return bundleJS(b, 'vendor.min.js', config.distribution.js, callback);
 };
 
 const scss = (callback) => {
     console.log(colors.cyan('[SCSS] Transpiling Global Sass to Css'));
-    return bundle([
+    return bundleCSS([
         './src/styles/global.scss'
     ], 'bundle.min.css', callback);
 
@@ -311,12 +214,12 @@ const scss = (callback) => {
 
 const loginscss = (callback) => {
     console.log(colors.cyan('[SCSS] Transpiling Login Sass to Css'));
-    return bundle([
+    return bundleCSS([
         './src/styles/login.scss'
     ], 'login-bundle.min.css', callback);
 };
 
-function bundle(source, dest, callback) {
+function bundleCSS(source, dest, callback) {
     return gulp.src(source)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
