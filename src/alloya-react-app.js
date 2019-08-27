@@ -1,4 +1,8 @@
-﻿import React from 'react';
+﻿require('es6-promise').polyfill();
+require('isomorphic-fetch');
+require('@babel/polyfill');
+
+import React from 'react';
 import TopNav from './components/TopNav/top-nav';
 import LeftSideNav from './components/LeftSideNav/left-side-nav';
 import Dashboard from './pages/Dashboard/dashboard';
@@ -42,7 +46,7 @@ export default class AlloyaReactApp extends React.Component {
                 <header ref={node => (this.headerNode = node)}>
                     <TopNav toggleLeftSideNav={toggleLeftSideNav} toggleRightSideNav={toggleRightSideNav} />
                 </header>
-                <main className="main">
+                <div className="main">
                     <div className="side-nav-wrapper" ref={node => (this.LeftSideNavNode = node)}>
                         <LeftSideNav openLeftSideNav={openLeftSideNav} />
                     </div>
@@ -53,7 +57,7 @@ export default class AlloyaReactApp extends React.Component {
                             <Route path="/discover/:serviceType" component={DiscoverPremierView} />
                         </Router>
                     </div>
-                </main>
+                </div>
             </div>
         );
     }

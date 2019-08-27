@@ -14,6 +14,7 @@ export default class NavFastTrack extends React.Component {
     }
 
     componentDidMount() {
+        console.log('fetching');
         Api.fetch("/api/fasttrack").then(this.setLinks)
             .catch(this.displayError);
     }
