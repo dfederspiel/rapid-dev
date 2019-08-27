@@ -72,20 +72,20 @@ describe('The navigation link with levels component', () => {
             });
         });
 
-        describe("when the link is clicked", () => {
+        describe("when the link is moused over", () => {
             it("toggles the active state", () => {
                 _component.setState({ active: false });
-                _component.find("a.link").simulate("click");
+                _component.find("a.link").simulate("mouseenter");
 
                 expect(_component.state().active).toEqual(true);
             });
         });
 
-        describe("when the trigger is clicked", () => {
+        describe("when the trigger is moused over", () => {
             it("toggles the active state", () => {
                 _component = shallow(<NavLinkWithLevels title="My Page" links={links()} icon="spinnyThang" />);
                 _component.setState({ active: false });
-                _component.find("a.active-trigger").simulate("click");
+                _component.find("a.active-trigger").simulate("mouseenter");
 
                 expect(_component.state().active).toEqual(true);
             });

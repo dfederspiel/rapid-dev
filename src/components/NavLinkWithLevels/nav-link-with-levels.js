@@ -44,7 +44,7 @@ export default class NavLinkWithLevels extends React.Component {
 
         return (
             <li className={`nav-link-with-levels ${active ? "active" : ""}`} ref={node => this.node = node}>
-                <a className="link" href="javascript:void(0)" onClick={toggle}>
+                <a className="link" href="javascript:void(0)" onMouseEnter={toggle}  onMouseLeave={toggle}>
                     <div className="title">{title}</div>
                     {showCaret && <Icon name="caret" />}
                 </a>
