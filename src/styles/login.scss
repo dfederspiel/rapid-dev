@@ -44,10 +44,12 @@
 .alloya-login-container, .alloya-token-container, .alloya-lr-container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 
     .alloya-login {
 
         @include tablet {
+            min-height: 100vh;
             max-width: inherit;
             display: flex;
             flex-direction: row;
@@ -80,12 +82,12 @@
             margin-top: 3rem;
             margin-bottom: 1.5rem;
 
-            input {
+            input, button {
                 width: 100%;
                 border: 0px;
                 border-bottom: 1px solid #ccc;
 
-                &[type='checkbox'], &[type='submit']{
+                &[type='checkbox'], &[type='submit'], &[type='button']{
                     width: auto;
                 }
                 &[type='submit']{
@@ -270,8 +272,9 @@
 
     .shade {
         background: #CAD1DE;
+        z-index: -10;
         @include tablet {
-            align-items: center;
+            //align-items: center;
             justify-content: center;
             //padding: 4rem;
             display: block;
@@ -353,6 +356,10 @@
         }
     }
 
+    .shade {
+        align-items: center;
+    }
+    
     .shade-triange {
         display: none;
 
