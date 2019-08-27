@@ -44,13 +44,13 @@ export default class NavLinkWithLevels extends React.Component {
 
         return (
             <li className={`nav-link-with-levels ${active ? "active" : ""}`} ref={node => this.node = node}>
-                <a className="link" href="javascript:void(0)" onMouseEnter={toggle}  onMouseLeave={toggle}>
+                <a className="link" href="javascript:void(0)" onClick={toggle}>
                     <div className="title">{title}</div>
                     {showCaret && <Icon name="caret" />}
                 </a>
                 {
                     icon &&
-                    <a className="active-trigger" href="javascript:void(0)" onMouseEnter={toggle}  onMouseLeave={toggle}>
+                    <a className="active-trigger" href="javascript:void(0)" onClick={toggle}>
                         <Icon name={icon} size="lg"/>
                     </a>
                 }
