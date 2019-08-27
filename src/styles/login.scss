@@ -54,7 +54,7 @@
     .login-form {
         flex:0 0 50%;
 
-        form {
+        form, .ph-form {
             padding: 4rem;
         }
         @include tablet {
@@ -179,8 +179,27 @@
 
     .alloya-home {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        
+        @include tablet {
+        }
+
+        .ph-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-width:50%;
+
+            p {
+                max-width: 100%;
+            }
+        }
+
+        form.form-inline {
+            padding: 0;
+        }
+
     }
 
     .alloya-tiles {
@@ -237,7 +256,12 @@
 
     .shade {
         background: #CAD1DE;
-        //padding: 0 4rem;
+        @include tablet {
+            align-items: center;
+            justify-content: center;
+            //padding: 4rem;
+            display: block;
+        }
     }
 
     .shade-triange {
@@ -247,7 +271,7 @@
             background: linear-gradient(45deg, #597241 15%, #E49720 45%, #793352 84%);
             align-items: center;
             justify-content: center;
-            padding: 4rem;
+            //padding: 4rem;
             display: block;
         }
     }
@@ -255,7 +279,7 @@
     .help-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        // align-content: center;
         justify-content: center;
         padding: 4rem;
         @include tablet {
