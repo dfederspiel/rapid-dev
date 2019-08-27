@@ -19,20 +19,6 @@ describe("The Alloya app", () => {
         expect(_component.find("TopNav").props().toggleLeftSideNav).toEqual(_component.instance().toggleLeftSideNav);
     });
 
-    describe("when the component will mount", () => {
-        it("adds an event listener to handle click events", () => {
-            _component.instance().componentWillMount();
-            expect(document.addEventListener).toHaveBeenCalledWith("mousedown", _component.instance().handleClick, false);
-        });
-    });
-
-    describe("when the component will unmount", () => {
-        it("removes the event listener to handle click events", () => {
-            _component.instance().componentWillUnmount();
-            expect(document.removeEventListener).toHaveBeenCalledWith("mousedown", _component.instance().handleClick, false);
-        });
-    });
-
     describe("given a call to toggle the side navigation", () => {
         it("toggles the side navigation", () => {
             _component.setState({ LeftSideNavIsOpen: true });

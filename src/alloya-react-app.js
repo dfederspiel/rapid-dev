@@ -14,21 +14,6 @@ export default class AlloyaReactApp extends React.Component {
             rightNavIsOpen: false,
         };
     }
-
-    componentWillMount() {
-        document.addEventListener("mousedown", this.handleClick, false);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener("mousedown", this.handleClick, false);
-    }
-
-    handleClick = (e) => {
-        if (this.LeftSideNavNode.contains(e.target) || this.headerNode.contains(e.target))
-            return;
-        this.closeLeftSideNav();
-    }
-
     toggleLeftSideNav = () => {
         this.setState({ LeftSideNavIsOpen: !this.state.LeftSideNavIsOpen });
     }
