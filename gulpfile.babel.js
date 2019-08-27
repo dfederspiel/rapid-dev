@@ -124,15 +124,14 @@ const font = () => {
         .pipe(multiDest(config.distribution.fonts));
 };
 
-const components = (callback) => {
-    console.log(colors.cyan('[JS] Bundling and Babeling JS'));
+const jsbundle = (input, output, destinations, callback) => {
     var b = browserify({
-        entries: './src/js/server-components.js',
-        debug: true
-    })
-        .external(dependencies)
+            entries: input,
+            debug: true
+        })
+        //.external(dependencies)
         .transform('babelify', {
-            presets: ['@babel/preset-env']
+            presets: ["@babel/preset-env", "@babel/preset-react"]
         });
 
     return b
@@ -150,59 +149,98 @@ const components = (callback) => {
         .on('end', function () {
             callback();
         })
-        .pipe(source('components.min.js'))
+        .pipe(source(output))
         .pipe(buffer())
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js));
+        .pipe(multiDest(destinations));
+}
+
+const components = (callback) => {
+    console.log(colors.cyan('[JS] Bundling and Babeling JS'));
+    jsbundle('./src/js/server-components.js', 'components.min.js', config.distribution.js, callback);
+    // var b = browserify({
+    //         entries: './src/js/server-components.js',
+    //         debug: true
+    //     })
+    //     .external(dependencies)
+    //     .transform('babelify', {
+    //         presets: ['@babel/preset-env']
+    //     });
+
+    // return b
+    //     .bundle((err) => {
+    //         if (err)
+    //             console.log('[JS] ' + colors.red(err.toString()));
+
+    //         if (callback)
+    //             callback();
+    //     })
+    //     .on('error', function (err) {
+    //         console.log('[JS] ' + colors.red(err.toString()));
+    //         callback();
+    //     })
+    //     .on('end', function () {
+    //         callback();
+    //     })
+    //     .pipe(source('components.min.js'))
+    //     .pipe(buffer())
+    //     .pipe(sourcemaps.init({
+    //         loadMaps: true
+    //     }))
+    //     .pipe(sourcemaps.write('./'))
+    //     .pipe(multiDest(config.distribution.js));
 };
 
 const js = (callback) => {
     console.log(colors.cyan('[JS] Bundling and Babeling JS'));
-    var b = browserify({
-            entries: './src/js/app.js',
-            debug: true
-        })
-        .external(dependencies)
-        .transform('babelify', {
-            presets: ['@babel/preset-env']
-        });
+    jsbundle('./src/js/app.js', 'app.min.js', config.distribution.js, callback);
+    // var b = browserify({
+    //         entries: './src/js/app.js',
+    //         debug: true
+    //     })
+    //     .external(dependencies)
+    //     .transform('babelify', {
+    //         presets: ['@babel/preset-env']
+    //     });
 
-    return b
-        .bundle((err) => {
-            if (err)
-                console.log('[JS] ' + colors.red(err.toString()));
+    // return b
+    //     .bundle((err) => {
+    //         if (err)
+    //             console.log('[JS] ' + colors.red(err.toString()));
 
-            if (callback)
-                callback();
-        })
-        .on('error', function (err) {
-            console.log('[JS] ' + colors.red(err.toString()));
-            callback();
-        })
-        .on('end', function () {
-            callback();
-        })
-        .pipe(source('app.min.js'))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(sourcemaps.write('./'))
-        .pipe(multiDest(config.distribution.js));
+    //         if (callback)
+    //             callback();
+    //     })
+    //     .on('error', function (err) {
+    //         console.log('[JS] ' + colors.red(err.toString()));
+    //         callback();
+    //     })
+    //     .on('end', function () {
+    //         callback();
+    //     })
+    //     .pipe(source('app.min.js'))
+    //     .pipe(buffer())
+    //     .pipe(sourcemaps.init({
+    //         loadMaps: true
+    //     }))
+    //     .pipe(sourcemaps.write('./'))
+    //     .pipe(multiDest(config.distribution.js));
 };
 const react = (callback) => {
-    console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
+    console.log(colors.cyan('[JS V] Bundling and Babeling React Server JS'));
     var b = browserify({
         debug: true
-    }).transform("babelify", { presets: ["@babel/preset-env", "@babel/preset-react"] });
+    }).transform("babelify", {
+        presets: ["@babel/preset-env", "@babel/preset-react"]
+    });
 
     b.require('react');
     b.require('react-dom');
     b.require('react-fontawesome');
-    
+
 
     return b
         .bundle((err) => {
@@ -316,8 +354,9 @@ const serve = (callback) => {
         middleware: [
             function (req, res, next) {
                 router(req, res, next);
-            }, app
-            ]
+            },
+            app
+        ]
     }, function (err, bs) {
         console.log(colors.cyan('[SERVE] Says: hello'));
         callback();
@@ -385,7 +424,7 @@ const watch = (done) => {
                 });
             });
         });
-        
+
     gulp.watch(['./src/data/generate.js'])
         .on('all', function (event, path, stats) {
             queue.queue({
