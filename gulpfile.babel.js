@@ -19,6 +19,7 @@ const gulp = require('gulp'),
     path = require('path'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer');
+
 const appRoot = path.resolve(__dirname);
 
 const log = (o, level = 0) => {
@@ -284,7 +285,7 @@ function bundle(source, dest, callback) {
         .pipe(concat(dest))
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS({
-            compatibility: 'ie8'
+            compatibility: 'ie11'
         }))
         .pipe(sourcemaps.write('.'))
         .on('end', callback)

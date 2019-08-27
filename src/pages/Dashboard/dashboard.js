@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import { Column, Row } from "simple-flexbox";
 import DiscoverTiles from "../../components/DiscoverTiles/discover-tiles";
 import CreditUnionDashboard from "../../components/CreditUnionDashboard/credit-union-dashboard";
 import AccountBalances from "../../components/AccountBalances/account-balances";
