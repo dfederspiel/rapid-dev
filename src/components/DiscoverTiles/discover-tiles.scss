@@ -2,24 +2,21 @@
 @import '../../styles/mixins';
 
 .owl-theme {
-
-    .main-card {
-        height: 15rem;
-        width: 34rem;
-
-        div {
-            font-size: 2.7rem;
-            margin-right: .5rem;
+    .owl-item {
+        a {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            padding-bottom: 52.5%;
+            height: 0;
+    
+            .tile{
+                position: absolute;
+                height: 100%;
+                width:100%;
+            }
         }
-
-        i {
-            font-size: 12rem;
-        }
-    }
-
-    @include at(1600) {
-        .main-card {
-            width: 59rem;
-        }
+    
     }
 }

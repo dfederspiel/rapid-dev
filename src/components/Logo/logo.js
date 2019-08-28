@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 
-export default class logo extends React.Component {
+export default class Logo extends React.Component {
     render() {
         return (
             <div className="logo">
-            alloya
-            <div className="sub">PremierView</div>
-        </div>
+                <span>alloya</span>
+                <span className="sub">PremierView</span>
+            </div>
         );
     }
 }
