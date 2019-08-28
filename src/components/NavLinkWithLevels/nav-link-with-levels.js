@@ -12,7 +12,7 @@ export default class NavLinkWithLevels extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         document.addEventListener("mousedown", this.handleClick, false);
     }
 
