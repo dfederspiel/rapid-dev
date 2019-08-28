@@ -33,19 +33,16 @@ export default class DiscoverTiles extends React.Component {
                 <Link to="/discover/transactions">
                     <div className="tile transaction">
                         <div className="title">Transactions</div>
-                        {/* <Icon name="desktop" /> */}
                     </div>
                 </Link>
                 <Link to="/discover/liquidity">
                     <div className="tile liquidity">
                         <div className="title">Liquidity</div>
-                        {/* <Icon name="money-bill-alt" /> */}
                     </div>
                 </Link>
                 <Link to="/discover/investments">
                     <div className="tile investments">
                         <div className="title">Investments</div>
-                        {/* <Icon name="chart-pie" /> */}
                     </div>
                 </Link>
             </OwlCarousel>
