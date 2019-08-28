@@ -61,7 +61,6 @@
   }
 
   button {
-    display: none;
     @include unstyleButton;
     color: $light-font;
     padding: 2.5rem;
