@@ -15,10 +15,10 @@ export default class DiscoverTiles extends React.Component {
                     0: {
                         items: 1,
                     },
-                    768: {
+                    500: {
                         items: 2,
                     },
-                    1200: {
+                    998: {
                         items: 3,
                     },
                 }

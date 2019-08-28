@@ -96,6 +96,96 @@
             border-bottom: .1rem solid #efefef;
         }
 
+        //consider refactor into a dropdown component using a single class
+        .settings,
+        .info {
+            @include small-desktop {
+                transition-duration: .5s;
+                position: fixed;
+                top: 0;
+
+                &>ul {
+                    @include noBullets;
+                    position: absolute;
+                    background-color: $white;
+                    min-width: 22.5rem;
+                    right: -2.5rem;
+                    top: 10.4rem;
+                    transition-duration: .3s;
+                    @include fadeOut;
+                    z-index: 100;
+
+                    &:before {
+                        content: "";
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: $white;
+                        display: block;
+                        position: absolute;
+                        right: 5rem;
+                        transform: rotate(45deg);
+                        top: -10px;
+                        border: .1rem solid $border-light;
+                        box-sizing: border-box;
+                        z-index: 0;
+                    }
+
+                    a {
+                        background-color: $white;
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        font-size: 1.4rem;
+                        text-decoration: none;
+                        color: $body;
+                        font-weight: $font-weight-normal;
+                        padding: 1.5rem 3rem;
+                        box-sizing: border-box;
+                        border-bottom: none;
+
+                        @include states {
+                            color: $primary;
+                        }
+                    }
+                }
+
+                @include states {
+                    &>ul {
+                        @include fadeIn;
+                        top: 7.4rem;
+                    }
+                }
+            }
+
+            button {
+                display: none;
+                @include unstyleButton;
+                color: $light-font;
+                padding: 2.5rem;
+
+                @include states {
+                    color: $primary;
+                }
+
+                @include small-desktop {
+                    display: block;
+                }
+            }
+        }
+
+        .settings {
+            @include small-desktop {
+                right: 33.5rem;
+            }
+        }
+
+        .info {
+            @include small-desktop {
+                right: 26rem;
+            }
+        }
+
         ul {
             @include noBullets;
             padding: .5rem 0;
@@ -133,99 +223,6 @@
 }
 
 
-//refactor into a dropdown component using a single class
-.settings,
-.info,
-.notifications {
-    @include small-desktop {
-        transition-duration: .5s;
-        position: fixed;
-        top: 0;
-
-        &>ul {
-            @include noBullets;
-            position: absolute;
-            background-color: $white;
-            min-width: 22.5rem;
-            right: -2.5rem;
-            top: 10.4rem;
-            transition-duration: .3s;
-            @include fadeOut;
-            z-index: 100;
-
-            &:before {
-                content: "";
-                width: 2rem;
-                height: 2rem;
-                background-color: $white;
-                display: block;
-                position: absolute;
-                right: 5rem;
-                transform: rotate(45deg);
-                top: -10px;
-                border: .1rem solid $border-light;
-                box-sizing: border-box;
-                z-index: 0;
-
-            }
-
-            a {
-                @include small-desktop {
-                    background-color: $white;
-                    position: relative;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    font-size: 1.4rem;
-                    text-decoration: none;
-                    color: $body;
-                    font-weight: $font-weight-normal;
-                    padding: 1.5rem 3rem;
-                    box-sizing: border-box;
-                    border-bottom: none;
-
-                    @include states {
-                        color: $primary;
-                    }
-                }
-            }
-        }
-
-        @include states {
-            &>ul {
-                @include fadeIn;
-                top: 7.4rem;
-            }
-        }
-    }
-
-    button {
-        display: none;
-        @include unstyleButton;
-        color: $light-font;
-        padding: 2.5rem;
-
-        @include states {
-            color: $primary;
-        }
-
-        @include small-desktop {
-            display: block;
-        }
-    }
-}
-
-.settings {
-    @include small-desktop {
-        right: 33.5rem;
-    }
-}
-
-.info {
-    @include small-desktop {
-        right: 26rem;
-    }
-}
 
 .right-nav-open {
     .right-side-nav {

@@ -2,12 +2,21 @@
 @import '../../styles/mixins';
 
 .owl-theme {
-    a {
-        text-decoration: none;
-    }
-
     .owl-item {
-        @include tablet{
+        a {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            padding-bottom: 52.5%;
+            height: 0;
+    
+            .tile{
+                position: absolute;
+                height: 100%;
+                width:100%;
+            }
         }
+    
     }
 }
