@@ -1,32 +1,30 @@
 .tile {
     position: relative;
-    background-color: #7F4C60;
-    padding: 15px;
+    padding: 2.5rem;
     box-sizing: border-box;
-    border-radius: 15px;
-    height: 150px;
+    border-radius: 1.5rem;
     display: flex;
     align-items: flex-end;
     color: #fff;
     overflow: hidden;
     transition-duration: .3s;
-    width:100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include tablet {
+        padding: 3.5rem;
+    }
 
     .title {
         position: relative;
-        font-size: 30px;
         z-index: 1;
-    }
+        font-size: 2rem;
 
-    .icon {
-        position: absolute;
-        font-size: 18rem;
-        line-height: 1em;
-        right: -1.5rem;
-        top: -3rem;
-        opacity: .3;
-        z-index: 0;
-
+        @include tablet {
+            font-size: 3rem;
+        }
     }
 
     @include states {
@@ -34,14 +32,15 @@
     }
 
     &.transaction {
-        background-image: linear-gradient(#965E73, #462132);
+        background-image: url("../img/transactions.png");
     }
 
     &.liquidity {
-        background-image: linear-gradient(#E9B480, #B27719);
+        background-image: url("../img/liquidity.png");
+
     }
 
     &.investments {
-        background-image: linear-gradient(#808F68, #445932);
+        background-image: url("../img/investments.png");
     }
 }

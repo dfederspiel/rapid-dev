@@ -4,8 +4,9 @@ export default class Logo extends React.Component {
     render() {
         return (
             <div className="logo">
-                <span>alloya</span>
-                <span className="sub">PremierView</span>
+                <a href="/">
+                    <img src="../img/alloya-logo.png" alt="alloya premier view" />
+                </a>
             </div>
         );
     }

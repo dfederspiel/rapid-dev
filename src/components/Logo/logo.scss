@@ -1,21 +1,19 @@
 .logo {
   position: absolute;
   text-align: center;
-  font-size: 3.3rem;
   box-sizing: border-box;
-  width: 14rem;
-  top:1rem;
+  width: 20rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
 
   @include small-desktop {
     position: relative;
-     left:0;
-     transform:none;
-   }
+    left: 0;
+    transform: none;
+  }
 
-  .sub {
-    font-size: 1.2rem;
-    margin-left: 1rem;
+  img {
+    height: 5rem;
   }
 }

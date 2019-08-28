@@ -4,6 +4,7 @@ import NavLink from '../NavLink/nav-link';
 import Notifications from '../Notifications/notifications';
 import Icon from '../Icon/icon';
 import NavThirdLevel from '../NavThirdLevel/nav-third-level';
+import NavDropdown from '../NavDropdown/nav-dropdown';
 
 export default class RightSideNav extends React.Component {
     renderClose = () => {
@@ -43,13 +44,13 @@ export default class RightSideNav extends React.Component {
     renderInfo = () => {
         return (
             <div className="info">
-                 <button>
+                <button>
                     <Icon name="book" size="lg" />
                 </button>
                 <ul>
                     <NavLink title="Training and Events" href="/" />
-                    <NavLink title="KnowledgeCenter" href="/" />
-                    <NavLink title="Premier View FAQ's" href="/" />
+                    <NavLink title="" href="/" />
+                    <NavLink title="" href="/" />
                 </ul>
             </div>
         )
@@ -97,8 +98,29 @@ export default class RightSideNav extends React.Component {
                 </button>
                 <div className="right-side-menu">
                     {renderClose()}
-                    {renderSettings()}
-                    {renderInfo()}
+                    <NavDropdown className="settings" icon="cog"
+                        links={[
+                            {
+                                title: "Administration",
+                                sublinks: [{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]
+                            },
+                            {
+                                title: "Corporate Tool Box",
+                                sublinks: [{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]
+                            },
+                            {
+                                title: "Contract Management",
+                                sublinks: [{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]
+                            }
+                        ]} />
+
+                    <NavDropdown className="info" icon="book"
+                        links={[
+                            { title: "Training and Events", href: '/' },
+                            { title: "Knowledge Center", href: '/' },
+                            { title: "Premier View FAQ's", href: '/' }
+                        ]} />
+
                     {renderMember()}
                     {renderSignOut()}
                     <div>
