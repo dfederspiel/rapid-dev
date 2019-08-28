@@ -14,8 +14,10 @@ export default class TopNav extends React.Component {
 
         return (
             <div className="top-nav">
-                <HamMenu onClick={toggleLeftSideNav} />
-                <Logo />
+                <div className="top-left">
+                    <HamMenu onClick={toggleLeftSideNav} />
+                    <Logo />
+                </div>
                 <RightSideNav toggleRightSideNav={toggleRightSideNav} />
             </div >
         );

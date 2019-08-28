@@ -24,9 +24,9 @@
         }
     }
 
-    .left-side,
-    .right-side {
-        display: flex;
-        align-items: center;
+    .top-left{
+        @include small-desktop{
+            display: flex;
+        }
     }
 }

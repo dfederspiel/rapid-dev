@@ -15,11 +15,9 @@ export default class Notifications extends React.Component {
                             {countIsOver99 ? "99+" : count}</span>
                     </div>
                 </button>
-                <div className="notifications-menu">
-                    <ul>
-                        <NavLink title="Link" href="/" />
-                    </ul>
-                </div>
+                <ul>
+                    <NavLink title="Link" href="/" />
+                </ul>
             </div>
         )
     }

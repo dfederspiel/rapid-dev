@@ -9,6 +9,18 @@
         cursor: pointer;
     }
 
+    .welcome-message {
+        display: none;
+
+        @include small-desktop {
+            display: flex;
+            width: 12rem;
+            font-weight: $font-weight-bold;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
     .alloya-close {
         display: flex;
         justify-content: flex-end;
@@ -84,66 +96,13 @@
             border-bottom: .1rem solid #efefef;
         }
 
-        .settings,
-        .info {
-            @include small-desktop {
-                position: fixed;
-                top: 0;
-
-                &>ul {
-                    position: absolute;
-                    background-color: $white;
-                    min-width: 22.5rem;
-                    right: -2.5rem;
-                    top: 7.4rem;
-                    transition-duration: .3s;
-                    @include fadeOut;
-                }
-                @include states{
-                    &>ul{
-                        @include fadeIn;
-                    }
-                }
-            }
-
-            button {
-                display: none;
-                @include unstyleButton;
-                color: $light-font;
-                padding: 2.5rem;
-
-                @include states {
-                    color: $primary;
-                }
-
-                @include small-desktop{
-                    display: block;
-                }
-            }
-        }
-
-        .settings {
-            @include small-desktop {
-                right: 40rem;
-            }
-        }
-
-        .info {
-            @include small-desktop {
-                right: 30rem;
-            }
-        }
-
-        .member {
-            @include small-desktop {
-                right: 20rem;
-            }
-        }
-
-
         ul {
             @include noBullets;
             padding: .5rem 0;
+
+            @include small-desktop {
+                padding: 0;
+            }
         }
 
         li {
@@ -162,77 +121,129 @@
                 @include states {
                     color: $primary;
                 }
+
+
             }
         }
 
         .nav-third-level {
             padding: 0 0 0 1.5rem;
         }
-
-        // .nav-link-with-levels {
-        //     a.link {
-        //         width: 100%;
-        //         position: relative;
+    }
+}
 
 
-        //         &>.title {
-        //             left: initial;
-        //         }
+//refactor into a dropdown component using a single class
+.settings,
+.info,
+.notifications {
+    @include small-desktop {
+        transition-duration: .5s;
+        position: fixed;
+        top: 0;
 
-        //         .icon {
-        //             position: absolute;
-        //             right: 3rem;
-        //             top: 50%;
-        //             transform: translateY(-50%);
-        //         }
-        //     }
+        &>ul {
+            @include noBullets;
+            position: absolute;
+            background-color: $white;
+            min-width: 22.5rem;
+            right: -2.5rem;
+            top: 10.4rem;
+            transition-duration: .3s;
+            @include fadeOut;
+            z-index: 100;
 
-        //     .nav-second-level {
-        //         top: 0;
-        //         max-height: 0;
-        //         transition-duration: .5s;
-        //         @include fadeOut;
-        //     }
+            &:before {
+                content: "";
+                width: 2rem;
+                height: 2rem;
+                background-color: $white;
+                display: block;
+                position: absolute;
+                right: 5rem;
+                transform: rotate(45deg);
+                top: -10px;
+                border: .1rem solid $border-light;
+                box-sizing: border-box;
+                z-index: 0;
 
-        //     &.active {
-        //         .nav-second-level {
-        //             max-height: 30rem;
-        //             display: block;
-        //             @include fadeIn;
-        //         }
-        //     }
-        // }
+            }
 
-        // .nav-second-level {
-        //     @include fadeIn;
-        //     position: relative;
-        //     width: auto;
-        //     left: 0;
-        //     background-color: transparent;
-        //     box-shadow: none;
-        //     left: 0;
-        //     padding: 0;
+            a {
+                @include small-desktop {
+                    background-color: $white;
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1.4rem;
+                    text-decoration: none;
+                    color: $body;
+                    font-weight: $font-weight-normal;
+                    padding: 1.5rem 3rem;
+                    box-sizing: border-box;
+                    border-bottom: none;
 
-        //     &>li,
-        //     &>li>a {
-        //         width: 100%;
-        //     }
+                    @include states {
+                        color: $primary;
+                    }
+                }
+            }
+        }
 
-        //     &>li>a {
-        //         padding: .75rem 3rem .75rem 4.5rem;
-        //         font-weight: $font-weight-normal;
-        //     }
+        @include states {
+            &>ul {
+                @include fadeIn;
+                top: 7.4rem;
+            }
+        }
+    }
 
-        //     .nav-heading {
-        //         display: none;
-        //     }
-        // }
+    button {
+        display: none;
+        @include unstyleButton;
+        color: $light-font;
+        padding: 2.5rem;
+
+        @include states {
+            color: $primary;
+        }
+
+        @include small-desktop {
+            display: block;
+        }
+    }
+}
+
+.settings {
+    @include small-desktop {
+        right: 33.5rem;
+    }
+}
+
+.info {
+    @include small-desktop {
+        right: 26rem;
     }
 }
 
 .right-nav-open {
-    .right-side-menu {
-        right: 0;
+    .right-side-nav {
+        .right-side-menu {
+            right: 0;
+
+            .settings {
+                @include small-desktop {
+                    right: 40.5rem;
+                }
+            }
+
+            .info {
+                @include small-desktop {
+                    right: 33rem;
+                }
+            }
+        }
     }
 
     .side-nav-wrapper {
