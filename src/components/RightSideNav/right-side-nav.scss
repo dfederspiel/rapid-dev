@@ -103,6 +103,8 @@
                 transition-duration: .5s;
                 position: fixed;
                 top: 0;
+                border-bottom: none;
+
 
                 &>ul {
                     @include noBullets;
@@ -115,7 +117,9 @@
                     @include fadeOut;
                     z-index: 100;
                     border: .1rem solid $border-light;
-
+                    box-shadow: 0 0 2rem rgba(204, 204, 204, .5);
+                    padding-bottom: 1rem;
+                    border-radius: 0 0 1.5rem 1.5rem;
 
                     &:before {
                         content: "";
@@ -141,7 +145,7 @@
                         font-size: 1.4rem;
                         text-decoration: none;
                         color: $body;
-                        font-weight: $font-weight-normal;
+                        font-weight: $font-weight-bold;
                         padding: 1.5rem 3rem;
                         box-sizing: border-box;
                         border-bottom: none;
