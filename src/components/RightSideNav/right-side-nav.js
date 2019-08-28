@@ -20,6 +20,9 @@ export default class RightSideNav extends React.Component {
     renderSettings = () => {
         return (
             <div className="settings">
+                <button>
+                    <Icon name="cog" size="lg" />
+                </button>
                 <ul>
                     <NavThirdLevel title="Administration"
                         links={[{ href: '/', title: "Sub1" }, { href: '/', title: "Sub2" }]}
@@ -40,6 +43,9 @@ export default class RightSideNav extends React.Component {
     renderInfo = () => {
         return (
             <div className="info">
+                 <button>
+                    <Icon name="book" size="lg" />
+                </button>
                 <ul>
                     <NavLink title="Training and Events" href="/" />
                     <NavLink title="KnowledgeCenter" href="/" />
@@ -75,7 +81,6 @@ export default class RightSideNav extends React.Component {
     render() {
         const { toggleRightSideNav } = this.props;
         const {
-            renderNotifications,
             renderClose,
             renderSettings,
             renderInfo,
@@ -86,6 +91,7 @@ export default class RightSideNav extends React.Component {
         return (
             <div className="right-side-nav">
                 <Notifications />
+                <div className="welcome-message">Hello, Clarise</div>
                 <button className="trigger" onClick={toggleRightSideNav}>
                     <Icon name='ellipsis-h' size="lg" />
                 </button>

@@ -82,8 +82,64 @@
         .info,
         .member {
             border-bottom: .1rem solid #efefef;
-
         }
+
+        .settings,
+        .info {
+            @include small-desktop {
+                position: fixed;
+                top: 0;
+
+                &>ul {
+                    position: absolute;
+                    background-color: $white;
+                    min-width: 22.5rem;
+                    right: -2.5rem;
+                    top: 7.4rem;
+                    transition-duration: .3s;
+                    @include fadeOut;
+                }
+                @include states{
+                    &>ul{
+                        @include fadeIn;
+                    }
+                }
+            }
+
+            button {
+                display: none;
+                @include unstyleButton;
+                color: $light-font;
+                padding: 2.5rem;
+
+                @include states {
+                    color: $primary;
+                }
+
+                @include small-desktop{
+                    display: block;
+                }
+            }
+        }
+
+        .settings {
+            @include small-desktop {
+                right: 40rem;
+            }
+        }
+
+        .info {
+            @include small-desktop {
+                right: 30rem;
+            }
+        }
+
+        .member {
+            @include small-desktop {
+                right: 20rem;
+            }
+        }
+
 
         ul {
             @include noBullets;
