@@ -13,10 +13,18 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    @include tablet {
+        padding: 3.5rem;
+    }
+
     .title {
         position: relative;
-        font-size: 3rem;
         z-index: 1;
+        font-size: 2rem;
+
+        @include tablet {
+            font-size: 3rem;
+        }
     }
 
     @include states {
