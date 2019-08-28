@@ -42,7 +42,9 @@ select.error {
 }
 
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+button[type="button"],
+button[type="submit"] {
     font-weight: $font-weight-medium;
     border: none;
     min-width: 10rem;
