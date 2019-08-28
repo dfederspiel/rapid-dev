@@ -1,6 +1,6 @@
 .notifications {
   transition-duration: .5s;
-  position: fixed;
+  position: relative;
   top: 0;
 
   &>ul {
