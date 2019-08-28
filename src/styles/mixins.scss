@@ -76,7 +76,7 @@
 }
 
 @mixin unstyleButton(){
-    background-color:initial;
+    background-color:transparent;
     border:none;
     font-weight: $font-weight-normal;
     box-shadow: none; 

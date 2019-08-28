@@ -114,6 +114,8 @@
                     transition-duration: .3s;
                     @include fadeOut;
                     z-index: 100;
+                    border: .1rem solid $border-light;
+
 
                     &:before {
                         content: "";

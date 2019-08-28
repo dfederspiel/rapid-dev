@@ -12,6 +12,7 @@
     top: 10.4rem;
     transition-duration: .3s;
     @include fadeOut;
+    border:.1rem solid $border-light;
     z-index: 100;
 
     &:before {
