@@ -29,7 +29,6 @@ export default class NavThirdLevel extends React.Component {
                     <a href={href}>
                         <div className="title">{title}</div>
                     </a>
-
                 }
 
                 {

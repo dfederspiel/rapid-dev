@@ -1,13 +1,13 @@
 import React from 'react';
-import RightSideNav from '../right-side-nav';
+import NavDropdown from '../nav-dropdown';
 import { shallow } from 'enzyme';
 import '../../../tests-setup';
 
-describe('The side navigation component', () => {
+describe('The navigation dropdown component', () => {
     let _component;
 
     beforeEach(() => {
-        _component = shallow(<RightSideNav />, true);
+        _component = shallow(<NavDropdown />, true);
     });
 
     it("exists", () => {
