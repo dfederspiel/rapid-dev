@@ -1,5 +1,10 @@
 @import '../../styles/variables';
 
 
-.nav-link-with-level {
+.nav-link-with-levels {
+
+    a.link>.title {
+        left: 7rem;
+        position: relative;
+    }
 }

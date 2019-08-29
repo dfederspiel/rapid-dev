@@ -2,10 +2,6 @@
 @import '../../styles/mixins';
 
 .dashboard-container {
-    padding: 1.5rem;
-    width: calc(100vw - #{$side-nav-width});
-    flex: 1;
-
     .dashboard-card, .credit-union-dashboard, .account-balances {
         border-radius: 1rem;
         background-color: $white;

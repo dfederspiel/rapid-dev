@@ -68,9 +68,8 @@ describe('The  second level navigation component', () => {
             describe("given an item has a href link", () => {
                 it("shows the link", () => {
                     _component = componentWithTitle(linksWithoutSublinks());
-                    _secondLevelLinks = _component.find(_secondLevelLinksSelector);
 
-                    expect(_secondLevelLinks.length).toEqual(5);
+                    expect(_component.find("NavLink").length).toEqual(5);
                 });
 
                 describe("and has sublinks", () => {

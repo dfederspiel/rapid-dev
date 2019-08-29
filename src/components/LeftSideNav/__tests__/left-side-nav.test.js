@@ -1,16 +1,16 @@
 import React from 'react';
-import SideNav from '../side-nav';
+import LeftSideNav from '../left-side-nav';
 import { shallow } from 'enzyme';
 import '../../../tests-setup';
 
-import { transactionsLinks, liquidityLinks, investmentsLinks } from '../side-nav.links';
+import { transactionsLinks, liquidityLinks, investmentsLinks } from '../left-side-nav.links';
 
 describe('The side navigation component', () => {
     let _component;
     let _callback = () => { return };
 
     beforeEach(() => {
-        _component = shallow(<SideNav openSideNav={_callback} />, true);
+        _component = shallow(<LeftSideNav openLeftSideNav={_callback} />, true);
     });
 
     it("has a Home Overview navigation link", () => {
@@ -26,7 +26,7 @@ describe('The side navigation component', () => {
 
         expect(_props.title).toEqual("Transactions");
         expect(_props.icon).toEqual("laptop");
-        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.openLeftSideNav).toEqual(_callback);
         expect(_props.links).toEqual(transactionsLinks());
     });
 
@@ -35,7 +35,7 @@ describe('The side navigation component', () => {
 
         expect(_props.title).toEqual("Liquidity");
         expect(_props.icon).toEqual("money-bill-alt");
-        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.openLeftSideNav).toEqual(_callback);
         expect(_props.links).toEqual(liquidityLinks());
     });
 
@@ -44,7 +44,7 @@ describe('The side navigation component', () => {
 
         expect(_props.title).toEqual("Investments");
         expect(_props.icon).toEqual("chart-pie");
-        expect(_props.openSideNav).toEqual(_callback);
+        expect(_props.openLeftSideNav).toEqual(_callback);
         expect(_props.links).toEqual(investmentsLinks());
     });
 

@@ -17,7 +17,7 @@ import ReactDatePicker from '../components/DatePicker/date-picker';
 
 // Render global react components here
 import TopNav from '../components/TopNav/top-nav';
-import SideNav from '../components/SideNav/side-nav';
+import LeftSideNav from '../components/LeftSideNav/left-side-nav';
 
 renderReactComponents();
 var appState = Services.getAppState();
@@ -27,7 +27,7 @@ window.appState = appState;
 
 // Get instances of react components so that we can access state and setState props/methods
 var topNav = tryRenderReactComponent(TopNav, { menuClicked: handleTopNavClick, notificationCount: 8 }, 'react-top-nav');
-var sideNav = tryRenderReactComponent(SideNav, { expanded: appState.sideNav.expanded }, 'react-side-nav');
+var sideNav = tryRenderReactComponent(LeftSideNav, { expanded: appState.sideNav.expanded }, 'react-side-nav');
 window['showGrid'] = showGrid;
 
 function showGrid(id) {

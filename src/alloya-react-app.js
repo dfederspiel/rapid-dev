@@ -1,6 +1,10 @@
-﻿import React from 'react';
+﻿require('es6-promise').polyfill();
+require('isomorphic-fetch');
+require('@babel/polyfill');
+
+import React from 'react';
 import TopNav from './components/TopNav/top-nav';
-import SideNav from './components/SideNav/side-nav';
+import LeftSideNav from './components/LeftSideNav/left-side-nav';
 import Dashboard from './pages/Dashboard/dashboard';
 import DiscoverPremierView from './pages/DiscoverPremierView/discover-premier-view';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -10,48 +14,41 @@ export default class AlloyaReactApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sideNavIsOpen: false,
+            LeftSideNavIsOpen: false,
+            rightNavIsOpen: false,
         };
     }
-
-    componentWillMount() {
-        document.addEventListener("mousedown", this.handleClick, false);
+    toggleLeftSideNav = () => {
+        this.setState({ LeftSideNavIsOpen: !this.state.LeftSideNavIsOpen });
     }
 
-    componentWillUnmount() {
-        document.removeEventListener("mousedown", this.handleClick, false);
+    toggleRightSideNav = () => {
+        this.setState({ rightNavIsOpen: !this.state.rightNavIsOpen, LeftSideNavIsOpen:false });
     }
 
-    handleClick = (e) => {
-        if (this.sideNavNode.contains(e.target) || this.headerNode.contains(e.target))
-            return;
-        this.closeSideNav();
+    openLeftSideNav = () => {
+        this.setState({ LeftSideNavIsOpen: true });
     }
 
-    toggleSideNav = () => {
-        this.setState({ sideNavIsOpen: !this.state.sideNavIsOpen });
+    closeLeftSideNav = () => {
+        this.setState({ LeftSideNavIsOpen: false });
     }
 
-    openSideNav = () => {
-        this.setState({ sideNavIsOpen: true });
-    }
-
-    closeSideNav = () => {
-        this.setState({ sideNavIsOpen: false });
-    }
-    
     render() {
-        const { toggleSideNav, openSideNav } = this;
-        const { sideNavIsOpen } = this.state;
+        const { toggleLeftSideNav, toggleRightSideNav, openLeftSideNav } = this;
+        const { LeftSideNavIsOpen, rightNavIsOpen } = this.state;
 
         return (
-            <div className={`alloya-body ${sideNavIsOpen ? "side-nav-expanded" : ""}`}>
+            <div className={`alloya-body 
+                            ${LeftSideNavIsOpen ? "side-nav-expanded" : ""}
+                            ${rightNavIsOpen ? "right-nav-open" : ""}
+                            `}>
                 <header ref={node => (this.headerNode = node)}>
-                    <TopNav toggleSideNav={toggleSideNav} />
+                    <TopNav toggleLeftSideNav={toggleLeftSideNav} toggleRightSideNav={toggleRightSideNav} />
                 </header>
                 <div className="main">
-                    <div className="side-nav-wrapper" ref={node => (this.sideNavNode = node)}>
-                        <SideNav openSideNav={openSideNav} />
+                    <div className="side-nav-wrapper" ref={node => (this.LeftSideNavNode = node)}>
+                        <LeftSideNav openLeftSideNav={openLeftSideNav} />
                     </div>
                     <div className="alloya-content">
                         <Router>

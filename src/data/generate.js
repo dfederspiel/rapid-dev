@@ -1,3 +1,10 @@
+/** Data generator script for mock service.
+ * 
+ * Referenced during PUG transpilation to generate random content for static files  
+ * Consumed by json-server middleware (Browsersync and Node) to inject a mock API 
+ * 
+ * */
+
 // https://lodash.com/
 // https://github.com/Marak/faker.js
 const between = (min = 0, max = 1) => {
@@ -10,13 +17,6 @@ module.exports = function () {
     var faker = require('faker');
     var _ = require('lodash');
     return {
-        myNewObject: _.times(10, function(n){
-            return {
-                id: n,
-                name: faker.name.firstName()
-            }
-        }),
-        
         articles: _.times(20, function (n) {
             var article = {
                 id: n,
@@ -45,7 +45,7 @@ module.exports = function () {
         serviceCategories: _.times(15, function (n) {
             var available = faker.random.number({
                 min: 1,
-                max:10
+                max: 10
             });
             return {
                 title: faker.company.companyName(),
@@ -64,12 +64,12 @@ module.exports = function () {
                 subscribed: faker.random.boolean()
             };
         }),
-
         fasttrack: _.times(10, function (n) {
+            let fakeFontAwesome = ["star", "rocket", "home", "money-bill-alt", "chart-pie", "laptop", "cog", "coffee", "check-square"]
             return {
                 title: faker.random.words(1),
                 href: faker.internet.url(),
-                icon: "star"
+                icon: fakeFontAwesome[faker.random.number({ max: fakeFontAwesome.length - 1 })],
             };
         }),
     };
