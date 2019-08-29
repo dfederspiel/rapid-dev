@@ -53,6 +53,18 @@
     visibility: hidden;
 }
 
+@mixin fadeInBlur() {
+    opacity: 1;
+    visibility: visible;
+    filter:blur(.5rem);
+}
+
+
+@mixin fadeOutBlur() {
+    opacity: 0;
+    visibility: hidden;
+}
+
 @mixin fadeIn() {
     opacity: 1;
     visibility: visible;
@@ -61,4 +73,12 @@
 @mixin noBullets() {
     list-style: none;
     padding: 0;
+}
+
+@mixin unstyleButton(){
+    background-color:transparent;
+    border:none;
+    font-weight: $font-weight-normal;
+    box-shadow: none; 
+    margin:0;
 }

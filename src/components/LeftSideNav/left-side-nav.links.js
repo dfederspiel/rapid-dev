@@ -3,9 +3,18 @@ export function transactionsLinks() {
     return [
         { title: "Transaction Review", href:"/" },
         { title: "Cash Management Account", href:"/" },
-        { title: "International Wires", href:"/" },
         {
-            title: "Share Draft Services", href:"",
+            title: "Domestic Wires",
+            sublinks:
+                [
+                    { title: "Create Domestic Wire", href:"/" },
+                    { title: "Set Up Template", href:"/" },
+                    { title: "Manage Template", href:"/" },
+                    { title: "Create Wire From Template", href:"/" },
+                ]
+        },
+        {
+            title: "International Wires", 
             sublinks:
                 [
                     { title: "Third Level 1", href:"/" },
@@ -13,7 +22,24 @@ export function transactionsLinks() {
                     { title: "Third Level 3", href:"/" },
                 ]
         },
-        { title: "Check Deposit Services", href:"/" },
+        {
+            title: "Share Draft Services",
+            sublinks:
+                [
+                    { title: "Third Level 1", href:"/" },
+                    { title: "Third Level 2", href:"/" },
+                    { title: "Third Level 3", href:"/" },
+                ]
+        },
+        {
+            title: "Check Deposit Service",
+            sublinks:
+                [
+                    { title: "Third Level 1", href:"/" },
+                    { title: "Third Level 2", href:"/" },
+                    { title: "Third Level 3", href:"/" },
+                ]
+        },
     ]
 }
 export function liquidityLinks() {

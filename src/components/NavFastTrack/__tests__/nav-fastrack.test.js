@@ -9,7 +9,7 @@ describe('The FastTrack Navigation component', () => {
     let spy = () => { return spyOn(Api, "fetch") };
 
     beforeEach(() => {
-        _component = shallow(<NavFastTrack  />, true);
+        _component = shallow(<NavFastTrack />, true);
     });
 
     describe("when the component mounts", () => {
@@ -17,6 +17,12 @@ describe('The FastTrack Navigation component', () => {
             spy().and.returnValue(promise());
             _component = shallow(<NavFastTrack />);
             expect(Api.fetch).toHaveBeenCalledWith("/api/fasttrack");
+        });
+
+        it("shows a loading message", () => {
+            spy().and.returnValue(promise());
+            _component = shallow(<NavFastTrack />);
+            expect(_component.find("Loading").length).toEqual(1);
         });
 
         describe("given the call returns", () => {
@@ -29,6 +35,10 @@ describe('The FastTrack Navigation component', () => {
                 it("displays an error", () => {
                     expect(_component.find(".error").text()).toEqual("There was an error retrieving FastTrack.");
                 });
+
+                it("hides the loading message", () => {
+                    expect(_component.find("Loading").length).toEqual(0);
+                });
             });
 
             describe("with no data", () => {
@@ -39,6 +49,10 @@ describe('The FastTrack Navigation component', () => {
 
                 it("displays a no data found message", () => {
                     expect(_component.find(".no-data-message").text()).toEqual("No FastTrack items found.");
+                });
+
+                it("hides the loading message", () => {
+                    expect(_component.find("Loading").length).toEqual(0);
                 });
             });
 
@@ -53,6 +67,10 @@ describe('The FastTrack Navigation component', () => {
 
                     _links.map((item, index) =>
                         expect(item.props()).toEqual(itemAtPosition(index)))
+                });
+
+                it("hides the loading message", () => {
+                    expect(_component.find("Loading").length).toEqual(0);
                 });
             });
         });

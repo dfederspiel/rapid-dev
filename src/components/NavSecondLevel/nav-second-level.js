@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import NavThirdLevel from '../NavThirdLevel/nav-third-level';
+import NavLink from '../NavLink/nav-link';
 
 export default class NavSecondLevel extends React.Component {
     render() {
@@ -13,16 +14,17 @@ export default class NavSecondLevel extends React.Component {
                 <li className="nav-heading">{title}</li>
                 {
                     links && links.map((item, key) =>
-                        <li key={key}>
+                        <React.Fragment key={key}>
                             {
                                 item.href && !item.sublinks &&
-                                <a href={item.href}>{item.title}</a>
+                                <NavLink href={item.href} title={item.title} key={key} />
                             }
                             {
                                 item.sublinks && item.sublinks.length > 0 &&
                                 <NavThirdLevel title={item.title} links={item.sublinks} />
                             }
-                        </li>)
+                        </React.Fragment>
+                    )
                 }
             </ul>
         );

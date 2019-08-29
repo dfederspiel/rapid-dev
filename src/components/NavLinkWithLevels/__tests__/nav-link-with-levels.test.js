@@ -44,16 +44,16 @@ describe('The navigation link with levels component', () => {
         });
 
         describe("without an icon", () => {
-            it("shows the icon as a star", () => {
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("star");
+            it("does not shows the icon", () => {
+                expect(_component.find(".icon FontAwesome").length).toEqual(0);
             });
         });
 
         describe("with an icon", () => {
             it("shows the icon", () => {
-                _component = shallow(<NavLinkWithLevels title="My Page" icon="schnitzel" />);
+                _component = shallow(<NavLinkWithLevels title="My Page" icon="spinnyThang" />);
 
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("schnitzel");
+                expect(_component.find("Icon").props().name).toEqual("spinnyThang");
             });
         });
 
@@ -65,20 +65,32 @@ describe('The navigation link with levels component', () => {
 
         describe("given sub links", () => {
             it("displays the second level navigation", () => {
-                _component = shallow(<NavLinkWithLevels title="My Page" links={links()} />);
+                _component = shallow(<NavLinkWithLevels title="My Page" links={links()}/>);
 
                 expect(_component.find("NavSecondLevel").props().title).toEqual("My Page");
                 expect(_component.find("NavSecondLevel").props().links).toEqual(links());
             });
         });
 
-        describe("when the link is clicked", () => {
+        describe("when the link is moused over", () => {
             it("toggles the active state", () => {
-                _component.find("a").simulate("click");
+                _component.setState({ active: false });
+                _component.find("a.link").simulate("mouseenter");
 
                 expect(_component.state().active).toEqual(true);
             });
         });
+
+        describe("when the trigger is moused over", () => {
+            it("toggles the active state", () => {
+                _component = shallow(<NavLinkWithLevels title="My Page" links={links()} icon="spinnyThang" />);
+                _component.setState({ active: false });
+                _component.find("a.active-trigger").simulate("mouseenter");
+
+                expect(_component.state().active).toEqual(true);
+            });
+        });
+
 
         describe("when clicking the second level of the link", () => {
             it("keeps the link active", () => {
@@ -91,7 +103,7 @@ describe('The navigation link with levels component', () => {
         });
     });
 
-    function links(){
-        return [{href:"href1", title:"title1"}, {href:"href2", title:"title2"}];
+    function links() {
+        return [{ href: "href1", title: "title1" }, { href: "href2", title: "title2" }];
     }
 });

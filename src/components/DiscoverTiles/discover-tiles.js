@@ -3,41 +3,46 @@
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
+import Icon from '../Icon/icon';
 
 export default class DiscoverTiles extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            options: {
+                margin:30,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    500: {
+                        items: 2,
+                    },
+                    998: {
+                        items: 3,
+                    },
+                }
+            }
+        }
+
     }
 
     render() {
         return (
-            <OwlCarousel
-                className="owl-theme"
-                margin={30}
-                autoWidth
-            >
+            <OwlCarousel className="owl-theme" {...this.state.options}>
                 <Link to="/discover/transactions">
-                    <div className="transaction-card">
-                        <div className="transaction-row">
-                            <div>Transactions</div>
-                            <i className="fas fa-desktop" />
-                        </div>
+                    <div className="tile transaction">
+                        <div className="title">Transactions</div>
                     </div>
                 </Link>
                 <Link to="/discover/liquidity">
-                    <div className="liquidity-card">
-                        <div className="transaction-row">
-                            <div>Liquidity</div>
-                            <i className="fas fa-money-bill-alt" />
-                        </div>
+                    <div className="tile liquidity">
+                        <div className="title">Liquidity</div>
                     </div>
                 </Link>
                 <Link to="/discover/investments">
-                    <div className="investments-card">
-                        <div className="transaction-row">
-                            <div>Investments</div>
-                            <i className="fas fa-chart-pie" />
-                        </div>
+                    <div className="tile investments">
+                        <div className="title">Investments</div>
                     </div>
                 </Link>
             </OwlCarousel>

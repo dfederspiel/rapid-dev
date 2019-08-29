@@ -1,0 +1,91 @@
+.nav-dropdown {
+    @include small-desktop {
+        transition-duration: .5s;
+        position: fixed;
+        top: 0;
+        border-bottom: none;
+
+        &>ul {
+            @include noBullets;
+            position: absolute;
+            background-color: $white;
+            min-width: 22.5rem;
+            right: -2.5rem;
+            top: 10.4rem;
+            transition-duration: .3s;
+            @include fadeOut;
+            z-index: 100;
+            border: .1rem solid $border-light;
+            box-shadow: 0 0 2rem rgba(204, 204, 204, .5);
+            padding-bottom: 1rem;
+            border-radius: 0 0 1.5rem 1.5rem;
+
+
+            &:before {
+                content: "";
+                width: 2rem;
+                height: 2rem;
+                background-color: $white;
+                display: block;
+                position: absolute;
+                right: 5rem;
+                transform: rotate(45deg);
+                top: -10px;
+                border: .1rem solid $border-light;
+                box-sizing: border-box;
+                z-index: 0;
+            }
+
+            li {
+                &:first-child {
+                    a {
+                        position: relative;
+                        background-color: $white;
+                        padding-top: 3rem;
+
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        padding-bottom: 3rem;
+                    }
+                }
+            }
+        }
+
+        @include states {
+            &>ul {
+                @include fadeIn;
+                top: 7.4rem;
+            }
+        }
+    }
+
+    button {
+        display: none;
+        @include unstyleButton;
+        color: $light-font;
+        padding: 2.5rem;
+
+        @include states {
+            color: $primary;
+        }
+
+        @include small-desktop {
+            display: block;
+        }
+    }
+
+    li.third-level-trigger {
+        a .icon span {
+            transform: translate(-50%, -50%) rotate(-90deg);
+        }
+
+        &.active {
+            a .icon span {
+                transform: translate(-50%, -50%) rotate(0);
+            }
+        }
+    }
+}

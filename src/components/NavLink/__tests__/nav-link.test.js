@@ -3,12 +3,12 @@ import NavLink from '../nav-link';
 import { shallow } from 'enzyme';
 import '../../../tests-setup';
 
-describe('The  navigation link component', () => {
+describe('The navigation link component', () => {
     let _component;
 
-    describe("given no link address", () => {
-        it("displays nothing", () => {
-            _component = shallow(<NavLink />);
+    describe("when neither a link address or title is provided",()=>{
+        it("displays nothing",()=>{
+            _component = shallow(<NavLink/>);
             expect(_component.html()).toEqual(null);
         });
     });
@@ -23,8 +23,8 @@ describe('The  navigation link component', () => {
         });
 
         describe("without an icon", () => {
-            it("shows the icon as a star", () => {
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("star");
+            it("does not show the icon", () => {
+                expect(_component.find("Icon").length).toEqual(0);
             });
         });
 
@@ -32,7 +32,7 @@ describe('The  navigation link component', () => {
             it("shows the icon", () => {
                 _component = shallow(<NavLink href="wahzup.html" icon="home" />);
 
-                expect(_component.find(".icon FontAwesome").props().name).toEqual("home");
+                expect(_component.find("Icon").props().name).toEqual("home");
             });
         });
 
@@ -47,6 +47,40 @@ describe('The  navigation link component', () => {
                 _component = shallow(<NavLink href="wahzup.html" title="Home" />);
 
                 expect(_component.find(".title").text()).toEqual("Home");
+            });
+        });
+    });
+
+    describe("given a title", ()=>{
+        beforeEach(() => {
+            _component = shallow(<NavLink title="Title Yo" />);
+        });
+
+        describe("without an icon", () => {
+            it("does not show the icon", () => {
+                expect(_component.find("Icon").length).toEqual(0);
+            });
+        });
+
+        describe("with an icon", () => {
+            it("shows the icon", () => {
+                _component = shallow(<NavLink title="Title Yo" icon="home" />);
+
+                expect(_component.find("Icon").props().name).toEqual("home");
+            });
+        });
+
+        describe("without a href", () => {
+            it("shows the link without a href", () => {
+                expect(_component.find("a").props().href).not.toBeDefined();
+            });
+        });
+
+        describe("with a href", () => {
+            it("shows the link with a href", () => {
+                _component = shallow(<NavLink title="Title Yo" href="wahzup.html" icon="home" />);
+
+                expect(_component.find("a").props().href).toEqual("wahzup.html");
             });
         });
     });
