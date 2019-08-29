@@ -203,7 +203,6 @@ const jsv = (callback) => {
 
     return bundleJS(b, 'vendor.min.js', config.distribution.js, callback);
 };
-
 const scss = (callback) => {
     console.log(colors.cyan('[SCSS] Transpiling Global Sass to Css'));
     return bundleCSS([
@@ -211,12 +210,18 @@ const scss = (callback) => {
     ], 'bundle.min.css', callback);
 
 };
-
 const loginscss = (callback) => {
     console.log(colors.cyan('[SCSS] Transpiling Login Sass to Css'));
     return bundleCSS([
         './src/styles/login.scss'
     ], 'login-bundle.min.css', callback);
+};
+
+const ppscss = (callback) => {
+    console.log(colors.cyan('[SCSS] Transpiling Premier Portfolio Sass to Css'));
+    return bundle([
+        './src/styles/premierportfolio.scss'
+    ], 'premierportfolio-bundle.min.css', callback);
 };
 
 function bundleCSS(source, dest, callback) {
@@ -312,7 +317,10 @@ const watch = (done) => {
                 loginscss(() => {
                     bs.notify("Done Transpiling Login " + task.name, 1000);
                 });
-            });
+                ppscss(() => {
+                    bs.notify("Done Transpiling Premier Portfolio " + task.name, 1000);
+                });
+            })
         });
 
     gulp.watch(['./src/*.js', './src/js/**/*.js', './src/components/**/*.js', './src/pages/**/*.js'])
@@ -365,8 +373,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, loginscss, js, jsv, components, react, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, loginscss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, loginscss, ppscss, js, jsv, components, react, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, loginscss, ppscss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));
