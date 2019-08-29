@@ -3,7 +3,6 @@
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
-import Icon from '../Icon/icon';
 
 export default class DiscoverTiles extends React.Component {
     constructor(props) {
