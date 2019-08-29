@@ -23,11 +23,10 @@ describe('The third level navigation component', () => {
     });
 
     describe("given a title", () => {
-        describe("with no links", () => {
-            it("doesn't show anything", () => {
-                _component = shallow(<NavThirdLevel title="My Page" />);
-
-                expect(_component.html()).toEqual(null);
+        describe("with an href", () => {
+            it("shows the link", () => {
+                _component = shallow(<NavThirdLevel title="My Page" href="/" />);
+                expect(_component.find("a").length).toEqual(1);
             });
         });
 
