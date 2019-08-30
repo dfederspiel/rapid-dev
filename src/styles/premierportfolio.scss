@@ -5,10 +5,16 @@
 
 $berry: #793352; // #762f4f
 
+.k-grid, .k-widget,
+.k-filter-row th, .k-grid-header th.k-header, .k-grid tr td {
+    border: 0px solid transparent !important;
+    border-radius: 0rem !important;
+    box-shadow: none !important;
+}
 
 body.rich-text-editor-content, body.rich-text-editor-content-monochrome,
 .login-container,
-.content-container, .content-container-light, .no-border, .main-nav .dropdown-menu,
+.content-container, .content-container-light, .no-border, /* .main-nav .dropdown-menu,*/
 .specials, .export-context .specials, .export-context .content-container, 
 table, table thead, table th:first-of-type, table th:last-of-type,
 table tfoot:not(.k-footer-template):after,
@@ -25,10 +31,62 @@ table.offerings thead, table.offerings tfoot:after,
 }
 
 
+input, button, .nav.main-nav > li > a, a.btn {
+    font-weight: 500;
+    border: none;
+    min-width: 10rem;
+    margin-left: 1.5rem;
+    background-color: $berry;//#762f4f;
+    //text-align: center;
+    border-radius: .25rem;
+    line-height: 1.5;
+    // padding: .375rem .75rem;
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #fff;
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid #ccc;
+    
+    &.btn {
+        text-align: center;
+    }
+    &[type='checkbox'], &[type='submit'], &[type='button']{
+        width: auto;
+        text-align: center;
+    }
+    &[type='file']{
+        background: transparent;
+        color: #555;
+    }
+    &[type='submit']{
+        margin-left: 0rem;
+    }
+}
+input[type='checkbox'] {
+    min-width: 1rem;
+}
+input[type='file'], input[type='text'], input[type='datetime']{
+    margin-left: 0rem;
+}
+input[type='submit'], input[type='button']{
+    padding: .1rem;
+}
+.nav.main-nav > li > a {
+    text-align: center;
+    margin-left: 0rem;
+
+}
+input:focus, .form-control:focus {
+    border-bottom: 1px solid #666;
+}
+
+
 .btn {
     background-color: #793352;
     font-weight: normal;
-    padding: .375rem .75rem;
+    // padding: .375rem .75rem;
+    padding: 1rem;
 }
 
 .btn-default, .btn-primary {
@@ -67,41 +125,6 @@ table.offerings thead, table.offerings tfoot:after,
     border-bottom: 1px solid #ccc;
     border-radius: 0;
     box-shadow: none;
-}
-
-input, button, .nav.main-nav > li > a, a.btn {
-    font-weight: 500;
-    border: none;
-    min-width: 10rem;
-    margin-left: 1.5rem;
-    background-color: $berry;//#762f4f;
-    //text-align: center;
-    border-radius: .25rem;
-    line-height: 1.5;
-    padding: .375rem .75rem;
-    display: inline-block;
-    font-size: 1.4rem;
-    color: #fff;
-    width: 100%;
-    border: 0px;
-    border-bottom: 1px solid #ccc;
-    
-    &.btn {
-        text-align: center;
-    }
-    &[type='checkbox'], &[type='submit'], &[type='button']{
-        width: auto;
-        text-align: center;
-    }
-    &[type='submit']{
-        margin-left: 0rem;
-    }
-}
-.nav.main-nav > li > a {
-    text-align: center;
-}
-input:focus, .form-control:focus {
-    border-bottom: 1px solid #666;
 }
 
 
