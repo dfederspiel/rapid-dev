@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import { Column, Row } from "simple-flexbox";
 import DiscoverTiles from "../../components/DiscoverTiles/discover-tiles";
 import CreditUnionDashboard from "../../components/CreditUnionDashboard/credit-union-dashboard";
 import AccountBalances from "../../components/AccountBalances/account-balances";
@@ -18,25 +17,23 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard-container">
-                <div className="carousel-row">
-                    <div className="carousel-col">
-                        <label>Discover Premier View</label>
-                        <DiscoverTiles />
-                    </div>
+                <div className="carousel-col">
+                    <label>Discover Premier View</label>
+                    <DiscoverTiles />
                 </div>
-                <div className="flex-wrap-row">
-                    <div className="flex-wrap-column">
+                <div className="">
+                    <div className="">
                         <label>Account Balances</label>
                         <AccountBalances />
                     </div>
-                    <div className="flex-wrap-column">
-                        <div className="flex-col">
+                    <div className="">
+                        <div className="">
                             <label>Credit Union Dashboard</label>
                             <CreditUnionDashboard
                                 {...creditUnionDashboardProps}
                             />
                         </div>
-                        <div className="flex-col">
+                        <div className="">
                             <label>Learn more about Premier View</label>
                             <div className="dashboard-card">auris pellentesque, leo quis fermentum porttitor, sem nunc vehicula odio, at convallis enim metus quis mauris. Aenean augue lectus, rutrum ut ipsum sed, dignissim venenatis urna. Praesent ut dui nec lorem lobortis accumsan. Donec ornare mauris sit amet magna posuere, eu pharetra nisi cursus. Vivamus sit amet convallis velit. Quisque quis ullamcorper dui. Nunc tempus sodales purus, at dapibus ex ullamcorper vitae. Maecenas pellentesque maximus mollis.
                             </div>

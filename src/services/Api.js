@@ -14,6 +14,7 @@ class Api {
     }
 
     handleResponse(res) {
+        console.log(res);
         if (res.ok)
             return res.json();
         throw "Error fetching";

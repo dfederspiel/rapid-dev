@@ -1,5 +1,8 @@
 ﻿import React from 'react';
+import FontAwesome from 'react-fontawesome';
 import AnimateHeight from 'react-animate-height';
+import NavLink from '../NavLink/nav-link';
+import Icon from '../Icon/icon';
 
 export default class NavThirdLevel extends React.Component {
     constructor(props) {
@@ -14,21 +17,37 @@ export default class NavThirdLevel extends React.Component {
     render() {
         const { toggleSublinks } = this;
         const { height } = this.state;
-        const { title, links } = this.props;
+        const { title, links, href } = this.props;
+
+        if (!title)
+            return;
 
         return (
-            <React.Fragment>
-                <a href="javascript:void(0)" onClick={toggleSublinks}>{title}</a>
-                <AnimateHeight duration={300} height={height}>
-                    <ul className="nav-third-level">
-                        {links.map((link, key) =>
-                            <li key={key}>
-                                <a href={link.href}>{link.title}</a>
-                            </li>
-                        )}
-                    </ul>
-                </AnimateHeight >
-            </React.Fragment>
+            <li className={`third-level-trigger ${height ? "active" : ""}`}>
+                {
+                    !links && href &&
+                    <a href={href}>
+                        <div className="title">{title}</div>
+                    </a>
+                }
+
+                {
+                    links &&
+                    <>
+                        <a href="javascript:void(0)" onClick={toggleSublinks}>
+                            <div className="title">{title}</div>
+                            <Icon name="angle-down" />
+                        </a>
+                        <AnimateHeight duration={500} height={height}>
+                            <ul className="nav-third-level">
+                                {links.map((link, key) =>
+                                    <NavLink href={link.href} title={link.title} key={key} />
+                                )}
+                            </ul>
+                        </AnimateHeight >
+                    </>
+                }
+            </li>
         )
     }
 }
