@@ -1,5 +1,5 @@
 @import 'variables';
-@import 'style-guide';
+//@import 'style-guide';
 
 @import 'mixins';
 
@@ -10,6 +10,9 @@ $berry: #793352; // #762f4f
     border: 0px solid transparent !important;
     border-radius: 0rem !important;
     box-shadow: none !important;
+}
+table tfoot:not(.k-footer-template):after {
+    background: none;
 }
 
 body.rich-text-editor-content, body.rich-text-editor-content-monochrome,
@@ -37,7 +40,6 @@ input, button, .nav.main-nav > li > a, a.btn {
     min-width: 10rem;
     margin-left: 1.5rem;
     background-color: $berry;//#762f4f;
-    //text-align: center;
     border-radius: .25rem;
     line-height: 1.5;
     // padding: .375rem .75rem;
@@ -75,7 +77,6 @@ input[type='submit'], input[type='button']{
 .nav.main-nav > li > a {
     text-align: center;
     margin-left: 0rem;
-
 }
 input:focus, .form-control:focus {
     border-bottom: 1px solid #666;
