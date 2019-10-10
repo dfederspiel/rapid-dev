@@ -1,191 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 @import 'node_modules/bootstrap/scss/bootstrap';
-@import 'legacy/legacy';
+
 @import 'variables';
 @import 'style-guide';
 
 @import 'mixins';
-
 @import 'layout';
 
 @import 'header';
 @import 'footer';
 
-@import 'tiles';
-
-@import '../components/styles';
-@import '../pages/styles';
-
-
-
-:root {
-    font-size: 62.5%;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
-
 body {
     font-family: 'Roboto', 'sans-serif';
-    font-size: 16px;
 }
 
-input[type="text"],
-select,
-textarea {
-    // background-color: $light-background;
-    // border: none;
-}
-
-input[type="text"].error,
-select.error {
-    border-bottom: solid .1rem;
-    border-bottom-color: $error;
-}
-
-input[type="button"],
-input[type="submit"],
-button[type="button"],
-button[type="submit"] {
-    font-weight: $font-weight-medium;
-    border: none;
-    min-width: 10rem;
-    margin-left: 1.5rem;
-    background-color: $primary;
-    text-align: center;
-    border-radius: .25rem;
-    line-height: 1.5;
-    padding: .375rem .75rem;
-    display: inline-block;
-    font-size: 1.4rem;
-    color: #FFFFFF;
-}
-
-label {
-    font-weight: $font-weight-medium;
-    font-size: 1.4rem;
-}
-
-select {
-    font-size: 1.6rem;
-    padding: .1rem 0;
-}
-
-a {
-    color: $primary;
-    text-decoration: underline;
-}
-
-span.error {
-    color: $error;
-}
-
-span.info {
-    color: $info;
-}
-
-.spaced-form-element {
-    margin-right: 1.5rem;
-}
-
-.secondary-button {
-    font-weight: $font-weight-medium;
-    border-color: #42505C;
-    width: 10rem;
-    margin-left: 1.5rem;
-    background-color: #f8f9fa;
-    text-align: center;
-    border-radius: .5rem;
-    line-height: 1.5;
-    padding: .375rem .75rem;
-    display: inline-block;
-}
-
-.progress {
-    height: .4rem;
-
-    .progress-bar {
-        background-color: $primary;
-        height: .4rem;
-    }
-}
-
-hr {
-    background-color: $primary;
-    border: none;
-    height: .2rem;
-}
-
-legend {
-    color: $light-font;
-}
-
-h1 {
-    font-weight: $font-weight-bold;
-    font-size: 3rem;
-}
-
-.flex-col {
-    display: flex;
-    flex-flow: column;
-}
-
-.flex-row {
-    display: flex;
-    flex-flow: row;
-}
-
-.form-checkbox {
-    display: block;
-    position: relative;
-    padding-left: 3.5rem;
-    margin-bottom: 1.2rem;
-    cursor: pointer;
-    font-size: 2.2rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    .checkmark {
-        position: absolute;
-        top: -1rem;
-        left: 0;
-        height: 2rem;
-        width: 2rem;
-        background-color: $white;
-        border: solid .1rem $border-light;
-
-        &:after {
-            content: "";
-            position: absolute;
-            display: none;
-            left: .7rem;
-            top: .2rem;
-            width: .6rem;
-            height: 1.1rem;
-            border: solid white;
-            border-width: 0 .3rem .3rem 0;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-    }
-
-    &:hover input~.checkmark {
-        background-color: #ccc;
-    }
-
-    input:checked~.checkmark {
-        background-color: $primary;
-
-        &:after {
+.expand {
+    .content { display: none; }
+    transition: all 1s;
+    &:hover{
+        .content {
             display: block;
         }
     }

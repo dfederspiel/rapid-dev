@@ -1,7 +1,0 @@
-\lib
-\obj
-\node_modules
-\test
-
-deploy.sh
-.deployment

@@ -1,9 +1,16 @@
-﻿extends base.pug
+extend base
 
-mixin page(title, url)
-    //- tags can be inlined with the #[] syntax
-    li #[a(href= url)= title]
-
-//- this block will overwrite what is in template.pug
-block body
-    #react-app
+block main
+    +container
+        +row
+            +col
+                h1 Rapid Dev
+        +row
+            +col('sm')
+                h2 RapidDev
+            +col('sm')
+                h2 CominToGetYa
+                .expand
+                    .btn.btn-primary Hello
+                    .content
+                        +ipsum(24)

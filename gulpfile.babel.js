@@ -85,7 +85,7 @@ const json = (callback) => {
 
 const html = (callback) => {
     console.log(colors.cyan('[HTML] Transpiling PUG'));
-    return gulp.src(['./src/markup/**/*.pug', '!src/markup/content/**/*.pug', '!src/markup/grids/**/*.pug', '!src/markup/mixins/**/*.pug'])
+    return gulp.src(['./src/markup/**/*.pug'])
         .pipe(
             pug({
                 pretty: true,
@@ -131,7 +131,6 @@ const jsbundle = (input, output, destinations, callback) => {
             entries: input,
             debug: true
         })
-        //.external(dependencies)
         .transform('babelify', {
             presets: ["@babel/preset-env", "@babel/preset-react"]
         });
@@ -174,21 +173,6 @@ const js = (callback) => {
     jsbundle('./src/js/app.js', 'app.min.js', config.distribution.js, callback);
 };
 
-const react = (callback) => {
-    console.log(colors.cyan('[JS V] Bundling and Babeling React Server JS'));
-    var b = browserify({
-        debug: true
-    }).transform("babelify", {
-        presets: ["@babel/preset-env", "@babel/preset-react"]
-    });
-
-    b.require('react');
-    b.require('react-dom');
-    b.require('react-fontawesome');
-
-    bundleJS(b, 'react-vendor.min.js', config.distribution.js, callback);
-};
-
 const jsv = (callback) => {
     console.log(colors.cyan('[JS V] Bundling and Babeling Vendor JS'));
     var b = browserify({
@@ -196,32 +180,19 @@ const jsv = (callback) => {
     }).transform('babelify', {
         presets: ['@babel/preset-env']
     });
-
     dependencies.forEach(lib => {
         b.require(lib);
     });
 
     return bundleJS(b, 'vendor.min.js', config.distribution.js, callback);
 };
+
 const scss = (callback) => {
     console.log(colors.cyan('[SCSS] Transpiling Global Sass to Css'));
     return bundleCSS([
         './src/styles/global.scss'
     ], 'bundle.min.css', callback);
 
-};
-const loginscss = (callback) => {
-    console.log(colors.cyan('[SCSS] Transpiling Login Sass to Css'));
-    return bundleCSS([
-        './src/styles/login.scss'
-    ], 'login-bundle.min.css', callback);
-};
-
-const ppscss = (callback) => {
-    console.log(colors.cyan('[SCSS] Transpiling Premier Portfolio Sass to Css'));
-    return bundle([
-        './src/styles/premierportfolio.scss'
-    ], 'premierportfolio-bundle.min.css', callback);
 };
 
 function bundleCSS(source, dest, callback) {
@@ -246,7 +217,7 @@ function bundleCSS(source, dest, callback) {
 
 const serve = (callback) => {
     console.log(colors.cyan('[SERVE] Says: standing up your server'));
-    build_routes();
+    inject_middleware();
     var app = express();
     app.use(['/discover*'], function (req, res) {
         res.sendFile(appRoot + '/dist/index.html');
@@ -271,7 +242,7 @@ const serve = (callback) => {
     });
 };
 
-const build_routes = (cb) => {
+const inject_middleware = (cb) => {
     console.log(colors.cyan('[ROUTE] Rebuilding routes'));
     router = express.Router();
     server = jsonServer.create({
@@ -313,12 +284,6 @@ const watch = (done) => {
                 bs.notify("Transpiling" + task.name, 1000);
                 scss(() => {
                     bs.notify("Done Transpiling Global " + task.name, 1000);
-                });
-                loginscss(() => {
-                    bs.notify("Done Transpiling Login " + task.name, 1000);
-                });
-                ppscss(() => {
-                    bs.notify("Done Transpiling Premier Portfolio " + task.name, 1000);
                 });
             })
         });
@@ -373,8 +338,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, loginscss, ppscss, js, jsv, components, react, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, loginscss, ppscss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, react, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));

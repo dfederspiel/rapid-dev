@@ -56,7 +56,7 @@
 @mixin fadeInBlur() {
     opacity: 1;
     visibility: visible;
-    filter:blur(.5rem);
+    filter: blur(.5rem);
 }
 
 
@@ -75,10 +75,10 @@
     padding: 0;
 }
 
-@mixin unstyleButton(){
-    background-color:transparent;
-    border:none;
+@mixin unstyleButton() {
+    background-color: transparent;
+    border: none;
     font-weight: $font-weight-normal;
-    box-shadow: none; 
-    margin:0;
+    box-shadow: none;
+    margin: 0;
 }
