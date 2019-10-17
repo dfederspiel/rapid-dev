@@ -44,11 +44,11 @@ let server = null;
 
 const config = {
     distribution: {
-        js: ["./dist/js", "../Orion.Web/TemplatedAssets/js"],
-        html: ["./dist", "../Orion.Web/TemplatedAssets"],
-        css: ["./dist/css", "../Orion.Web/TemplatedAssets/css"],
-        images: ["./dist/img", "../Orion.Web/TemplatedAssets/img"],
-        fonts: ["./dist/fonts", "../Orion.Web/TemplatedAssets/fonts"]
+        js: ["./dist/js"],
+        html: ["./dist"],
+        css: ["./dist/css"],
+        images: ["./dist/img"],
+        fonts: ["./dist/fonts"]
     }
 };
 
@@ -338,8 +338,8 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, react, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, react, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
 gulp.task('js-test', shell.task(['npm run unit']));
 gulp.task('react-test', shell.task(['npm run test']));
