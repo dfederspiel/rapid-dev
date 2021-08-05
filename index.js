@@ -1,24 +1,21 @@
-const port = process.env.PORT || 2247;
+const port = process.env.PORT || 8080;
 
 var express = require('express');
-var path = require('path');
+const { createServer } = require('http');
+
 var app = express();
 app.use(express.static('dist'))
-var router = express.Router();
-let jsonServer = require('json-server');
-var jsonData = require('./src/data/generate.js');
 
-const appRoot = path.resolve(__dirname);
-
-
-app.use(['/discover*'], function (req, res) {
-    res.sendFile(appRoot + '/dist/index.html');
-});
+const jsonServer = require('json-server');
+const jsonData = require('./src/data/generate.js');
 app.use('/api', jsonServer.defaults());
 app.use('/api', jsonServer.router(jsonData()));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+const httpServer = createServer(app);
+app.use('/', express.static('dist'));
 
-app.listen(port);
+httpServer.listen(port, () => {
+  console.log(`
+    Server is running! 🚀
+    Listening at http://localhost:${port}`);
+});
