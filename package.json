@@ -9,7 +9,7 @@
         "start": "gulp",
         "start:production": "nodemon index.js",
         "build": "gulp build",
-        "test": "jest --watchAll --detectOpenHandles src",
+        "test": "jest --detectOpenHandles src",
         "test:snapshots": "jest --testPathPattern=lib/snapshots.test.js"
     },
     "browsersList": [
