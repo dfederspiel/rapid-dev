@@ -2,20 +2,17 @@ const gulp = require('gulp'),
     pug = require('gulp-pug'), //https://www.npmjs.com/package/gulp-pug
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('node-sass')),
     fs = require("fs"),
     colors = require('colors'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    uglify = require('gulp-uglify'),
     express = require('express'),
     bs = require('browser-sync').create(),
     reload = bs.reload,
-    exec = require("child_process").exec,
     multiDest = require("gulp-multi-dest"),
     cleanCSS = require('gulp-clean-css'),
-    shell = require('gulp-shell'),
     path = require('path'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer');
@@ -53,7 +50,6 @@ const config = {
 };
 
 var jsonData = require('./src/data/generate.js');
-
 var packageJSON = require('./package.json');
 var dependencies = Object.keys(packageJSON && packageJSON.dependencies || {});
 
@@ -162,11 +158,6 @@ const bundleJS = (browserify, output, destinations, callback) => {
         .pipe(sourcemaps.write('./'))
         .pipe(multiDest(destinations));
 }
-
-const components = (callback) => {
-    console.log(colors.cyan('[JS] Bundling and Babeling JS'));
-    jsbundle('./src/js/server-components.js', 'components.min.js', config.distribution.js, callback);
-};
 
 const js = (callback) => {
     console.log(colors.cyan('[JS] Bundling and Babeling JS'));
@@ -338,10 +329,6 @@ const watch = (done) => {
 };
 
 gulp.task('watch', watch);
-gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, components, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, components, img, font), gulp.parallel(serve, watch)));
+gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
+gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
-gulp.task('js-test', shell.task(['npm run unit']));
-gulp.task('react-test', shell.task(['npm run test']));
-gulp.task('js-coverage', shell.task(['start "" "test\\coverage\\index.html"']));
-gulp.task('react-coverage', shell.task(['start "" "test\\react\\index.html"']));

@@ -1,4 +1,5 @@
-﻿import Services from './services';
+﻿import $ from 'jquery';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+$(document).on('click', () => {
+    alert('JS client bundles loaded as expected');
+})

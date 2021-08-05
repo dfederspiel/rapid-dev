@@ -17,7 +17,7 @@ module.exports = function () {
                 id: n,
                 title: faker.random.words(Math.ceil(Math.random() * 10)),
                 date: faker.date.past(),
-                authorId: faker.random.number({
+                authorId: faker.datatype.number({
                     min: 0,
                     max: 19
                 }),
