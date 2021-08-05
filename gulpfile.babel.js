@@ -328,7 +328,8 @@ const watch = (done) => {
     done();
 };
 
+gulp.task('data', json);
 gulp.task('watch', watch);
 gulp.task('build', gulp.series(gulp.parallel(html, scss, js, jsv, img, font)));
-gulp.task('default', gulp.series(json, gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
+gulp.task('default', gulp.series(gulp.parallel(html, scss, js, jsv, img, font), gulp.parallel(serve, watch)));
 gulp.task('serve', serve);
