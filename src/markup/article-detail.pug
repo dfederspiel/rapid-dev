@@ -1,7 +1,16 @@
 extend base
 
 block main
-    +container 
+    +container
+        +row 
+            +col
+                h2 Article Detail Page
+                p There's not too much magic going on here, but there's a little bit of magic.
+                p.
+                    In order to query for article detail, we are expecting to land on this page with an 
+                    article id parameter. We have a script on the page that parses out the id and loads 
+                    the corresponding article detail.
+
         +row 
             +col
                 #article-detail Loading...
