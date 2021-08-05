@@ -14,12 +14,19 @@ body {
     font-family: 'Roboto', 'sans-serif';
 }
 
-.expand {
-    .content { display: none; }
-    transition: all 1s;
-    &:hover{
-        .content {
-            display: block;
-        }
-    }
+main {
+    padding: 5rem 0;
 }
+
+h1 { font-size: 1.8rem; font-family: 'Roboto', 'sans-serif'; }
+h2 { font-size: 1.3rem; font-family: 'Roboto', 'sans-serif'; color: $primary; }
+h3 { font-size: 1.1rem; }
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+

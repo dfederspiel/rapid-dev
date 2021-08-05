@@ -1,17 +1,29 @@
 extend base
 
 block main
-    h1 #[+ipsum(20)]
     +container
         +row
+            +col('12')
+                section
+                    h2 Welcome
+                    p We're all passionate and curious developers with a soft spots for puzzles.
+                section 
+                    h2 History 
+                    p.
+                        This is a static site builder, originally based on R&D initiatives aimed at reducing
+                        developer feedback when creating UI's. It is often cumbersome to have to 
+                        wait for larger systems to initialize, and so this system focuses front end 
+                        development so that static assets can be generated quickly
+                    p.
+                        As these things go, this system evolved in interesting ways, and in an effort to preserve 
+                        its initial integrity, it has been pared down so that it is be easy to pick up and modify for any static site you may need.
             +col
-                h1 Rapid Dev
-        +row
-            +col('sm')
-                h2 RapidDev
-            +col('sm')
-                h2 CominToGetYa
-                .expand
-                    .btn.btn-primary Hello
-                    .content
-                        +ipsum(24)
+                section
+                    h1 Articles
+                    p.
+                        In PUG markup, this articles markup is just a div with an id. We use JavaScript 
+                        after the page loads to query articles and map the reponse to markup.
+                    p.
+                        For detail pages, we generate an HTML anchor and link to generated article-detail page,
+                        where a script calls for the article based on the incoming query string parameter.
+                    #articles

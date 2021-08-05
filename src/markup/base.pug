@@ -13,8 +13,24 @@ block content
             block body
                 header
                     block header
-                .main
+                        +container
+                            +row
+                                +col
+                                    h1 Rapid Dev
+                                    p PUG based static site generator
+                main
                     block main
-                        h1 #[+ipsum(20)]
+                footer
+                    block footer 
+                        +container 
+                            +row 
+                                +col
+                                    p © Rapid Dev, Inc. All rights reserved.
+            script(
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"
+            )
             script(src='/js/vendor.min.js')
             script(src='/js/app.min.js')
+            block scripts

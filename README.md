@@ -22,19 +22,15 @@ Once node is installed, install the Gulp CLI with the following:
 
 Run `npm install` in the root of this app using your CLI of choice.  (If you're using the recommended VS Code, Ctrl + ~ will open terminal for you.)
 
-Once that's finished, run this command to build the code and host it locally:
+Once that's finished, run `npm start` to build the code and host it locally:
 
-`gulp`
-
-There are several other tasks defined in gulpfile.babel.js - they can be run via command line
+There are several tasks defined in gulpfile.babel.js - they can be run via command line
 
 ## Commands
 
-`npm run start` - startup script for hosting the site on a node server
-
-`npm run unit` - generates bundled assets that are to be used in production. (individual js/css/maps)  Configuration is found in webpack/prod.config.js, and production assets can be found in the /build/ folder.
-
-`npm run test` - starts up the jest testing environment and watch to continually run tests as you code.
+`npm start` - startup script for hosting the site on a node server  
+`npm test` - starts up the jest testing environment and watch to continually run tests as you code  
+`npm test:snapshots` - runs puppeteer for image based snapshot tests  
 
 * [jest](https://facebook.github.io/jest/) - jasmine testing with JSX support
 * [json-server](https://github.com/typicode/json-server) - mock service layer for authoring UI components
