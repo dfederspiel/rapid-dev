@@ -299,7 +299,7 @@ const watch = (done) => {
             }, (task) => {
                 bs.notify("Regenerating Data", 1000);
                 json(() => {
-                    build_routes(() => {
+                    inject_middleware(() => {
                         reload();
                         done();
                     });
