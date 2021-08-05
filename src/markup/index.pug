@@ -6,24 +6,24 @@ block main
             +col('12')
                 section
                     h2 Welcome
-                    p We're all passionate and curious developers with a soft spots for puzzles.
-                section 
-                    h2 History 
+                    p We're all passionate and curious developers with soft spots for puzzles.S
                     p.
                         This is a static site builder, originally based on R&D initiatives aimed at reducing
                         developer feedback when creating UI's. It is often cumbersome to have to 
                         wait for larger systems to initialize, and so this system focuses front end 
-                        development so that static assets can be generated quickly
+                        development so that static assets can be generated quickly and either hosted as-is, or ported
+                        to another platform and retrofitted for use.
                     p.
-                        As these things go, this system evolved in interesting ways, and in an effort to preserve 
-                        its initial integrity, it has been pared down so that it is be easy to pick up and modify for any static site you may need.
+                        As these things go, this system evolved in interesting ways over time, and in an effort to preserve 
+                        its initial intent, I've pared it down so that it's easy to pick up and modify as needed.
             +col
                 section
-                    h1 Articles
+                    h1 Articles (example)
+                    p Example rendering of some generated data, showing how PUG, browsersync, json-server and the other tools line up.
                     p.
-                        In PUG markup, this articles markup is just a div with an id. We use JavaScript 
+                        In PUG markup, the following article list is just a div with an id in PUG. We use JavaScript 
                         after the page loads to query articles and map the reponse to markup.
                     p.
-                        For detail pages, we generate an HTML anchor and link to generated article-detail page,
-                        where a script calls for the article based on the incoming query string parameter.
+                        For detail pages, we generate an HTML anchor and link to the article-detail page,
+                        where a script calls for an article based on the incoming query string article id.
                     #articles

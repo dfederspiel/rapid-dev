@@ -1,6 +1,5 @@
-# RapidDev UI (NodeJS)
-
-## Modernization and Component Pipeline
+# Rapid Dev UI (NodeJS)
+## PUG based static site generator
 
 This code contains a collection of dev tools and underlying processes that allows for quick feedback development of UI components.
 
@@ -20,9 +19,9 @@ Once node is installed, install the Gulp CLI with the following:
 
 `npm install -g gulp-cli`
 
-Run `npm install` in the root of this app using your CLI of choice.  (If you're using the recommended VS Code, Ctrl + ~ will open terminal for you.)
+Run `npm install` in the root of this app using your CLI of choice.  (If you're using VS Code, `Ctrl + ~` will open aa terminal for you.)
 
-Once that's finished, run `npm start` to build the code and host it locally:
+Once that's finished, run `npm start` to start the dev environment
 
 There are several tasks defined in gulpfile.babel.js - they can be run via command line
 
@@ -40,20 +39,17 @@ There are several tasks defined in gulpfile.babel.js - they can be run via comma
 
 Here's a breakdown of where things are:
 
-```filesystem
+```
 dist                - production bundle output directory
-                      (automatically generated)
-lib                 - contains template dependencies used for bundling and distribution
+                      (automatically generated with)
+lib                 - contains template dependencies used for bundling and 
 src                 - all the working code
--- components       - react components
 -- data             - json-server data generator
 -- img              - image assets
 -- js               - core javascript
 -- markup           - pug markup and mixins for static html
 -- pages            - staging area for components
--- styles           - SASS styles
-test                - auto-generated for coverage tests
-package.json
+-- styles           - SCSS styles
 ```
 
 ## Resources

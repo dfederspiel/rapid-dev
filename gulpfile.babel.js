@@ -39,6 +39,9 @@ let router = express.Router();
 let jsonServer = require('json-server');
 let server = null;
 
+/**
+ * Specify additional paths to generate assets in other directories during build
+ */
 const config = {
     distribution: {
         js: ["./dist/js"],

@@ -1,0 +1,14 @@
+header {
+    border-bottom: solid 2px $primary;
+    background-color: $secondary;
+    .header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100px;
+        p {
+            margin: 0;
+        }
+    }
+}
