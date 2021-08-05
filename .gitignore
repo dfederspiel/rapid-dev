@@ -1,5 +1,4 @@
-test/
+test
 dist
-src/data/db.json
 node_modules
 .vscode
