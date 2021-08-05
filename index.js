@@ -7,9 +7,9 @@ var app = express();
 app.use(express.static('dist'))
 
 const jsonServer = require('json-server');
-const jsonData = require('./src/data/generate.js');
+const jsonData = require('./src/data/db.json');
 app.use('/api', jsonServer.defaults());
-app.use('/api', jsonServer.router(jsonData()));
+app.use('/api', jsonServer.router(jsonData));
 
 const httpServer = createServer(app);
 app.use('/', express.static('dist'));

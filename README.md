@@ -24,7 +24,7 @@ Run `npm install` in the root of this app using your CLI of choice.  (If you're 
 
 Once that's finished, run this command to build the code and host it locally:
 
-`gulp`
+`gulp build`
 
 There are several other tasks defined in gulpfile.babel.js - they can be run via command line
 
@@ -32,7 +32,6 @@ There are several other tasks defined in gulpfile.babel.js - they can be run via
 
 `npm run start` - startup script for hosting the site on a node server
 
-`npm run unit` - generates bundled assets that are to be used in production. (individual js/css/maps)  Configuration is found in webpack/prod.config.js, and production assets can be found in the /build/ folder.
 
 `npm run test` - starts up the jest testing environment and watch to continually run tests as you code.
 

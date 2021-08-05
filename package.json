@@ -8,8 +8,8 @@
     "scripts": {
         "start": "gulp",
         "start:production": "nodemon index.js",
-        "test": "jest --watchAll src",
-        "test:snapshots": "jest --watchAll --testPathPattern=lib/snapshots.js"
+        "test": "jest --watchAll --detectOpenHandles src",
+        "test:snapshots": "jest --testPathPattern=lib/snapshots.test.js"
     },
     "browsersList": [
         "> 1%",
@@ -85,7 +85,7 @@
         "verbose": true,
         "testMatch": [
             "**/__tests__/**/*.[jt]s?(x)",
-            "**/snapshots.js"
+            "**/snapshots.test.js"
         ],
         "transform": {
             "^.+\\.js$": "babel-jest"
