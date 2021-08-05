@@ -2,7 +2,8 @@
     "name": "dfederspiel",
     "private": true,
     "version": "1.0.0",
-    "description": "Templating Project",
+    "description": "static templating system",
+    "license": "MIT",
     "author": "David Federspiel",
     "scripts": {
         "start": "gulp",
@@ -12,8 +13,7 @@
     },
     "browsersList": [
         "> 1%",
-        "last 2 versions",
-        "ie >= 11"
+        "last 2 versions"
     ],
     "devDependencies": {
         "@babel/cli": "^7.14.8",
@@ -52,7 +52,6 @@
         "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2",
         "html2pug": "^4.0.0",
-        "jasmine-core": "^3.8.0",
         "jest": "^27.0.6",
         "jest-image-snapshot": "^4.5.1",
         "json-server": "^0.16.3",
@@ -98,7 +97,7 @@
             "html"
         ],
         "collectCoverageFrom": [
-            "src/components/**/*.js"
+            "src/js/**/*.js"
         ]
     }
 }
