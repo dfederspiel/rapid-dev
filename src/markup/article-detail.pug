@@ -1,0 +1,22 @@
+extend base
+
+block main
+    +container 
+        +row 
+            +col
+                #article-detail Loading...
+    
+block scripts
+    script.
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('article');
+        fetch(`/api/articles/${articleId}`)
+            .then(res => res.json())
+            .then(article => {
+                $('#article-detail').html(`
+                    <article>
+                        <h2>${article.title}</h2>
+                        <p>${article.body}</p>
+                    </article>
+                `)
+            })
