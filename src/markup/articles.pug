@@ -1,0 +1,39 @@
+extend base
+
+block main
+    +container
+        +row 
+            +col
+                a(href="/") Back to Home
+                br
+                br
+    +container
+        +row 
+            +col
+                section
+                    h2 Articles
+                    p Example of using generated data, showing how Pug and json-server work together.
+                    p.
+                        In Pug markup, the following article list is just a div with an id. We use JavaScript 
+                        after the page loads to query articles and map the response to markup.
+                    p.
+                        For detail pages, we generate an HTML anchor and link to the article-detail page,
+                        where a script calls for an article based on the incoming query string.
+                    #articles
+    
+block scripts
+    script.
+        fetch('/api/articles?_expand=author').then(res => res.json()).then(articles => {
+            $('#articles').html(articles.map(article => {
+                return `
+                    <article>
+                        <b>
+                            <a href="/article-detail.html?article=${article.id}">
+                                ${article.title}
+                            </a>
+                        </b>
+                        <footer>By: ${article.author?.firstName} ${article.author?.lastName}</footer>
+                    </article>
+                `;
+            }))
+        })

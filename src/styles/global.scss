@@ -2,7 +2,6 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 
 @import 'variables';
-@import 'style-guide';
 
 @import 'mixins';
 @import 'layout';
@@ -21,6 +20,7 @@ main {
 h1 { font-size: 1.8rem; font-family: 'Roboto', 'sans-serif'; }
 h2 { font-size: 1.3rem; font-family: 'Roboto', 'sans-serif'; color: $primary; }
 h3 { font-size: 1.1rem; }
+h4 { font-size: 1rem; }
 
 section {
     margin-bottom: 2.5rem;
