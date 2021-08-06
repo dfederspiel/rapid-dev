@@ -83,7 +83,7 @@ const json = (callback) => {
 };
 
 const html = (callback) => {
-    console.log(colors.cyan('[HTML] Transpiling PUG'));
+    console.log(colors.cyan('[HTML] Transpiling Pug'));
     return gulp.src(['./src/markup/**/*.pug'])
         .pipe(
             pug({
