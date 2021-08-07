@@ -23,6 +23,12 @@ gulp default - what you get when you just run gulp
 gulp serve - starts express with the output of gulp build
 ```
 
+## Example Implementations
+
+* [Marketing App](https://github.com/dfederspiel/rapid-dev-demo-structure)
+* [Small Business App](https://github.com/dfederspiel/rapid-dev-demo-riegels)
+* [React Variant](https://github.com/dfederspiel/rapid-dev-demo-react)
+
 ## NPM Commands
 
 `npm start` - startup script for hosting the site on a node server  
@@ -58,7 +64,3 @@ Links to core technologies
 * [Babel](https://babeljs.io/learn-es2015/)
 * [Browserify](https://browserify.org/)
 * [Gulp](https://gulpjs.com/)
-
-## Examples
-* [Brochure Site 1](https://github.com/dfederspiel/rapid-dev-demo-structure)
-* [Brochure Site 2](https://github.com/dfederspiel/rapid-dev-demo-riegels)
