@@ -23,21 +23,22 @@ gulp default - what you get when you just run gulp
 gulp serve - starts express with the output of gulp build
 ```
 
-## Example Implementations
-
-* [Marketing App](https://github.com/dfederspiel/rapid-dev-demo-structure)
-* [Small Business App](https://github.com/dfederspiel/rapid-dev-demo-riegels)
-* [React Variant](https://github.com/dfederspiel/rapid-dev-demo-react)
-
 ## NPM Commands
 
 `npm start` - startup script for hosting the site on a node server  
 `npm test` - starts up the jest testing environment and watch to continually run tests as you code  
 `npm test:snapshots` - runs puppeteer for image based snapshot tests. 
 
-* [jest](https://facebook.github.io/jest/) - jasmine testing with JSX support
-* [json-server](https://github.com/typicode/json-server) - mock service layer for authoring UI components
-* [faker](https://github.com/Marak/Faker.js) - data generator for Pug and JSONServer
+## Example Implementations  
+
+[Structure: Marketing App](https://github.com/dfederspiel/rapid-dev-demo-structure)  
+![build status](https://github.com/dfederspiel/rapid-dev-demo-structure/actions/workflows/main.yml/badge.svg)  
+
+[Riegels: Small Business App](https://github.com/dfederspiel/rapid-dev-demo-riegels)  
+![build status](https://github.com/dfederspiel/rapid-dev-demo-riegels/actions/workflows/main.yml/badge.svg)  
+
+[Ahoya! 🏴‍☠️: React Variant](https://github.com/dfederspiel/rapid-dev-demo-react)  
+![build status](https://github.com/dfederspiel/rapid-dev-demo-react/actions/workflows/main.yml/badge.svg) 
 
 ## Codebase
 
@@ -55,12 +56,11 @@ src                 - all the working code
 -- styles           - SCSS styles
 ```
 
-## Resources
-
-Links to core technologies
-
-* [Pug](https://pugjs.org/api/getting-started.html)
-* [Jest](https://facebook.github.io/jest/)
-* [Babel](https://babeljs.io/learn-es2015/)
-* [Browserify](https://browserify.org/)
-* [Gulp](https://gulpjs.com/)
+## Technologies
+* [pug](https://pugjs.org/api/getting-started.html)
+* [jest](https://facebook.github.io/jest/)
+* [babel](https://babeljs.io/learn-es2015/)
+* [browserify](https://browserify.org/)
+* [gulp](https://gulpjs.com/)
+* [json-server](https://github.com/typicode/json-server) - mock service layer for authoring UI components  
+* [faker](https://github.com/Marak/Faker.js) - data generator for Pug and JSONServer  
