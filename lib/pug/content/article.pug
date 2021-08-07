@@ -1,0 +1,7 @@
+mixin article
+    - var article = articles[Math.floor(Math.random() * articles.length)]
+    .article
+        if block
+            block
+        h3.title= article.titles
+        span.body= article.body

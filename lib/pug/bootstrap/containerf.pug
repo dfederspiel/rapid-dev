@@ -1,0 +1,7 @@
+mixin containerf(classes)
+    div(class= "container-fluid " + classes)
+        if block
+            block
+        else
+            p.
+                This grid has no content

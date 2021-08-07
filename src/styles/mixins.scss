@@ -1,0 +1,84 @@
+/*-------MEDIA QUERIES-------*/
+@mixin at($size) {
+    @media only screen and (min-width: $size + "px") {
+        @content;
+    }
+}
+
+/*-------MEDIA QUERIES-------*/
+
+@mixin tablet() {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin large-tablet() {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin small-desktop() {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media only screen and (min-width: 1440px) {
+        @content;
+    }
+}
+
+/*-------A-TAG STATES-------*/
+
+@mixin coolNonIEThing() {
+    @supports not (-ms-high-contrast: none) {
+        @content;
+    }
+}
+
+@mixin states {
+
+    &:hover,
+    &:active,
+    &:focus {
+        @content;
+    }
+}
+
+@mixin fadeOut() {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@mixin fadeInBlur() {
+    opacity: 1;
+    visibility: visible;
+    filter: blur(.5rem);
+}
+
+
+@mixin fadeOutBlur() {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@mixin fadeIn() {
+    opacity: 1;
+    visibility: visible;
+}
+
+@mixin noBullets() {
+    list-style: none;
+    padding: 0;
+}
+
+@mixin unstyleButton() {
+    background-color: transparent;
+    border: none;
+    font-weight: $font-weight-normal;
+    box-shadow: none;
+    margin: 0;
+}

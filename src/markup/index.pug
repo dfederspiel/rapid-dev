@@ -1,0 +1,52 @@
+extend base
+
+block main
+    +container
+        +row
+            +col
+                section
+                    h2 Welcome!
+                    p.
+                        We're all passionate and curious developers with soft spots for puzzles, and it's great when
+                        we don't have to pour a new foundation every time we want to start a new project.  Sure, we
+                        can run #[code npx create-react-app] and get a robust SPA project, but sometimes we don't need a 
+                        SPA. For simple informational sites, brochure sites, blogs, etc. static is cheaper. #[b ~90% cheaper].
+                    h3 Motivation
+                    p.
+                        This was originally created in 2018, during moonlit R&amp;D initiatives aimed at reducing
+                        developer feedback when creating UI's. It is cumbersome to have to wait for larger systems to initialize, 
+                        and so this system was created to give my team a way to break free from 
+                        #[a(href="https://knowledgebase.progress.com/articles/Article/Sitefintiy-is-starting-up-very-slow") #[b minutes] of initialization]
+                        and the imminent derailing of focus/patience after only #[a(href="https://www.hostingmanual.net/3-seconds-how-website-speed-impacts-visitors-sales/") 3 seconds].
+                        And so Rapid Dev was born; an abstract and decoupled static generator that my colleagues and I used for several projects in 2018 and 2019.
+                    p.
+                        Of course, as these types of long-term initiatives go within the corporate world, it evolved in ways that deviated from 
+                        its initial purpose, and now that I'm picking it back up I've decided to pare it down so that it's more focused and easier to pick up and modify as needed.
+                    h3 Principles
+                    p.
+                        Anyone who knows me, knows that I'll always have some short-list of guiding principles at the foundation
+                        of any initiative. Perhaps it's a way to keep the dev work exciting and well gamified, but following a dual-purpose rule
+                        helps me to create guidelines that aren't too narrowly focused or self serving. As such, I had a few going into this: 
+                    ul.principles
+                        li #[i Any time a developer must switch between the UI to a CLI is a loss of focus and a context switch].
+                            p.
+                                ✔️ Using Gulp and BrowserSync together with watch processes, there is no need to babysit the CLI.  
+                        li #[i Any foundation like this should allow for instant feedback so that changes will be seen immediately after save].
+                            p.
+                                ✔️ All file types have their own build process and have been refined for performance.  
+                        li #[i Any underlying processes are activated after running #[code npm start] should communicate to the UI so that focus can safely remain on code].
+                            p.
+                                ✔️ Using BrowserSync #[code notify], all operations display toasts in the UI.  
+                        li #[i Any errors that might occur after running #[code npm start] should be gracefully handled so that the developer never has to spend time troubleshooting].
+                            p.
+                                ✔️ Using a custom watch-queue, #[code npm start] is stable enough that you can switch branches and it will continue to run.  
+                    h3 Where to go from here
+                    p.
+                        Everything is set up so that static assets can be generated quickly and either hosted as-is, or ported
+                        to another platform and retrofitted for use. Check out the README for more information, or check out the examples below
+                        to learn more about some advanced usage.
+    +container
+        +row
+            +col
+                h2 Examples
+                a(href="/articles.html") Articles

@@ -1,0 +1,37 @@
+extend base
+
+block main
+    +container
+        +row 
+            +col
+                a(href="/articles.html") Back to Articles
+                br
+                br
+    +container
+        +row 
+            +col
+                h2 Article Detail Page
+                p There's not too much magic going on here, but there's a little bit of magic.
+                p.
+                    In order to query for article detail, we are expecting to land on this page with an 
+                    article id parameter. We have a script on the page that parses out the id and loads 
+                    the corresponding article detail.
+
+        +row 
+            +col
+                #article-detail Loading...
+    
+block scripts
+    script.
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('article');
+        fetch(`/api/articles/${articleId}`)
+            .then(res => res.json())
+            .then(article => {
+                $('#article-detail').html(`
+                    <article>
+                        <h2>${article.title}</h2>
+                        <p>${article.body}</p>
+                    </article>
+                `)
+            })

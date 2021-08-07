@@ -1,0 +1,9 @@
+mixin author
+    - var author = authors[Math.floor(Math.random() * authors.length)]
+    .author
+        if block
+            block
+        else
+            h3.title= author.firstName + ' ' + author.lastName 
+            p.bio= author.bio
+                a(href= author.website)

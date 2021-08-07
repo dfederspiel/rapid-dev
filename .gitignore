@@ -1,0 +1,5 @@
+test
+dist
+coverage
+node_modules
+.vscode
