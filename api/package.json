@@ -6,6 +6,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "faker": "^5.5.3",
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {}
 }
