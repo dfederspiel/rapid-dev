@@ -1,4 +1,4 @@
-var jsonData = require('../../src/data/generate');
+var jsonData = require('../generate');
 
 module.exports = async function (context, req) {
     context.res = {
