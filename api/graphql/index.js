@@ -14,7 +14,7 @@ const resolvers = {
   }
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, debug: true, playground: true });
 
 module.exports = server.createHandler({
     cors: {

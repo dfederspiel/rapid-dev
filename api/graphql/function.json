@@ -16,6 +16,5 @@
       "direction": "out",
       "name": "$return"
     }
-  ],
-  "scriptFile": "./index.js"
+  ]
 }
