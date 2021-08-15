@@ -30,8 +30,8 @@ block scripts
             .then(article => {
                 $('#article-detail').html(`
                     <article>
-                        <h2>${article.title}</h2>
-                        <p>${article.body}</p>
+                        <h2>${article[0].title}</h2>
+                        <p>${article[0].body}</p>
                     </article>
                 `)
             })
