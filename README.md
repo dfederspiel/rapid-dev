@@ -15,12 +15,29 @@ Optionally install gulp with `npm install -g gulp-cli`. There are several tasks 
 that can be run via command line after installing `gulp-cli` globally.  
 
 For general use, you shouldn't need to run these directly.
-```
+```bash
 gulp data - generate a new dataset
 gulp watch - start gulp in watch mode
 gulp build - build production assets
 gulp default - what you get when you just run gulp
 gulp serve - starts express with the output of gulp build
+```
+
+```javascript   
+fetch('/api/articles?_expand=author').then(res => res.json()).then(articles => {
+    $('#articles').html(articles.map(article => {
+        return `
+            <article>
+                <b>
+                    <a href="/article-detail.html?article=${article.id}">
+                        ${article.title}
+                    </a>
+                </b>
+                <footer>By: ${article.author?.firstName} ${article.author?.lastName}</footer>
+            </article>
+        `;
+    }))
+})
 ```
 
 ## NPM Commands
