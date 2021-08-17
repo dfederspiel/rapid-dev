@@ -20,5 +20,6 @@ module.exports = server.createHandler({
     cors: {
       origin: '*',
       methods: ['GET', 'POST', 'OPTIONS'],
+      preflightContinue: true,
     },
 });
