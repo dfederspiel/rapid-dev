@@ -57,10 +57,10 @@ src                 - all the working code
 ```
 
 ## Technologies
-* [pug](https://pugjs.org/api/getting-started.html)
-* [jest](https://facebook.github.io/jest/)
-* [babel](https://babeljs.io/learn-es2015/)
-* [browserify](https://browserify.org/)
-* [gulp](https://gulpjs.com/)
-* [json-server](https://github.com/typicode/json-server) - mock service layer for authoring UI components  
-* [faker](https://github.com/Marak/Faker.js) - data generator for Pug and JSONServer  
+* [pug](https://pugjs.org/api/getting-started.html) - A high-performance template engine that allows developers to write HTML in a concise and easy-to-read format.
+* [jest](https://facebook.github.io/jest/) - A JavaScript testing framework that focuses on simplicity and ease of use, and is widely used for testing React applications.
+* [babel](https://babeljs.io/learn-es2015/) - A toolchain that enables developers to write modern JavaScript code and transpile it to a format that is compatible with older browsers.
+* [browserify](https://browserify.org/) - A tool that allows developers to use the CommonJS module system in the browser, by bundling modules into a single JavaScript file.
+* [gulp](https://gulpjs.com/) - A task runner that allows developers to automate repetitive tasks in their development workflow, such as compiling Sass to CSS, concatenating and minifying JavaScript files, and more.
+* [json-server](https://github.com/typicode/json-server) - A mock service layer that allows developers to quickly and easily create a fake REST API for prototyping and testing their UI components.
+* [faker](https://github.com/Marak/Faker.js) - A data generator library that allows developers to easily create realistic test data, such as names, addresses, and phone numbers, for use in their Pug templates and JSON Server API responses.
